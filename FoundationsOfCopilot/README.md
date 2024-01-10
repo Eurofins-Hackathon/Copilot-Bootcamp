@@ -77,39 +77,69 @@ Explore advanced functionalities of code autocompletion and suggestions to strea
 1. Save and use cw as a shortcut to quickly write Console.WriteLine statements in C# files.
 
 ####  Customizing Code Suggestions
--  Customize suggestion algorithms based on coding style
-    1. Use GitHub Copilot in your regular coding to help it learn your style.
-    1. For example, consistently use a certain style in method naming or comment structure.
-    1. Copilot will adapt to these patterns over time, making suggestions that align with your style.
+##### Customize suggestion algorithms based on coding style
+1. Use GitHub Copilot in your regular coding to help it learn your style.
+1. For example, consistently use a certain style in method naming or comment structure.
+1. Copilot will adapt to these patterns over time, making suggestions that align with your style.
 
 
- - Implement user-defined templates for personalized suggestions
-    1. Define templates for common code structures you use. 
-    2. For instance, create a C# class template:
-    ```csharp
-    public class MyClass
-    {
-        // Constructor
-        public MyClass() {}
+##### Implement user-defined templates for personalized suggestions
+1. Define templates for common code structures you use. 
+2. For instance, create a C# class template:
+```csharp
+public class MyClass
+{
+    // Constructor
+    public MyClass() {}
 
-        // Properties
-        public int MyProperty { get; set; }
+    // Properties
+    public int MyProperty { get; set; }
 
-        // Methods
-        public void MyMethod() {}
-    }
-    ```
+    // Methods
+    public void MyMethod() {}
+}
+```
 > [!NOTE]
 > Use this structure regularly so Copilot recognizes and suggests similar structures in the future.
 
 #### Writing Regex
-  - Step 1: Learn basic regex patterns
-  - Step 2: Use tools to generate regex for complex patterns
+##### Learn basic regex patterns
+
+### Writing Regex
+
+#### Learn basic regex patterns
+1. Familiarize yourself with basic regex syntax, such as `^` (start of string), `$` (end of string), `.` (any character), and `*` (zero or more occurrences).
+1. Example: To match an email address, start with a simple pattern like `\w+@\w+\.\w+`.
+
+
+##### Use tools to generate regex for complex patterns
+1. Open a C# file and start typing a comment describing the pattern you need, e.g., `// regex to match an ISO date format`.
+2. GitHub Copilot might suggest:
+   ```csharp
+   // regex to match an ISO date format
+   string pattern = @"\d{4}-\d{2}-\d{2}";
+    ```
+1. Test and refine the regex as needed.
 
 
 #### Creating Data Model Skeletons
-  - Step 1: Define data model requirements
-  - Step 2: Utilize tools to auto-generate data model skeletons
+
+#### Define data model requirements
+1. Determine the structure of the data model you need, including properties and data types.
+1. Example: Define a model for a `User` with properties like `Name`, `Email`, and `DateOfBirth`.
+
+##### Utilize tools to auto-generate data model skeletons
+1. Start typing the class definition in a C# file, e.g., `public class User {`.
+1. GitHub Copilot might suggest:
+   ```csharp
+   public class User
+   {
+       public string Name { get; set; }
+       public string Email { get; set; }
+       public DateTime DateOfBirth { get; set; }
+   }
+    ```
+1. Accept this suggestion or modify it according to your specific requirements.
 
 
 ## Code Documentation
@@ -129,6 +159,41 @@ Enhance the clarity and maintainability of your code with effective documentatio
 
 ## Contextual Understanding
 Delve into the intricacies of contextual understanding in coding, focusing on how tools like GitHub Copilot adapt to existing code patterns for more intuitive support.
-- Adapts to existing code patterns
-  - Step 1: Analyze existing code base for pattern recognition
-  - Step 2: Implement tools that learn and adapt to these patterns
+
+#### Adapts to existing code patterns
+##### Analyze existing code base for pattern recognition
+1. Review your existing C# code base to identify common patterns. This could include specific naming conventions, error handling strategies, or architecture designs.
+1. Example: In a project, you might frequently use a specific pattern for handling exceptions:
+   ```csharp
+   try
+   {
+       // Some operation
+   }
+   catch (Exception ex)
+   {
+       LogError(ex);
+       throw;
+   }
+    ```
+
+> [!NOTE]
+> These recurring patterns form the basis of the contextual understanding.
+
+##### Implement tools that learn and adapt to these patterns
+
+**Step 2: Implement tools that learn and adapt to these patterns**
+
+1. Use GitHub Copilot in your regular coding to help it learn your style.
+1. As you code, Copilot observes the patterns in your existing code. For instance, if you often use the above exception handling pattern, start typing a `try-catch` block in a new method:
+   ```csharp
+   public void NewMethod()
+   {
+       try
+       {
+           // Start typing operation
+       }
+   }
+    ```
+1. Copilot is likely to suggest completing the `try-catch` block in the style it observed from your previous code, including the custom LogError method and rethrowing the exception.
+> [!NOTE]
+> By consistently coding in a particular style, Copilot will adapt and offer suggestions that align more closely with your established patterns, making its support increasingly intuitive and tailored to your coding style.
