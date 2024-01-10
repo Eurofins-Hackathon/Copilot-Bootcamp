@@ -99,8 +99,8 @@ Explore advanced functionalities of code autocompletion and suggestions to strea
         public void MyMethod() {}
     }
     ```
-    > [!NOTE]
-    > Use this structure regularly so Copilot recognizes and suggests similar structures in the future.
+> [!NOTE]
+> Use this structure regularly so Copilot recognizes and suggests similar structures in the future.
 
 #### Writing Regex
   - Step 1: Learn basic regex patterns
