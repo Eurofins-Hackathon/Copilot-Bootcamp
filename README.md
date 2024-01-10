@@ -24,19 +24,13 @@ Ensure the following for a smooth GitHub Copilot experience in Visual Studio Cod
 - Maintain a stable internet connection (Copilot relies on cloud-based services)
 - If you haven't previously authorized Visual Studio Code in your GitHub account, you're prompted to sign in to GitHub in Visual Studio Code. Select Sign in to GitHub.
 
-##### Enable or disable GitHub Copilot in VS Code
-- To enable or disable GitHub Copilot, select the status icon in the bottom panel of the Visual Studio Code window. The status icon is the Copilot Status Menu.
-- When disabling GitHub Copilot, you're asked whether you want to disable suggestions globally, or for the language of the file you're currently editing.
+  ##### Managing GitHub Copilot in VS Code
+  - The Copilot Status Menu, located in the bottom panel of the Visual Studio Code window, allows you to enable or disable GitHub Copilot.
+  - You can choose to disable suggestions globally (`Disable Globally`), or for the language of the file you're currently editing (`Disable for LANGUAGE`).
 
-  - To disable suggestions from GitHub Copilot globally, select `Disable Globally`.
-   -To disable suggestions from GitHub Copilot for a specified language, select `Disable for LANGUAGE`.
-
-##### Troubleshoot GitHub Copilot in VS Code
-In Visual Studio Code, the log files are useful for diagnosing connection issues. The GitHub Copilot extension stores the log files in the standard log location for Visual Studio Code extensions. You can find the log files through the developer option and open extension logs folder within Visual Studio Code.
-- Open the Visual Studio Code Command Palette
-  - For Mac, use Shift+Command+P
-  - For Windows or Linux, use Ctrl+Shift+P
-Type Diagnostics, then select GitHub Copilot: Collect Diagnostics from the list.
+  ##### Diagnosing Issues with GitHub Copilot
+  - Log files, stored in the standard location for Visual Studio Code extensions, can help diagnose connection issues.
+  - To access these logs, open the Command Palette (Shift+Command+P for Mac, Ctrl+Shift+P for Windows/Linux), type `Diagnostics`, and select `GitHub Copilot: Collect Diagnostics`.
 
 ## [**Foundations of GitHub Copilot**](https://github.com/XpiritBV/Copilot-Bootcamp/tree/main/FoundationsOfCopilot)
 This lab exercise covers the nuances of code autocompletion and suggestions, the art of effective code documentation, and develop a deeper contextual understanding for more intuitive programming.
