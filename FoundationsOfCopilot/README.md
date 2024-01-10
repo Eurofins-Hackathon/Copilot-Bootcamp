@@ -21,22 +21,15 @@ This lab exercise covers the nuances of code autocompletion and suggestions, the
 Explore advanced functionalities of code autocompletion and suggestions to streamline your coding process and enhance productivity.
 
 #### Providing Code Suggestions
-
-    1. Open a new file and set it to C# mode (e.g., create a file `Example.cs`).
-    1. Start typing a method. For example, type `public int CalculateSum(int a, int b) {`.
-    1. GitHub Copilot might suggest:
+1. Open a new file and set it to C# mode (e.g., create a file `Example.cs`).
+1. Start typing a method. For example, type `public int CalculateSum(int a, int b) {`.
+1. GitHub Copilot might suggest:
     ```csharp
     public int CalculateSum(int a, int b) {
         return a + b;
     }
     ```
-    1. Accept the suggestion with Tab or modify as needed.
-
-
-- Using Auto Completions for Common Tasks
-  - Step 1: Integrate auto-completion tools in your IDE
-  - Step 2: Customize settings for task-specific completions
-
+1. Accept the suggestion with Tab or modify as needed.
 
 #### Using Auto Completions for Common Tasks
 
@@ -47,16 +40,67 @@ Explore advanced functionalities of code autocompletion and suggestions to strea
 
 
 #### Generating Unit Tests
-  - Step 1: Understand the basics of unit test structure
-  - Step 2: Use auto-generation tools for test cases
+1. Familiarize yourself with a C# unit testing framework like NUnit or xUnit.
+1. In a C# file, start typing a test method, e.g., `[Test] public void TestCalculateSum() {`.
+1. GitHub Copilot might suggest:
+   ```csharp
+   [Test]
+   public void TestCalculateSum() {
+       Assert.AreEqual(3, CalculateSum(1, 2));
+   }
+    ```
+1. Accept or refine this suggestion.
 
 #### Code and Snippet Generation
-  - Step 1: Leverage snippet libraries for common code patterns
-  - Step 2: Create custom snippets for repeated use
+1. Start typing a common C# pattern, like a `foreach` loop.
+1. GitHub Copilot might suggest the complete loop structure.
+    ```csharp
+    foreach (var item in collection) {
+        // do something
+    }
+    ```
+1. Accept or refine this suggestion.
+
+1. Go to 'Preferences: Configure User Snippets' under the Command Palette (Ctrl+Shift+P).
+1. Choose or create a new snippet file for C#.
+2. Define a snippet, for example:
+   ```json
+   "Console WriteLine": {
+       "prefix": "cw",
+       "body": [
+           "Console.WriteLine($1);"
+       ],
+       "description": "Shortcut for Console.WriteLine"
+   }
+    ```
+
+1. Save and use cw as a shortcut to quickly write Console.WriteLine statements in C# files.
 
 ####  Customizing Code Suggestions
-  - Step 1: Customize suggestion algorithms based on coding style
-  - Step 2: Implement user-defined templates for personalized suggestions
+-  Customize suggestion algorithms based on coding style
+    1. Use GitHub Copilot in your regular coding to help it learn your style.
+    1. For example, consistently use a certain style in method naming or comment structure.
+    1. Copilot will adapt to these patterns over time, making suggestions that align with your style.
+
+
+ - Implement user-defined templates for personalized suggestions
+    1. Define templates for common code structures you use. 
+    2. For instance, create a C# class template:
+    ```csharp
+    public class MyClass
+    {
+        // Constructor
+        public MyClass() {}
+
+        // Properties
+        public int MyProperty { get; set; }
+
+        // Methods
+        public void MyMethod() {}
+    }
+    ```
+    > [!NOTE]
+    > Use this structure regularly so Copilot recognizes and suggests similar structures in the future.
 
 #### Writing Regex
   - Step 1: Learn basic regex patterns
