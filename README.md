@@ -18,7 +18,7 @@ Ensure the following for a smooth GitHub Copilot experience in Visual Studio Cod
   - GitHub Copilot v1.143.0 or higher
   - GitHub Copilot Chat v0.12.2023120701 or higher
 - Sign in to GitHub within VS Code to enable Copilot features
-- Clone this Repo from [https://github.com/dotnet-architecture/eShopOnWeb](https://github.com/dotnet-architecture/eShopOnWeb)
+- Clone reference app **eShopOnWeb** from [https://github.com/dotnet-architecture/eShopOnWeb](https://github.com/dotnet-architecture/eShopOnWeb)
 - Maintain a stable internet connection (Copilot relies on cloud-based services)
 - Install additional VS Code extensions as needed for your project (languages, frameworks, tools not covered by Copilot)
 
