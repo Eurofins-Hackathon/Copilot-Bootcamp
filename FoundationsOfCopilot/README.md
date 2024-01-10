@@ -283,11 +283,12 @@ Enhance the clarity and maintainability of your code with effective documentatio
 
 ##### Write detailed descriptions and usage instructions
 1. For each section, write detailed, clear, and helpful information. For example:
-   ```markdown
-   ## Introduction
+
+   ### Introduction
    This document describes the usage of the CalculateSum API, which provides a simple interface to perform addition operations.
 
-   ## Usage Example
+   ### Usage Example
+
    ```csharp
    var calculator = new Calculator();
    int result = calculator.CalculateSum(5, 10);
