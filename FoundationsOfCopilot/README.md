@@ -31,6 +31,13 @@ Explore advanced functionalities of code autocompletion and suggestions to strea
     ```
 1. Accept the suggestion with Tab or modify as needed.
 
+<details>
+<summary>Click for Advanced Example</summary>
+
+#### Advanced
+---
+</details>
+
 #### Using Auto Completions for Common Tasks
 
 1. Enable it for your current C# file (right-click and check 'Command Palette').
@@ -51,6 +58,13 @@ Explore advanced functionalities of code autocompletion and suggestions to strea
     ```
 1. Accept or refine this suggestion.
 
+<details>
+<summary>Click for Advanced Example</summary>
+
+#### Advanced
+---
+</details>
+
 #### Code and Snippet Generation
 1. Start typing a common C# pattern, like a `foreach` loop.
 1. GitHub Copilot might suggest the complete loop structure.
@@ -60,7 +74,6 @@ Explore advanced functionalities of code autocompletion and suggestions to strea
     }
     ```
 1. Accept or refine this suggestion.
-
 1. Go to 'Preferences: Configure User Snippets' under the Command Palette (Ctrl+Shift+P).
 1. Choose or create a new snippet file for C#.
 2. Define a snippet, for example:
@@ -75,6 +88,13 @@ Explore advanced functionalities of code autocompletion and suggestions to strea
     ```
 
 1. Save and use cw as a shortcut to quickly write Console.WriteLine statements in C# files.
+
+<details>
+<summary>Click for Advanced Example</summary>
+
+#### Advanced
+---
+</details>
 
 ####  Customizing Code Suggestions
 ##### Customize suggestion algorithms based on coding style
@@ -120,12 +140,12 @@ public class MyClass
     // regex to match an ISO date format
     string pattern = @"\d{4}-\d{2}-\d{2}";
 
+<details>
+<summary>Click for Advanced Example</summary>
+
 #### Advanced
 ---
 Let's explore a more advanced example of using regex in C#. We will look at a complex pattern such as validating a URL with a regex expression, which is a more intricate pattern compared to the email address example.
-
-<details>
-<summary>Click to expand!</summary>
 
 ##### Learn basic regex patterns
 1. Familiarize yourself with more advanced regex constructs, such as lookahead (?=...), lookbehind (?<=...), and non-capturing groups (?:...).
@@ -179,14 +199,15 @@ Use a tool like QuickType to generate data models from JSON or XML.
 
 1. Accept this suggestion or modify it according to your specific requirements.
 
+<details>
+<summary>Click for Advanced Example</summary>
+
 #### Advanced
 ---
 Use a tool like Entity Framework to generate data models from a database.
 
 1. Start typing a more complex class definition in a C# file. For instance. `public class Employee {`.
 1. GitHub Copilot might suggest a detailed class structure like:
-<details>
-<summary>Click to expand!</summary>
 
 ```csharp
     public class Employee
@@ -223,10 +244,9 @@ Use a tool like Entity Framework to generate data models from a database.
     }
 ```
 
-</details>
-
 1. Review and modify this suggestion to align with your specific requirements. You might want to add more methods, properties, or change data types as needed.
 
+</details>
 
 ## Code Documentation
 Enhance the clarity and maintainability of your code with effective documentation techniques and best practices.
@@ -296,6 +316,90 @@ Delve into the intricacies of contextual understanding in coding, focusing on ho
        throw;
    }
     ```
+
+<details>
+<summary>Click for Advanced Example</summary>
+
+#### Advanced
+---
+For a more advanced example of contextual understanding and pattern recognition in C#, let's consider a scenario where your code base commonly uses a certain approach for dependency injection, asynchronous operations, and custom logging. 
+
+#### Adapts to existing code patterns
+##### Analyze existing code base for pattern recognition
+1. Review your existing C# code base to identify advanced patterns. For example, you might have a consistent way of:
+- Implementing dependency injection using constructor injection.
+- Handling asynchronous operations with async and await.
+- Using a custom logging mechanism.
+1. Example: In a project, you consistently use a pattern for services with dependency injection, asynchronous methods, and custom logging:
+
+```csharp
+public class ProductService
+{
+    private readonly ILogger _logger;
+    private readonly IRepository<Product> _productRepository;
+
+    public ProductService(ILogger logger, IRepository<Product> productRepository)
+    {
+        _logger = logger;
+        _productRepository = productRepository;
+    }
+
+    public async Task<IEnumerable<Product>> GetAllProductsAsync()
+    {
+        try
+        {
+            return await _productRepository.GetAllAsync();
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError("Error in GetAllProductsAsync", ex);
+            throw;
+        }
+    }
+}
+```
+1. This pattern includes:
+- Constructor-based dependency injection (ILogger and IRepository<Product>).
+- Asynchronous method (GetAllProductsAsync) with async and await.
+- Custom error handling and logging inside a try-catch block.
+1. When you start typing a new service class or method in a similar context, GitHub Copilot, having recognized these patterns, can suggest complete class implementations or methods that follow the same structure. For instance, when you start typing a new service:
+
+```csharp
+public class OrderService
+{
+```
+1. Copilot might suggest a complete class implementation that follows the same pattern:
+
+```csharp
+public class OrderService
+{
+    private readonly ILogger _logger;
+    private readonly IRepository<Order> _orderRepository;
+
+    public OrderService(ILogger logger, IRepository<Order> orderRepository)
+    {
+        _logger = logger;
+        _orderRepository = orderRepository;
+    }
+
+    public async Task<IEnumerable<Order>> GetAllOrdersAsync()
+    {
+        try
+        {
+            return await _orderRepository.GetAllAsync();
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError("Error in GetAllOrdersAsync", ex);
+            throw;
+        }
+    }
+}
+```
+
+1. This suggestion would mirror the pattern of dependency injection, async method structure, and error handling with logging, demonstrating Copilot's ability to adapt to and replicate existing coding styles and architectural patterns in a more advanced and nuanced scenario.
+
+</details>
 
 > [!NOTE]
 > These recurring patterns form the basis of the contextual understanding.
