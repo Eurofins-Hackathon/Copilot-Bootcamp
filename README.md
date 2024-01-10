@@ -28,7 +28,7 @@ Ensure the following for a smooth GitHub Copilot experience in Visual Studio Cod
 - Maintain a stable internet connection (Copilot relies on cloud-based services)
 - Install additional VS Code extensions as needed for your project (languages, frameworks, tools not covered by Copilot)
 
-## [**The Foundations of GitHub Copilot**](#)
+## [**Foundations of GitHub Copilot**](#)
 This lab exercise covers the nuances of code autocompletion and suggestions, the art of effective code documentation, and develop a deeper contextual understanding for more intuitive programming.
 - Code Autocompletion and Suggestions
 - Code Documentation
