@@ -1,5 +1,19 @@
-# Foundations of GitHub Copilot
+# Further Exploration of Key Concepts
 This lab exercise is the essentials of code debugging, refine your skills in code refactoring, and unlock the creative potential of prompt engineering.
+
+## Prerequisites
+- The prerequisites steps are completed, see [Labs Prerequisites](https://github.com/XpiritBV/Copilot-Bootcamp#labs-prerequisites)
+
+## Estimated time to complete
+- 45 min
+
+## Objectives
+- Deepen expertise in code debugging techniques for more complex and nuanced software issues.
+- Explore advanced strategies in code refactoring for enhancing code structure, readability, and maintainability.
+- Develop skills in crafting and refining AI-driven prompts for optimal effectiveness in various contexts.
+- Utilize code autocompletion and suggestion tools for efficient coding, test generation, and personalized coding assistance.
+- Master the art of creating comprehensive and readable code documentation, adhering to best practices.
+- Gain a nuanced understanding of contextual adaptation in coding tools, focusing on pattern recognition and intelligent response.
 
 ## Code Debugging
 Explore the essential techniques and tools for identifying, diagnosing, and resolving programming errors effectively.

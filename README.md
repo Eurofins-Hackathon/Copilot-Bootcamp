@@ -24,17 +24,17 @@ Ensure the following for a smooth GitHub Copilot experience in Visual Studio Cod
   - GitHub Copilot v1.143.0 or higher
   - GitHub Copilot Chat v0.12.2023120701 or higher
 - Sign in to GitHub within VS Code to enable Copilot features
-- Have access to and, if necessary, clone the GitHub repository you plan to work on
+- Clone this Repo from [https://github.com/dotnet-architecture/eShopOnWeb](https://github.com/dotnet-architecture/eShopOnWeb)
 - Maintain a stable internet connection (Copilot relies on cloud-based services)
 - Install additional VS Code extensions as needed for your project (languages, frameworks, tools not covered by Copilot)
 
-## [**Foundations of GitHub Copilot**](#)
+## [**Foundations of GitHub Copilot**](https://github.com/XpiritBV/Copilot-Bootcamp/tree/main/FoundationsOfCopilot)
 This lab exercise covers the nuances of code autocompletion and suggestions, the art of effective code documentation, and develop a deeper contextual understanding for more intuitive programming.
 - Code Autocompletion and Suggestions
 - Code Documentation
 - Contextual Understanding
 
-## [**Further Exploration of Key Concepts**](#)
+## [**Further Exploration of Key Concepts**](https://github.com/XpiritBV/Copilot-Bootcamp/tree/main/FurtherExplorationOfCopilot)
 This lab exercise is the essentials of code debugging, refine your skills in code refactoring, and unlock the creative potential of prompt engineering.
 - Code Debugging
 - Code Refactoring

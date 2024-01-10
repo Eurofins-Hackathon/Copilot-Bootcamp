@@ -1,5 +1,21 @@
-# Further Exploration of Key Concepts
+# Foundations of GitHub Copilot
 This lab exercise covers the nuances of code autocompletion and suggestions, the art of effective code documentation, and develop a deeper contextual understanding for more intuitive programming.
+
+## Prerequisites
+- The prerequisites steps are completed, see [Labs Prerequisites](https://github.com/XpiritBV/Copilot-Bootcamp#labs-prerequisites)
+
+## Estimated time to complete
+- 45 min
+
+## Objectives
+- Understand the principles and mechanisms behind code autocompletion and suggestion tools.
+- Learn how to effectively utilize code suggestions for enhancing coding efficiency and accuracy.
+- Explore the use of auto completions for common programming tasks to speed up the development process.
+- Discover methods for generating unit tests automatically to ensure code reliability and functionality.
+- Master the creation of code and snippets to streamline repetitive coding tasks and improve productivity.
+- Customize code suggestions to align with individual coding styles and project requirements.
+- Gain proficiency in writing regular expressions (Regex) with the help of autocompletion tools.
+- Develop skills in creating data model skeletons rapidly through automated generation techniques.
 
 ## Code Autocompletion and Suggestions
 Explore advanced functionalities of code autocompletion and suggestions to streamline your coding process and enhance productivity.
