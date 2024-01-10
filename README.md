@@ -1,19 +1,13 @@
 # Copilot Bootcamp
-The "Copilot Bootcamp" is a comprehensive, three-hour session training program designed to enhance coding proficiency with AI integration. The first session introduces participants to AI, focusing on its history and ethical use, and transitions into an exploration of GitHub Copilot as a powerful AI coding assistant.
+The "Copilot Bootcamp" is a comprehensive, three-hour session training program designed to enhance coding proficiency with AI integration.
 
-Next, the emphasis shifts to GitHub Copilot's practical applications, such as code autocompletion, unit test generation, and effective documentation practices. Lastly, it advances into more complex coding techniques, including debugging, refactoring, and prompt engineering with Copilot, culminating in a hands-on lab to apply these new skills in real-world scenarios.
+- Session 1 (1 hour) focuses on AI basics, its history, ethical considerations, and introduces GitHub Copilot as an AI-powered coding assistant.
 
-This bootcamp is tailored for developers seeking to leverage AI technology to elevate their coding capabilities.
+- Session 2 (1 hour) explores GitHub Copilot's features like code autocompletion, test generation, and documentation best practices.
 
-- Session 1 - Introduction to AI and GitHub Copilot (1 hour)
-This session offers an introduction to AI, covering its history and key terms, and discusses ethical AI use. It transitions to GitHub Copilot, highlighting its role as an AI-powered coding assistant, with a focus on its real-time code suggestion capabilities and its integration with various programming languages and IDEs.
+- Session 3 (1 hour) covers advanced techniques such as debugging, refactoring, and prompt engineering with Copilot, including a practical lab session.
 
-- Session 2 - Foundations of GitHub Copilot (1 hour)
-The second session delves into GitHub Copilot's practical applications, specifically its code autocompletion and suggestion features. Key aspects include generating unit tests, creating data model skeletons, and utilizing Copilot for effective code documentation and best practices.
-
-- Session 3 - Advanced Concepts and Application (1 hour)
-In the concluding session, participants explore advanced coding techniques using GitHub Copilot, focusing on code debugging, refactoring, and performance optimization. It also introduces prompt engineering, teaching how to construct and refine prompts for optimal coding outcomes, capped off with a hands-on lab to apply these skills.
-
+Ideal for developers looking to enhance their coding with AI.
 
 ## Labs Prerequisites
 Ensure the following for a smooth GitHub Copilot experience in Visual Studio Code:
