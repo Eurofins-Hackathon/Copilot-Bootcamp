@@ -22,7 +22,21 @@ Ensure the following for a smooth GitHub Copilot experience in Visual Studio Cod
 - Sign in to GitHub within VS Code to enable Copilot features
 - Clone reference app **eShopOnWeb** from [https://github.com/dotnet-architecture/eShopOnWeb](https://github.com/dotnet-architecture/eShopOnWeb)
 - Maintain a stable internet connection (Copilot relies on cloud-based services)
-- Install additional VS Code extensions as needed for your project (languages, frameworks, tools not covered by Copilot)
+- If you haven't previously authorized Visual Studio Code in your GitHub account, you're prompted to sign in to GitHub in Visual Studio Code. Select Sign in to GitHub.
+
+##### Enable or disable GitHub Copilot in VS Code
+- To enable or disable GitHub Copilot, select the status icon in the bottom panel of the Visual Studio Code window. The status icon is the Copilot Status Menu.
+- When disabling GitHub Copilot, you're asked whether you want to disable suggestions globally, or for the language of the file you're currently editing.
+
+  - To disable suggestions from GitHub Copilot globally, select `Disable Globally`.
+   -To disable suggestions from GitHub Copilot for a specified language, select `Disable for LANGUAGE`.
+
+##### Troubleshoot GitHub Copilot in VS Code
+In Visual Studio Code, the log files are useful for diagnosing connection issues. The GitHub Copilot extension stores the log files in the standard log location for Visual Studio Code extensions. You can find the log files through the developer option and open extension logs folder within Visual Studio Code.
+- Open the Visual Studio Code Command Palette
+  - For Mac, use Shift+Command+P
+  - For Windows or Linux, use Ctrl+Shift+P
+Type Diagnostics, then select GitHub Copilot: Collect Diagnostics from the list.
 
 ## [**Foundations of GitHub Copilot**](https://github.com/XpiritBV/Copilot-Bootcamp/tree/main/FoundationsOfCopilot)
 This lab exercise covers the nuances of code autocompletion and suggestions, the art of effective code documentation, and develop a deeper contextual understanding for more intuitive programming.
