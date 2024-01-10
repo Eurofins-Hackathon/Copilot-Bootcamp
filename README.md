@@ -1,5 +1,7 @@
 # Copilot Bootcamp
-The "Copilot Bootcamp" is a comprehensive, three-hour session training program designed to enhance coding proficiency with AI integration.
+The "Copilot Bootcamp" is a fundamentals focused program designed to enhance coding skills by introducing and exploring GitHub Copilot. This session is tailored to provide a comprehensive understanding of GitHub Copilot's features and its integration in coding practices.
+
+Participants will learn about AI basics, ethical considerations in AI use, and the practical applications of GitHub Copilot in coding. This includes exploring code autocompletion, unit test generation, and effective documentation practices. The session progresses into advanced coding techniques with Copilot, such as debugging, refactoring, and prompt engineering, culminating in a hands-on lab
 
 - Session 1 (1 hour) focuses on AI basics, its history, ethical considerations, and introduces GitHub Copilot as an AI-powered coding assistant.
 
@@ -7,7 +9,7 @@ The "Copilot Bootcamp" is a comprehensive, three-hour session training program d
 
 - Session 3 (1 hour) covers advanced techniques such as debugging, refactoring, and prompt engineering with Copilot, including a practical lab session.
 
-Ideal for developers looking to enhance their coding with AI.
+This fundamentals session is ideal for developers eager to leverage AI technology to elevate their coding capabilities through the use of GitHub Copilot.
 
 ## Labs Prerequisites
 Ensure the following for a smooth GitHub Copilot experience in Visual Studio Code:
