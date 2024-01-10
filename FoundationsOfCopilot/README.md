@@ -127,8 +127,6 @@ public class MyClass
 
 ### Writing Regex
 
-#### Simple
----
 ##### Learn basic regex patterns
 1. Familiarize yourself with basic regex syntax, such as `^` (start of string), `$` (end of string), `.` (any character), and `*` (zero or more occurrences).
 1. Example: To match an email address, start with a simple pattern like `\w+@\w+\.\w+`.
@@ -180,8 +178,7 @@ Let's explore a more advanced example of using regex in C#. We will look at a co
 1. Example: Define a model for a `User` with properties like `Name`, `Email`, and `DateOfBirth`.
 
 #### Utilize tools to auto-generate data model skeletons
-#### Simple
----
+
 Use a tool like QuickType to generate data models from JSON or XML.
 
 1. Start typing the class definition in a C# file, e.g., `public class User {`.
