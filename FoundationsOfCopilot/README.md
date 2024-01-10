@@ -122,24 +122,78 @@ public class MyClass
 1. Test and refine the regex as needed.
 
 
-#### Creating Data Model Skeletons
+### Creating Data Model Skeletons
 
 #### Define data model requirements
 1. Determine the structure of the data model you need, including properties and data types.
 1. Example: Define a model for a `User` with properties like `Name`, `Email`, and `DateOfBirth`.
 
-##### Utilize tools to auto-generate data model skeletons
+#### Utilize tools to auto-generate data model skeletons
+#### Simple
+---
+Use a tool like QuickType to generate data models from JSON or XML.
+
 1. Start typing the class definition in a C# file, e.g., `public class User {`.
 1. GitHub Copilot might suggest:
-   ```csharp
-   public class User
-   {
-       public string Name { get; set; }
-       public string Email { get; set; }
-       public DateTime DateOfBirth { get; set; }
-   }
+
+    ```csharp
+    public class User
+    {
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public DateTime DateOfBirth { get; set; }
+    }
     ```
+
 1. Accept this suggestion or modify it according to your specific requirements.
+
+#### Advanced
+---
+Use a tool like Entity Framework to generate data models from a database.
+
+1. Start typing a more complex class definition in a C# file. For instance. `public class Employee {`.
+1. GitHub Copilot might suggest a detailed class structure like:
+<details>
+<summary>Click to expand!</summary>
+
+```csharp
+    public class Employee
+    {
+    // Properties
+    public int EmployeeId { get; set; }
+    public string Name { get; set; }
+    public string Department { get; set; }
+    public decimal AnnualSalary { get; set; }
+    public DateTime DateOfJoining { get; set; }
+    public List<string> Skills { get; set; }
+
+    // Constructor
+    public Employee(int employeeId, string name, string department, decimal annualSalary, DateTime dateOfJoining)
+    {
+        EmployeeId = employeeId;
+        Name = name;
+        Department = department;
+        AnnualSalary = annualSalary;
+        DateOfJoining = dateOfJoining;
+        Skills = new List<string>();
+    }
+
+    // Methods
+    public void AddSkill(string skill)
+    {
+        Skills.Add(skill);
+    }
+
+    public override string ToString()
+    {
+        return $"Employee ID: {EmployeeId}, Name: {Name}, Department: {Department}, Annual Salary: {AnnualSalary}, Date of Joining: {DateOfJoining.ToShortDateString()}, Skills: {string.Join(", ", Skills)}";
+    }
+    }
+```
+
+</details>
+
+1. Review and modify this suggestion to align with your specific requirements. You might want to add more methods, properties, or change data types as needed.
 
 
 ## Code Documentation
@@ -159,36 +213,21 @@ Enhance the clarity and maintainability of your code with effective documentatio
    {
        return a + b;
    }
-
     ```
 1. Accept or modify the suggested comment.
 
-##### Ensure comments are clear and concise
-1. Review the suggested comments.
-2. Edit to make them more specific and concise, avoiding redundancy or obvious information.
-
-#### Best Practices for Documentation
-1. Study C# documentation standards, like XML documentation comments.
-2. Learn the common tags used, such as `<summary>`, `<param>`, `<returns>`.
-
-##### Familiarize with documentation standards
-1. Start applying these standards in your C# code.
-2. For every method, class, or module, write XML documentation comments.
-3. Ensure consistency in style and level of detail across your codebase.
-
-##### Apply consistent documentation throughout codebase
-1. Start applying these standards in your C# code.
-2. For every method, class, or module, write XML documentation comments.
-3. Ensure consistency in style and level of detail across your codebase.
-
-#### Improving Readability with Documentation Suggestions
-##### Review existing documentation for clarity
-1. Go through existing comments and documentation in your code.
-2. Identify areas that lack clarity or are overly complex.
-
-##### Incorporate suggestions for enhanced readability
-1. Refine and simplify the language used in documentation.
-2. For complex methods, add examples or additional context to make them more understandable.
+> [!NOTE]
+> 1. Review the suggested comments.
+> 1. Edit to make them more specific and concise, avoiding redundancy or obvious information.
+> 1. Study C# documentation standards, like XML documentation comments.
+> 1. Learn the common tags used, such as `<summary>`, `<param>`, `<returns>`.
+> 1. Start applying these standards in your C# code.
+> 1. For every method, class, or module, write XML documentation comments.
+> 1. Ensure consistency in style and level of detail across your codebase.
+> 1. Go through existing comments and documentation in your code.
+> 1. Identify areas that lack clarity or are overly complex.
+> 1. Refine and simplify the language used in documentation.
+> 1. For complex methods, add examples or additional context to make them more understandable.
 
 #### Creating Documentation
 ##### Outline the structure for comprehensive documentation
