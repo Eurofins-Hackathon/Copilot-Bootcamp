@@ -107,20 +107,52 @@ public class MyClass
 
 ### Writing Regex
 
-#### Learn basic regex patterns
+#### Simple
+---
+##### Learn basic regex patterns
 1. Familiarize yourself with basic regex syntax, such as `^` (start of string), `$` (end of string), `.` (any character), and `*` (zero or more occurrences).
 1. Example: To match an email address, start with a simple pattern like `\w+@\w+\.\w+`.
-
 
 ##### Use tools to generate regex for complex patterns
 1. Open a C# file and start typing a comment describing the pattern you need, e.g., `// regex to match an ISO date format`.
 2. GitHub Copilot might suggest:
-   ```csharp
-   // regex to match an ISO date format
-   string pattern = @"\d{4}-\d{2}-\d{2}";
-    ```
-1. Test and refine the regex as needed.
+    ```csharp
+    // regex to match an ISO date format
+    string pattern = @"\d{4}-\d{2}-\d{2}";
 
+#### Advanced
+---
+Let's explore a more advanced example of using regex in C#. We will look at a complex pattern such as validating a URL with a regex expression, which is a more intricate pattern compared to the email address example.
+
+<details>
+<summary>Click to expand!</summary>
+
+##### Learn basic regex patterns
+1. Familiarize yourself with more advanced regex constructs, such as lookahead (?=...), lookbehind (?<=...), and non-capturing groups (?:...).
+1. Understand regex tokens for specific characters, like \d for digits, \w for word characters, and \s for whitespace.
+
+##### Use tools to generate regex for complex patterns
+1. Open a C# file and start typing a comment that describes the complex pattern you need. For example, let's create a regex for validating URLs:
+
+1. // regex to validate a URL
+2. GitHub Copilot might suggest a complex regex pattern like:
+
+    ```csharp
+    // regex to validate a URL
+    string urlPattern = @"^(https?:\/\/)?(?:www\.)?[a-zA-Z0-9./]+\.([a-z]{2,6})([\/\w .-]*)*\/?$";
+    ```
+1. This pattern breaks down as follows:
+
+    - `^` and `$`: Match the start and end of the string.
+    - `(https?:\/\/)?`: Optionally match 'http://' or 'https://' using a non-capturing group.
+    - `(?:www\.)?`: Optionally match 'www.' using a non-capturing group.
+    - `[a-zA-Z0-9./]+`: Match the domain name.
+    - `\.([a-z]{2,6})`: Match a dot followed by 2 to 6 letters for the domain suffix.
+    - `([\/\w .-]*)*`: Match any path after the domain name.
+    - `\/?$`: Optionally match a trailing slash at the end.
+    - Test and refine the regex as needed. Remember, regex can be complex and may need adjustment depending on the exact URL format you need to validate.
+
+</details>
 
 ### Creating Data Model Skeletons
 
