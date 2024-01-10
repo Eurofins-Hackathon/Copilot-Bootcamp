@@ -1,3 +1,7 @@
+#
+> [!WARNING]  
+> This Repo is under Development! Stay tuned for something epic! We're almost there!
+
 # Copilot Bootcamp
 The "Copilot Bootcamp" is a fundamentals focused program designed to enhance coding skills by introducing and exploring GitHub Copilot. This session is tailored to provide a comprehensive understanding of GitHub Copilot's features and its integration in coding practices.
 
