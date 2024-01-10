@@ -19,27 +19,54 @@ This lab exercise covers the nuances of code autocompletion and suggestions, the
 
 ## Code Autocompletion and Suggestions
 Explore advanced functionalities of code autocompletion and suggestions to streamline your coding process and enhance productivity.
-- Providing Code Suggestions
-  - Step 1: Set up environment for intelligent code suggestions
-  - Step 2: Use suggestions for code optimization
+
+#### Providing Code Suggestions
+
+    1. Open a new file and set it to C# mode (e.g., create a file `Example.cs`).
+    1. Start typing a method. For example, type `public int CalculateSum(int a, int b) {`.
+    1. GitHub Copilot might suggest:
+    ```csharp
+    public int CalculateSum(int a, int b) {
+        return a + b;
+    }
+    ```
+    1. Accept the suggestion with Tab or modify as needed.
+
+
 - Using Auto Completions for Common Tasks
   - Step 1: Integrate auto-completion tools in your IDE
   - Step 2: Customize settings for task-specific completions
-- Generating Unit Tests
+
+
+#### Using Auto Completions for Common Tasks
+
+1. Enable it for your current C# file (right-click and check 'Command Palette').
+1. Go to Visual Studio Code settings (Ctrl+,).
+1. Search for `Copilot` and adjust settings for C# specific features.
+1. Enable `Inline suggestions` for smoother auto-completions.
+
+
+#### Generating Unit Tests
   - Step 1: Understand the basics of unit test structure
   - Step 2: Use auto-generation tools for test cases
-- Code and Snippet Generation
+
+#### Code and Snippet Generation
   - Step 1: Leverage snippet libraries for common code patterns
   - Step 2: Create custom snippets for repeated use
-- Customizing Code Suggestions
+
+####  Customizing Code Suggestions
   - Step 1: Customize suggestion algorithms based on coding style
   - Step 2: Implement user-defined templates for personalized suggestions
-- Writing Regex
+
+#### Writing Regex
   - Step 1: Learn basic regex patterns
   - Step 2: Use tools to generate regex for complex patterns
-- Creating Data Model Skeletons
+
+
+#### Creating Data Model Skeletons
   - Step 1: Define data model requirements
   - Step 2: Utilize tools to auto-generate data model skeletons
+
 
 ## Code Documentation
 Enhance the clarity and maintainability of your code with effective documentation techniques and best practices.
