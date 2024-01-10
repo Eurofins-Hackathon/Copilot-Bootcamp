@@ -152,10 +152,9 @@ Let's explore a more advanced example of using regex in C#. We will look at a co
 1. Understand regex tokens for specific characters, like \d for digits, \w for word characters, and \s for whitespace.
 
 ##### Use tools to generate regex for complex patterns
-1. Open a C# file and start typing a comment that describes the complex pattern you need. For example, let's create a regex for validating URLs:
+1. Open a C# file and start typing a comment that describes the complex pattern you need. For example, let's create a regex for validating URLs, type `// regex to validate a URL`.`:
 
-1. // regex to validate a URL
-2. GitHub Copilot might suggest a complex regex pattern like:
+1. GitHub Copilot might suggest a complex regex pattern like:
 
     ```csharp
     // regex to validate a URL
@@ -206,7 +205,7 @@ Use a tool like QuickType to generate data models from JSON or XML.
 ---
 Use a tool like Entity Framework to generate data models from a database.
 
-1. Start typing a more complex class definition in a C# file. For instance. `public class Employee {`.
+1. Start typing a more complex class definition in a C# file. For instance, type `public class Employee {`.
 1. GitHub Copilot might suggest a detailed class structure like:
 
 ```csharp
@@ -252,8 +251,8 @@ Use a tool like Entity Framework to generate data models from a database.
 Enhance the clarity and maintainability of your code with effective documentation techniques and best practices.
 #### Generating Comments and Documentation
 ##### Use automated tools for inline documentation
-1. Write a C# method, and right above it, start typing a summary comment.
-2. GitHub Copilot might automatically suggest a comment. For example:
+1. Write a C# method, and right above it, start typing a summary comment, type `//`.
+1. GitHub Copilot might automatically suggest a comment. For example:
    ```csharp
    /// <summary>
    /// Calculates the sum of two integers.
@@ -362,12 +361,8 @@ public class ProductService
 - Constructor-based dependency injection (ILogger and IRepository<Product>).
 - Asynchronous method (GetAllProductsAsync) with async and await.
 - Custom error handling and logging inside a try-catch block.
-1. When you start typing a new service class or method in a similar context, GitHub Copilot, having recognized these patterns, can suggest complete class implementations or methods that follow the same structure. For instance, when you start typing a new service:
+1. When you start typing a new service class or method in a similar context, GitHub Copilot, having recognized these patterns, can suggest complete class implementations or methods that follow the same structure. For instance, type `public class OrderService {`:
 
-```csharp
-public class OrderService
-{
-```
 1. Copilot might suggest a complete class implementation that follows the same pattern:
 
 ```csharp
