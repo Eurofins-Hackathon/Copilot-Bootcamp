@@ -24,13 +24,21 @@ Ensure the following for a smooth GitHub Copilot experience in Visual Studio Cod
 - Maintain a stable internet connection (Copilot relies on cloud-based services)
 - If you haven't previously authorized Visual Studio Code in your GitHub account, you're prompted to sign in to GitHub in Visual Studio Code. Select Sign in to GitHub.
 
-  ##### Managing GitHub Copilot in VS Code
+  <details>
+  <summary>Managing GitHub Copilot in VS Code</summary>
+
   - The Copilot Status Menu, located in the bottom panel of the Visual Studio Code window, allows you to enable or disable GitHub Copilot.
   - You can choose to disable suggestions globally (`Disable Globally`), or for the language of the file you're currently editing (`Disable for LANGUAGE`).
 
-  ##### Diagnosing Issues with GitHub Copilot
+  </details>
+
+  <details>
+  <summary>Diagnosing Issues with GitHub Copilot</summary>
+
   - Log files, stored in the standard location for Visual Studio Code extensions, can help diagnose connection issues.
   - To access these logs, open the Command Palette (Shift+Command+P for Mac, Ctrl+Shift+P for Windows/Linux), type `Diagnostics`, and select `GitHub Copilot: Collect Diagnostics`.
+
+  </details>
 
 ## [**Foundations of GitHub Copilot**](https://github.com/XpiritBV/Copilot-Bootcamp/tree/main/FoundationsOfCopilot)
 This lab exercise covers the nuances of code autocompletion and suggestions, the art of effective code documentation, and develop a deeper contextual understanding for more intuitive programming.
