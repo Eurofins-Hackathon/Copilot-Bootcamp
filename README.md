@@ -29,13 +29,13 @@ Ensure the following for a smooth GitHub Copilot experience in Visual Studio Cod
 - Install additional VS Code extensions as needed for your project (languages, frameworks, tools not covered by Copilot)
 
 ## [**The Foundations of GitHub Copilot**](#)
-- This lab exercise covers the nuances of code autocompletion and suggestions, the art of effective code documentation, and develop a deeper contextual understanding for more intuitive programming.
+This lab exercise covers the nuances of code autocompletion and suggestions, the art of effective code documentation, and develop a deeper contextual understanding for more intuitive programming.
 - Code Autocompletion and Suggestions
 - Code Documentation
 - Contextual Understanding
 
 ## [**Further Exploration of Key Concepts**](#)
-- This lab exercise is the essentials of code debugging, refine your skills in code refactoring, and unlock the creative potential of prompt engineering.
+This lab exercise is the essentials of code debugging, refine your skills in code refactoring, and unlock the creative potential of prompt engineering.
 - Code Debugging
 - Code Refactoring
 - Prompt Engineering
