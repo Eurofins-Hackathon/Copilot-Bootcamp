@@ -36,6 +36,8 @@ Explore advanced functionalities of code autocompletion and suggestions to strea
 
 #### Advanced
 ---
+#### Example coming soon...
+
 </details>
 
 #### Using Auto Completions for Common Tasks
@@ -63,6 +65,8 @@ Explore advanced functionalities of code autocompletion and suggestions to strea
 
 #### Advanced
 ---
+#### Example coming soon...
+
 </details>
 
 #### Code and Snippet Generation
@@ -94,6 +98,8 @@ Explore advanced functionalities of code autocompletion and suggestions to strea
 
 #### Advanced
 ---
+#### Example coming soon...
+
 </details>
 
 ####  Customizing Code Suggestions
