@@ -36,7 +36,7 @@ Explore advanced functionalities of code autocompletion and suggestions to strea
 
 #### Advanced
 ---
-#### Example coming soon...
+#### TBD - Advanced Example coming soon...
 
 </details>
 
@@ -65,7 +65,7 @@ Explore advanced functionalities of code autocompletion and suggestions to strea
 
 #### Advanced
 ---
-#### Example coming soon...
+#### TBD - Advanced Example coming soon...
 
 </details>
 
@@ -98,7 +98,7 @@ Explore advanced functionalities of code autocompletion and suggestions to strea
 
 #### Advanced
 ---
-#### Example coming soon...
+#### TBD - Advanced Example coming soon...
 
 </details>
 
