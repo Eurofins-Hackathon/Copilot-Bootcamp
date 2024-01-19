@@ -44,6 +44,8 @@ Ensure the following for a smooth GitHub Copilot experience in Visual Studio Cod
 
   </details>
 
+
+
 ## [**Foundations of GitHub Copilot**](https://github.com/XpiritBV/Copilot-Bootcamp/tree/main/FoundationsOfCopilot)
 This lab exercise covers the nuances of code autocompletion and suggestions, the art of effective code documentation, and develop a deeper contextual understanding for more intuitive programming.
 - Code Autocompletion and Suggestions
