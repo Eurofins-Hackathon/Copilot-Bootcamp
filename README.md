@@ -60,7 +60,7 @@ Ensure the following for a smooth GitHub Copilot experience in Visual Studio Cod
 - Introductions from attendees.
 - Agenda and Logistics.
 
-### Lab 1.0 - [Boarding Pass: Introduction to AI](#)
+### [Lab 1.0 - Boarding Pass: Introduction to AI](#)
 - This session offers a comprehensive overview of AI's evolution, key terms, and core technologies, explains Azure OpenAI's role in powering Copilot, uses analogies to link foundational AI concepts to Copilot, stresses ethical AI use, and provides strategies for effectively integrating AI tools in coding.
 
 ### [Lab 2.0 - Pre-Flight Checklist: Introduction to Copilot and Setup](#)
