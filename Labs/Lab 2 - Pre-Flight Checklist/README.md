@@ -13,6 +13,9 @@ This lab exercise covers ...
 
 #### Lab 2.0 ‐ Getting Familiar with GitHub and Setting Up Your Repository
 Compare this to "Preparing Your Travel Itinerary, Checking Passport, Printing Boarding Pass". Just as travelers plan their journey, participants will set up their GitHub repository, planning their coding journey.
+
+In this Hands-On Lab, you will learn how to navigate GitHub, create a new issue and obtain your own GitHub repo with the code for these hands-on labs. You will be working on your own repo in the following labs.
+
 - TBD
 
 #### Lab 2.1 Getting Started with Codespace
@@ -21,4 +24,8 @@ Frame this as "Boarding Your Flight". Codespace can be likened to the airplane, 
 
 #### Lab 2.2 Redeem Your Copilot Coupon
 Redeem Your Copilot Coupon. Treat this like "Upgrading Your Flight Experience". Redeeming the Copilot coupon enhances their coding journey, similar to getting a flight upgrade.
+
+##### Redeem your Copilot Coupon
+To work with Copilot you need a subscription For this Hads-on lab we arranged a trial version for you that you can redeem by using a coupon code that we have for you. Please follow allong the next steps carefully to redeem your Copilot trial subscription. The coupon gives access to Copilot for 14 days.
+
 -TBD
