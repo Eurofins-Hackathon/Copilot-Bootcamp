@@ -63,25 +63,25 @@ Ensure the following for a smooth GitHub Copilot experience in Visual Studio Cod
 ### [Lab 1.0 - Boarding Pass: Introduction to AI](#)
 - This session offers a comprehensive overview of AI's evolution, key terms, and core technologies, explains Azure OpenAI's role in powering Copilot, uses analogies to link foundational AI concepts to Copilot, stresses ethical AI use, and provides strategies for effectively integrating AI tools in coding.
 
-### [Lab 1.1 - Pre-Flight Checklist: Introduction to Copilot and Setup](#)
+### [Lab 2.0 - Pre-Flight Checklist: Introduction to Copilot and Setup](#)
 - This session introduces Copilot as an AI-powered code assistant, covers supported languages and IDEs, provides a setup and navigation tutorial, includes an interactive session for integrating Copilot with IDEs, explores its real-time code suggestion and language-specific capabilities, compares it to human pair programming, and concludes with its benefits in software development.
 
 ## Module 2
-## [Lab 2.1 - Taking Off with Code: Basic Coding with Copilot Assistance ](#)
+## [Lab 3.0 - Taking Off with Code: Basic Coding with Copilot Assistance ](#)
 - This session begins with Copilot's fundamental code autocompletion and suggestions, advances to customizing these suggestions, explores its capabilities in generating larger code blocks and unit tests, concludes with generating test data, and integrates pair programming sessions to apply these concepts practically.
 
-## [Lab 2.2 - Navigating the Code Clouds: Advanced Features of Copilot](#)
+## [Lab 4.0 - Navigating the Code Clouds: Advanced Features of Copilot](#)
 - This session begins with demonstrating how Copilot can generate meaningful comments and documentation, essential for code understanding and maintenance, then shows how it can enhance readability through documentation suggestions, assists in writing complex regex expressions, and finally, illustrates its utility in solving algorithmic challenges, showcasing its advanced problem-solving capabilities.
 
 ## Module 3
-### [Lab 3.1 - Auto-Pilot Mode: Automating Tasks with Copilot](#)
+### [Lab 5.0 - Auto-Pilot Mode: Automating Tasks with Copilot](#)
 - This session introduces the concept of coding automation, explaining how tools like GitHub Copilot streamline repetitive tasks, and then demonstrates Copilot's capabilities in automating common coding tasks, such as generating boilerplate code, setting up basic functions, and configuring standard files.
 
-### [Lab 3.2 - Cruising Altitude: Continuous Monitoring and Feedback](#)
+### [Lab 6.0 - Cruising Altitude: Continuous Monitoring and Feedback](#)
 - This session introduces automating workflows with GitHub Action Pipelines, emphasizes the importance of meaningful commit messages, discusses writing comprehensive pull request summaries for enterprise collaboration, explains chat integration in GitHub for real-time communication, covers the integration and usage of DocSets for managing documentation, and concludes with the flexibility of integrating custom DocSets in enterprise settings.
 
-### [Lab 3.3 - Turbulence in Code: Troubleshooting and Fine-Tuning](#)
+### [Lab 7.0 - Turbulence in Code: Troubleshooting and Fine-Tuning](#)
 - This session uside discusses Copilot's limitations and the need for human judgment, provides best practices and cautions for its use, introduces debugging techniques and tools, strategies for troubleshooting exceptions, how it assists in code refactoring, and its role in optimizing code performance and improving overall code quality.
 
-## [Lab 3.4 - Safe Landing: Review and Future of AI in Coding](#)
+## [Lab 8.0 - Safe Landing: Review and Future of AI in Coding](#)
 - The session concludes with a recap of AI's role in coding, emphasizing improved developer flows, context understanding, balancing AI reliance with verification, maintaining core skills, and avoiding AI over-reliance, followed by a Q&A session, a discussion on AI's future in programming, encouragement for further Copilot exploration with resources, and an exclusive preview of Copilot's roadmap and features like Copilot Chat's application in GitHub.com.
