@@ -85,19 +85,3 @@ Ensure the following for a smooth GitHub Copilot experience in Visual Studio Cod
 
 ## [Safe Landing: Review and Future of AI in Coding](#)
 - The session concludes with a recap of AI's role in coding, emphasizing improved developer flows, context understanding, balancing AI reliance with verification, maintaining core skills, and avoiding AI over-reliance, followed by a Q&A session, a discussion on AI's future in programming, encouragement for further Copilot exploration with resources, and an exclusive preview of Copilot's roadmap and features like Copilot Chat's application in GitHub.com.
-
-
-
-
-
-## [**Foundations of GitHub Copilot**](https://github.com/XpiritBV/Copilot-Bootcamp/tree/main/FoundationsOfCopilot)
-This lab exercise covers the nuances of code autocompletion and suggestions, the art of effective code documentation, and develop a deeper contextual understanding for more intuitive programming.
-- Code Autocompletion and Suggestions
-- Code Documentation
-- Contextual Understanding
-
-## [**Further Exploration of Key Concepts**](https://github.com/XpiritBV/Copilot-Bootcamp/tree/main/FurtherExplorationOfCopilot)
-This lab exercise is the essentials of code debugging, refine your skills in code refactoring, and unlock the creative potential of prompt engineering.
-- Code Debugging
-- Code Refactoring
-- Prompt Engineering
