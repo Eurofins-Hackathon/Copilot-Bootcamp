@@ -51,7 +51,7 @@ Ensure the following for a smooth GitHub Copilot experience in Visual Studio Cod
 
   </details>
 
-# Copilot Bootcamp Table of Contents
+# Table of Contents
 
 ## Module 1
 ### Arrival: Introductions
