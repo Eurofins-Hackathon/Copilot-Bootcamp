@@ -7,13 +7,20 @@ The "Copilot Bootcamp" is a fundamentals focused program designed to enhance cod
 
 Participants will learn about AI basics, ethical considerations in AI use, and the practical applications of GitHub Copilot in coding. This includes exploring code autocompletion, unit test generation, and effective documentation practices. The session progresses into advanced coding techniques with Copilot, such as debugging, refactoring, and prompt engineering, culminating in a hands-on lab
 
-- Session 1 (1 hour) focuses on AI basics, its history, ethical considerations, and introduces GitHub Copilot as an AI-powered coding assistant.
+## In this workshop, you’ll get:
+- History and Overview of AI and GitHub Copilot.
+- Integrating and Utilizing Copilot.
+- Interactive Workshops and Educational Content.
+- Secure Coding Practices with Copilot.
 
-- Session 2 (1 hour) explores GitHub Copilot's features like code autocompletion, test generation, and documentation best practices.
+## What to expect 
+- Practical Coding Exercises. Hands-on experience with GitHub Copilot.
+- Expert Insights. Learn from seasoned trainers about AI in coding.
+- Dynamic Learning. Interactive and engaging educational sessions.
+- Comprehensive Content: Access to detailed Copilot guides and materials.
+- Live Demos. Real-time demonstrations of Copilot's capabilities.
+- Skill Development. Enhance your programming skills using Copilot.
 
-- Session 3 (1 hour) covers advanced techniques such as debugging, refactoring, and prompt engineering with Copilot, including a practical lab session.
-
-This fundamentals session is ideal for developers eager to leverage AI technology to elevate their coding capabilities through the use of GitHub Copilot.
 
 ## Labs Prerequisites
 Ensure the following for a smooth GitHub Copilot experience in Visual Studio Code:
@@ -24,7 +31,7 @@ Ensure the following for a smooth GitHub Copilot experience in Visual Studio Cod
   - GitHub Copilot v1.143.0 or higher
   - GitHub Copilot Chat v0.12.2023120701 or higher
 - Sign in to GitHub within VS Code to enable Copilot features
-- Clone reference app **eShopOnWeb** from [https://github.com/dotnet-architecture/eShopOnWeb](https://github.com/dotnet-architecture/eShopOnWeb)
+~~- Clone reference app **eShopOnWeb** from [https://github.com/dotnet-architecture/eShopOnWeb](https://github.com/dotnet-architecture/eShopOnWeb)~~
 - Maintain a stable internet connection (Copilot relies on cloud-based services)
 - If you haven't previously authorized Visual Studio Code in your GitHub account, you're prompted to sign in to GitHub in Visual Studio Code. Select Sign in to GitHub.
 
@@ -43,6 +50,43 @@ Ensure the following for a smooth GitHub Copilot experience in Visual Studio Cod
   - To access these logs, open the Command Palette (Shift+Command+P for Mac, Ctrl+Shift+P for Windows/Linux), type `Diagnostics`, and select `GitHub Copilot: Collect Diagnostics`.
 
   </details>
+
+# GitHub Copilot Bootcamp Outline
+
+## Module 1
+### Arrival: Introductions
+- Introduction to Bootcamp.
+- Introductions from speakers.
+- Introductions from attendees.
+- Agenda and Logistics.
+
+### Boarding Pass: Introduction to AI
+- This session offers a comprehensive overview of AI's evolution, key terms, and core technologies, explains Azure OpenAI's role in powering Copilot, uses analogies to link foundational AI concepts to Copilot, stresses ethical AI use, and provides strategies for effectively integrating AI tools in coding.
+
+### Pre-Flight Checklist: Introduction to Copilot and Setup
+- This session introduces Copilot as an AI-powered code assistant, covers supported languages and IDEs, provides a setup and navigation tutorial, includes an interactive session for integrating Copilot with IDEs, explores its real-time code suggestion and language-specific capabilities, compares it to human pair programming, and concludes with its benefits in software development.
+
+## Module 2
+## Taking Off with Code: Basic Coding with Copilot Assistance 
+- This session begins with Copilot's fundamental code autocompletion and suggestions, advances to customizing these suggestions, explores its capabilities in generating larger code blocks and unit tests, concludes with generating test data, and integrates pair programming sessions to apply these concepts practically.
+
+## Navigating the Code Clouds: Advanced Features of Copilot
+- This session begins with demonstrating how Copilot can generate meaningful comments and documentation, essential for code understanding and maintenance, then shows how it can enhance readability through documentation suggestions, assists in writing complex regex expressions, and finally, illustrates its utility in solving algorithmic challenges, showcasing its advanced problem-solving capabilities.
+
+## Module 3
+### Auto-Pilot Mode: Automating Tasks with Copilot 
+- This session introduces the concept of coding automation, explaining how tools like GitHub Copilot streamline repetitive tasks, and then demonstrates Copilot's capabilities in automating common coding tasks, such as generating boilerplate code, setting up basic functions, and configuring standard files.
+
+### Cruising Altitude: Continuous Monitoring and Feedback 
+- This session introduces automating workflows with GitHub Action Pipelines, emphasizes the importance of meaningful commit messages, discusses writing comprehensive pull request summaries for enterprise collaboration, explains chat integration in GitHub for real-time communication, covers the integration and usage of DocSets for managing documentation, and concludes with the flexibility of integrating custom DocSets in enterprise settings.
+
+### Turbulence in Code: Troubleshooting and Fine-Tuning 
+- This session uside discusses Copilot's limitations and the need for human judgment, provides best practices and cautions for its use, introduces debugging techniques and tools, strategies for troubleshooting exceptions, how it assists in code refactoring, and its role in optimizing code performance and improving overall code quality.
+
+## Safe Landing: Review and Future of AI in Coding 
+- The session concludes with a recap of AI's role in coding, emphasizing improved developer flows, context understanding, balancing AI reliance with verification, maintaining core skills, and avoiding AI over-reliance, followed by a Q&A session, a discussion on AI's future in programming, encouragement for further Copilot exploration with resources, and an exclusive preview of Copilot's roadmap and features like Copilot Chat's application in GitHub.com.
+
+
 
 
 
