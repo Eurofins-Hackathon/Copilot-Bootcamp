@@ -1,4 +1,4 @@
-# Boarding Pass: Introduction to AI and GitHub Copilot
+# Flight Booking: Introduction to AI and GitHub Copilot
 This lab exercise covers ...
 
 ## Prerequisites
@@ -12,4 +12,4 @@ This lab exercise covers ...
 - An analogy between GitHub Copilot and an airplane's copilot: assisting the pilot (developer) in navigating the skies (coding challenges).
 
 #### Lab 1.0 - Welcome Aboard!
-- TBD
+- STORY GOES HERE
