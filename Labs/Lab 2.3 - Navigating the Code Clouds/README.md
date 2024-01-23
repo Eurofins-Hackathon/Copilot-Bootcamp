@@ -22,8 +22,8 @@ o	Use Copilot Chat to autocomplete the list of Wright Brothers' planes and incor
 
 #### Lab 4.2 - Flight Logbook - Logging Your Coding Journey
 
-o	Document the entire PlaneController.cs file.
-o	Select the PlaneController.cs code and use Copilot Chat to generate comprehensive documentation. Utilize commands like @workspace or @docs for assistance.
+o	Document the entire PlanesController.cs file.
+o	Select the PlanesController.cs code and use Copilot Chat to generate comprehensive documentation. Utilize commands like @workspace or @docs for assistance.
 
 #### Lab 4.3 - Flying in Formation - Pair Programming with Copilot
 
@@ -38,7 +38,7 @@ o	Use Copilot to refactor the code, focusing on simplifying it according to SOLI
 #### Lab 4.4 - Regex Aerobatics Show - Regex Code Completion
 
 o	Create intricate regex patterns for parsing specific string formats.
-o	Modify the PlaneController Post method to use regex for parsing a String property into a C# Model.
+o	Modify the PlanesController Post method to use regex for parsing a String property into a C# Model.
 o	Work with two example string formats (p.s. both are fictional formats):
 	FlightLogSignature: Encodes flight details such as date, departure, arrival, and flight number (e.g., "310322-LAX-JFK-FR789").
 •	public string FlightLogSignature { get; set; }

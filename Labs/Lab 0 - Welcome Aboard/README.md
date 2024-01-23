@@ -1,4 +1,4 @@
-# Flight Booking: Introduction to AI and GitHub Copilot
+# Welcome Aboard: Introduction to AI and GitHub Copilot
 This lab exercise covers ...
 
 ## Prerequisites

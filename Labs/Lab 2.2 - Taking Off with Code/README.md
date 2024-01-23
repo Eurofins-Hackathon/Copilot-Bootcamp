@@ -19,13 +19,18 @@ This lab exercise covers ...
 
 - Type the following in the chat window: 
 
-```
+```sh
 @terminal how to run the unit tests?
 ```
 
 - Copilot will give a suggestion to run the unit tests in the terminal.
 
 - Open the terminal and run the tests with the provided command.
+
+```sh
+cd WrightBrothersApi
+dotnet test
+```
 
 - The tests should pass.
 
@@ -35,17 +40,18 @@ This lab exercise covers ...
 
 - Type the following in the chat window: 
 
+```sh
+@workspace Where do I add additional unit tests?
 ```
-@workspace Where to add unit tests for the PlaneController?
-```
 
-- Copilot will give a suggestion to add unit tests to the PlaneControllerTests.cs file.
+- Copilot will give a suggestion to add unit tests to the `PlanesControllerTests.cs` file.
 
-- Open `PlaneControllerTests.cs` that GitHub Copilot suggested in the chat by clicking on the provided file name.
+- Open `PlanesControllerTests.cs` that GitHub Copilot suggested in the chat by clicking on the provided file name in the chat.
 
-- Make sure to have the PlaneController.cs file open as well.
+- Make sure to have the `PlanesController.cs` file open as well.
 
-Github Copilot will use any file that is open to gather extra context for its suggestions.
+>[!Note]
+> Github Copilot will use any file that is open to gather extra context for its suggestions.
 
 - Place your cursor at the end of the file, after the `}` of the `Post_WithInvalidPlane_ReturnsBadRequest` method.
 
@@ -58,13 +64,14 @@ public class PlanesControllerTests
         // method body
     }
 
-    /* <---- Place your cursor here */ 
+    <---- Place your cursor here
 }
 ```
 
-- GitHub will now suggest missing unit tests based on the code in the `PlaneController.cs` file.
+- GitHub will now suggest missing unit tests based on the code in the `PlanesController.cs` file.
 
-Make sure you have the `PlaneController.cs` file open.
+>[!Note]
+> Make sure you have the `PlanesController.cs` file open.
 
 - Accept the suggestions by pressing `Tab` or clicking on the suggestion.
 
@@ -72,24 +79,9 @@ Make sure you have the `PlaneController.cs` file open.
 
 #### Lab 3.3 Taking Off - Developing Robust Tests
 
-Developing Robust Tests. Focus on creating comprehensive unit tests for the searchByName function. Incorporate a [Theory] attribute and explore multiple test cases.
-	Writing comments to outline test cases.
-	Using Copilot to convert these comments into actual test code.
-	Emphasizing the utility of Copilot in generating edge case tests and enhancing code quality.
-	Examples for this segment should include:
+- Open `PlanesController.cs` file
 
-```csharp
-•	// Wright Plane 1 == true
-•	// Wright Plane 9 == false
-•	// Aircraft == true
-•	// lowercase test == true
-•	// Other edge cases?
-```
-
-
-- Open `PlaneController.cs` file
-
-- Make sure to add the `searchByName` method to the `PlaneController.cs` file if you haven't already in the previous lab.
+- Make sure to add the `searchByName` method to the `PlanesController.cs` file if you haven't already in the previous lab.
 
 
 ```csharp
@@ -101,17 +93,20 @@ public class PlanesController : ControllerBase
     public ActionResult<List<Plane>> searchByName([FromQuery] string name)
     {
         _logger.LogInformation($"GET ✈✈✈ {name} ✈✈✈");
+
         var planes = Planes.FindAll(p => p.Name.Contains(name));
+
         if (planes == null)
         {
             return NotFound();
         }
+
         return Ok(planes);
     }
 }
 ```
 
-- Open `PlaneControllerTests.cs` file
+- Open `PlanesControllerTests.cs` file
 
 - Place your cursor at the end of the file, after the `}` of the `Post_WithInvalidPlane_ReturnsBadRequest` method.
 
@@ -124,18 +119,18 @@ public class PlanesControllerTests
         // method body
     }
 
-    /* <---- Place your cursor here */ 
+    <---- Place your cursor here
 }
 ```
 
 - Type the following comment: 
 
 ```csharp
-// Search term | Amount of results | Description
-// Wright Plane 1 | 1 | Specific search
-// Wright Plane | 3 | General search
-// wright plane | 3 | Case insensitive
-//  Wright  Plane  | 3 | Extra spaces
+// Search term    | Amount of results | Description
+// Wright Plane 1 | 1                 | Specific search
+// Wright Plane   | 3                 | General search
+// wright plane   | 3                 | Case insensitive
+//  Wright  Plane | 3                 | Extra spaces
 ```
 
 - Now press `Enter`
@@ -163,7 +158,7 @@ public void SearchByName_WithValidPlane_ReturnsOk(string searchTerm, int expecte
 
 - Not all tests will pass. For example the `Case insensitive` test will fail. This is because the `searchByName` is case sensitive. Let's fix this.
 
-- Open `PlaneController.cs` file
+- Open `PlanesController.cs` file
 
 - Ask Copilot to fix the case sensitivity issue by typing the following in the chat window: 
 
@@ -171,7 +166,7 @@ public void SearchByName_WithValidPlane_ReturnsOk(string searchTerm, int expecte
 
 - Also the `Extra spaces` test will fail. This is because the `searchByName` is not trimming the search term. Let's fix this.
 
-- Open `PlaneController.cs` file
+- Open `PlanesController.cs` file
 
 - Ask Copilot to fix the trimming issue by typing the following in the chat window:
 

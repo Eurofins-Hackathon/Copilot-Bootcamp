@@ -57,13 +57,15 @@ Limitations:
 
 #### Lab 3.2 Test Flight - Autocompletion and Suggestions
 
-- Ask Copilot to explain the `PlaneController.cs` class
+- Open GitHub Copilot Chat Extension
+
+- Ask Copilot to explain the `PlanesController.cs` class
 
 ```
-@workspace What does the PlaneController do? 
+@workspace What does the PlanesController do? 
 ```
 
-- Open the `PlaneController.cs` file.
+- Open the `PlanesController.cs` file.
 
 - Place your cursor at the end of the file, after the `}` of the `Post` method.
 
@@ -113,7 +115,7 @@ public IActionResult Delete(int id)
 
 #### Lab 3.3 Test Flight Accelerate - Comments to Code
 
-- Open the `PlaneController.cs` file.
+- Open the `PlanesController.cs` file.
 
 - Type `// Search planes by name` in the comment block. After the `}` of the `GetAll` method.
 
@@ -152,7 +154,7 @@ public ActionResult<List<Plane>> SearchByName(string name)
 
 Adding the Logger Example. Present a code completion task for adding a logger with specific syntax (e.g., _logger). Use this to explain how Copilot adapts to and replicates your coding style.
 
-- Open the `PlaneController.cs` file.
+- Open the `PlanesController.cs` file.
 
 - Type `_logger.LogInformation("GET all ✈✈✈ NO PARAMS ✈✈✈");` in the `GetAll` method.
 
@@ -209,7 +211,7 @@ public ActionResult<Plane> GetById(int id)
 >[!Note] 
 > Copilot learns from the codebase and adapts to the coding style. In this case, it replicates the custom syntax used for logging.
 
-- Now repeat the same steps for the other methods in the `PlaneController.cs` class.
+- Now repeat the same steps for the other methods in the `PlanesController.cs` class.
 
 ```csharp
 [HttpPost]
