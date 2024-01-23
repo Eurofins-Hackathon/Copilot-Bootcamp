@@ -53,3 +53,8 @@ o	Consider creating unit tests to validate the regex functionality.
 •	L = Loop, H = Hammerhead, R = Roll, S = Spin, T = Tailslide
 •	Number represents repeat count, Letter represents difficulty (A-E), and each has a unique ID
 •	public string AerobaticSequence { get; set; }
+
+
+### Congratulations you've made it to the end! &#x1F389;
+
+#### And with that, you've now concluded this module. We hope you enjoyed it! &#x1F60A;

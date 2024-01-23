@@ -35,8 +35,6 @@ o	Commit and push additional changes, then use Copilot to update the PR details.
 #### Lab 5.3 - DocSet??
 
 
+### Congratulations you've made it to the end! &#x1F389;
 
-
-
-
-
+#### And with that, you've now concluded this module. We hope you enjoyed it! &#x1F60A;

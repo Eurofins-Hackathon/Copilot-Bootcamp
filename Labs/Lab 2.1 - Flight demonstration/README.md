@@ -238,3 +238,7 @@ public IActionResult Delete(int id)
     // Method body
 }
 ```
+
+### Congratulations you've made it to the end! &#x1F389;
+
+#### And with that, you've now concluded this module. We hope you enjoyed it! &#x1F60A;

@@ -51,3 +51,6 @@ o	Discuss the 10,000 Flight Hours concept as it applies to mastering Copilot.
 o	Provide pro tips, dos and don’ts, and best practices for using Copilot effectively.
 
 
+### Congratulations you've made it to the end! &#x1F389;
+
+#### And with that, you've now concluded this module. We hope you enjoyed it! &#x1F60A;
