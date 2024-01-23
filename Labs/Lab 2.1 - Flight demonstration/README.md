@@ -23,7 +23,7 @@ This lab exercise covers ...
 @Workspace explain the WrightBrothers API
 ```
 
-Copilot will give a brief overview of the API. This is a good way to get a quick overview of the codebase.
+- Copilot will give a brief overview of the API. This is a good way to get a quick overview of the codebase.
 
 TODO: Add Screenshot of Copilot Chat explain the workspace
 
@@ -34,11 +34,10 @@ There are two other Agents `@terminal` and `@vscode`. They are used to help navi
 - Try `@terminal` agent by typing the following in the chat window:
 
 ```
-@terminal how to execute the unit tests?
+@terminal how to run the application?
 ```
 
-It will give a list of commands that can be used to run the unit tests in the `WrightBrothersApi` project.
-
+- It will give a suggestion to run the application in the terminal.
 
 - Try `@vscode` agent by typing the following in the chat window:
 
@@ -46,7 +45,7 @@ It will give a list of commands that can be used to run the unit tests in the `W
 @vscode how to install extensions?
 ```
 
-It will provide a corresponding setting or an action button to install extensions.
+- It will provide a corresponding setting or an action button to install extensions.
 
 
 ```
@@ -73,7 +72,7 @@ public class PlanesController : ControllerBase
     {
         // Method body
     }
-    
+
     /* <---- Place your cursor here */ 
 }
 ```
