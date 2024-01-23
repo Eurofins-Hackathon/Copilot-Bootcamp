@@ -20,7 +20,7 @@ This lab exercise covers ...
 - Type the following in the chat window: 
 
 ```
-@Workspace explain the WrightBrothers API
+@workspace explain the WrightBrothers API
 ```
 
 - Copilot will give a brief overview of the API. This is a good way to get a quick overview of the codebase.
@@ -48,9 +48,6 @@ There are two other Agents `@terminal` and `@vscode`. They are used to help navi
 - It will provide a corresponding setting or an action button to install extensions.
 
 
-```
-@workspace What does the Planecontroller class do?
-```
 
 Limitations:
 
@@ -60,7 +57,15 @@ Limitations:
 
 #### Lab 3.2 Test Flight - Autocompletion and Suggestions
 
+- Ask Copilot to explain the `PlaneController.cs` class
+
+```
+@workspace What does the PlaneController do? 
+```
+
 - Open the `PlaneController.cs` file.
+
+- Place your cursor at the end of the file, after the `}` of the `Post` method.
 
 ```csharp
 public class PlanesController : ControllerBase
@@ -77,23 +82,36 @@ public class PlanesController : ControllerBase
 }
 ```
 
-- Place your cursor at the end of the file, after the `}` of the `Post` method.
-
 - GitHub Copilot will automatically suggest the `[HttpPut]` method. Accept the suggestion by pressing `Enter`.
 
 ```csharp
+// * Suggested by Copilot
 [HttpPut("{id}")]
 public IActionResult Put(int id, Plane plane)
 {
     // Method body
 }
+// * Suggested by Copilot
 ```
 
-The reason GitHub Copilot suggests the `[HttpPut]` method is because it understand that the `PlanesController.cs` class is a REST API controller and that the `[HttpPut]` is currently missing. The `[HttpPut]` method is the next logical step in the REST API for updating a resource.
+>[!Note]
+>The reason GitHub Copilot suggests the `[HttpPut]` method is because it understand that the `PlanesController.cs` class is a REST API controller and that the `[HttpPut]` is currently missing. The `[HttpPut]` method is the next logical step in the REST API for updating a resource.
 
 - Place your cursor again at the end of the file, after the `}` of the `Put` method.
 
-#### Lab 3.3 Test Flight Accelerate - Comment to Code
+- GitHub Copilot will automatically suggest the `[HttpDelete]` method. Accept the suggestion by pressing `Enter`.
+
+```csharp
+// * Suggested by Copilot
+[HttpDelete("{id}")]
+public IActionResult Delete(int id)
+{
+    // Method body
+}
+// * Suggested by Copilot
+```
+
+#### Lab 3.3 Test Flight Accelerate - Comments to Code
 
 - Open the `PlaneController.cs` file.
 
@@ -110,13 +128,11 @@ public class PlanesController : ControllerBase
         // Method body
     }
 
-    // Search planes by name
+    // Search planes by name <--- Place your cursor here
 }
 ```
 
-- Press `Enter` to accept the suggestion.
-
-- GitHub Copilot will automatically suggest the `[HttpGet("searchByName")]` method.
+- Press `Enter` and GitHub Copilot will automatically suggest the `[HttpGet("searchByName")]` method.
 
 ```csharp
 [HttpGet("searchByName")]
@@ -126,7 +142,8 @@ public ActionResult<List<Plane>> SearchByName(string name)
 }
 ```
 
-The reason GitHub Copilot suggests the `[HttpGet("searchByName")]` method is because it understands that the comment is a description of the method. It also understands that the method is a GET method and that it has a parameter `name` of type `string`.
+>[!Note]
+>The reason GitHub Copilot suggests the `[HttpGet("searchByName")]` method is because it understands that the comment is a description of the method. It also understands that the method is a GET method and that it has a parameter `name` of type `string`.
 
 
 ### Optional Labs
@@ -138,6 +155,9 @@ Adding the Logger Example. Present a code completion task for adding a logger wi
 - Open the `PlaneController.cs` file.
 
 - Type `_logger.LogInformation("GET all ✈✈✈ NO PARAMS ✈✈✈");` in the `GetAll` method.
+
+>[!Note]
+>You can use some other character instead of `✈✈✈` to make it easier to read the logs.
 
 ```csharp
 public class PlanesController : ControllerBase
@@ -154,7 +174,8 @@ public class PlanesController : ControllerBase
 }
 ```
 
-- Notice the syntax of `✈✈✈ NO PARAMS ✈✈✈`. This is a custom syntax that is used in the codebase to log parameters of a method. It is used to make it easier to read the logs.
+>[!Note]
+>Notice the syntax of `✈✈✈ NO PARAMS ✈✈✈`. This is a custom syntax that is used in the codebase to log parameters of a method. It is used to make it easier to read the logs.
 
 - Add another log statement in the `GetById` method.
 
@@ -166,14 +187,14 @@ public class PlanesController : ControllerBase
     [HttpGet("{id}")]
     public ActionResult<Plane> GetById(int id)
     {
-        // <---- Place your cursor here
+        <---- Place your cursor here
 
         // Method body
     }
 }
 ```
 
-- Type `_log` and notice the suggestions that GitHub Copilot gives.
+- Type `_log` and notice the suggestion that GitHub Copilot gives:
 
 ```csharp
 [HttpGet("{id}")]
@@ -185,6 +206,33 @@ public ActionResult<Plane> GetById(int id)
 }
 ```
 
-Copilot learns from the codebase and adapts to the coding style. In this case, it replicates the custom syntax used for logging.
+>[!Note] 
+> Copilot learns from the codebase and adapts to the coding style. In this case, it replicates the custom syntax used for logging.
 
-- Now repeat the same steps for the other methods.
+- Now repeat the same steps for the other methods in the `PlaneController.cs` class.
+
+```csharp
+[HttpPost]
+public ActionResult<Plane> Post(Plane plane)
+{
+    _logger.LogInformation($"POST ✈✈✈ {plane.Id} ✈✈✈");
+
+    // Method body
+}
+
+[HttpPut("{id}")]
+public IActionResult Put(int id, Plane plane)
+{
+    _logger.LogInformation($"PUT ✈✈✈ {id} ✈✈✈");
+
+    // Method body
+}
+
+[HttpDelete("{id}")]
+public IActionResult Delete(int id)
+{
+    _logger.LogInformation($"DELETE ✈✈✈ {id} ✈✈✈");
+
+    // Method body
+}
+```

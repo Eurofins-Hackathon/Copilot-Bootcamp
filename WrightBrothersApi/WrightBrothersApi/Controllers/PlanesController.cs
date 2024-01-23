@@ -45,8 +45,6 @@ namespace WrightBrothersApi.Controllers
         [HttpGet("{id}")]
         public ActionResult<Plane> GetById(int id)
         {
-            _logger.LogInformation($"GET ✈✈✈ {id} ✈✈✈");
-
             var plane = Planes.Find(p => p.Id == id);
 
             if (plane == null)
@@ -61,8 +59,6 @@ namespace WrightBrothersApi.Controllers
         [HttpGet("search")]
         public ActionResult<List<Plane>> GetByName([FromQuery] string name)
         {
-            _logger.LogInformation($"GET ✈✈✈ {name} ✈✈✈");
-
             var planes = Planes.FindAll(p => p.Name.Contains(name));
 
             if (planes == null)
@@ -80,29 +76,5 @@ namespace WrightBrothersApi.Controllers
 
             return CreatedAtAction(nameof(GetById), new { id = plane.Id }, plane);
         }
-
-        [HttpPut("{id}")]
-        public IActionResult Put(int id, Plane plane)
-        {
-            if (id != plane.Id)
-            {
-                return BadRequest();
-            }
-
-            var existingPlane = Planes.Find(p => p.Id == id);
-
-            if (existingPlane == null)
-            {
-                return NotFound();
-            }
-
-            existingPlane.Name = plane.Name;
-            existingPlane.Year = plane.Year;
-            existingPlane.Description = plane.Description;
-            existingPlane.RangeInKm = plane.RangeInKm;
-
-            return NoContent();
-        }
-
     }
 }
