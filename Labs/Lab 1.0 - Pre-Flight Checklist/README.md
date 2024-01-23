@@ -95,3 +95,6 @@ By completing these steps, you have successfully set up your Codespace with the 
 - Startup the application with `dotnet run` and verify the application is running
 - Call to API using the REST examples
 - Run existing unit tests with `dotnet test`
+
+### Congratulations you've made it to the end! &#9992;
+#### And with that, you've now concluded this module. We hope you enjoyed it! &#x1F60A;

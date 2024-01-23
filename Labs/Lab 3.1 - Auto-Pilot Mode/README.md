@@ -26,6 +26,6 @@ o	Ensure the pipeline is ready to build and test the application, though actual 
 #### Lab 5.2 - Add a Code Quality or Whatever step to the existing pipeline
 
 
-### Congratulations you've made it to the end! &#x1F389;
+### Congratulations you've made it to the end! &#9992;
 
 #### And with that, you've now concluded this module. We hope you enjoyed it! &#x1F60A;

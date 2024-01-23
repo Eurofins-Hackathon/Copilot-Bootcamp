@@ -239,6 +239,6 @@ public IActionResult Delete(int id)
 }
 ```
 
-### Congratulations you've made it to the end! &#x1F389;
+### Congratulations you've made it to the end! &#9992;
 
 #### And with that, you've now concluded this module. We hope you enjoyed it! &#x1F60A;
