@@ -22,7 +22,8 @@ namespace WrightBrothersApi.Controllers
                 Name = "Wright Flyer",
                 Year = 1903,
                 Description = "The first successful heavier-than-air powered aircraft.",
-                RangeInKm = 12
+                RangeInKm = 12,
+                ImageUrl = "https://example.com/wright-flyer.jpg"
             },
             new Plane
             {
@@ -30,8 +31,18 @@ namespace WrightBrothersApi.Controllers
                 Name = "Wright Flyer II",
                 Year = 1904,
                 Description = "A refinement of the original Flyer with better performance.",
-                RangeInKm = 24
-            }
+                RangeInKm = 24,
+            },
+            new Plane
+            {
+                Id = 3,
+                Name = "Wright Model A",
+                Year = 1908,
+                Description = "The first commercially successful airplane.",
+                RangeInKm = 40,
+                ImageUrl = "https://example.com/wright-model-a.jpg"
+            },
+            // Add more planes here...
         };
 
         [HttpGet]
@@ -55,7 +66,6 @@ namespace WrightBrothersApi.Controllers
             return Ok(plane);
         }
 
-        // search by name
         [HttpGet("search")]
         public ActionResult<List<Plane>> GetByName([FromQuery] string name)
         {

@@ -52,10 +52,20 @@ public class FlightsController : ControllerBase
         _logger = logger;
     }
 
+    [HttpPost]
+    public ActionResult<Flight> Post(Flight flight)
+    {
+        _logger.LogInformation("POST ✈✈✈ NO PARAMS ✈✈✈");
+
+        Flights.Add(flight);
+
+        return CreatedAtAction(nameof(GetById), new { id = flight.Id }, flight);
+    }
+
     [HttpGet("{id}")]
     public ActionResult<Flight> GetById(int id)
     {
-        _logger.LogInformation($"GET flight with --- Id:{id} ---");
+        _logger.LogInformation($"GET ✈✈✈ {id} ✈✈✈");
 
         var flight = Flights.Find(f => f.Id == id);
 
@@ -71,65 +81,79 @@ public class FlightsController : ControllerBase
     public ActionResult UpdateFlightStatus(int id, FlightStatus newStatus)
     {
         var flight = Flights.Find(f => f.Id == id);
-        if (flight == null)
+        if (flight != null)
+        {
+            switch (newStatus)
+            {
+                case FlightStatus.Boarding:
+                    if (DateTime.Now > flight.DepartureTime)
+                    {
+                        return BadRequest("Cannot board, past departure time.");
+                    }
+
+                    break;
+
+                case FlightStatus.Departed:
+                    if (flight.Status != FlightStatus.Boarding)
+                    {
+                        return BadRequest("Flight must be in 'Boarding' status before it can be 'Departed'.");
+                    }
+
+                    break;
+
+                case FlightStatus.InAir:
+                    if (flight.Status != FlightStatus.Departed)
+                    {
+                        return BadRequest("Flight must be in 'Departed' status before it can be 'In Air'.");
+                    }
+                    break;
+
+                case FlightStatus.Landed:
+                    if (flight.Status != FlightStatus.InAir)
+                    {
+                        return BadRequest("Flight must be in 'In Air' status before it can be 'Landed'.");
+                    }
+
+                    break;
+
+                case FlightStatus.Cancelled:
+                    if (DateTime.Now > flight.DepartureTime)
+                    {
+                        return BadRequest("Cannot cancel, past departure time.");
+                    }
+                    break;
+
+                case FlightStatus.Delayed:
+                    if (flight.Status == FlightStatus.Cancelled)
+                    {
+                        return BadRequest("Cannot delay, flight is cancelled.");
+                    }
+                    break;
+
+                default:
+                    // Handle other statuses or unknown status
+                    return BadRequest("Unknown or unsupported flight status.");
+            }
+
+            flight.Status = newStatus;
+
+            return Ok($"Flight status updated to {newStatus}.");
+        }
+        else
         {
             return NotFound("Flight not found.");
         }
+    }
 
-        switch (newStatus)
+    public FlightLog ParseFlightLogSignature(string flightLogSignature)
+    {
+        var parts = flightLogSignature.Split('-');
+        return new FlightLog
         {
-            case FlightStatus.Boarding:
-                if (DateTime.Now > flight.DepartureTime)
-                {
-                    return BadRequest("Cannot board, past departure time.");
-                }
-
-                break;
-
-            case FlightStatus.Departed:
-                if (flight.Status != FlightStatus.Boarding)
-                {
-                    return BadRequest("Flight must be in 'Boarding' status before it can be 'Departed'.");
-                }
-
-                break;
-
-            case FlightStatus.InAir:
-                if (flight.Status != FlightStatus.Departed)
-                {
-                    return BadRequest("Flight must be in 'Departed' status before it can be 'In Air'.");
-                }
-                break;
-
-            case FlightStatus.Landed:
-                if (flight.Status != FlightStatus.InAir)
-                {
-                    return BadRequest("Flight must be in 'In Air' status before it can be 'Landed'.");
-                }
-
-                break;
-
-            case FlightStatus.Cancelled:
-                if (DateTime.Now > flight.DepartureTime)
-                {
-                    return BadRequest("Cannot cancel, past departure time.");
-                }
-                break;
-
-            case FlightStatus.Delayed:
-                if (flight.Status == FlightStatus.Cancelled)
-                {
-                    return BadRequest("Cannot delay, flight is cancelled.");
-                }
-                break;
-
-            default:
-                // Handle other statuses or unknown status
-                return BadRequest("Unknown or unsupported flight status.");
-        }
-
-        flight.Status = newStatus;
-
-        return Ok($"Flight status updated to {newStatus}.");
+            Date = parts[0],
+            Departure = parts[1],
+            Arrival = parts[2],
+            FlightNumber = parts[3]
+        };
     }
 }
