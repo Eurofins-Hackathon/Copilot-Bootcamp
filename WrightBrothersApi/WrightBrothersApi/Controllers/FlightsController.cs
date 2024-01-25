@@ -144,16 +144,4 @@ public class FlightsController : ControllerBase
             return NotFound("Flight not found.");
         }
     }
-
-    public FlightLog ParseFlightLogSignature(string flightLogSignature)
-    {
-        var parts = flightLogSignature.Split('-');
-        return new FlightLog
-        {
-            Date = parts[0],
-            Departure = parts[1],
-            Arrival = parts[2],
-            FlightNumber = parts[3]
-        };
-    }
 }
