@@ -1,5 +1,5 @@
 # Navigating the Code Clouds: Advanced Features of GitHub Copilot 
-This lab exercise covers ...
+This lab exercise covers ... // TODO: Add summary here
 
 ## Prerequisites
 - The prerequisites steps are completed, see [Labs Prerequisites](https://github.com/XpiritBV/Copilot-Bootcamp#labs-prerequisites)
