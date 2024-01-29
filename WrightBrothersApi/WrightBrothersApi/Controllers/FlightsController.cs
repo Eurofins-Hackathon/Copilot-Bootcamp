@@ -1,3 +1,4 @@
+using System.Collections.Concurrent;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 
@@ -49,7 +50,7 @@ public class FlightsController : ControllerBase
             // Flight number WB002
             FlightLogSignature = "171203-DEP-ARR-WB002"
         },
-        // This is the first Wright Brothers flight that crahsed
+        // This is the first Wright Brothers plane that crashed.
         new Flight
         {
             Id = 3,
@@ -224,21 +225,23 @@ public class FlightsController : ControllerBase
 
     public static List<int> CalculatePrimes(int start, int end)
     {
-        List<int> primes = new List<int>();
-        for (int number = start; number <= end; number++)
+        ConcurrentBag<int> primes = new ConcurrentBag<int>();
+        Parallel.For(start, end + 1, number =>
         {
             if (IsPrime(number))
             {
                 primes.Add(number);
             }
-        }
-        return primes;
+        });
+        return primes.ToList();
     }
 
     public static bool IsPrime(int number)
     {
         if (number <= 1) return false;
-        for (int i = 2; i < number; i++) // Inefficient check for prime numbers
+        int boundary = (int)Math.Floor(Math.Sqrt(number));
+
+        for (int i = 2; i <= boundary; i++)  // Efficient check for prime numbers
         {
             if (number % i == 0) return false;
         }
