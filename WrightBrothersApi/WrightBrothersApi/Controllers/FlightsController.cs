@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 
 [ApiController]
@@ -204,5 +205,43 @@ public class FlightsController : ControllerBase
         lightningStrike(id);
 
         return Ok($"Recovers from lightning strike.");
+    }
+
+    [HttpPost("{id}/calculateAerodynamics")]
+    public ActionResult calculateAerodynamics(int id)
+    {
+        Stopwatch stopwatch = new Stopwatch();
+        stopwatch.Start();
+
+        List<int> primes = CalculatePrimes(2, 300000); // Adjust the range to ensure the operation takes about 10 seconds
+
+        stopwatch.Stop();
+        Console.WriteLine($"Found {primes.Count} prime numbers.");
+        Console.WriteLine($"Elapsed Time: {stopwatch.ElapsedMilliseconds / 1000.0} seconds");
+
+        return Ok($"Calculated aerodynamics.");
+    }
+
+    public static List<int> CalculatePrimes(int start, int end)
+    {
+        List<int> primes = new List<int>();
+        for (int number = start; number <= end; number++)
+        {
+            if (IsPrime(number))
+            {
+                primes.Add(number);
+            }
+        }
+        return primes;
+    }
+
+    public static bool IsPrime(int number)
+    {
+        if (number <= 1) return false;
+        for (int i = 2; i < number; i++) // Inefficient check for prime numbers
+        {
+            if (number % i == 0) return false;
+        }
+        return true;
     }
 }

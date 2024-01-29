@@ -147,13 +147,87 @@ o	Introduce a context file to instruct Copilot on what to do and not to do, poss
 o	Gradually apply Copilot's suggestions to the code. Consider using a .copilotignore file to refine Copilot's focus.
 o	Keep code quality reference files open for guidance and comparison.
 
+// TODO: This is already done in the code refactoring project??
+
 ### Optional
 
 #### Lab 6.4 - Aerodynamics of an Airplane - Performance Optimization
 
-o	Start with poorly performing code that incorporates common bad practices.
-o	Use Copilot to enhance the code's performance.
-o	Optimize a specific piece of code to run significantly faster (e.g., reduce execution time from 10 seconds to 1 second).
+- Open `FlightController.cs` file
+
+- Navigate to the `calculateAerodynamics` method. Note that the method is calculating prime numbers.
+
+```csharp
+public class FlightsController : ControllerBase
+{
+    [HttpPost("{id}/calculateAerodynamics")]
+    public ActionResult calculateAerodynamics(int id)
+    {
+        Stopwatch stopwatch = new Stopwatch();
+        stopwatch.Start();
+
+        List<int> primes = CalculatePrimes(2, 300000); // Adjust the range to ensure the operation takes about 10 seconds
+
+        stopwatch.Stop();
+        Console.WriteLine($"Found {primes.Count} prime numbers.");
+        Console.WriteLine($"Elapsed Time: {stopwatch.ElapsedMilliseconds / 1000.0} seconds");
+
+        return Ok($"Calculated aerodynamics.");
+    }
+
+    public static List<int> CalculatePrimes(int start, int end)
+    {
+        List<int> primes = new List<int>();
+        for (int number = start; number <= end; number++)
+        {
+            if (IsPrime(number))
+            {
+                primes.Add(number);
+            }
+        }
+        return primes;
+    }
+
+    public static bool IsPrime(int number)
+    {
+        if (number <= 1) return false;
+        for (int i = 2; i < number; i++) // Inefficient check for prime numbers
+        {
+            if (number % i == 0) return false;
+        }
+        return true;
+    }
+}
+```
+
+- Now go to `Flights.http` file and execute the `calculateAerodynamics` request.
+
+```
+POST http://localhost:1903/flights/1/calculateAerodynamics HTTP/1.1
+content-type: application/json
+```
+
+- The application will calculate the prime numbers in more than 5 seconds.
+
+- Now, let's optimize it with GitHub Copilot
+
+- Select all the code for the `calculateAerodynamics` method and press `Ctrl + .` to open the light bulb menu. Select `Optimize performance` from the menu.
+
+// TODO find out best way to optimize this
+
+- Copilot will optimize the code.
+
+- Now go to `Flights.http` file and execute the `calculateAerodynamics` request again.
+
+```
+POST http://localhost:1903/flights/1/calculateAerodynamics HTTP/1.1
+content-type: application/json
+```
+
+- The application will calculate the prime numbers in less than 1 second.
+
+> [!Note]
+> GitHub Copilot has knowledge of many algorithmic optimizations and can help you optimize your code performance.
 
 
 #### Lab 6.5 - Mastering Copilot - 10,000 Flight Hours Principle
