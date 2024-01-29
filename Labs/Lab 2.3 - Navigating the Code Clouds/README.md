@@ -245,3 +245,12 @@ How to parse the selected AerobaticSequence string into a c# model using a regex
 
 > [!Note]
 > GitHub Copilot is very good at understanding the context of the code. It understands that the `AerobaticSequence` is a string in a specific format and that it can be parsed using a Regex expression.
+
+#### Lab 4.6 - Flight Plan Adjustments - Codebase Improvements
+
+TODO: Maybe Remove it???
+
+o	Engage in a chat with Copilot to discuss potential improvements in the codebase or selected sections of code.
+o	Introduce a context file to instruct Copilot on what to do and not to do, possibly aligning with company guidelines.
+o	Gradually apply Copilot's suggestions to the code. Consider using a .copilotignore file to refine Copilot's focus.
+o	Keep code quality reference files open for guidance and comparison.

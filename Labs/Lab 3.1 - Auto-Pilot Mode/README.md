@@ -1,4 +1,4 @@
-# Auto-Pilot Mode: Automating Tasks with Copilot 
+# Auto-Pilot Mode: GitHub Copilot
 This lab exercise covers ...
 
 ## Prerequisites
@@ -8,12 +8,225 @@ This lab exercise covers ...
 - 30 min
 
 ## Objectives
-- Demonstrating how GitHub Copilot can automate repetitive coding tasks.
-- Hands-on activity where participants create scripts to automate simple tasks, guided by Copilot.
+- Recap of the day's learning, emphasizing the blend of AI assistance with human skills.
+- Discussion on the future of AI in programming and its evolving role in software development.
 
-### Required
 
-#### Lab 5.1 - Smooth Flying in the Cloud - Automating GitHub Pipelines
+#### This one does not need to pipeline from AutoPilot Mode, but it is a nice to have.
+
+#### Lab 5.0 - The aircraft alarm lights are blinking - Prepare code example
+
+- Configure HealthChecks package in your application
+
+```sh
+cd WrightBrothersApi/
+dotnet add package Microsoft.Extensions.Diagnostics.HealthChecks 
+```
+
+- Open `Program.cs`
+
+- Add HealthChecks through the `builder` method
+
+```csharp
+// Add the following health check
+using Microsoft.Extensions.Diagnostics.HealthChecks;
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Add the following health check
+builder.Services.AddHealthChecks()
+    .AddCheck("CruisingAltitudeCheck", () =>
+    {
+        bool atCruisingAltitude = CheckSystemPerformance(); 
+
+        if (atCruisingAltitude)
+
+        {
+            return HealthCheckResult.Healthy("The application is cruising smoothly at optimal altitude.");
+        }
+        else
+        {
+            bool minorIssue = CheckIfMinorIssue();
+
+            return minorIssue ?
+                HealthCheckResult.Degraded("The application is experiencing turbulence but remains stable.") :
+                HealthCheckResult.Unhealthy("The application is facing a system failure and needs immediate attention.");
+        }
+
+        bool CheckSystemPerformance()
+        {
+            // Simulate a check to determine if the application is "at cruising altitude"
+            // For the sake of this example, we'll just return a random value
+            Random random = new Random();
+            int randomNumber = random.Next(1, 100);
+
+            return randomNumber > 10;
+        }
+
+        bool CheckIfMinorIssue()
+        {
+            // Simulate a check to determine if the application is "at cruising altitude"
+            // For the sake of this example, we'll just return a random value
+            Random random = new Random();
+            int randomNumber = random.Next(1, 100);
+
+            return randomNumber > 50;
+        }
+    });
+```
+
+- Add the following code below the `var app = builder.Build();` line
+
+```csharp
+// Rest of the Program.cs file
+
+var app = builder.Build();
+
+// Add the following code to map the health checks to an endpoint
+app.MapHealthChecks("/health");
+```
+
+- Run the application and navigate to the `/health` endpoint to see the health check results
+
+```sh
+dotnet run
+```
+
+- Open a browser and navigate to `http://localhost:1903/health`
+
+- You should see the response `Healthy`, `Degraded` or `Unhealthy`
+
+#### Lab 5.1 - Fasten your seatbelts, turbulance incoming - Committing Code Changes
+
+> [!Note]
+> You must complete the previous lab before continuing with this one
+
+- Create a new feature branch `feature/health-checks` from main in your terminal
+
+```sh
+git checkout -b feature/health-checks
+```
+
+- Open the Source Control tab in VS Code
+
+TODO: [Screenshot]
+
+- Click the `+` icon to stage all changes
+
+TODO: [Screenshot]
+
+- Click on the magic icon to generate a commit message
+
+TODO: [Screenshot]
+
+> [!Note]
+> The commit message is very genenic and does not provide much information. Best practice when using Git is to make keep your commits small and concise.
+
+- Click the `✓` icon to commit the changes
+
+TODO: [Screenshot]
+
+- Click the `Sync` button icon to push the changes
+
+TODO: [Screenshot]
+
+#### Lab 5.2 - ... - Automating GitHub Pull Requests
+
+> [!Note]
+> You must complete the previous lab before continuing with this one
+
+> [!Note]
+> Pull Requests in GitHub.com is not yet supported for everyone. The trainer can show this.
+
+- Go to your `GitHub.com` repository
+
+- Click on the `Pull requests` tab
+
+TODO: [Screenshot]
+
+- Click on the `New pull request` button
+
+TODO: [Screenshot]
+
+- Select the `main` branch as the base branch
+
+TODO: [Screenshot]
+
+- Select the `feature/health-checks` branch as the compare branch
+
+- Click the `Create pull request` button
+
+TODO: [Screenshot]
+
+- Click on the magic icon to generate a pull request description
+
+#### Lab 5.3 - Changing Altitude to mitigate turbulence - Adjust Pull Request
+
+> [!Note]
+> You must complete the previous lab before continuing with this one
+
+- Change HealthCheck code to be more stable
+
+```csharp
+// Add the following health check
+builder.Services.AddHealthChecks()
+    .AddCheck("CruisingAltitudeCheck", () =>
+    {
+        // Rest of the code
+
+        bool CheckSystemPerformance()
+        {
+
+            // Rest of the code
+
+            return randomNumber > 50; <----- Change this to 10
+        }
+
+        // Rest of the code
+    });
+```
+
+- Open the Source Control tab in VS Code
+
+TODO: [Screenshot]
+
+- Click the `+` icon to stage all changes
+
+TODO: [Screenshot]
+
+- Click on the magic icon to generate a commit message
+
+>![!Note]
+> The commit message is now very detailed, due to the small changes in the code. Best practice when using Git is to make keep your commits small and concise.
+
+TODO: [Screenshot]
+
+- Click the `✓` icon to commit the changes
+
+TODO: [Screenshot]
+
+- Click the `Sync` button icon to push the changes
+
+TODO: [Screenshot]
+
+- Go to your GitHub.com repository
+
+- Click on the `Pull requests` tab
+
+TODO: [Screenshot]
+
+- Click on the `feature/health-checks` pull request
+
+TODO: [Screenshot]
+
+- Click on the magic icon to update the pull request description
+- Or is it automatically updated???
+
+TODO: [Screenshot]
+
+### Optional
+
+#### Lab 5.4 - Smooth Flying in the Cloud - Automating GitHub Pipelines
 
 - Open the GitHub Copilot Chat extension
 
@@ -32,7 +245,7 @@ This lab exercise covers ...
 > [!Note]
 > With the @workspace agent, GitHub Copilot understand that the current workspace is a .NET application with a Test project in it.
 
-#### Lab 5.2 - Ground Control ?? Something in the Cloud  - Deploying to Azure
+#### Lab 5.5 - Ground Control ?? Something in the Cloud  - Deploying to Azure
 
 - Pre-requisite is a valid deploy.yaml
 
@@ -60,14 +273,15 @@ How about creating a Web App through Infrastructure as Code, using Bicep.
 
 - You can go on and on brainstorming with GitHub Copilot Chat to create a full CI/CD pipeline for your application.
 
+#### Lab 5.6 Infrastructure as Code
 
-### Optional
 
-#### Lab 5.3 - Add a Code Quality or Whatever step to the existing pipeline
 
-- CodeQL or SonarCloud or Roslyn Analyser
 
-#### More Pipeline best practices
+#### Lab 5.4 - Any other GitHub.com feature ??
+
+#### Lab 5.4 - DocSet??
+
 
 
 

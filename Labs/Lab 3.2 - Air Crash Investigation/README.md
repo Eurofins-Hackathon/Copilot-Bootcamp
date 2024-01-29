@@ -1,5 +1,6 @@
-# Turbulence in Code: Troubleshooting and Fine-Tuning
-This lab exercise covers ...
+# Air Crash Investigation:
+A reference to the [Air Crash Investigation](https://en.wikipedia.org/wiki/Mayday_(Canadian_TV_series)) TV show, where the investigators try to find the root cause of an airplane crash. In this module, we will simulate a few airplane crashes and use GitHub Copilot to troubleshoot and fix the issues.
+
 
 ## Prerequisites
 - The prerequisites steps are completed, see [Labs Prerequisites](https://github.com/XpiritBV/Copilot-Bootcamp#labs-prerequisites)
@@ -14,11 +15,6 @@ This lab exercise covers ...
 ### Required
 
 #### Lab 6.1 - Flight Crash Investigation - Fuel Depletion Scenario
-
-o	Simulate a plane taking off with a method named [HttpPost] PlaneTakeOff.
-o	Introduce a crash scenario due to fuel running out, resulting in a specific exception.
-o	Utilize the Terminal Magic icon to diagnose and understand the exception. Explore other Copilot techniques for troubleshooting.
-
 
 - Open `FlightController.cs` file
 
@@ -86,21 +82,19 @@ content-type: application/json
 
 - Now, let's debug it with GitHub Copilot
 
-- Navigate to the Terminal and right click the terminal. Select `Copilot: Explain this` from the context menu.
+- Navigate to the Terminal and select the content of the throw exception.
 
 TODO Screenshot
 
-- Copilot will explain the exception.
+- Right click the terminal and select `Copilot: Explain this` from the context menu.
 
-// TODO find out best way to debug this.
+TODO Screenshot
+
+> [!Note]
+> GitHub Copilot will explain the code in a human readable format.
 
 
-
-#### Lab 6.2 - Lightning Strikes, Unexpected Flight Crash - Engine Failure Simulation
-
-o	Create a simulation of an engine failure in the application.
-o	Handle the unexpected crash of the .NET application due to this simulated engine failure.
-o	Use Copilot to debug and resolve the issue, restoring application functionality.
+#### Lab 6.2 - Lightning Strikes, Unexpected Flight Crash - Stack Overflow Scenario
 
 - Open `FlightController.cs` file
 
@@ -133,21 +127,29 @@ content-type: application/json
 
 - Now, let's debug it with GitHub Copilot
 
-- Navigate to the Terminal and right click the terminal. Select `Copilot: Explain this` from the context menu.
+- Navigate to the Terminal and select the content of the throw exception.
 
-// TODO best way to troubleshoot this
+TODO Screenshot
 
+- Right click the terminal and select `Copilot: Explain this` from the context menu.
 
+TODO Screenshot
 
+> [!Note]
+> GitHub Copilot will explain the code in a human readable format.
 
-#### Lab 6.3 - Flight Plan Adjustments - Codebase Improvements
+- Move the conversation to the Copilot Chat extension window.
 
-o	Engage in a chat with Copilot to discuss potential improvements in the codebase or selected sections of code.
-o	Introduce a context file to instruct Copilot on what to do and not to do, possibly aligning with company guidelines.
-o	Gradually apply Copilot's suggestions to the code. Consider using a .copilotignore file to refine Copilot's focus.
-o	Keep code quality reference files open for guidance and comparison.
+TODO Screenshot
 
-// TODO: This is already done in the code refactoring project??
+- Now ask GitHub Copilot to fix the code.
+
+```sh
+@workspace how to fix this?
+```
+
+> [!Note]
+> GitHub Copilot will suggest how to handle recursion. Using @workspace in the question will make Github Copilot use more context to generate the suggestion.
 
 ### Optional
 
@@ -191,7 +193,7 @@ public class FlightsController : ControllerBase
     public static bool IsPrime(int number)
     {
         if (number <= 1) return false;
-        for (int i = 2; i < number; i++) // Inefficient check for prime numbers
+        for (int i = 2; i < number; i++)
         {
             if (number % i == 0) return false;
         }
@@ -207,13 +209,25 @@ POST http://localhost:1903/flights/1/calculateAerodynamics HTTP/1.1
 content-type: application/json
 ```
 
+Output example:
+```
+Found 25997 prime numbers.
+Elapsed Time: 4.863 seconds
+```
+
 - The application will calculate the prime numbers in more than 5 seconds.
 
 - Now, let's optimize it with GitHub Copilot
 
-- Select all the code for the `calculateAerodynamics` method and press `Ctrl + .` to open the light bulb menu. Select `Optimize performance` from the menu.
+- Open the Copilot Chat extension window.
 
-// TODO find out best way to optimize this
+- Select all the code for the `calculateAerodynamics` method.
+
+- Ask the following question in GitHub Copilot chat window:
+
+```
+Can you optimize the selected code?
+```
 
 - Copilot will optimize the code.
 
@@ -224,19 +238,17 @@ POST http://localhost:1903/flights/1/calculateAerodynamics HTTP/1.1
 content-type: application/json
 ```
 
-- The application will calculate the prime numbers in less than 1 second.
+Example output:
+```
+Found 25997 prime numbers.
+Elapsed Time: 0.02 seconds
+```
+
+- The application will calculate the prime numbers in less than 100 milliseconds.
 
 > [!Note]
 > GitHub Copilot has knowledge of many algorithmic optimizations and can help you optimize your code performance.
 
-
-#### Lab 6.5 - Mastering Copilot - 10,000 Flight Hours Principle
-
-
-o	Discuss the 10,000 Flight Hours concept as it applies to mastering Copilot.
-	Originally popularized by Malcolm Gladwell in his book "Outliers," posits that it takes roughly 10,000 hours of practice to achieve mastery in a field.
-	When applying this concept to mastering GitHub Copilot or any advanced software tool, it suggests that becoming proficient with Copilot involves substantial practice and experience.
-o	Provide pro tips, dos and don’ts, and best practices for using Copilot effectively.
 
 
 ### Congratulations you've made it to the end! &#9992;
