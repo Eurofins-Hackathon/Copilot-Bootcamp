@@ -8,7 +8,6 @@ public class FlightsController : ControllerBase
 
     private List<Flight> Flights = new List<Flight>
     {
-        // First ever flight of the Wright Brothers
         new Flight
         {
             Id = 1,
@@ -18,6 +17,8 @@ public class FlightsController : ControllerBase
             DepartureTime = new DateTime(1903, 12, 17, 10, 35, 0),
             ArrivalTime = new DateTime(1903, 12, 17, 10, 35, 0).AddMinutes(12),
             Status = FlightStatus.Scheduled,
+            FuelRange = 100,
+            FuelTankLeak = false,
             // Format: DDMMYY-DEP-ARR-FLIGHT
             // For this flight
             // 17th of December 1903
@@ -37,6 +38,8 @@ public class FlightsController : ControllerBase
             DepartureTime = new DateTime(1903, 12, 17, 10, 35, 0),
             ArrivalTime = new DateTime(1903, 12, 17, 10, 35, 0).AddMinutes(12),
             Status = FlightStatus.Scheduled,
+            FuelRange = 100,
+            FuelTankLeak = false,
             // Format: DDMMYY-DEP-ARR-FLIGHT
             // For this flight
             // 17th of December 1903
@@ -44,7 +47,29 @@ public class FlightsController : ControllerBase
             // Arrival at Manteo, NC
             // Flight number WB002
             FlightLogSignature = "171203-DEP-ARR-WB002"
-        }
+        },
+        // This is the first Wright Brothers flight that crahsed
+        new Flight
+        {
+            Id = 3,
+            FlightNumber = "WB003",
+            Origin = "Fort Myer, VA",
+            Destination = "Fort Myer, VA",
+            DepartureTime = new DateTime(1908, 9, 17, 10, 35, 0),
+            ArrivalTime = new DateTime(1908, 9, 17, 10, 35, 0).AddMinutes(12),
+            Status = FlightStatus.Scheduled,
+            FuelRange = 100,
+            // The cause of the crash was NOT a fuel tank leak, but we will pretend it was
+            FuelTankLeak = true,
+            // Format: DDMMYY-DEP-ARR-FLIGHT
+            // For this flight
+            // 17th of September 1908
+            // Departure from Fort Myer, VA
+            // Arrival at Fort Myer, VA
+            // Flight number WB003
+            FlightLogSignature = "170908-DEP-ARR-WB003"
+        },
+
     };
 
     public FlightsController(ILogger<FlightsController> logger)
@@ -143,5 +168,41 @@ public class FlightsController : ControllerBase
         {
             return NotFound("Flight not found.");
         }
+    }
+
+    [HttpPost("{id}/takeFlight/{flightLength}")]
+    public ActionResult takeFlight(int id, int flightLength)
+    {
+        var flight = Flights.Find(f => f.Id == id);
+
+        for (int i = 0; i < flightLength; i++)
+        {
+            if (flight.FuelRange == 0)
+            {
+                throw new Exception("Plane crashed, due to lack of fuel");
+            }
+            else
+            {
+                var fuelConsumption = 0;
+                if (flight.FuelTankLeak)
+                {
+                    fuelConsumption = 2;
+                }
+
+
+                flight.FuelRange -= fuelConsumption;
+            }
+        }
+
+        return Ok($"Flight took off and flew {flightLength} kilometers/miles.");
+    }
+
+    [HttpPost("{id}/lightningStrike")]
+    public ActionResult lightningStrike(int id)
+    {
+        // Lightning caused recursion on an inflight instrument
+        lightningStrike(id);
+
+        return Ok($"Recovers from lightning strike.");
     }
 }

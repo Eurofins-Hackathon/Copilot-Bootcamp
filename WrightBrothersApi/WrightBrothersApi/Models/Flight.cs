@@ -18,6 +18,9 @@ public class Flight
     public DateTime DepartureTime { get; set; }
     public DateTime ArrivalTime { get; set; }
     public FlightStatus Status { get; set; }
+    public int FuelRange { get; set; }
+
+    public bool FuelTankLeak { get; set; }
 
     // Format: DDMMYY-DEP-ARR-FLIGHT
     public string FlightLogSignature { get; set; }

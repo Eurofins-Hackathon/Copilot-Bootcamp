@@ -19,11 +19,125 @@ o	Simulate a plane taking off with a method named [HttpPost] PlaneTakeOff.
 o	Introduce a crash scenario due to fuel running out, resulting in a specific exception.
 o	Utilize the Terminal Magic icon to diagnose and understand the exception. Explore other Copilot techniques for troubleshooting.
 
-#### Lab 6.2 - Unexpected Flight Crash - Engine Failure Simulation
+
+- Open `FlightController.cs` file
+
+- Navigate to the `TakeFlight` method. Note that the method simulates a flight and throws an exception if the flight runs out of fuel.
+
+```csharp
+public class FlightsController : ControllerBase
+{
+    [HttpPost("{id}/takeFlight/{flightLength}")]
+    public ActionResult takeFlight(int id, int flightLength)
+    {
+        var flight = Flights.Find(f => f.Id == id);
+
+        for (int i = 0; i < flightLength; i++)
+        {
+            if (flight.FuelRange == 0)
+            {
+                throw new Exception("Plane crashed, due to lack of fuel");
+            }
+            else
+            {
+                var fuelConsumption = 1;
+                
+                if (flight.FuelTankLeak)
+                {
+                    fuelConsumption = 2;
+                }
+
+                flight.FuelRange -= fuelConsumption;
+            }
+        }
+
+        return Ok($"Flight took off and flew {flightLength} kilometers/miles.");
+    }
+}
+```
+
+- Now go to `Flights.http` file and execute the `takeFlight` request.
+
+```
+POST http://localhost:1903/flights/1/takeFlight/75 HTTP/1.1
+content-type: application/json
+```
+
+TODO [Screenshot] pointing to the POST request option in VSCode
+
+> [!Note]
+> You must have the `Rest Client` with identifier `humao.rest-client` extension installed in Visual Studio Code to execute the request. Rest Client is a very useful extension to quickly execute HTTP requests and commit them to Git.
+
+TODO: Add Rest client extension to the devcontainer
+
+- You will see that the flight is taking off and the response is `200 OK`.
+
+> [!Note]
+> The flight is taking off and the response is `200 OK`. The flight that is simulated did not run out of fuel.
+
+- Now execute the request again, but now for flight `3`.
+
+```
+POST http://localhost:1903/flights/3/takeFlight/75 HTTP/1.1
+content-type: application/json
+```
+
+- You will see that the flight is taking off and the response is `500 Internal Server Error`. The flight that is simulated ran out of fuel and crashed.
+
+- Now, let's debug it with GitHub Copilot
+
+- Navigate to the Terminal and right click the terminal. Select `Copilot: Explain this` from the context menu.
+
+TODO Screenshot
+
+- Copilot will explain the exception.
+
+// TODO find out best way to debug this.
+
+
+
+#### Lab 6.2 - Lightning Strikes, Unexpected Flight Crash - Engine Failure Simulation
 
 o	Create a simulation of an engine failure in the application.
 o	Handle the unexpected crash of the .NET application due to this simulated engine failure.
 o	Use Copilot to debug and resolve the issue, restoring application functionality.
+
+- Open `FlightController.cs` file
+
+- Navigate to the `lightningStrike` method. Note that the method simulates a lightning strike and causes recursion.
+
+```csharp
+public class FlightsController : ControllerBase
+{
+    // Rest of the FlightsController.cs file
+
+    [HttpPost("{id}/lightningStrike")]
+    public ActionResult lightningStrike(int id)
+    {
+        // Lightning caused recursion on an inflight instrument
+        lightningStrike(id);
+
+        return Ok($"Recovers from lightning strike.");
+    }
+}
+```
+
+- Now go to `Flights.http` file and execute the `lightningStrike` request.
+
+```
+POST http://localhost:1903/flights/1/lightningStrike HTTP/1.1
+content-type: application/json
+```
+
+- The application will crash.
+
+- Now, let's debug it with GitHub Copilot
+
+- Navigate to the Terminal and right click the terminal. Select `Copilot: Explain this` from the context menu.
+
+// TODO best way to troubleshoot this
+
+
 
 
 #### Lab 6.3 - Flight Plan Adjustments - Codebase Improvements
