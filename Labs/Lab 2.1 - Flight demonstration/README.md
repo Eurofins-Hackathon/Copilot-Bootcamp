@@ -48,7 +48,6 @@ There are two other Agents `@terminal` and `@vscode`. They are used to help navi
 - It will provide a corresponding setting or an action button to install extensions.
 
 
-
 Limitations:
 
 - Currently the `@workspace` command doesn't always give the correct answer. It also makes things up. This is a known issue and will be improved in the future. However, it does give a good idea of what is possible.

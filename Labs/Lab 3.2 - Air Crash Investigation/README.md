@@ -60,6 +60,7 @@ content-type: application/json
 ```
 
 TODO [Screenshot] pointing to the POST request option in VSCode
+![Image of TBD](/Images/placeholder-Small.png)
 
 > [!Note]
 > You must have the `Rest Client` with identifier `humao.rest-client` extension installed in Visual Studio Code to execute the request. Rest Client is a very useful extension to quickly execute HTTP requests and commit them to Git.

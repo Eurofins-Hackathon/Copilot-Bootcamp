@@ -110,14 +110,17 @@ git checkout -b feature/health-checks
 - Open the Source Control tab in VS Code
 
 TODO: [Screenshot]
+![Image of TBD](/Images/placeholder-Small.png)
 
 - Click the `+` icon to stage all changes
 
 TODO: [Screenshot]
+![Image of TBD](/Images/placeholder-Small.png)
 
 - Click on the magic icon to generate a commit message
 
 TODO: [Screenshot]
+![Image of TBD](/Images/placeholder-Small.png)
 
 > [!Note]
 > The commit message is very genenic and does not provide much information. Best practice when using Git is to make keep your commits small and concise.
@@ -125,10 +128,12 @@ TODO: [Screenshot]
 - Click the `✓` icon to commit the changes
 
 TODO: [Screenshot]
+![Image of TBD](/Images/placeholder-Small.png)
 
 - Click the `Sync` button icon to push the changes
 
 TODO: [Screenshot]
+![Image of TBD](/Images/placeholder-Small.png)
 
 #### Lab 5.2 - ... - Automating GitHub Pull Requests
 
@@ -143,20 +148,24 @@ TODO: [Screenshot]
 - Click on the `Pull requests` tab
 
 TODO: [Screenshot]
+![Image of TBD](/Images/placeholder-Small.png)
 
 - Click on the `New pull request` button
 
 TODO: [Screenshot]
+![Image of TBD](/Images/placeholder-Small.png)
 
 - Select the `main` branch as the base branch
 
 TODO: [Screenshot]
+![Image of TBD](/Images/placeholder-Small.png)
 
 - Select the `feature/health-checks` branch as the compare branch
 
 - Click the `Create pull request` button
 
 TODO: [Screenshot]
+![Image of TBD](/Images/placeholder-Small.png)
 
 - Click on the magic icon to generate a pull request description
 
@@ -189,10 +198,12 @@ builder.Services.AddHealthChecks()
 - Open the Source Control tab in VS Code
 
 TODO: [Screenshot]
+![Image of TBD](/Images/placeholder-Small.png)
 
 - Click the `+` icon to stage all changes
 
 TODO: [Screenshot]
+![Image of TBD](/Images/placeholder-Small.png)
 
 - Click on the magic icon to generate a commit message
 
@@ -200,29 +211,35 @@ TODO: [Screenshot]
 > The commit message is now very detailed, due to the small changes in the code. Best practice when using Git is to make keep your commits small and concise.
 
 TODO: [Screenshot]
+![Image of TBD](/Images/placeholder-Small.png)
 
 - Click the `✓` icon to commit the changes
 
 TODO: [Screenshot]
+![Image of TBD](/Images/placeholder-Small.png)
 
 - Click the `Sync` button icon to push the changes
 
 TODO: [Screenshot]
+![Image of TBD](/Images/placeholder-Small.png)
 
 - Go to your GitHub.com repository
 
 - Click on the `Pull requests` tab
 
 TODO: [Screenshot]
+![Image of TBD](/Images/placeholder-Small.png)
 
 - Click on the `feature/health-checks` pull request
 
 TODO: [Screenshot]
+![Image of TBD](/Images/placeholder-Small.png)
 
 - Click on the magic icon to update the pull request description
 - Or is it automatically updated???
 
 TODO: [Screenshot]
+![Image of TBD](/Images/placeholder-Small.png)
 
 ### Optional
 
@@ -241,6 +258,7 @@ TODO: [Screenshot]
 - Note the list of `Used References` in the chat suggestion
 
 [Screenshot] TODO:
+![Image of TBD](/Images/placeholder-Small.png)
 
 > [!Note]
 > With the @workspace agent, GitHub Copilot understand that the current workspace is a .NET application with a Test project in it.
