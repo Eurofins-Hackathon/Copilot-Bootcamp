@@ -14,7 +14,7 @@ This lab exercise covers ...
 
 ### Required
 
-#### Lab 3.1 Taxying to the Runway - Run existing unit tests
+### Lab 3.1 Taxying to the Runway - Run existing unit tests
 
 - Open GitHub Copilot Chat Extension
 
@@ -35,7 +35,7 @@ dotnet test
 
 - The tests should pass.
 
-#### Lab 3.2 Pre-takeoff Pilot Checks - Completing Unit Tests
+### Lab 3.2 Pre-takeoff Pilot Checks - Completing Unit Tests
 
 - Open GitHub Copilot Chat Extension
 
@@ -78,7 +78,7 @@ public class PlanesControllerTests
 
 ### Optional Labs
 
-#### Lab 3.3 Taking Off - Developing Robust Tests
+### Lab 3.3 Taking Off - Developing Robust Tests
 
 - Open `PlanesController.cs` file
 

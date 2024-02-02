@@ -11,10 +11,9 @@ This lab exercise covers ...
 - Recap of the day's learning, emphasizing the blend of AI assistance with human skills.
 - Discussion on the future of AI in programming and its evolving role in software development.
 
-
 #### This one does not need to pipeline from AutoPilot Mode, but it is a nice to have.
 
-#### Lab 5.0 - The aircraft alarm lights are blinking - Prepare code example
+### Lab 5.0 - The aircraft alarm lights are blinking - Prepare code example
 
 - Configure HealthChecks package in your application
 
@@ -96,7 +95,7 @@ dotnet run
 
 - You should see the response `Healthy`, `Degraded` or `Unhealthy`
 
-#### Lab 5.1 - Fasten your seatbelts, turbulance incoming - Committing Code Changes
+### Lab 5.1 - Fasten your seatbelts, turbulance incoming - Committing Code Changes
 
 > [!Note]
 > You must complete the previous lab before continuing with this one
@@ -135,7 +134,7 @@ TODO: [Screenshot]
 TODO: [Screenshot]
 ![Image of TBD](/Images/placeholder-Small.png)
 
-#### Lab 5.2 - ... - Automating GitHub Pull Requests
+### Lab 5.2 - Turn on Autopilot Mode - Automating GitHub Pull Requests
 
 > [!Note]
 > You must complete the previous lab before continuing with this one
@@ -169,7 +168,7 @@ TODO: [Screenshot]
 
 - Click on the magic icon to generate a pull request description
 
-#### Lab 5.3 - Changing Altitude to mitigate turbulence - Adjust Pull Request
+### Lab 5.3 - Changing Altitude to mitigate turbulence - Adjust Pull Request
 
 > [!Note]
 > You must complete the previous lab before continuing with this one
@@ -243,7 +242,7 @@ TODO: [Screenshot]
 
 ### Optional
 
-#### Lab 5.4 - Smooth Flying in the Cloud - Automating GitHub Pipelines
+### Lab 5.4 - Smooth Flying in the Cloud - Automating GitHub Pipelines
 
 - Open the GitHub Copilot Chat extension
 
@@ -263,9 +262,9 @@ TODO: [Screenshot]
 > [!Note]
 > With the @workspace agent, GitHub Copilot understand that the current workspace is a .NET application with a Test project in it.
 
-#### Lab 5.5 - Ground Control ?? Something in the Cloud  - Deploying to Azure
+### Lab 5.5 - Ground Control - Something in the Cloud  - Deploying to Azure
 
-- Pre-requisite is a valid deploy.yaml
+- Pre-requisite is a valid `deploy.yaml`
 
 - Continue the conversation with deploying it to Azure
 
@@ -291,16 +290,27 @@ How about creating a Web App through Infrastructure as Code, using Bicep.
 
 - You can go on and on brainstorming with GitHub Copilot Chat to create a full CI/CD pipeline for your application.
 
-#### Lab 5.6 Infrastructure as Code
+### Lab 5.6 Infrastructure as Code
+
+- Let's ask Copilot to build the resources in Azure using Bicep.
+
+- Open the GitHub Copilot Chat extension
+
+Type the following command
+
+```sh
+- @workspace Create all the required Infrastructure as Code files using Bicep to deploy application to Azure.
+```
 
 
 
+### Lab 5.4 - Any other GitHub.com feature ??
+- TBD?
+- GitHub Enterprise Features?
+    - PR Summaries?
 
-#### Lab 5.4 - Any other GitHub.com feature ??
-
-#### Lab 5.4 - DocSet??
-
-
+### Lab 5.4 - DocSet?
+## NOT IN SCOPE - Suggestions for the Trainer - Remove this section before publishing
 
 
 ### Congratulations you've made it to the end! &#9992;

@@ -14,7 +14,7 @@ A reference to the [Air Crash Investigation](https://en.wikipedia.org/wiki/Mayda
 
 ### Required
 
-#### Lab 6.1 - Flight Crash Investigation - Fuel Depletion Scenario
+### Lab 6.1 - Flight Crash Investigation - Fuel Depletion Scenario
 
 - Open `FlightController.cs` file
 
@@ -86,10 +86,12 @@ content-type: application/json
 - Navigate to the Terminal and select the content of the throw exception.
 
 TODO Screenshot
+![Image of TBD](/Images/placeholder-Small.png)
 
 - Right click the terminal and select `Copilot: Explain this` from the context menu.
 
 TODO Screenshot
+![Image of TBD](/Images/placeholder-Small.png)
 
 > [!Note]
 > GitHub Copilot will explain the code in a human readable format.
@@ -135,6 +137,7 @@ TODO Screenshot
 - Right click the terminal and select `Copilot: Explain this` from the context menu.
 
 TODO Screenshot
+![Image of TBD](/Images/placeholder-Small.png)
 
 > [!Note]
 > GitHub Copilot will explain the code in a human readable format.

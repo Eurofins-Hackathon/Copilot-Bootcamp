@@ -1,5 +1,4 @@
 # Flight demonstration: Basic Coding with Copilot Assistance
-This lab exercise covers ...
 
 ## Prerequisites
 - The prerequisites steps are completed, see [Labs Prerequisites](https://github.com/XpiritBV/Copilot-Bootcamp#labs-prerequisites)
@@ -8,12 +7,14 @@ This lab exercise covers ...
 - 30 min
 
 ## Objectives
-- Simple coding exercises using GitHub Copilot, focusing on understanding its suggestions and capabilities.
-- Pair programming: One 'pilot' codes, the other guides using Copilot's suggestions.
+- `Lab 3.1 Lay of the land` - Explain the Codebase with Copilot Chat: This section introduces the GitHub Copilot Chat Extension and its agents (@workspace, @terminal, and @vscode).
+- `Lab 3.2 Test Flight` - Autocompletion and Suggestions: This section demonstrates how GitHub Copilot can suggest code completions, such as missing REST API methods in a controller class.
+- `Lab 3.3 Test Flight Accelerate` - Comments to Code: This section shows how GitHub Copilot can generate code from comments.
+- `Lab 3.4 Testing your flying style` - Logging - It demonstrates how Copilot adapts to and replicates the user's coding style.
 
 ### Required Labs
 
-#### Lab 3.1 Lay of the land - Explain the Codebase with Copilot Chat
+### Lab 3.1 Lay of the land - Explain the Codebase with Copilot Chat
 
 - Open GitHub Copilot Chat Extension
 
@@ -50,11 +51,11 @@ There are two other Agents `@terminal` and `@vscode`. They are used to help navi
 
 Limitations:
 
-- Currently the `@workspace` command doesn't always give the correct answer. It also makes things up. This is a known issue and will be improved in the future. However, it does give a good idea of what is possible.
+[!Note]
+> Currently the `@workspace` command doesn't always give the correct answer. It also makes things up. This is a known issue and will be improved in the future. However, it does give a good idea of what is possible.
+> When asking follow-up questions, the @agent needs to be provided again. For example, if you ask `@workspace` a question and then ask another question, you need to type `@workspace` again.
 
-- When asking follow-up questions, the @agent needs to be provided again. For example, if you ask `@workspace` a question and then ask another question, you need to type `@workspace` again.
-
-#### Lab 3.2 Test Flight - Autocompletion and Suggestions
+### Lab 3.2 Test Flight - Autocompletion and Suggestions
 
 - Open GitHub Copilot Chat Extension
 
@@ -79,7 +80,7 @@ public class PlanesController : ControllerBase
         // Method body
     }
 
-    /* <---- Place your cursor here */ 
+    <---- Place your cursor here
 }
 ```
 
@@ -112,7 +113,7 @@ public IActionResult Delete(int id)
 // * Suggested by Copilot
 ```
 
-#### Lab 3.3 Test Flight Accelerate - Comments to Code
+### Lab 3.3 Test Flight Accelerate - Comments to Code
 
 - Open the `PlanesController.cs` file.
 
@@ -129,7 +130,7 @@ public class PlanesController : ControllerBase
         // Method body
     }
 
-    /* <---- Place your cursor here */ 
+    <---- Place your cursor here
     // Search planes by name
 }
 ```
@@ -148,9 +149,9 @@ public ActionResult<List<Plane>> SearchByName(string name)
 >The reason GitHub Copilot suggests the `[HttpGet("searchByName")]` method is because it understands that the comment is a description of the method. It also understands that the method is a GET method and that it has a parameter `name` of type `string`.
 
 
-### Optional Labs
+## Optional Labs
 
-#### Lab 3.4 Testing your flying style - Logging - Consistency
+### Lab 3.4 Testing your flying style - Logging - Consistency
 
 Adding the Logger Example. Present a code completion task for adding a logger with specific syntax (e.g., _logger). Use this to explain how Copilot adapts to and replicates your coding style.
 
