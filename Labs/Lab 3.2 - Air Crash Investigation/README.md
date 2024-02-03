@@ -1,7 +1,6 @@
 # Air Crash Investigation:
 A reference to the [Air Crash Investigation](https://en.wikipedia.org/wiki/Mayday_(Canadian_TV_series)) TV show, where the investigators try to find the root cause of an airplane crash. In this module, we will simulate a few airplane crashes and use GitHub Copilot to troubleshoot and fix the issues.
 
-
 ## Prerequisites
 - The prerequisites steps are completed, see [Labs Prerequisites](https://github.com/XpiritBV/Copilot-Bootcamp#labs-prerequisites)
 
@@ -12,13 +11,14 @@ A reference to the [Air Crash Investigation](https://en.wikipedia.org/wiki/Mayda
 - Understanding the limitations of GitHub Copilot and learning how to troubleshoot its suggestions.
 - Group challenge to fix a set of buggy codes using Copilot, highlighting the importance of human oversight.
 
-### Required
+### Step 1. Flight Crash Investigation - Fuel Depletion Scenario
 
-### Lab 6.1 - Flight Crash Investigation - Fuel Depletion Scenario
+- Open `FlightController.cs` file located in the `Controllers` folder.
 
-- Open `FlightController.cs` file
+- Navigate to the `TakeFlight` method.
 
-- Navigate to the `TakeFlight` method. Note that the method simulates a flight and throws an exception if the flight runs out of fuel.
+> [!Note]
+> The method simulates a flight and throws an exception if the flight runs out of fuel.
 
 ```csharp
 public class FlightsController : ControllerBase
@@ -52,7 +52,7 @@ public class FlightsController : ControllerBase
 }
 ```
 
-- Now go to `Flights.http` file and execute the `takeFlight` request.
+- Now go to `Flights.http` file, located in the `Examples` folder, and execute the `takeFlight` request.
 
 ```
 POST http://localhost:1903/flights/1/takeFlight/75 HTTP/1.1
@@ -83,25 +83,30 @@ content-type: application/json
 
 - Now, let's debug it with GitHub Copilot
 
-- Navigate to the Terminal and select the content of the throw exception.
+- Navigate to the `Terminal` and select the content of the throw exception.
 
 TODO Screenshot
+
 <img src="/Images/placeholderSmall.png" width="800">
 
 - Right click the terminal and select `Copilot: Explain this` from the context menu.
 
 TODO Screenshot
+
 <img src="/Images/placeholderSmall.png" width="800">
 
 > [!Note]
 > GitHub Copilot will explain the code in a human readable format.
 
 
-#### Lab 6.2 - Lightning Strikes, Unexpected Flight Crash - Stack Overflow Scenario
+#### Step 2. Lightning Strikes, Unexpected Flight Crash - Stack Overflow Scenario
 
-- Open `FlightController.cs` file
+- Open `FlightController.cs` file located in the `Controllers` folder.
 
-- Navigate to the `lightningStrike` method. Note that the method simulates a lightning strike and causes recursion.
+- Navigate to the `lightningStrike` method.
+
+> [!Note]
+> The method simulates a lightning strike and causes recursion.
 
 ```csharp
 public class FlightsController : ControllerBase
@@ -119,24 +124,27 @@ public class FlightsController : ControllerBase
 }
 ```
 
-- Now go to `Flights.http` file and execute the `lightningStrike` request.
+- Go to the `Flights.http` file, located in the `Examples` folder, and execute the `lightningStrike` request.
 
-```
-POST http://localhost:1903/flights/1/lightningStrike HTTP/1.1
-content-type: application/json
-```
+    ```
+    POST http://localhost:1903/flights/1/lightningStrike HTTP/1.1
+    content-type: application/json
+    ```
 
 - The application will crash.
 
 - Now, let's debug it with GitHub Copilot
 
-- Navigate to the Terminal and select the content of the throw exception.
+- Navigate to the `Terminal` and select the content of the throw exception.
 
 TODO Screenshot
+
+<img src="/Images/placeholderSmall.png" width="800">
 
 - Right click the terminal and select `Copilot: Explain this` from the context menu.
 
 TODO Screenshot
+
 <img src="/Images/placeholderSmall.png" width="800">
 
 > [!Note]
@@ -146,78 +154,83 @@ TODO Screenshot
 
 TODO Screenshot
 
+<img src="/Images/placeholderSmall.png" width="800">
+
 - Now ask GitHub Copilot to fix the code.
 
-```sh
-@workspace how to fix this?
-```
+    ```sh
+    @workspace how to fix this?
+    ```
 
 > [!Note]
-> GitHub Copilot will suggest how to handle recursion. Using @workspace in the question will make Github Copilot use more context to generate the suggestion.
+> GitHub Copilot will suggest how to handle recursion. Using @workspace with the question will make Github Copilot use more context to generate the suggestion.
 
 ### Optional
 
-#### Lab 6.4 - Aerodynamics of an Airplane - Performance Optimization
+#### Step 3. Aerodynamics of an Airplane - Performance Optimization
 
-- Open `FlightController.cs` file
+- Open `FlightController.cs` file located in the `Controllers` folder.
 
-- Navigate to the `calculateAerodynamics` method. Note that the method is calculating prime numbers.
+- Navigate to the `calculateAerodynamics` method.
 
-```csharp
-public class FlightsController : ControllerBase
-{
-    [HttpPost("{id}/calculateAerodynamics")]
-    public ActionResult calculateAerodynamics(int id)
+> [!Note]
+> The method is calculating prime numbers.
+
+    ```csharp
+    public class FlightsController : ControllerBase
     {
-        Stopwatch stopwatch = new Stopwatch();
-        stopwatch.Start();
-
-        List<int> primes = CalculatePrimes(2, 300000); // Adjust the range to ensure the operation takes about 10 seconds
-
-        stopwatch.Stop();
-        Console.WriteLine($"Found {primes.Count} prime numbers.");
-        Console.WriteLine($"Elapsed Time: {stopwatch.ElapsedMilliseconds / 1000.0} seconds");
-
-        return Ok($"Calculated aerodynamics.");
-    }
-
-    public static List<int> CalculatePrimes(int start, int end)
-    {
-        List<int> primes = new List<int>();
-        for (int number = start; number <= end; number++)
+        [HttpPost("{id}/calculateAerodynamics")]
+        public ActionResult calculateAerodynamics(int id)
         {
-            if (IsPrime(number))
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
+            List<int> primes = CalculatePrimes(2, 300000); // Adjust the range to ensure the operation takes about 10 seconds
+
+            stopwatch.Stop();
+            Console.WriteLine($"Found {primes.Count} prime numbers.");
+            Console.WriteLine($"Elapsed Time: {stopwatch.ElapsedMilliseconds / 1000.0} seconds");
+
+            return Ok($"Calculated aerodynamics.");
+        }
+
+        public static List<int> CalculatePrimes(int start, int end)
+        {
+            List<int> primes = new List<int>();
+            for (int number = start; number <= end; number++)
             {
-                primes.Add(number);
+                if (IsPrime(number))
+                {
+                    primes.Add(number);
+                }
             }
+            return primes;
         }
-        return primes;
-    }
 
-    public static bool IsPrime(int number)
-    {
-        if (number <= 1) return false;
-        for (int i = 2; i < number; i++)
+        public static bool IsPrime(int number)
         {
-            if (number % i == 0) return false;
+            if (number <= 1) return false;
+            for (int i = 2; i < number; i++)
+            {
+                if (number % i == 0) return false;
+            }
+            return true;
         }
-        return true;
     }
-}
-```
+    ```
 
-- Now go to `Flights.http` file and execute the `calculateAerodynamics` request.
+- Now go to `Flights.http` file, located in the `Examples` folder, and execute the `calculateAerodynamics` request.
 
-```
-POST http://localhost:1903/flights/1/calculateAerodynamics HTTP/1.1
-content-type: application/json
-```
+    ```
+    POST http://localhost:1903/flights/1/calculateAerodynamics HTTP/1.1
+    content-type: application/json
+    ```
 
 Output example:
-```
-Found 25997 prime numbers.
-Elapsed Time: 4.863 seconds
-```
+    ```
+    Found 25997 prime numbers.
+    Elapsed Time: 4.863 seconds
+    ```
 
 - The application will calculate the prime numbers in more than 5 seconds.
 
@@ -229,30 +242,29 @@ Elapsed Time: 4.863 seconds
 
 - Ask the following question in GitHub Copilot chat window:
 
-```
-Can you optimize the selected code?
-```
+    ```
+    Can you optimize the selected code?
+    ```
 
 - Copilot will optimize the code.
 
-- Now go to `Flights.http` file and execute the `calculateAerodynamics` request again.
+- Now go to `Flights.http` file, located in the `Examples` folder, and execute the `calculateAerodynamics` request again.
 
-```
-POST http://localhost:1903/flights/1/calculateAerodynamics HTTP/1.1
-content-type: application/json
-```
+    ```
+    POST http://localhost:1903/flights/1/calculateAerodynamics HTTP/1.1
+    content-type: application/json
+    ```
 
 Example output:
-```
-Found 25997 prime numbers.
-Elapsed Time: 0.02 seconds
-```
+    ```
+    Found 25997 prime numbers.
+    Elapsed Time: 0.02 seconds
+    ```
 
 - The application will calculate the prime numbers in less than 100 milliseconds.
 
 > [!Note]
 > GitHub Copilot has knowledge of many algorithmic optimizations and can help you optimize your code performance.
-
 
 
 ### Congratulations you've made it to the end! &#9992; &#9992; &#9992;
