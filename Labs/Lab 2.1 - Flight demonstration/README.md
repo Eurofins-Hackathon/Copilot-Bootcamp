@@ -7,10 +7,7 @@
 - 30 min
 
 ## Objectives
-- `Step 1` - Explain the Codebase with Copilot Chat: This section introduces the GitHub Copilot Chat Extension and its agents (@workspace, @terminal, and @vscode).
-- `Step 2` - Autocompletion and Suggestions: This section demonstrates how GitHub Copilot can suggest code completions, such as missing REST API methods in a controller class.
-- `Step 3` - Comments to Code: This section shows how GitHub Copilot can generate code from comments.
-- `Step 4` - Logging - It demonstrates how Copilot adapts to and replicates the user's coding style.
+This section introduces the GitHub Copilot Chat Extension along with its agents (@workspace, @terminal, and @vscode), demonstrating the extension's ability to suggest code completions, such as filling in missing REST API methods in a controller class. It also shows how GitHub Copilot can generate code directly from comments, highlighting the tool's capacity to adapt to and replicate the user's coding style, thereby streamlining the development process and enhancing productivity.
 
 ### Step 1: Lay of the land - Explain the Codebase with Copilot Chat
 
