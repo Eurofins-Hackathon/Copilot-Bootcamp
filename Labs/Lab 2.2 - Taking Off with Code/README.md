@@ -109,7 +109,8 @@ public class PlanesControllerTests
 
 
 > [!CAUTION]
-> Thijs! This might need to be "search" instead of "searchByName"
+> Thijs! This might need to be "search" instead of "searchByName".
+
 > Thijs! This might need to be GetByName instead of searchByName.
 
     ````csharp

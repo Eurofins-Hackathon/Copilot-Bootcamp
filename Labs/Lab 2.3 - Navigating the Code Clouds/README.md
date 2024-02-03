@@ -184,6 +184,9 @@ TODO:  [Screenshot] - Accept
 
 - Let's go ahead and add the suggested `Parse` method to the `FlightsController.cs` class. 
 
+> [!CAUTION]
+> Thijs, the follow steps aren't working. Need to run through this.
+
 - Open `FlightsController.cs` file.
 
 - Place your cursor at the end of the file, after the `}` of the `UpdateFlightStatus` method.
@@ -228,20 +231,20 @@ TODO:  [Screenshot] - Accept
 
 ~~- Now add the suggested `FlightLogSignature` model to the codebase. In the Copilot Chat extension window, press the button to create a new file based on the suggestion.~~
 
-```csharp
-public class FlightsController : ControllerBase
-{
-    /* Rest of the methods */
-
-    [HttpPut("{id}")]
-    public ActionResult<Flight> UpdateFlightStatus(int id, Flight flight)
+    ```csharp
+    public class FlightsController : ControllerBase
     {
-        // method body
-    }
+        /* Rest of the methods */
 
-    <---- Place your cursor here
-}
-```
+        [HttpPut("{id}")]
+        public ActionResult<Flight> UpdateFlightStatus(int id, Flight flight)
+        {
+            // method body
+        }
+
+        <---- Place your cursor here
+    }
+    ```
 
 TODO: Add a Screenshot here! - Create new file in the Copilot Chat extension
 ![Image of TBD](/Images/placeholder-Small.png)
@@ -262,23 +265,24 @@ TODO: Add a Screenshot here! - Create new file in the Copilot Chat extension
 
 - Start by adding the `AerobaticSequence` property to the `Flight.cs` file.
 
-```csharp
-public class Flight
-{
-    
-    // Other properties
-    //
-    // ...
-    // 
-    // Encodes a series of aerobatic maneuvers
-    // L = Loop, H = Hammerhead, R = Roll, S = Spin, T = Tailslide
-    // Number represents repeat count, 
-    // Letter represents difficulty (A-E)
-    // Example 1: L4B-H2C-R3A-S1D-T2E
-    // Example 2: L1A-H1B-R1C-S1D-T1E
-    public string AerobaticSequence { get; set; }
-}
-```
+    ```csharp
+    public class Flight
+    {
+        
+        // Other properties
+        //
+        // ...
+        // 
+        // Encodes a series of aerobatic maneuvers
+        // L = Loop, H = Hammerhead, R = Roll, S = Spin, T = Tailslide
+        // Number represents repeat count, 
+        // Letter represents difficulty (A-E)
+        // Example 1: L4B-H2C-R3A-S1D-T2E
+        // Example 2: L1A-H1B-R1C-S1D-T1E
+        public string AerobaticSequence { get; set; }
+    }
+
+    ```
 
 > [!Note]
 > Note that the `AerobaticSequence` is a fictional property that is used to demonstrate the capabilities of GitHub Copilot. It is not a real aviation concept.
@@ -300,9 +304,7 @@ How do I parse the selected AerobaticSequence string into a c# model using a reg
 
 > Copilot Chat: "To parse the AerobaticSequence string into a C# model using a regex expression, you can create a model class AerobaticManeuver and a parser class AerobaticSequenceParser."
 
-```csharp
-
-#### Lab 4.6 - Flight Plan Adjustments - Codebase Improvements
+#### Step 6: - Flight Plan Adjustments - Codebase Improvements
 
 > [!CAUTION]
 > Do we want to add any more?  Remove this?.
