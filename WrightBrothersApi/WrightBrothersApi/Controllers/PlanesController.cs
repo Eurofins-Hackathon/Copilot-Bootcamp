@@ -67,10 +67,8 @@ namespace WrightBrothersApi.Controllers
         public ActionResult<List<Plane>> GetByName([FromQuery] string name)
         {
             _logger.LogInformation($"GET ✈✈✈ {name} ✈✈✈");
-            
-            name = name.Trim(); // Remove leading and trailing spaces
 
-            var planes = Planes.FindAll(p => p.Name.Contains(name, StringComparison.OrdinalIgnoreCase));
+            var planes = Planes.FindAll(p => p.Name.Contains(name));
 
             if (planes == null)
             {
@@ -79,21 +77,6 @@ namespace WrightBrothersApi.Controllers
 
             return Ok(planes);
         }
-
-        // [HttpGet("searchByName")]
-        // public ActionResult<List<Plane>> searchByName([FromQuery] string name)
-        // {
-        //     _logger.LogInformation($"GET ✈✈✈ {name} ✈✈✈");
-
-        //     var planes = Planes.FindAll(p => p.Name.Contains(name));
-
-        //     if (planes == null)
-        //     {
-        //         return NotFound();
-        //     }
-
-        //     return Ok(planes);
-        // }
 
         [HttpPost]
         public ActionResult<Plane> Post(Plane plane)
@@ -138,6 +121,6 @@ namespace WrightBrothersApi.Controllers
             return NoContent();
         }
 
-        
+
     }
 }

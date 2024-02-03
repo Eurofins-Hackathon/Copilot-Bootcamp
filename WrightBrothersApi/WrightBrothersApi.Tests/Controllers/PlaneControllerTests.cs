@@ -50,28 +50,5 @@ namespace WrightBrothersApi.Tests.Controllers
             returnedPlane.Should().BeEquivalentTo(newPlane);
         }
 
-        [Fact]
-        public void GetById_ReturnsCorrectPlane()
-        {
-            // Arrange
-            var id = 1;
-
-            // Act
-            var result = _planesController.GetById(id);
-
-            // Assert
-            Assert.NotNull(result);
-            Assert.NotNull(result.Value);
-            result.Value.Id.Should().Be(id);
-        }
-
-    // Search term    | Amount of results | Description
-    // Wright Plane 1 | 1                 | Specific search
-    // Wright Plane   | 3                 | General search
-    // wright plane   | 3                 | Case insensitive
-    //  Wright  Plane | 3                 | Extra spaces
-
-
-
     }
 }

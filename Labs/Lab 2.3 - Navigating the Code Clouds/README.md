@@ -11,15 +11,13 @@ This lab exercise explores GitHub Copilot's advanced features, guiding participa
 - Exploring advanced features and capabilities of GitHub Copilot.
 - Participants tackle more complex coding exercises with Copilot, focusing on AI's role in problem-solving and code optimization.
 
-### Required
-
 ### Step 1: - The Complete Wright Brothers Fleet
 
 - Open the `Plane.cs` file located in the `Models` folder.
 
 - Add a `ImageUrl` property to the model.
 
-- Type 'public string ImageUrl { get; set; }' in the `Plane.cs` file.
+- Type `public string ImageUrl { get; set; }` in the `Plane.cs` file.
 
 ```csharp
 public class Plane
@@ -39,23 +37,24 @@ public class Plane
 
 - Select all content of the `Planes` List.
 
-- Right click and choose for the option `Copilot` -> `Inline Chat`.
+    ![Image of TBD](/Images/Screenshot123719.png)
+
+- Right click and select the option `Copilot` -> `Start Inline Chat`.
 
 - Type the following command
 
-```
-Add the new ImageUrl property and complete the Wright Brothers Fleet
-```
+    ```
+    Add the new ImageUrl property and complete the Wright Brothers Fleet
+    ```
 
-TODO: Add a Screenshot here! - Select List and do inline chat and type in the command
-![Image of TBD](/Images/placeholder-Small.png)
+    ![Image of TBD](/Images/Screenshot124031.png)
 
 - Accept the suggestion by selecting `Accept` or pressing `Enter`.
 
-> [!Note]
-> Copilot just demonstrated that it can do more than one thing at a time. It added the new property and filled in the list of planes.
+>[!Note]
+> GitHub Copilot can do more than one thing at a time. It added the new property and filled in the list of planes.
 
-### Lab 4.2 - Flight Logbook - Logging Your Coding Journey
+### Step 2: - Flight Logbook - Logging Your Coding Journey
 
 - Open the `PlanesController.cs` file.
 
@@ -74,14 +73,14 @@ TODO:  [Screenshot] - Accept
 > [!Note]
 > GitHub Copilot used the `/docs` agent to generate the documentation for the entire file in a matter of seconds.
 
-### Lab 4.3 - Flying in Formation - Pair Programming with Copilot
+### Step 3: - Flying in Formation - Pair Programming with Copilot
 
-- Open the `FlightsController.cs` file.
+- Open the `FlightsController.cs` file located in the `Controllers` folder.
 
 - Navigate to the `UpdateFlightStatus` method.
 
 > [!Note]
-> Note that the `UpdateFlightStatus` method has a high code complexity rating.
+> Note that the `UpdateFlightStatus` method has a high code complexity rating of 8.
 
 - Select all the content of the `UpdateFlightStatus` method.
 
@@ -89,12 +88,14 @@ TODO:  [Screenshot] - Accept
 
 - Ask the following question:
 
-```
-Refactor the selected code to make it more readable and maintainable.
-```
+    ```
+    Refactor the selected code to make it more readable and maintainable.
+    ```
 
 > [!Note]
 > GitHub Copilot Chat understands `the selected code`. It will use the selected code in your editor to generate the refactoring suggestions.
+
+> Copilot Chat: "The current code is a bit lengthy and has a lot of conditional statements. We can refactor it by extracting the validation logic into separate methods. This will make the code more readable and maintainable. Here's how we can do it:"
 
 > [!Note]
 > To make it more readable and maintainable, Copilot will suggest to extract the code into a separate method, appying the Single Responsibility Principle of the SOLID principles.
@@ -104,83 +105,128 @@ Refactor the selected code to make it more readable and maintainable.
 
 ## Optional
 
-### Lab 4.4 - Parsing Flight Show - String parsing
+### Step 4: - Parsing Flight Show - String parsing
 
 - Open the `FlightController.cs` file.
 
 - Go to the List of Flights:
 
-```csharp
-public class FlightsController : ControllerBase
-{
-    private List<Flight> Flights = new List<Flight>
+    ```csharp
+    public class FlightsController : ControllerBase
     {
-        new Flight
+        private List<Flight> Flights = new List<Flight>
         {
-            // Other Properties
-            // ...
-            // Format: DDMMYY-DEP-ARR-FLIGHT
-            // For this flight
-            // 17th of December 1903
-            // Departure from Kitty Hawk, NC
-            // Arrival at Manteo, NC
-            // Flight number WB001
-            FlightLogSignature = "171203-DEP-ARR-WB001"
+            new Flight
+            {
+                // Other Properties
+                // ...
+                // Format: DDMMYY-DEP-ARR-FLIGHT
+                // For this flight
+                // 17th of December 1903
+                // Departure from Kitty Hawk, NC
+                // Arrival at Manteo, NC
+                // Flight number WB001
+                FlightLogSignature = "171203-DEP-ARR-WB001"
 
-        },
-        // Second flight
-    };
-}
+            },
+            // Second flight
+        };
+    }
 
-
-```
+    ```
 
 > [!Note]
 > Note that the `FlightLogSignature` is a fictional property that is used to demonstrate the capabilities of GitHub Copilot. It is not a real aviation concept.
 
 - Select all the content of the `FlightLogSignature` property and its description.
 
+    ![Image of TBD](/Images/Screenshot125047.png)
+
 - Open the Copilot Chat extension and ask the following question:
 
-```
-How to parse the selected FlightLogSignature string into a c# model
-```
-- Copilot will suggest `FlightLogSignature` class and a `Parse` method:
+    ```
+    Create separate files to parse the selected FlightLogSignature string into a c# model?
+    ```
 
-```csharp
-public class FlightLogSignature
-{
-    public DateTime Date { get; set; }
-    public string Departure { get; set; }
-    public string Arrival { get; set; }
-    public string FlightNumber { get; set; }
-}
-```
+- Copilot will suggest a new `Log` class and a `Parse` method:
 
-```csharp
-public static FlightLogSignature Parse(string flightLogSignature)
-{
-    // method body
-}
-```
+> [!Note]
+> Copilot Chat: "You can create a model class FlightLog with properties for each part of the FlightLogSignature string. Then, you can create a method that splits the string and assigns each part to the corresponding property. Here's an example:"
+
+    ```csharp
+    public class FlightLog
+    {
+        public DateTime Date { get; set; }
+        public string Departure { get; set; }
+        public string Arrival { get; set; }
+        public string FlightNumber { get; set; }
+    }
+    ```
+
+- A method that splits the string and assigns each part to the corresponding property.
+
+    ```csharp
+    public FlightLog Parse(string flightLogSignature)
+    {
+        // method body
+    }
+    ```
+
+- Here is how to use this class:
+
+    ```csharp
+    var flightLog = FlightLog.Parse("171203-DEP-ARR-WB001");
+    ```
 
 > [!Note]
 > GitHub Copilot is very good at understanding the context of the code. It understands that the `FlightLogSignature` is a string in a specific format and that it can be parsed into a `FlightLogSignature` model, to make the code more readable and maintainable.
 
 
-- Now add the suggested `Parse` method to the `FlightsController.cs` class. 
+- Let's go ahead and add the suggested `Parse` method to the `FlightsController.cs` class. 
 
 - Open `FlightsController.cs` file.
 
 - Place your cursor at the end of the file, after the `}` of the `UpdateFlightStatus` method.
 
-TODO: Add a Screenshot here! - Insert code at cursor
-![Image of TBD](/Images/placeholder-Small.png)
+    ```csharp
+    [HttpPost("{id}/status")]
+    public ActionResult UpdateFlightStatus(int id, FlightStatus newStatus)
+    {
+        // method body
+    }
+
+    <---- Place your cursor here
+
+    ```
+
+- In the Copilot Chat extension window, press the button to insert the suggested `Parse` method at the cursor.
+
+    ![Image of TBD](/Images/placeholdersmall.png)
+
+- Most likley, Copilot Chat inserted both the `Log` class and `Parse` method in the `FlightsController.cs` file. Let's move the `Log` class to a separate file.
+
+- Select the entire `Log` class and press `Ctrl-X` to cut it to the clipboard.
+.
+    ```csharp
+    public class FlightLog
+    {
+        public DateTime Date { get; set; }
+        public string Departure { get; set; }
+        public string Arrival { get; set; }
+        public string FlightNumber { get; set; }
+    }
+    ```
+
+- Click on `File Explorer` in the left pane of Visual Studio Code. Right-click on the `Models` folder and choose `New File`. Name the file `FlightLog.cs` and press `Enter`.
+- Open the `FlightLog.cs` file and paste the `Log` class into it.
+- Press `Ctrl-S` to save the file.
+
+    ![Image of TBD](/Images/placeholder-small.png)
 
 > [!Note]
 > GitHub Copilot has many quick actions that can be used to speed up the development process. In this case, it pasted the suggested code on the cursor in the editor. 
 
-- Now add the suggested `FlightLogSignature` model to the codebase. In the Copilot Chat extension window, press the button to create a new file based on the suggestion.
+~~- Now add the suggested `FlightLogSignature` model to the codebase. In the Copilot Chat extension window, press the button to create a new file based on the suggestion.~~
 
 ```csharp
 public class FlightsController : ControllerBase
