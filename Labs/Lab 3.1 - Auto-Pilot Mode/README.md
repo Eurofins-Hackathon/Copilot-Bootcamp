@@ -186,6 +186,8 @@ TODO: Add a Screenshot here!
 TODO: Add a Screenshot here!
     ![Image of TBD](/Images/Screenshot160132.png)
 
+<img src="/Images/Screenshot160132.png" width="800">
+
 - Click `Create pull request` to create the pull request.
 
 > [!IMPORTANT]  
