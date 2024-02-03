@@ -226,7 +226,8 @@ TODO Screenshot
     content-type: application/json
     ```
 
-Output example:
+Example output:
+
     ```
     Found 25997 prime numbers.
     Elapsed Time: 4.863 seconds
@@ -256,6 +257,7 @@ Output example:
     ```
 
 Example output:
+
     ```
     Found 25997 prime numbers.
     Elapsed Time: 0.02 seconds
