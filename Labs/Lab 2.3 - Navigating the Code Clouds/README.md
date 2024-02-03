@@ -256,7 +256,7 @@ TODO: Add a Screenshot here! - Create new file in the Copilot Chat extension
 > GitHub Copilot has many quick actions that can be used to speed up the development process. In this case, it added the `Parse` method to the `FlightsController.cs` class.
 
 
-#### Lab 4.5 - Regex Aerobatics Show - Regular Expressions
+#### Step 5: - Regex Aerobatics Show - Regular Expressions
 
 - Open the `Flight.cs` file.
 
@@ -283,14 +283,14 @@ public class Flight
 > [!Note]
 > Note that the `AerobaticSequence` is a fictional property that is used to demonstrate the capabilities of GitHub Copilot. It is not a real aviation concept.
 
-- Open the `Flight.cs` file.
-
 - Select all the content of the `AerobaticSequence` property and its description.
+
+    ![Image of TBD](/Images/Screenshot134718.png)
 
 - Open the Copilot Chat extension and ask the following question:
 
 ```
-How to parse the selected AerobaticSequence string into a c# model using a regex expression
+How do I parse the selected AerobaticSequence string into a c# model using a regex expression?
 ```
 
 - Copilot will suggest `AerobaticSequence` class and a `Parse` method.
@@ -298,9 +298,14 @@ How to parse the selected AerobaticSequence string into a c# model using a regex
 > [!Note]
 > GitHub Copilot is very good at understanding the context of the code. It understands that the `AerobaticSequence` is a string in a specific format and that it can be parsed using a Regex expression.
 
+> Copilot Chat: "To parse the AerobaticSequence string into a C# model using a regex expression, you can create a model class AerobaticManeuver and a parser class AerobaticSequenceParser."
+
+```csharp
+
 #### Lab 4.6 - Flight Plan Adjustments - Codebase Improvements
 
-TODO: Maybe Remove this???
+> [!CAUTION]
+> Do we want to add any more?  Remove this?.
 
 - Engage in a chat with Copilot to discuss potential improvements in the codebase or selected sections of code.
 - Introduce a context file to instruct Copilot on what to do and not to do, possibly aligning with company guidelines.

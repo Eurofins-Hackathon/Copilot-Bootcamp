@@ -108,9 +108,9 @@ public class PlanesControllerTests
 - Make sure to add the `searchByName` method to the `PlanesController.cs` file if you haven't already in the previous lab.
 
 
-TODO!!!  This might need to be "search" instead of "searchByName"
-
-TODO!!! This might need to be GetByName instead of searchByName.
+> [!CAUTION]
+> This might need to be "search" instead of "searchByName"
+> This might need to be GetByName instead of searchByName.
 
     ````csharp
     public class PlanesController : ControllerBase
@@ -196,12 +196,9 @@ public void SearchByName_WithValidPlane_ReturnsOk(string searchTerm, int expecte
         var result = _planesController.GetByName(searchTerm);
     ```
 
-TODO!!! ***************************
-
-This needs to be Fixed.
-If result.Value is null, it means that the GetById method is not working as expected. It's possible that the Planes list in the PlanesController class is not properly initialized when the test is run, or the GetById method is not correctly finding the plane with the specified id.
-
-TODO!!! ***************************
+> [!CAUTION]
+> TODO! Thijs! This needs to be Fixed.
+> If result.Value is null, it means that the GetById method is not working as expected. It's possible that the Planes list in the PlanesController class is not properly initialized when the test is run, or the GetById method is not correctly finding the plane with the specified id.
 
 
 - Let's run the unit tests in the terminal to make sure everything is working as expected.
