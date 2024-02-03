@@ -31,7 +31,7 @@ By default, Codespaces are created from an Ubuntu Linux image that includes a se
 - Locate the `Code` tab near the top menu. Next to Codespaces, click the "..." and choose "New with options".
 
 TODO: Add a Screenshot here!
-![Image of TBD](/Images/placeholder-Small.png)
+<img src="/Images/placeholderSmall.png" width="800">
 
 - Keep the defaults, but change the machine type to "4-core" and click "Create Codespace".
 
@@ -46,7 +46,7 @@ Now that we have a Codespace, we need to make it our own and configure your Code
 - After installation, stay on the extensions page, and click the "cog" (:gear:) icon. Choose "Add to devcontainer.json".
 
 TODO: Add a Screenshot here!
-![Image of TBD](/Images/placeholder-Small.png)
+<img src="/Images/placeholderSmall.png" width="800">
 
 - GitHub Copilot Chat
 - GitHub Actions

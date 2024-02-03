@@ -60,7 +60,7 @@ content-type: application/json
 ```
 
 TODO [Screenshot] pointing to the POST request option in VSCode
-![Image of TBD](/Images/placeholder-Small.png)
+<img src="/Images/placeholderSmall.png" width="800">
 
 > [!Note]
 > You must have the `Rest Client` with identifier `humao.rest-client` extension installed in Visual Studio Code to execute the request. Rest Client is a very useful extension to quickly execute HTTP requests and commit them to Git.
@@ -86,12 +86,12 @@ content-type: application/json
 - Navigate to the Terminal and select the content of the throw exception.
 
 TODO Screenshot
-![Image of TBD](/Images/placeholder-Small.png)
+<img src="/Images/placeholderSmall.png" width="800">
 
 - Right click the terminal and select `Copilot: Explain this` from the context menu.
 
 TODO Screenshot
-![Image of TBD](/Images/placeholder-Small.png)
+<img src="/Images/placeholderSmall.png" width="800">
 
 > [!Note]
 > GitHub Copilot will explain the code in a human readable format.
@@ -137,7 +137,7 @@ TODO Screenshot
 - Right click the terminal and select `Copilot: Explain this` from the context menu.
 
 TODO Screenshot
-![Image of TBD](/Images/placeholder-Small.png)
+<img src="/Images/placeholderSmall.png" width="800">
 
 > [!Note]
 > GitHub Copilot will explain the code in a human readable format.

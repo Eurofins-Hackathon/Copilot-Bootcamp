@@ -37,7 +37,7 @@ public class Plane
 
 - Select all content of the `Planes` List.
 
-    ![Image of TBD](/Images/Screenshot123719.png)
+<img src="/Images/Screenshot123719.png" width="800">
 
 - Right click and select the option `Copilot` -> `Start Inline Chat`.
 
@@ -47,7 +47,7 @@ public class Plane
     Add the new ImageUrl property and complete the Wright Brothers Fleet
     ```
 
-    ![Image of TBD](/Images/Screenshot124031.png)
+<img src="/Images/Screenshot124031.png" width="800">
 
 - Accept the suggestion by selecting `Accept` or pressing `Enter`.
 
@@ -63,12 +63,15 @@ public class Plane
 - Right click and choose for the option `Copilot` -> `Generate Docs`.
 
 TODO:  [Screenshot] - Select all - Right click - Generate Docs
-![Image of TBD](/Images/placeholder-Small.png)
+
+<img src="/Images/placeholderSmall.png" width="800">
 
 - Accept the suggestion by selecting `Accept`.
 
 TODO:  [Screenshot] - Accept
-![Image of TBD](/Images/placeholder-Small.png)
+<img src="/Images/placeholderSmall.png" width="800">
+<img src="/Images/placeholderSmall.png" width="800">
+
 
 > [!Note]
 > GitHub Copilot used the `/docs` agent to generate the documentation for the entire file in a matter of seconds.
@@ -204,7 +207,7 @@ TODO:  [Screenshot] - Accept
 
 - In the Copilot Chat extension window, press the button to insert the suggested `Parse` method at the cursor.
 
-    ![Image of TBD](/Images/placeholdersmall.png)
+    <img src="/Images/placeholderSmall.png" width="800">
 
 - Most likley, Copilot Chat inserted both the `Log` class and `Parse` method in the `FlightsController.cs` file. Let's move the `Log` class to a separate file.
 
@@ -224,7 +227,7 @@ TODO:  [Screenshot] - Accept
 - Open the `FlightLog.cs` file and paste the `Log` class into it.
 - Press `Ctrl-S` to save the file.
 
-    ![Image of TBD](/Images/placeholder-small.png)
+    <img src="/Images/placeholderSmall.png" width="800">
 
 > [!Note]
 > GitHub Copilot has many quick actions that can be used to speed up the development process. In this case, it pasted the suggested code on the cursor in the editor. 
@@ -247,12 +250,12 @@ TODO:  [Screenshot] - Accept
     ```
 
 TODO: Add a Screenshot here! - Create new file in the Copilot Chat extension
-![Image of TBD](/Images/placeholder-Small.png)
+<img src="/Images/placeholderSmall.png" width="800">
 
 - In the Copilot Chat extension window, press the button to add the method to the `FlightsController.cs` class.
 
 [Screenshot] - Add method to the `FlightsController.cs` class in the Copilot Chat extension.
-![Image of TBD](/Images/placeholder-Small.png)
+<img src="/Images/placeholderSmall.png" width="800">
 
 
 > [!Note]

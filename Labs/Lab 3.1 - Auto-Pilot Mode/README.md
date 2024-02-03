@@ -131,31 +131,26 @@ git checkout -b feature/health-checks
 
 - Open the Source Control tab in VS Code
 
-TODO: Add a Screenshot here!
-![Image of TBD](/Images/placeholder-Small.png)
+<img src="/Images/placeholderSmall.png" width="800">
 
 - In the `Changes` area, lick the `+` icon to `Stage all changes`
 
-TODO: Add a Screenshot here!
-    ![Image of TBD](/Images/Screenshot144605.png)
+<img src="/Images/Screenshot144605.png" width="800">
 
 - Click on the magic icon to generate a commit message
 
-TODO: Add a Screenshot here!
-    ![Image of TBD](/Images/Screenshot144729.png)
+<img src="/Images/Screenshot144729.png" width="800">
 
 > [!Note]
 > The commit message is very generic and does not provide much information. Best practice when using Git is to keep your commits small and concise.
 
 - Click the `✓ Commit` button to commit the changes.
 
-
 ~~- Click the `Sync` button icon to push the changes~~
 
 - Click the `Publish branch` button to push the changes.
 
-TODO: Add a Screenshot here!
-    ![Image of TBD](/Images/Screenshot145014.png)
+<img src="/Images/Screenshot145014.png" width="800">
 
 ### Step 3: - Turn on Autopilot Mode - Automating GitHub Pull Requests
 
@@ -174,17 +169,13 @@ TODO: Add a Screenshot here!
 - Select the `main` branch for the base branch.
 - Select the `feature/health-checks` branch as the compare branch
 
-TODO: Add a Screenshot here!
-    ![Image of TBD](/Images/Screenshot145342.png)
+<img src="/Images/Screenshot145342.png" width="800">
 
 - Click the `Create pull request` button
 
 - Click on the `Copilot` icon, select `Summary` to generate a summary of changes in this pull request.
 
 - Click `Preview` to see the summary.
-
-TODO: Add a Screenshot here!
-    ![Image of TBD](/Images/Screenshot160132.png)
 
 <img src="/Images/Screenshot160132.png" width="800">
 
@@ -222,12 +213,12 @@ builder.Services.AddHealthChecks()
 - Open the Source Control tab in VS Code
 
 TODO: Add a Screenshot here!
-![Image of TBD](/Images/placeholder-Small.png)
+<img src="/Images/placeholderSmall.png" width="800">
 
 - Click the `+` icon to stage all changes
 
 TODO: Add a Screenshot here!
-![Image of TBD](/Images/placeholder-Small.png)
+<img src="/Images/placeholderSmall.png" width="800">
 
 - Click on the magic icon to generate a commit message
 
@@ -235,35 +226,35 @@ TODO: Add a Screenshot here!
 > The commit message is now very detailed, due to the small changes in the code. Best practice when using Git is to make keep your commits small and concise.
 
 TODO: Add a Screenshot here!
-![Image of TBD](/Images/placeholder-Small.png)
+<img src="/Images/placeholderSmall.png" width="800">
 
 - Click the `✓` icon to commit the changes
 
 TODO: Add a Screenshot here!
-![Image of TBD](/Images/placeholder-Small.png)
+<img src="/Images/placeholderSmall.png" width="800">
 
 - Click the `Sync` button icon to push the changes
 
 TODO: Add a Screenshot here!
-![Image of TBD](/Images/placeholder-Small.png)
+<img src="/Images/placeholderSmall.png" width="800">
 
 - Go to your GitHub.com repository
 
 - Click on the `Pull requests` tab
 
 TODO: Add a Screenshot here!
-![Image of TBD](/Images/placeholder-Small.png)
+<img src="/Images/placeholderSmall.png" width="800">
 
 - Click on the `feature/health-checks` pull request
 
 TODO: Add a Screenshot here!
-![Image of TBD](/Images/placeholder-Small.png)
+<img src="/Images/placeholderSmall.png" width="800">
 
 - Click on the magic icon to update the pull request description
 - Or is it automatically updated???
 
 TODO: Add a Screenshot here!
-![Image of TBD](/Images/placeholder-Small.png)
+<img src="/Images/placeholderSmall.png" width="800">
 
 ### Optional
 
@@ -282,7 +273,7 @@ TODO: Add a Screenshot here!
 - Note the list of `Used References` in the chat suggestion
 
 [Screenshot] TODO:
-![Image of TBD](/Images/placeholder-Small.png)
+<img src="/Images/placeholderSmall.png" width="800">
 
 > [!Note]
 > With the @workspace agent, GitHub Copilot understand that the current workspace is a .NET application with a Test project in it.
