@@ -306,9 +306,6 @@ How do I parse the selected AerobaticSequence string into a c# model using a reg
 
 #### Step 6: - Flight Plan Adjustments - Codebase Improvements
 
-> [!CAUTION]
-> Do we want to add any more?  Remove this?.
-
 - Engage in a chat with Copilot to discuss potential improvements in the codebase or selected sections of code.
 - Introduce a context file to instruct Copilot on what to do and not to do, possibly aligning with company guidelines.
 - Gradually apply Copilot's suggestions to the code. Consider using a .copilotignore file to refine Copilot's focus.

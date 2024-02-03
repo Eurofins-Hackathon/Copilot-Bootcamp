@@ -13,68 +13,88 @@ This lab exercise covers ...
 
 #### This one does not need to pipeline from AutoPilot Mode, but it is a nice to have.
 
-### Lab 5.0 - The aircraft alarm lights are blinking - Prepare code example
+### Step 1: - The aircraft alarm lights are blinking - Prepare code example
 
 - Configure HealthChecks package in your application
 
-```sh
-cd WrightBrothersApi/
-dotnet add package Microsoft.Extensions.Diagnostics.HealthChecks 
-```
+    ```sh
+    cd WrightBrothersApi/
+    dotnet add package Microsoft.Extensions.Diagnostics.HealthChecks 
+    ```
 
 - Open `Program.cs`
 
-- Add HealthChecks through the `builder` method
+- Add the using statement for `Microsoft.Extensions.Diagnostics.HealthChecks` to top of file.
 
-```csharp
-// Add the following health check
-using Microsoft.Extensions.Diagnostics.HealthChecks;
+    ```csharp
+    using Microsoft.Extensions.Diagnostics.HealthChecks;
+    ```
 
-var builder = WebApplication.CreateBuilder(args);
+- Add HealthChecks through the `builder` method.
 
-// Add the following health check
-builder.Services.AddHealthChecks()
-    .AddCheck("CruisingAltitudeCheck", () =>
-    {
-        bool atCruisingAltitude = CheckSystemPerformance(); 
+    ```csharp
+    var builder = WebApplication.CreateBuilder(args);
 
-        if (atCruisingAltitude)
+    // Add healthcheck services to the container.
 
+    <---- Place your cursor here
+    ```
+
+- Add the following health check code to the `Program.cs` file
+
+    ```csharp
+
+    builder.Services.AddHealthChecks()
+        .AddCheck("CruisingAltitudeCheck", () =>
         {
-            return HealthCheckResult.Healthy("The application is cruising smoothly at optimal altitude.");
-        }
-        else
-        {
-            bool minorIssue = CheckIfMinorIssue();
+            bool atCruisingAltitude = CheckSystemPerformance(); 
 
-            return minorIssue ?
-                HealthCheckResult.Degraded("The application is experiencing turbulence but remains stable.") :
-                HealthCheckResult.Unhealthy("The application is facing a system failure and needs immediate attention.");
-        }
+            if (atCruisingAltitude)
 
-        bool CheckSystemPerformance()
-        {
-            // Simulate a check to determine if the application is "at cruising altitude"
-            // For the sake of this example, we'll just return a random value
-            Random random = new Random();
-            int randomNumber = random.Next(1, 100);
+            {
+                return HealthCheckResult.Healthy("The application is cruising smoothly at optimal altitude.");
+            }
+            else
+            {
+                bool minorIssue = CheckIfMinorIssue();
 
-            return randomNumber > 10;
-        }
+                return minorIssue ?
+                    HealthCheckResult.Degraded("The application is experiencing turbulence but remains stable.") :
+                    HealthCheckResult.Unhealthy("The application is facing a system failure and needs immediate attention.");
+            }
 
-        bool CheckIfMinorIssue()
-        {
-            // Simulate a check to determine if the application is "at cruising altitude"
-            // For the sake of this example, we'll just return a random value
-            Random random = new Random();
-            int randomNumber = random.Next(1, 100);
+            bool CheckSystemPerformance()
+            {
+                // Simulate a check to determine if the application is "at cruising altitude"
+                // For the sake of this example, we'll just return a random value
+                Random random = new Random();
+                int randomNumber = random.Next(1, 100);
 
-            return randomNumber > 50;
-        }
-    });
-```
+                return randomNumber > 10;
+            }
+
+            bool CheckIfMinorIssue()
+            {
+                // Simulate a check to determine if the application is "at cruising altitude"
+                // For the sake of this example, we'll just return a random value
+                Random random = new Random();
+                int randomNumber = random.Next(1, 100);
+
+                return randomNumber > 50;
+            }
+        });
+    ```
 
 - Add the following code below the `var app = builder.Build();` line
+
+    ```csharp
+    // Rest of the Program.cs file
+
+    var app = builder.Build();
+
+    // Add the following code to map the health checks to an endpoint
+    <---- Place your cursor here
+    ```
 
 ```csharp
 // Rest of the Program.cs file
@@ -85,6 +105,7 @@ var app = builder.Build();
 app.MapHealthChecks("/health");
 ```
 
+- Open a terminal and navigate to the `WrightBrothersApi` folder
 - Run the application and navigate to the `/health` endpoint to see the health check results
 
 ```sh
@@ -95,7 +116,9 @@ dotnet run
 
 - You should see the response `Healthy`, `Degraded` or `Unhealthy`
 
-### Lab 5.1 - Fasten your seatbelts, turbulance incoming - Committing Code Changes
+- Stop the application by pressing `Ctrl + C` in the terminal
+
+### Step 2: - Fasten your seatbelts, turbulance incoming - Committing Code Changes
 
 > [!Note]
 > You must complete the previous lab before continuing with this one
@@ -111,62 +134,62 @@ git checkout -b feature/health-checks
 TODO: Add a Screenshot here!
 ![Image of TBD](/Images/placeholder-Small.png)
 
-- Click the `+` icon to stage all changes
+- In the `Changes` area, lick the `+` icon to `Stage all changes`
 
 TODO: Add a Screenshot here!
-![Image of TBD](/Images/placeholder-Small.png)
+    ![Image of TBD](/Images/Screenshot144605.png)
 
 - Click on the magic icon to generate a commit message
 
 TODO: Add a Screenshot here!
-![Image of TBD](/Images/placeholder-Small.png)
+    ![Image of TBD](/Images/Screenshot144729.png)
 
 > [!Note]
-> The commit message is very genenic and does not provide much information. Best practice when using Git is to make keep your commits small and concise.
+> The commit message is very generic and does not provide much information. Best practice when using Git is to keep your commits small and concise.
 
-- Click the `✓` icon to commit the changes
+- Click the `✓ Commit` button to commit the changes.
+
+
+~~- Click the `Sync` button icon to push the changes~~
+
+- Click the `Publish branch` button to push the changes.
 
 TODO: Add a Screenshot here!
-![Image of TBD](/Images/placeholder-Small.png)
+    ![Image of TBD](/Images/Screenshot145014.png)
 
-- Click the `Sync` button icon to push the changes
-
-TODO: Add a Screenshot here!
-![Image of TBD](/Images/placeholder-Small.png)
-
-### Lab 5.2 - Turn on Autopilot Mode - Automating GitHub Pull Requests
+### Step 3: - Turn on Autopilot Mode - Automating GitHub Pull Requests
 
 > [!Note]
 > You must complete the previous lab before continuing with this one
 
 > [!Note]
-> Pull Requests in GitHub.com is not yet supported for everyone. The trainer can show this.
+> Pull Request summaries in the GitHub.com portal is not yet supported for everyone. The trainer will demo this.
 
-- Go to your `GitHub.com` repository
+- Go to your `GitHub.com` repository.
 
-- Click on the `Pull requests` tab
-
-TODO: Add a Screenshot here!
-![Image of TBD](/Images/placeholder-Small.png)
+- Click on the `Pull requests` tab.
 
 - Click on the `New pull request` button
 
-TODO: Add a Screenshot here!
-![Image of TBD](/Images/placeholder-Small.png)
-
-- Select the `main` branch as the base branch
-
-TODO: Add a Screenshot here!
-![Image of TBD](/Images/placeholder-Small.png)
-
+- Select the `main` branch for the base branch.
 - Select the `feature/health-checks` branch as the compare branch
+
+TODO: Add a Screenshot here!
+    ![Image of TBD](/Images/Screenshot145342.png)
 
 - Click the `Create pull request` button
 
-TODO: Add a Screenshot here!
-![Image of TBD](/Images/placeholder-Small.png)
+- Click on the `Copilot` icon, select `Summary` to generate a summary of changes in this pull request.
 
-- Click on the magic icon to generate a pull request description
+- Click `Preview` to see the summary.
+
+TODO: Add a Screenshot here!
+    ![Image of TBD](/Images/Screenshot160132.png)
+
+- Click `Create pull request` to create the pull request.
+
+> [!IMPORTANT]  
+> Copilot Enterprise Feature only! In order to use the Pull Request Summaries  feature you need a Copilot Enterprise License and have this feature enabled in your GitHub account.
 
 ### Lab 5.3 - Changing Altitude to mitigate turbulence - Adjust Pull Request
 
@@ -310,7 +333,9 @@ Type the following command
     - PR Summaries?
 
 ### Lab 5.4 - DocSet?
-## NOT IN SCOPE - Suggestions for the Trainer - Remove this section before publishing
+
+> [!Caution]
+> NOT IN SCOPE - Suggestions for the Trainer - Remove this section before publishing
 
 
 ### Congratulations you've made it to the end! &#9992; &#9992; &#9992;
