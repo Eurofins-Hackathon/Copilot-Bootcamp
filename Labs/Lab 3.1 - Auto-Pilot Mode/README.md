@@ -11,8 +11,6 @@ This lab exercise integrates GitHub Copilot to demonstrate its application in so
 - Recap of the day's learning, emphasizing the blend of AI assistance with human skills.
 - Discussion on the future of AI in programming and its evolving role in software development.
 
-#### This one does not need to pipeline from AutoPilot Mode, but it is a nice to have.
-
 ### Step 1. The aircraft alarm lights are blinking - Prepare code example
 
 - Configure HealthChecks package in your application
@@ -180,6 +178,8 @@ git checkout -b feature/health-checks
 
 - Click on the `Copilot` icon, select `Summary` to generate a summary of changes in this pull request.
 
+<img src="/Images/Screenshot171550.png.png" width="800">
+
 - Click `Preview` to see the summary.
 
 <img src="/Images/Screenshot160132.png" width="800">
@@ -187,7 +187,7 @@ git checkout -b feature/health-checks
 - Click `Create pull request` to create the pull request.
 
 > [!IMPORTANT]  
-> Copilot Enterprise Feature only! In order to use the Pull Request Summaries  feature you need a Copilot Enterprise License and have this feature enabled in your GitHub account.
+> This is a `Copilot Enterprise` feature only! In order to use the Pull Request Summaries feature you need a Copilot Enterprise License and have this feature enabled in your GitHub account.
 
 ### Step 4. Changing Altitude to mitigate turbulence - Adjust Pull Request
 
