@@ -109,8 +109,8 @@ public class PlanesControllerTests
 
 
 > [!CAUTION]
-> This might need to be "search" instead of "searchByName"
-> This might need to be GetByName instead of searchByName.
+> Thijs! This might need to be "search" instead of "searchByName"
+> Thijs! This might need to be GetByName instead of searchByName.
 
     ````csharp
     public class PlanesController : ControllerBase
@@ -197,9 +197,7 @@ public void SearchByName_WithValidPlane_ReturnsOk(string searchTerm, int expecte
     ```
 
 > [!CAUTION]
-> TODO! Thijs! This needs to be Fixed.
-> If result.Value is null, it means that the GetById method is not working as expected. It's possible that the Planes list in the PlanesController class is not properly initialized when the test is run, or the GetById method is not correctly finding the plane with the specified id.
-
+> Thijs! This needs to be Fixed. If result.Value is null, it means that the GetById method is not working as expected. It's possible that the Planes list in the PlanesController class is not properly initialized when the test is run, or the GetById method is not correctly finding the plane with the specified id.
 
 - Let's run the unit tests in the terminal to make sure everything is working as expected.
 
