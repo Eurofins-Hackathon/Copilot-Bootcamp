@@ -16,6 +16,7 @@ This lab exercise integrates GitHub Copilot to demonstrate its application in so
 ### Step 1: - The aircraft alarm lights are blinking - Prepare code example
 
 - Configure HealthChecks package in your application
+- Open a terminal and navigate to the `WrightBrothersApi` folder.
 
     ```sh
     cd WrightBrothersApi/
@@ -96,23 +97,27 @@ This lab exercise integrates GitHub Copilot to demonstrate its application in so
     <---- Place your cursor here
     ```
 
-```csharp
-// Rest of the Program.cs file
+    ```csharp
+    // Rest of the Program.cs file
 
-var app = builder.Build();
+    var app = builder.Build();
 
-// Add the following code to map the health checks to an endpoint
-app.MapHealthChecks("/health");
-```
+    // Add the following code to map the health checks to an endpoint
+    app.MapHealthChecks("/health");
+    ```
 
 - Open a terminal and navigate to the `WrightBrothersApi` folder
-- Run the application and navigate to the `/health` endpoint to see the health check results
+- Run the application
 
-```sh
-dotnet run
-```
+    ```sh
+    dotnet run
+    ```
 
 - Open a browser and navigate to `http://localhost:1903/health`
+
+    ```sh
+    http://localhost:1903/health
+    ```
 
 - You should see the response `Healthy`, `Degraded` or `Unhealthy`
 
@@ -120,8 +125,8 @@ dotnet run
 
 ### Step 2: - Fasten your seatbelts, turbulance incoming - Committing Code Changes
 
-> [!Note]
-> You must complete the previous lab before continuing with this one
+> [!WARNING]  
+> You must complete the previous lab before continuing.
 
 - Create a new feature branch `feature/health-checks` from main in your terminal
 
@@ -133,13 +138,13 @@ git checkout -b feature/health-checks
 
 <img src="/Images/placeholderSmall.png" width="800">
 
-- In the `Changes` area, lick the `+` icon to `Stage all changes`
+- In the `Changes` area, click the `+` icon to `Stage all changes`
 
-<img src="/Images/Screenshot144605.png" width="800">
+<img src="/Images/Screenshot144605.png" width="500">
 
 - Click on the magic icon to generate a commit message
 
-<img src="/Images/Screenshot144729.png" width="800">
+<img src="/Images/Screenshot144729.png" width="500">
 
 > [!Note]
 > The commit message is very generic and does not provide much information. Best practice when using Git is to keep your commits small and concise.
@@ -150,12 +155,12 @@ git checkout -b feature/health-checks
 
 - Click the `Publish branch` button to push the changes.
 
-<img src="/Images/Screenshot145014.png" width="800">
+<img src="/Images/Screenshot145014.png" width="500">
 
 ### Step 3: - Turn on Autopilot Mode - Automating GitHub Pull Requests
 
-> [!Note]
-> You must complete the previous lab before continuing with this one
+> [!WARNING]  
+> You must complete the previous lab before continuing.
 
 > [!Note]
 > Pull Request summaries in the GitHub.com portal is not yet supported for everyone. The trainer will demo this.
@@ -169,7 +174,7 @@ git checkout -b feature/health-checks
 - Select the `main` branch for the base branch.
 - Select the `feature/health-checks` branch as the compare branch
 
-<img src="/Images/Screenshot145342.png" width="800">
+<img src="/Images/Screenshot145342.png" width="500">
 
 - Click the `Create pull request` button
 
@@ -184,10 +189,10 @@ git checkout -b feature/health-checks
 > [!IMPORTANT]  
 > Copilot Enterprise Feature only! In order to use the Pull Request Summaries  feature you need a Copilot Enterprise License and have this feature enabled in your GitHub account.
 
-### Lab 5.3 - Changing Altitude to mitigate turbulence - Adjust Pull Request
+### Step 4: - Changing Altitude to mitigate turbulence - Adjust Pull Request
 
-> [!Note]
-> You must complete the previous lab before continuing with this one
+> [!WARNING]  
+> You must complete the previous lab before continuing.
 
 - Change HealthCheck code to be more stable
 
@@ -212,97 +217,120 @@ builder.Services.AddHealthChecks()
 
 - Open the Source Control tab in VS Code
 
-TODO: Add a Screenshot here!
+- Open the Source Control tab in VS Code
+
 <img src="/Images/placeholderSmall.png" width="800">
 
-- Click the `+` icon to stage all changes
+- In the `Changes` area, click the `+` icon to `Stage all changes`
 
-TODO: Add a Screenshot here!
-<img src="/Images/placeholderSmall.png" width="800">
+<img src="/Images/Screenshot144605.png" width="500">
 
 - Click on the magic icon to generate a commit message
+
+<img src="/Images/Screenshot144729.png" width="500">
 
 >![!Note]
 > The commit message is now very detailed, due to the small changes in the code. Best practice when using Git is to make keep your commits small and concise.
 
-TODO: Add a Screenshot here!
-<img src="/Images/placeholderSmall.png" width="800">
+- Click the `✓ Commit` button to commit the changes.
 
-- Click the `✓` icon to commit the changes
+~~- Click the `Sync` button icon to push the changes~~
 
-TODO: Add a Screenshot here!
-<img src="/Images/placeholderSmall.png" width="800">
+- Click the `Publish branch` button to push the changes.
 
-- Click the `Sync` button icon to push the changes
+<img src="/Images/Screenshot145014.png" width="500">
 
-TODO: Add a Screenshot here!
-<img src="/Images/placeholderSmall.png" width="800">
-
-- Go to your GitHub.com repository
+- Go to your `GitHub.com` repository
 
 - Click on the `Pull requests` tab
 
 TODO: Add a Screenshot here!
+
 <img src="/Images/placeholderSmall.png" width="800">
 
 - Click on the `feature/health-checks` pull request
 
 TODO: Add a Screenshot here!
+
 <img src="/Images/placeholderSmall.png" width="800">
 
-- Click on the magic icon to update the pull request description
-- Or is it automatically updated???
+- Click on the `Copilot` icon, select `Summary` to generate a summary of changes in this pull request.
+
+- Click `Preview` to see the summary.
 
 TODO: Add a Screenshot here!
+
 <img src="/Images/placeholderSmall.png" width="800">
+
+- Click `Create pull request` to create the pull request.
 
 ### Optional
 
-### Lab 5.4 - Smooth Flying in the Cloud - Automating GitHub Pipelines
+### Step 5: - Smooth Flying in the Cloud - Automating GitHub Pipelines
+A build pipeline automates your software's build, test, and deployment processes, ensuring consistent and error-free releases while saving time and improving code quality. It streamlines development, enables quick feedback, and supports efficient version management.  Let's begin by
+automating CI/CD pipelines for deployment to Azure.
 
 - Open the GitHub Copilot Chat extension
 
 - Type the following command
 
-```
-@workspace create a build pipeline for the application
-```
+    ```
+    @workspace create a build pipeline for the application
+    ```
 
 - GitHub Copilot Chat will suggest creating a GitHub Pipeline for the application. It also includes a build step and a test step.
 
 - Note the list of `Used References` in the chat suggestion
 
-[Screenshot] TODO:
+> [!Note]
+> Copilot Chat, "To create a build pipeline for your application, you can use GitHub Actions. Here's a basic example of a .NET Core build pipeline:"
+
+TODO: Add a Screenshot here!
+
 <img src="/Images/placeholderSmall.png" width="800">
 
 > [!Note]
 > With the @workspace agent, GitHub Copilot understand that the current workspace is a .NET application with a Test project in it.
 
-### Lab 5.5 - Ground Control - Something in the Cloud  - Deploying to Azure
+### Step 6: - Ground Control - Something in the Cloud  - Deploying to Azure
+Deploying your application to Azure facilitates scalable, secure, and efficient hosting, leveraging Microsoft's cloud infrastructure. This allows for easy scaling, robust disaster recovery, and global reach, enhancing your app's performance and accessibility while minimizing maintenance efforts and costs.
 
-- Pre-requisite is a valid `deploy.yaml`
+> [!WARNING]  
+> You must complete the previous lab before continuing.
+
+- Pre-requisite is a valid `*.yaml` build pipeline from previous step.
 
 - Continue the conversation with deploying it to Azure
 
-```
-How about deploying it to Azure?
-```
+    ```
+    @workspace create a deploy pipeline deploying the application to Azure
+    ```
 
 - GitHub Copilot Chat will suggest adding a deploy step to the pipeline, which is a Azure Web App deployment.
 
+> [!Note]
+> Copilot Chat, "To create a deployment pipeline for your application to Azure, you can use GitHub Actions. Here's a basic example of a .NET Core deployment pipeline:"
+
 - Continue the conversation with hosting a Web App in Azure
 
-```
-How about hosting a Web App in Azure?
-```
+    ```
+    How about hosting a Web App in Azure?
+    ```
 
-- It will give step by step instructions to create a Web App in Azure
+- Copilot will give step by step instructions to create a Web App in Azure.
+    - Hosting a Web App in Azure involves several steps:
+        - Create a Web App in Azure
+        - Deploy your application
+        - Configure your application
+        - Monitor your application
 
 - Contintue the conversation with creating a Web App through Infrastructure as Code
 
-```
-How about creating a Web App through Infrastructure as Code, using Bicep.
-```
+    ```
+    @workspace create the Infrastructure as Code using Bicep that I need for a Web App in Azure
+    ```
+
+- Copilot will give components need to create a Web App in Azure. The script creates a free tier App Service Plan and a Web App within it.
 
 - You can go on and on brainstorming with GitHub Copilot Chat to create a full CI/CD pipeline for your application.
 
