@@ -178,7 +178,7 @@ git checkout -b feature/health-checks
 
 - Click on the `Copilot` icon, select `Summary` to generate a summary of changes in this pull request.
 
-<img src="/Images/Screenshot171550.png.png" width="800">
+<img src="/Images/Screenshot171550.png" width="800">
 
 - Click `Preview` to see the summary.
 
