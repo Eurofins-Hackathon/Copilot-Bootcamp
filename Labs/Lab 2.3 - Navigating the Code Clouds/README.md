@@ -1,5 +1,5 @@
 # Navigating the Code Clouds: Advanced Features of GitHub Copilot 
-This lab exercise covers ... // TODO: Add summary here
+This lab exercise explores GitHub Copilot's advanced features, guiding participants through complex coding tasks to enhance problem-solving and code optimization skills. The session, estimated at 30 minutes, includes adding new properties to models, generating documentation, refactoring code for better maintainability, and parsing complex strings into models using Copilot's AI capabilities. Optional labs further demonstrate Copilot's versatility in understanding context and applying regular expressions for parsing. Through interactive tasks, participants learn to leverage Copilot for more efficient coding practices.
 
 ## Prerequisites
 - The prerequisites steps are completed, see [Labs Prerequisites](https://github.com/XpiritBV/Copilot-Bootcamp#labs-prerequisites)
@@ -13,9 +13,9 @@ This lab exercise covers ... // TODO: Add summary here
 
 ### Required
 
-### Lab 4.1 - The Complete Wright Brothers Fleet
+### Step 1: - The Complete Wright Brothers Fleet
 
-- Open the `Plane.cs` file.
+- Open the `Plane.cs` file located in the `Models` folder.
 
 - Add a `ImageUrl` property to the model.
 
