@@ -69,7 +69,11 @@ namespace WrightBrothersApi.Controllers
         [HttpGet("search")]
         public ActionResult<List<Plane>> GetByName([FromQuery] string name)
         {
-            var planes = Planes.FindAll(p => p.Name.Contains(name));
+            _logger.LogInformation($"GET ✈✈✈ {name} ✈✈✈");
+            
+            name = name.Trim(); // Remove leading and trailing spaces
+            
+            var planes = Planes.FindAll(p => p.Name.Contains(name, StringComparison.OrdinalIgnoreCase));
 
             if (planes == null)
             {
@@ -79,6 +83,21 @@ namespace WrightBrothersApi.Controllers
             return Ok(planes);
         }
 
+        // [HttpGet("searchByName")]
+        // public ActionResult<List<Plane>> searchByName([FromQuery] string name)
+        // {
+        //     _logger.LogInformation($"GET ✈✈✈ {name} ✈✈✈");
+
+        //     var planes = Planes.FindAll(p => p.Name.Contains(name));
+
+        //     if (planes == null)
+        //     {
+        //         return NotFound();
+        //     }
+
+        //     return Ok(planes);
+        // }
+
         [HttpPost]
         public ActionResult<Plane> Post(Plane plane)
         {
@@ -86,5 +105,42 @@ namespace WrightBrothersApi.Controllers
 
             return CreatedAtAction(nameof(GetById), new { id = plane.Id }, plane);
         }
+
+        [HttpPut("{id}")]
+        public ActionResult Put(int id, Plane plane)
+        {
+            if (id != plane.Id)
+            {
+                return BadRequest();
+            }
+
+            var index = Planes.FindIndex(p => p.Id == id);
+
+            if (index == -1)
+            {
+                return NotFound();
+            }
+
+            Planes[index] = plane;
+
+            return NoContent();
+        }
+
+        [HttpDelete("{id}")]
+        public ActionResult Delete(int id)
+        {
+            var index = Planes.FindIndex(p => p.Id == id);
+
+            if (index == -1)
+            {
+                return NotFound();
+            }
+
+            Planes.RemoveAt(index);
+
+            return NoContent();
+        }
+
+        
     }
 }

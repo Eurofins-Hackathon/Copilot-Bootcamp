@@ -7,14 +7,12 @@
 - 30 min
 
 ## Objectives
-- `Lab 3.1 Lay of the land` - Explain the Codebase with Copilot Chat: This section introduces the GitHub Copilot Chat Extension and its agents (@workspace, @terminal, and @vscode).
-- `Lab 3.2 Test Flight` - Autocompletion and Suggestions: This section demonstrates how GitHub Copilot can suggest code completions, such as missing REST API methods in a controller class.
-- `Lab 3.3 Test Flight Accelerate` - Comments to Code: This section shows how GitHub Copilot can generate code from comments.
-- `Lab 3.4 Testing your flying style` - Logging - It demonstrates how Copilot adapts to and replicates the user's coding style.
+- `Step 1` - Explain the Codebase with Copilot Chat: This section introduces the GitHub Copilot Chat Extension and its agents (@workspace, @terminal, and @vscode).
+- `Step 2` - Autocompletion and Suggestions: This section demonstrates how GitHub Copilot can suggest code completions, such as missing REST API methods in a controller class.
+- `Step 3` - Comments to Code: This section shows how GitHub Copilot can generate code from comments.
+- `Step 4` - Logging - It demonstrates how Copilot adapts to and replicates the user's coding style.
 
-### Required Labs
-
-### Lab 3.1 Lay of the land - Explain the Codebase with Copilot Chat
+### Step 1: Lay of the land - Explain the Codebase with Copilot Chat
 
 - Open GitHub Copilot Chat Extension
 
@@ -48,26 +46,28 @@ There are two other Agents `@terminal` and `@vscode`. They are used to help navi
 
 - It will provide a corresponding setting or an action button to install extensions.
 
-
 Limitations:
-
-[!Note]
+> [!IMPORTANT]  
 > Currently the `@workspace` command doesn't always give the correct answer. It also makes things up. This is a known issue and will be improved in the future. However, it does give a good idea of what is possible.
 > When asking follow-up questions, the @agent needs to be provided again. For example, if you ask `@workspace` a question and then ask another question, you need to type `@workspace` again.
 
-### Lab 3.2 Test Flight - Autocompletion and Suggestions
+### Step 2: Test Flight - Autocompletion and Suggestions
 
-- Open GitHub Copilot Chat Extension
+#### Explain the Code
+- To open GitHub Copilot Chat, press `Ctrl+Shift+P` to access the Command Palette, start typing `Copilot` to find and select the GitHub Copilot: Open Copilot command, or directly click the `Chat icon` if visible in your toolbar or sidebar.
+
+
+- Open `WrightBrothersApi` folder located in the `WrightBrothersApi` folder.
+- Open the `PlanesController.cs` file located in the `Controllers` folder.
 
 - Ask Copilot to explain the `PlanesController.cs` class
 
-```
-@workspace What does the PlanesController do? 
-```
+    ```
+    @workspace What does the PlanesController do? 
+    ```
 
-- Open the `PlanesController.cs` file.
-
-- Place your cursor at the end of the file, after the `}` of the `Post` method.
+#### Add additional REST API methods
+- Place your cursor at the end of the file, after the `}` of the `Post` method, press `Enter`.
 
 ```csharp
 public class PlanesController : ControllerBase
@@ -84,66 +84,71 @@ public class PlanesController : ControllerBase
 }
 ```
 
-- GitHub Copilot will automatically suggest the `[HttpPut]` method. Accept the suggestion by pressing `Enter`.
+- GitHub Copilot will automatically suggest the `[HttpPut]` method.
+- Accept the suggestion by pressing `Tab` to accept this attribute.
+- Copilot will automaticly suggest the code for this method, press `Enter` to accept.
 
-```csharp
-// * Suggested by Copilot
-[HttpPut("{id}")]
-public IActionResult Put(int id, Plane plane)
-{
-    // Method body
-}
-// * Suggested by Copilot
-```
+    ```csharp
+    // * Suggested by Copilot
+    [HttpPut("{id}")]
+    public IActionResult Put(int id, Plane plane)
+    {
+        // Method body
+    }
+    // * Suggested by Copilot
+    ```
 
 >[!Note]
 >The reason GitHub Copilot suggests the `[HttpPut]` method is because it understand that the `PlanesController.cs` class is a REST API controller and that the `[HttpPut]` is currently missing. The `[HttpPut]` method is the next logical step in the REST API for updating a resource.
 
-- Place your cursor again at the end of the file, after the `}` of the `Put` method.
+- Place your cursor at the end of the file, after the `}` of the `Put` method, press `Enter`.
 
-- GitHub Copilot will automatically suggest the `[HttpDelete]` method. Accept the suggestion by pressing `Enter`.
+- GitHub Copilot will automatically suggest the `[HttpDelete]` method. - Accept the suggestion by pressing `Tab` to accept this attribute.
+- Copilot will automaticly suggest the code for this method, press `Enter` to accept.
 
-```csharp
-// * Suggested by Copilot
-[HttpDelete("{id}")]
-public IActionResult Delete(int id)
-{
-    // Method body
-}
-// * Suggested by Copilot
-```
-
-### Lab 3.3 Test Flight Accelerate - Comments to Code
-
-- Open the `PlanesController.cs` file.
-
-- Type `// Search planes by name` in the comment block. After the `}` of the `GetAll` method.
-
-```csharp
-public class PlanesController : ControllerBase
-{
-    /* Rest of the methods */
-
-    [HttpGet]
-    public ActionResult<List<Plane>> GetAll()
+    ```csharp
+    // * Suggested by Copilot
+    [HttpDelete("{id}")]
+    public IActionResult Delete(int id)
     {
         // Method body
     }
+    // * Suggested by Copilot
+    ```
 
-    <---- Place your cursor here
-    // Search planes by name
-}
-```
+### Step 3: Test Flight Accelerate - Comments to Code
+
+- If not aleady opened, open the `PlanesController.cs` file.
+
+- Type `// Search planes by name` in the comment block. After the `}` of the `GetAll` method.
+
+    ```csharp
+    public class PlanesController : ControllerBase
+    {
+        /* Rest of the methods */
+
+        [HttpGet]
+        public ActionResult<List<Plane>> GetAll()
+        {
+            // Method body
+        }
+
+        <---- Place your cursor here
+        // Search planes by name
+    }
+    ```
 
 - Press `Enter` and GitHub Copilot will automatically suggest the `[HttpGet("searchByName")]` method.
+- Accept the suggestion by pressing `Tab` to accept this attribute.
+- Copilot will automaticly suggest the code for this method, press `Enter` to accept.
 
-```csharp
-[HttpGet("searchByName")]
-public ActionResult<List<Plane>> SearchByName(string name)
-{
-    // Method body
-}
-```
+    ```csharp
+    [HttpGet("searchByName")]
+    public ActionResult<List<Plane>> SearchByName(string name)
+    {
+        // Method body
+    }
+    ```
 
 >[!Note]
 >The reason GitHub Copilot suggests the `[HttpGet("searchByName")]` method is because it understands that the comment is a description of the method. It also understands that the method is a GET method and that it has a parameter `name` of type `string`.
@@ -151,63 +156,64 @@ public ActionResult<List<Plane>> SearchByName(string name)
 
 ## Optional Labs
 
-### Lab 3.4 Testing your flying style - Logging - Consistency
+### Step 4: Testing your flying style - Logging - Consistency
 
-Adding the Logger Example. Present a code completion task for adding a logger with specific syntax (e.g., _logger). Use this to explain how Copilot adapts to and replicates your coding style.
+#### Adding the Logger Example.
+Let's present a code completion task for adding a logger with specific syntax (e.g., `_logger`). Use this to explain how Copilot adapts to and replicates your coding style.
 
 - Open the `PlanesController.cs` file.
 
-- Type `_logger.LogInformation("GET all ✈✈✈ NO PARAMS ✈✈✈");` in the `GetAll` method.
+- Type `_logger.LogInformation("GET all ✈✈✈ NO PARAMS ✈✈✈");` in the `GetAll` method, before the `return Planes;` statement.
 
->[!Note]
->You can use some other character instead of `✈✈✈` to make it easier to read the logs.
-
-```csharp
-public class PlanesController : ControllerBase
-{
-    /* Rest of the methods */
-
-    [HttpGet]
-    public ActionResult<List<Plane>> GetAll()
+    ```csharp
+    public class PlanesController : ControllerBase
     {
-        _logger.LogInformation("GET all ✈✈✈ NO PARAMS ✈✈✈");
+        /* Rest of the methods */
 
-        return Ok(Planes);
+        [HttpGet]
+        public ActionResult<List<Plane>> GetAll()
+        {
+            _logger.LogInformation("GET all ✈✈✈ NO PARAMS ✈✈✈");
+
+            return Planes;
+        }
+
     }
-}
-```
+    ```
 
 >[!Note]
 >Notice the syntax of `✈✈✈ NO PARAMS ✈✈✈`. This is a custom syntax that is used in the codebase to log parameters of a method. It is used to make it easier to read the logs.
+>You can use some other character instead of `✈✈✈` to make it easier to read the logs.
 
 - Add another log statement in the `GetById` method.
+- Type `_logger.LogInformation("GET all ✈✈✈ NO PARAMS ✈✈✈");` in the `GetById` method, before the `return Planes;` statement.
 
-```csharp
-public class PlanesController : ControllerBase
-{
-    /* Rest of the methods */
-
-    [HttpGet("{id}")]
-    public ActionResult<Plane> GetById(int id)
+    ```csharp
+    public class PlanesController : ControllerBase
     {
-        <---- Place your cursor here
+        /* Rest of the methods */
 
-        // Method body
+        [HttpGet("{id}")]
+        public ActionResult<Plane> GetById(int id)
+        {
+            <---- Place your cursor here
+
+            // Method body
+        }
     }
-}
-```
+    ```
 
 - Type `_log` and notice the suggestion that GitHub Copilot gives:
 
-```csharp
-[HttpGet("{id}")]
-public ActionResult<Plane> GetById(int id)
-{
-    _logger.LogInformation($"GET ✈✈✈ {id} ✈✈✈");
+    ```csharp
+    [HttpGet("{id}")]
+    public ActionResult<Plane> GetById(int id)
+    {
+        _logger.LogInformation($"GET ✈✈✈ {id} ✈✈✈");
 
-    // Method body
-}
-```
+        // Method body
+    }
+    ```
 
 >[!Note] 
 > Copilot learns from the codebase and adapts to the coding style. In this case, it replicates the custom syntax used for logging.
@@ -240,6 +246,6 @@ public IActionResult Delete(int id)
 }
 ```
 
-### Congratulations you've made it to the end! &#9992;
+### Congratulations you've made it to the end! &#9992; &#9992; &#9992;
 
 #### And with that, you've now concluded this module. We hope you enjoyed it! &#x1F60A;

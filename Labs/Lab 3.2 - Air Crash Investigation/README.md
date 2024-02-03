@@ -255,6 +255,6 @@ Elapsed Time: 0.02 seconds
 
 
 
-### Congratulations you've made it to the end! &#9992;
+### Congratulations you've made it to the end! &#9992; &#9992; &#9992;
 
 #### And with that, you've now concluded this module. We hope you enjoyed it! &#x1F60A;

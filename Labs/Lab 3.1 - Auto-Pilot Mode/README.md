@@ -108,17 +108,17 @@ git checkout -b feature/health-checks
 
 - Open the Source Control tab in VS Code
 
-TODO: [Screenshot]
+TODO: Add a Screenshot here!
 ![Image of TBD](/Images/placeholder-Small.png)
 
 - Click the `+` icon to stage all changes
 
-TODO: [Screenshot]
+TODO: Add a Screenshot here!
 ![Image of TBD](/Images/placeholder-Small.png)
 
 - Click on the magic icon to generate a commit message
 
-TODO: [Screenshot]
+TODO: Add a Screenshot here!
 ![Image of TBD](/Images/placeholder-Small.png)
 
 > [!Note]
@@ -126,12 +126,12 @@ TODO: [Screenshot]
 
 - Click the `✓` icon to commit the changes
 
-TODO: [Screenshot]
+TODO: Add a Screenshot here!
 ![Image of TBD](/Images/placeholder-Small.png)
 
 - Click the `Sync` button icon to push the changes
 
-TODO: [Screenshot]
+TODO: Add a Screenshot here!
 ![Image of TBD](/Images/placeholder-Small.png)
 
 ### Lab 5.2 - Turn on Autopilot Mode - Automating GitHub Pull Requests
@@ -146,24 +146,24 @@ TODO: [Screenshot]
 
 - Click on the `Pull requests` tab
 
-TODO: [Screenshot]
+TODO: Add a Screenshot here!
 ![Image of TBD](/Images/placeholder-Small.png)
 
 - Click on the `New pull request` button
 
-TODO: [Screenshot]
+TODO: Add a Screenshot here!
 ![Image of TBD](/Images/placeholder-Small.png)
 
 - Select the `main` branch as the base branch
 
-TODO: [Screenshot]
+TODO: Add a Screenshot here!
 ![Image of TBD](/Images/placeholder-Small.png)
 
 - Select the `feature/health-checks` branch as the compare branch
 
 - Click the `Create pull request` button
 
-TODO: [Screenshot]
+TODO: Add a Screenshot here!
 ![Image of TBD](/Images/placeholder-Small.png)
 
 - Click on the magic icon to generate a pull request description
@@ -196,12 +196,12 @@ builder.Services.AddHealthChecks()
 
 - Open the Source Control tab in VS Code
 
-TODO: [Screenshot]
+TODO: Add a Screenshot here!
 ![Image of TBD](/Images/placeholder-Small.png)
 
 - Click the `+` icon to stage all changes
 
-TODO: [Screenshot]
+TODO: Add a Screenshot here!
 ![Image of TBD](/Images/placeholder-Small.png)
 
 - Click on the magic icon to generate a commit message
@@ -209,35 +209,35 @@ TODO: [Screenshot]
 >![!Note]
 > The commit message is now very detailed, due to the small changes in the code. Best practice when using Git is to make keep your commits small and concise.
 
-TODO: [Screenshot]
+TODO: Add a Screenshot here!
 ![Image of TBD](/Images/placeholder-Small.png)
 
 - Click the `✓` icon to commit the changes
 
-TODO: [Screenshot]
+TODO: Add a Screenshot here!
 ![Image of TBD](/Images/placeholder-Small.png)
 
 - Click the `Sync` button icon to push the changes
 
-TODO: [Screenshot]
+TODO: Add a Screenshot here!
 ![Image of TBD](/Images/placeholder-Small.png)
 
 - Go to your GitHub.com repository
 
 - Click on the `Pull requests` tab
 
-TODO: [Screenshot]
+TODO: Add a Screenshot here!
 ![Image of TBD](/Images/placeholder-Small.png)
 
 - Click on the `feature/health-checks` pull request
 
-TODO: [Screenshot]
+TODO: Add a Screenshot here!
 ![Image of TBD](/Images/placeholder-Small.png)
 
 - Click on the magic icon to update the pull request description
 - Or is it automatically updated???
 
-TODO: [Screenshot]
+TODO: Add a Screenshot here!
 ![Image of TBD](/Images/placeholder-Small.png)
 
 ### Optional
@@ -313,6 +313,6 @@ Type the following command
 ## NOT IN SCOPE - Suggestions for the Trainer - Remove this section before publishing
 
 
-### Congratulations you've made it to the end! &#9992;
+### Congratulations you've made it to the end! &#9992; &#9992; &#9992;
 
 #### And with that, you've now concluded this module. We hope you enjoyed it! &#x1F60A;

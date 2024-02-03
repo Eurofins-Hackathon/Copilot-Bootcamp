@@ -47,7 +47,7 @@ public class Plane
 Add the new ImageUrl property and complete the Wright Brothers Fleet
 ```
 
-TODO: [Screenshot] - Select List and do inline chat and type in the command
+TODO: Add a Screenshot here! - Select List and do inline chat and type in the command
 ![Image of TBD](/Images/placeholder-Small.png)
 
 - Accept the suggestion by selecting `Accept` or pressing `Enter`.
@@ -174,7 +174,7 @@ public static FlightLogSignature Parse(string flightLogSignature)
 
 - Place your cursor at the end of the file, after the `}` of the `UpdateFlightStatus` method.
 
-TODO: [Screenshot] - Insert code at cursor
+TODO: Add a Screenshot here! - Insert code at cursor
 ![Image of TBD](/Images/placeholder-Small.png)
 
 > [!Note]
@@ -197,7 +197,7 @@ public class FlightsController : ControllerBase
 }
 ```
 
-TODO: [Screenshot] - Create new file in the Copilot Chat extension
+TODO: Add a Screenshot here! - Create new file in the Copilot Chat extension
 ![Image of TBD](/Images/placeholder-Small.png)
 
 - In the Copilot Chat extension window, press the button to add the method to the `FlightsController.cs` class.
