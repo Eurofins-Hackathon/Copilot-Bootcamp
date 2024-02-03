@@ -22,8 +22,7 @@ namespace WrightBrothersApi.Controllers
                 Name = "Wright Flyer",
                 Year = 1903,
                 Description = "The first successful heavier-than-air powered aircraft.",
-                RangeInKm = 12,
-                ImageUrl = "https://example.com/wright-flyer.jpg"
+                RangeInKm = 12
             },
             new Plane
             {
@@ -31,7 +30,7 @@ namespace WrightBrothersApi.Controllers
                 Name = "Wright Flyer II",
                 Year = 1904,
                 Description = "A refinement of the original Flyer with better performance.",
-                RangeInKm = 24,
+                RangeInKm = 24
             },
             new Plane
             {
@@ -39,10 +38,8 @@ namespace WrightBrothersApi.Controllers
                 Name = "Wright Model A",
                 Year = 1908,
                 Description = "The first commercially successful airplane.",
-                RangeInKm = 40,
-                ImageUrl = "https://example.com/wright-model-a.jpg"
-            },
-            // Add more planes here...
+                RangeInKm = 40
+            }
         };
 
         [HttpGet]
@@ -72,7 +69,7 @@ namespace WrightBrothersApi.Controllers
             _logger.LogInformation($"GET ✈✈✈ {name} ✈✈✈");
             
             name = name.Trim(); // Remove leading and trailing spaces
-            
+
             var planes = Planes.FindAll(p => p.Name.Contains(name, StringComparison.OrdinalIgnoreCase));
 
             if (planes == null)
