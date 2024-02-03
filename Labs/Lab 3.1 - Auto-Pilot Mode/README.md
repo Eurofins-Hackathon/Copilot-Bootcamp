@@ -13,7 +13,7 @@ This lab exercise integrates GitHub Copilot to demonstrate its application in so
 
 #### This one does not need to pipeline from AutoPilot Mode, but it is a nice to have.
 
-### Step 1: - The aircraft alarm lights are blinking - Prepare code example
+### Step 1. The aircraft alarm lights are blinking - Prepare code example
 
 - Configure HealthChecks package in your application
 - Open a terminal and navigate to the `WrightBrothersApi` folder.
@@ -123,7 +123,7 @@ This lab exercise integrates GitHub Copilot to demonstrate its application in so
 
 - Stop the application by pressing `Ctrl + C` in the terminal
 
-### Step 2: - Fasten your seatbelts, turbulance incoming - Committing Code Changes
+### Step 2. Fasten your seatbelts, turbulance incoming - Committing Code Changes
 
 > [!WARNING]  
 > You must complete the previous lab before continuing.
@@ -157,7 +157,7 @@ git checkout -b feature/health-checks
 
 <img src="/Images/Screenshot145014.png" width="500">
 
-### Step 3: - Turn on Autopilot Mode - Automating GitHub Pull Requests
+### Step 3. Turn on Autopilot Mode - Automating GitHub Pull Requests
 
 > [!WARNING]  
 > You must complete the previous lab before continuing.
@@ -189,7 +189,7 @@ git checkout -b feature/health-checks
 > [!IMPORTANT]  
 > Copilot Enterprise Feature only! In order to use the Pull Request Summaries  feature you need a Copilot Enterprise License and have this feature enabled in your GitHub account.
 
-### Step 4: - Changing Altitude to mitigate turbulence - Adjust Pull Request
+### Step 4. Changing Altitude to mitigate turbulence - Adjust Pull Request
 
 > [!WARNING]  
 > You must complete the previous lab before continuing.
@@ -266,7 +266,7 @@ TODO: Add a Screenshot here!
 
 ### Optional
 
-### Step 5: - Smooth Flying in the Cloud - Automating GitHub Pipelines
+### Step 5. Smooth Flying in the Cloud - Automating GitHub Pipelines
 A build pipeline automates your software's build, test, and deployment processes, ensuring consistent and error-free releases while saving time and improving code quality. It streamlines development, enables quick feedback, and supports efficient version management.  Let's begin by
 automating CI/CD pipelines for deployment to Azure.
 
@@ -292,7 +292,7 @@ TODO: Add a Screenshot here!
 > [!Note]
 > With the @workspace agent, GitHub Copilot understand that the current workspace is a .NET application with a Test project in it.
 
-### Step 6: - Ground Control - Something in the Cloud  - Deploying to Azure
+### Step 6. Ground Control - Something in the Cloud  - Deploying to Azure
 Deploying your application to Azure facilitates scalable, secure, and efficient hosting, leveraging Microsoft's cloud infrastructure. This allows for easy scaling, robust disaster recovery, and global reach, enhancing your app's performance and accessibility while minimizing maintenance efforts and costs.
 
 > [!WARNING]  
@@ -324,7 +324,7 @@ Deploying your application to Azure facilitates scalable, secure, and efficient 
         - Configure your application
         - Monitor your application
 
-- Contintue the conversation with creating a Web App through Infrastructure as Code
+- Continue the conversation with creating a Web App through Infrastructure as Code
 
     ```
     @workspace create the Infrastructure as Code using Bicep that I need for a Web App in Azure
@@ -334,26 +334,28 @@ Deploying your application to Azure facilitates scalable, secure, and efficient 
 
 - You can go on and on brainstorming with GitHub Copilot Chat to create a full CI/CD pipeline for your application.
 
-### Lab 5.6 Infrastructure as Code
+### Step 7: Auto-pilot for your infrastructure: Set it, code it, forget it!
 
-- Let's ask Copilot to build the resources in Azure using Bicep.
+- Let's ask Copilot to build ALL the resources needed to build, test, create infrastructure, and deploy to Azure.
+
+> [!IMPORTANT]
+> This serves as a prime illustration of `prompt engineering` excellence. Constructing a well-defined `prompt` directly influences the precision and comprehensiveness of the responses from Copilot. It's important to note the iterative process of refining prompts based on outcomes to enhance effectiveness. Emphasizing specificity and clarity in crafting prompts can significantly improve the quality of Copilot's completions, illustrating the critical role of effective prompt engineering in achieving optimal results.
 
 - Open the GitHub Copilot Chat extension
 
-Type the following command
+- Type the following command
 
-```sh
-- @workspace Create all the required Infrastructure as Code files using Bicep to deploy application to Azure.
-```
+    ```
+    @workspace Create a build pipeline for this application. The create all the required Infrastructure as Code files using Bicep to deploy application to Azure. Next, create a deployment pipeline to build, test, and deploy to Azure
+    ```
+
+- Copilot Chat will tell you that creating a build and deployment pipeline involves several steps. Here's a high-level overview of how you might approach this:
+    - Create a Bicep file for Azure resources.
+    - Create a build pipeline.
+    - Create a deployment pipeline, putting the build and bicep files together.
 
 
-
-### Lab 5.4 - Any other GitHub.com feature ??
-- TBD?
-- GitHub Enterprise Features?
-    - PR Summaries?
-
-### Lab 5.4 - DocSet?
+### Step 8. DocSets - Documentation for the win!
 
 > [!Caution]
 > NOT IN SCOPE - Suggestions for the Trainer - Remove this section before publishing
