@@ -1,5 +1,5 @@
 # Auto-Pilot Mode: GitHub Copilot
-This lab exercise covers ...
+This lab exercise integrates GitHub Copilot to demonstrate its application in software development, focusing on implementing health checks in a .NET application. Participants will complete a series of steps including configuring health checks, committing code changes, and using GitHub for pull requests and automation, within an estimated 30 minutes. The exercise emphasizes the combination of AI assistance with human skills in programming and explores the future of AI in software development through practical tasks like modifying code for stability and automating CI/CD pipelines for deployment to Azure.
 
 ## Prerequisites
 - The prerequisites steps are completed, see [Labs Prerequisites](https://github.com/XpiritBV/Copilot-Bootcamp#labs-prerequisites)
