@@ -1,5 +1,5 @@
 # Navigating the Code Clouds: Advanced Features of GitHub Copilot 
-This lab exercise explores GitHub Copilot's advanced features, guiding participants through complex coding tasks to enhance problem-solving and code optimization skills. The session, estimated at 30 minutes, includes adding new properties to models, generating documentation, refactoring code for better maintainability, and parsing complex strings into models using Copilot's AI capabilities. Optional labs further demonstrate Copilot's versatility in understanding context and applying regular expressions for parsing. Through interactive tasks, participants learn to leverage Copilot for more efficient coding practices.
+This lab exercise delves into GitHub Copilot's advanced features, teaching participants to enhance coding efficiency through complex tasks like adding new properties, generating documentation, refactoring code, and parsing strings, supplemented by optional labs on context understanding and regex parsing.
 
 ## Prerequisites
 - The prerequisites steps are completed, see [Labs Prerequisites](https://github.com/XpiritBV/Copilot-Bootcamp#labs-prerequisites)
@@ -8,8 +8,7 @@ This lab exercise explores GitHub Copilot's advanced features, guiding participa
 - 30 min
 
 ## Objectives
-- Exploring advanced features and capabilities of GitHub Copilot.
-- Participants tackle more complex coding exercises with Copilot, focusing on AI's role in problem-solving and code optimization.
+- To master GitHub Copilot's advanced features for solving complex coding exercises and optimizing code.
 
 ### Step 1: - The Complete Wright Brothers Fleet
 

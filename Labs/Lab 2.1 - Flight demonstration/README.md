@@ -1,4 +1,5 @@
 # Flight demonstration: Basic Coding with Copilot Assistance
+This module demonstrates how to utilize GitHub Copilot's Chat Extension and its agents (@workspace, @terminal, @vscode) to understand and navigate a codebase, implement REST API methods, generate code from comments, and maintain coding style consistency, culminating in a comprehensive, productivity-enhancing coding experience.
 
 ## Prerequisites
 - The prerequisites steps are completed, see [Labs Prerequisites](https://github.com/XpiritBV/Copilot-Bootcamp#labs-prerequisites)
@@ -7,7 +8,7 @@
 - 30 min
 
 ## Objectives
-This section introduces the GitHub Copilot Chat Extension along with its agents (@workspace, @terminal, and @vscode), demonstrating the extension's ability to suggest code completions, such as filling in missing REST API methods in a controller class. It also shows how GitHub Copilot can generate code directly from comments, highlighting the tool's capacity to adapt to and replicate the user's coding style, thereby streamlining the development process and enhancing productivity.
+Introduction to GitHub Copilot Chat Extension and its agents for code completion and style adaptation.
 
 ### Step 1: Lay of the land - Explain the Codebase with Copilot Chat
 
