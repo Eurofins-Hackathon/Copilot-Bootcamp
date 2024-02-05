@@ -59,6 +59,25 @@ Ensure the following for a smooth GitHub Copilot experience in Visual Studio Cod
 - Introductions from attendees.
 - Agenda and Logistics.
 
+- History of AI 
+- Introduction to Copilot and Setup
+
+## Module 2
+- Basic Coding with Copilot Assistance 
+- Pre-Flight Inspections
+- Clearing the Runway
+- Advanced Features of Copilot
+
+## Module 3
+- Automating Task with Copilot
+- Continuous Monitoring and Feedback
+- Troubleshooting and Fine-Tuning
+- Review and Future of AI in Coding
+
+
+
+# OMG Randy! Fix this below this line!!!
+
 ### [Lab 1.0 - Welcome Aboard: Introduction to AI and GitHub Copilot](https://github.com/XpiritBV/Copilot-Bootcamp/tree/main/Labs/Lab%200%20-%20Welcome%20Aboard)
 - This session offers a comprehensive overview of AI's evolution, key terms, and core technologies, explains Azure OpenAI's role in powering Copilot, uses analogies to link foundational AI concepts to Copilot, stresses ethical AI use, and provides strategies for effectively integrating AI tools in coding.
 
@@ -66,7 +85,7 @@ Ensure the following for a smooth GitHub Copilot experience in Visual Studio Cod
 - This session introduces Copilot as an AI-powered code assistant, covers supported languages and IDEs, provides a setup and navigation tutorial, includes an interactive session for integrating Copilot with IDEs, explores its real-time code suggestion and language-specific capabilities, compares it to human pair programming, and concludes with its benefits in software development.
 
 ## Module 2
-### [Lab 3.0 - Taking Off with Code: Basic Coding with Copilot Assistance ](#)
+### [Lab 2.0 - Taking Off with Code: Basic Coding with Copilot Assistance ](#)
 - This session begins with Copilot's fundamental code autocompletion and suggestions, advances to customizing these suggestions, explores its capabilities in generating larger code blocks and unit tests, concludes with generating test data, and integrates pair programming sessions to apply these concepts practically.
 
 ### [Lab 4.0 - Navigating the Code Clouds: Advanced Features of Copilot](#)
