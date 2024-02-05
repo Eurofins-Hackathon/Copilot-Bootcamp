@@ -86,22 +86,6 @@ public class FlightsController : ControllerBase
         return Ok(flight);
     }
 
-    [HttpPut("{id}")]
-    public ActionResult Put(int id, string flightLogSignature)
-    {
-        _logger.LogInformation($"PUT ✈✈✈ id: {id} flightLog: {flightLogSignature} ✈✈✈");
-
-        var existingFlight = Flights.Find(f => f.Id == id);
-        if (existingFlight == null)
-        {
-            return NotFound();
-        }
-
-        existingFlight.FlightLogSignature = flightLogSignature;
-
-        return NoContent();
-    }
-
     [HttpPost("{id}/status")]
     public ActionResult UpdateFlightStatus(int id, FlightStatus newStatus)
     {
