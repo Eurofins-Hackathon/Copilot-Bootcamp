@@ -1,3 +1,5 @@
+### 
+
 POST http://localhost:1903/flights HTTP/1.1
 content-type: application/json
 
@@ -11,7 +13,7 @@ content-type: application/json
     "status": 0,
     "fuelRange": 100,
     "fuelTankLeak": false,
-    "flightLogSignature": "170908-DEP-ARR-WB004"
+    "flightLogSignature": "17091908-DEP-ARR-WB004"
 }
 
 ###

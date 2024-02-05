@@ -22,8 +22,8 @@ public class Flight
 
     public bool FuelTankLeak { get; set; }
 
-    // Format: DDMMYY-DEP-ARR-FLIGHT
-    // Example: 171203-DEP-ARR-WB001
+    // Format: DDMMYYYY-DEP-ARR-FLIGHT
+    // Example: 17121903-DEP-ARR-WB001
     // For this flight
     // 17th of December 1903
     // Departure from Kitty Hawk, NC
