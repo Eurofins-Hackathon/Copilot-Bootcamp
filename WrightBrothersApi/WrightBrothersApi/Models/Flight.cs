@@ -23,7 +23,15 @@ public class Flight
     public bool FuelTankLeak { get; set; }
 
     // Format: DDMMYY-DEP-ARR-FLIGHT
+    // Example: 171203-DEP-ARR-WB001
+    // For this flight
+    // 17th of December 1903
+    // Departure from Kitty Hawk, NC
+    // Arrival at Manteo, NC
+    // Flight number WB001
     public string FlightLogSignature { get; set; }
+
+    public FlightLog FlightLog { get; set; }
 
     // Encodes a series of aerobatic maneuvers
     // L = Loop, H = Hammerhead, R = Roll, S = Spin, T = Tailslide

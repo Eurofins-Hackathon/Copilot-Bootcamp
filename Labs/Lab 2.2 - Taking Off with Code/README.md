@@ -105,35 +105,26 @@ public class PlanesControllerTests
 
 - Open the `PlanesController.cs` file.
 
-- Make sure to add the `searchByName` method to the `PlanesController.cs` file if you haven't already in the previous lab.
+- Make sure to add the `search` (by name) method to the `PlanesController.cs` file if you haven't already in the previous lab.
 
-
-> [!CAUTION]
-> Thijs! This might need to be "search" instead of "searchByName".
-
-> Thijs! This might need to be GetByName instead of searchByName.
-
-    ````csharp
+    ```csharp
     public class PlanesController : ControllerBase
     {
         /* Rest of the methods */
         
-        [HttpGet("searchByName")]
-        public ActionResult<List<Plane>> searchByName([FromQuery] string name)
+        [HttpGet("search")]
+        public ActionResult<List<Plane>> search([FromQuery] string name)
         {
             _logger.LogInformation($"GET ✈✈✈ {name} ✈✈✈");
-
             var planes = Planes.FindAll(p => p.Name.Contains(name));
-
             if (planes == null)
             {
                 return NotFound();
             }
-
             return Ok(planes);
         }
     }
-    ````
+    ```
 
 - Open `PlanesControllerTests.cs` file
 
@@ -168,33 +159,33 @@ public class PlanesControllerTests
 
 - GitHub Copilot will automatically suggest the `[InlineData]` attributes. Accept the suggestion by pressing `Enter`.
 
+    ```csharp
+    [Theory]
+    [InlineData("Wright Plane 1", 1, "Specific search")]
+    [InlineData("Wright Plane", 3, "General search")]
+    [InlineData("wright plane", 3, "Case insensitive")]
+    [InlineData(" Wright  Plane  ", 3, "Extra spaces")]
+    public void SearchByName_WithValidPlane_ReturnsOk(string searchTerm, int expectedAmountOfResults, string description)
+    {
+        // Act
+        var result = _planesController.searchByName(searchTerm);
 
-```csharp
-[Theory]
-[InlineData("Wright Plane 1", 1, "Specific search")]
-[InlineData("Wright Plane", 3, "General search")]
-[InlineData("wright plane", 3, "Case insensitive")]
-[InlineData(" Wright  Plane  ", 3, "Extra spaces")]
-public void SearchByName_WithValidPlane_ReturnsOk(string searchTerm, int expectedAmountOfResults, string description)
-{
-    // Act
-    var result = _planesController.searchByName(searchTerm);
+        // Assert
+        result.Value.Should().HaveCount(expectedAmountOfResults);
+    }
+    ```
 
-    // Assert
-    result.Value.Should().HaveCount(expectedAmountOfResults);
-}
-```
 > [!IMPORTANT]  
 > Occasionally, Copilot might return incorrect results due to its reliance on patterns learned from the vast amount of code and data it has been trained on.
 
-    ```sh
-        var result = _planesController.Search(searchTerm);
+    ```csharp
+    var result = _planesController.Search(searchTerm);
     ```
 
-- Replace `Search` with `GetByName`.
+- Replace `Search` with `Search`.
 
-    ```sh
-        var result = _planesController.GetByName(searchTerm);
+    ```csharp
+    var result = _planesController.Search(searchTerm);
     ```
 
 > [!CAUTION]
@@ -209,7 +200,7 @@ public void SearchByName_WithValidPlane_ReturnsOk(string searchTerm, int expecte
     dotnet test
     ```
 
-- Not all tests will pass. For example the `Case insensitive` test will fail. This is because the `GetByName` is case sensitive. Let's fix this.
+- Not all tests will pass. For example the `Case insensitive` test will fail. This is because the `Search` method is case sensitive. Let's fix this.
 
     ```sh
     Starting test execution, please wait...
@@ -228,9 +219,9 @@ public void SearchByName_WithValidPlane_ReturnsOk(string searchTerm, int expecte
 - Copilot will give a suggestion to fix the case sensitivity issue.
 
 >[!Note]
-> Copilot chat: "Here's how you can adjust the GetByName method to be case insensitive. You'll need to use the StringComparer.OrdinalIgnoreCase comparer in the FindAll method:"
+> Copilot chat: "Here's how you can adjust the Search method to be case insensitive. You'll need to use the StringComparer.OrdinalIgnoreCase comparer in the FindAll method:"
 
-- In the `GetByName` method, locate the `var planes`. This search is case sensitive.
+- In the `Search` method, locate the `var planes`. This search is case sensitive.
 
     ```csharp
     var planes = Planes.FindAll(p => p.Name.Contains(name));
@@ -242,7 +233,7 @@ public void SearchByName_WithValidPlane_ReturnsOk(string searchTerm, int expecte
     var planes = Planes.FindAll(p => p.Name.Contains(name, StringComparison.OrdinalIgnoreCase));
     ```
 
-- Also the `Extra spaces` test will fail. This is because the `GetByName` is not trimming the search term. Let's fix this.
+- Also the `Extra spaces` test will fail. This is because the `Search` is not trimming the search term. Let's fix this.
 
 - Open `PlanesController.cs` file
 
@@ -253,10 +244,9 @@ public void SearchByName_WithValidPlane_ReturnsOk(string searchTerm, int expecte
     ```
 
 >[!Note]
-> Copilot chat: "It seems like you want to ignore leading and trailing spaces when searching for a plane by its name. You can achieve this by using the Trim method on the name parameter before using it in the Contains method. Here's how you can adjust the GetByName method."
+> Copilot chat: "It seems like you want to ignore leading and trailing spaces when searching for a plane by its name. You can achieve this by using the Trim method on the name parameter before using it in the Contains method. Here's how you can adjust the Search method."
 
-
-- In the `GetByName` method, place your cursor before the `var planes` line added above.
+- In the `Search` method, place your cursor before the `var planes` line added above.
 
     ```csharp
     public class PlanesControllerTests
@@ -274,21 +264,19 @@ public void SearchByName_WithValidPlane_ReturnsOk(string searchTerm, int expecte
 - Now add the suggested line `name = name.Trim();` line with the with the following snippet. This will ignore leading and trailing spaces.
 
     ```csharp
-    
     name = name.Trim(); // Remove leading and trailing spaces
-    
     var planes = Planes.FindAll(p => p.Name.Contains(name, StringComparison.OrdinalIgnoreCase));
-
     ```
 
 - Let's run the unit tests in the terminal to make sure everything is working as expected.
 
-- Open the terminal and run the tests with the provided command.
+- Open the terminal and run the tests with the provided command
 
     ```sh
     cd WrightBrothersApi
     dotnet test
     ```
+
 - The tests should run and pass.
 
     ```sh
@@ -296,6 +284,7 @@ public void SearchByName_WithValidPlane_ReturnsOk(string searchTerm, int expecte
     A total of 1 test files matched the specified pattern.
     Passed!  - Failed:     0, Passed:     7, , Failed:     0
     ```
+    
 ### Congratulations you've made it to the end! &#9992; &#9992; &#9992;
 
 #### And with that, you've now concluded this module. We hope you enjoyed it! &#x1F60A;

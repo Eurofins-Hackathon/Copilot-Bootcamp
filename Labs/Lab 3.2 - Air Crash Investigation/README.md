@@ -265,7 +265,7 @@ Example output:
     Elapsed Time: 0.02 seconds
     ```
 
-- The application will calculate the prime numbers in less than 100 milliseconds.
+- The application will now calculate the prime numbers in less than 50 milliseconds.
 
 > [!Note]
 > GitHub Copilot has knowledge of many algorithmic optimizations and can help you optimize your code performance.

@@ -54,6 +54,12 @@ Limitations:
 #### Explain the Code
 - To open GitHub Copilot Chat, press `Ctrl+Shift+P` to access the Command Palette, start typing `Copilot` to find and select the GitHub Copilot: Open Copilot command, or directly click the `Chat icon` if visible in your toolbar or sidebar.
 
+#### Lab 3.1 Test Flight - Add Flight Model
+
+TODO: First lab is adding a new Model to the list of planes
+
+
+#### Lab 3.2 Test Flight - Autocompletion and Suggestions
 
 - Open `WrightBrothersApi` folder located in the `WrightBrothersApi` folder.
 - Open the `PlanesController.cs` file located in the `Controllers` folder.

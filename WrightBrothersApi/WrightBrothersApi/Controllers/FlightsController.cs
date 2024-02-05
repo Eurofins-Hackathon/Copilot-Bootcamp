@@ -22,14 +22,7 @@ public class FlightsController : ControllerBase
             Status = FlightStatus.Scheduled,
             FuelRange = 100,
             FuelTankLeak = false,
-            // Format: DDMMYY-DEP-ARR-FLIGHT
-            // For this flight
-            // 17th of December 1903
-            // Departure from Kitty Hawk, NC
-            // Arrival at Manteo, NC
-            // Flight number WB001
             FlightLogSignature = "171203-DEP-ARR-WB001"
-
         },
         // Second ever flight of the Wright Brothers
         new Flight
@@ -43,12 +36,6 @@ public class FlightsController : ControllerBase
             Status = FlightStatus.Scheduled,
             FuelRange = 100,
             FuelTankLeak = false,
-            // Format: DDMMYY-DEP-ARR-FLIGHT
-            // For this flight
-            // 17th of December 1903
-            // Departure from Kitty Hawk, NC
-            // Arrival at Manteo, NC
-            // Flight number WB002
             FlightLogSignature = "171203-DEP-ARR-WB002"
         },
         // This is the first Wright Brothers plane that crashed.
@@ -64,12 +51,6 @@ public class FlightsController : ControllerBase
             FuelRange = 100,
             // The cause of the crash was NOT a fuel tank leak, but we will pretend it was
             FuelTankLeak = true,
-            // Format: DDMMYY-DEP-ARR-FLIGHT
-            // For this flight
-            // 17th of September 1908
-            // Departure from Fort Myer, VA
-            // Arrival at Fort Myer, VA
-            // Flight number WB003
             FlightLogSignature = "170908-DEP-ARR-WB003"
         },
 
@@ -103,6 +84,22 @@ public class FlightsController : ControllerBase
         }
 
         return Ok(flight);
+    }
+
+    [HttpPut("{id}")]
+    public ActionResult Put(int id, string flightLogSignature)
+    {
+        _logger.LogInformation($"PUT ✈✈✈ id: {id} flightLog: {flightLogSignature} ✈✈✈");
+
+        var existingFlight = Flights.Find(f => f.Id == id);
+        if (existingFlight == null)
+        {
+            return NotFound();
+        }
+
+        existingFlight.FlightLogSignature = flightLogSignature;
+
+        return NoContent();
     }
 
     [HttpPost("{id}/status")]
