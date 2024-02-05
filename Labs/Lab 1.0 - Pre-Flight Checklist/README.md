@@ -1,4 +1,4 @@
-# Lab 1.0 Pre-Flight Checklist: Setting Up GitHub Copilot and your repository
+# Lab 1.1 Pre-Flight Checklist: Setting Up GitHub Copilot and your repository
 
 Compare this to "Preparing Your Travel Itinerary, Checking Passport, Printing Boarding Pass". Just as travelers plan their journey, participants will set up their GitHub repository, planning their coding journey.
 
@@ -30,8 +30,7 @@ By default, Codespaces are created from an Ubuntu Linux image that includes a se
 
 - Locate the `Code` tab near the top menu. Next to Codespaces, click the "..." and choose "New with options".
 
-TODO: Add a Screenshot here!
-<img src="/Images/placeholderSmall.png" width="800">
+TODO: [Screenshot]
 
 - Keep the defaults, but change the machine type to "4-core" and click "Create Codespace".
 
@@ -45,8 +44,7 @@ Now that we have a Codespace, we need to make it our own and configure your Code
 
 - After installation, stay on the extensions page, and click the "cog" (:gear:) icon. Choose "Add to devcontainer.json".
 
-TODO: Add a Screenshot here!
-<img src="/Images/placeholderSmall.png" width="800">
+TODO: [Screenshot]
 
 - GitHub Copilot Chat
 - GitHub Actions
@@ -68,6 +66,22 @@ Add the IDs of extensions you want installed when the container is created.
 		"github.vscode-github-actions"
 	]
 ```
+
+#### Rest Client Extension
+
+Mention the usage of Rest Client extensions. This is a very useful extension to quickly execute HTTP requests in your IDE and have all HTTP requests in source control.
+
+You can find the http calls in the `WrightBrothersApi/Examples` folder:
+
+- `Flights.http`
+- `Planes.http`
+- `Healthcheck.http`
+
+Execute requests as follows:
+
+// TODO Screenshot
+
+
 
 ### Step 4: ☁️ Install addtional tools and features
 
@@ -98,6 +112,5 @@ By completing these steps, you have successfully set up your Codespace with the 
 - Call to API using the REST examples
 - Run existing unit tests with `dotnet test`
 
-### Congratulations you've made it to the end! &#9992; &#9992; &#9992; 
-
+### Congratulations you've made it to the end! &#9992;
 #### And with that, you've now concluded this module. We hope you enjoyed it! &#x1F60A;

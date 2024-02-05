@@ -117,6 +117,8 @@ This lab exercise demonstrates integrating GitHub Copilot into .NET application 
     http://localhost:1903/health
     ```
 
+// TODO Do this with Rest Client
+
 - You should see the response `Healthy`, `Degraded` or `Unhealthy`
 
 - Stop the application by pressing `Ctrl + C` in the terminal

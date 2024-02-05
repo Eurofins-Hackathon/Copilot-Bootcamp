@@ -77,7 +77,7 @@ TODO:  [Screenshot] - Accept
 
 ### Step 3: - Flying in Formation - Pair Programming with Copilot
 
-- Open the `FlightsController.cs` file located in the `Controllers` folder.
+- Open the `WrightBrothersApi/Controllers/FlightsController.cs` file.
 
 - Navigate to the `UpdateFlightStatus` method.
 
@@ -109,7 +109,7 @@ TODO:  [Screenshot] - Accept
 
 ### Step 4: - Parsing Flight Show - String parsing
 
-- Open the `Flights.cs` file.
+- Open the `WrightBrothersApi/Models/Flight.cs` file.
 
 - Take a look at the `FlightLogSignature` property.
 
@@ -120,7 +120,7 @@ TODO:  [Screenshot] - Accept
         // ...
 
         // Format: DDMMYY-DEP-ARR-FLIGHT
-        // Example: 171203-DEP-ARR-WB001
+        // Example: 17121903-DEP-ARR-WB001
         // For this flight
         // 17th of December 1903
         // Departure from Kitty Hawk, NC
@@ -142,13 +142,19 @@ TODO:  [Screenshot] - Accept
 - Open the Copilot Chat extension and ask the following question:
 
     ```
-    Create a c# record with a Parse method to for the selected FlightLogSignature property
+    Create a c# record with a Parse method for the selected FlightLogSignature property. The Date must be a DateTime.
     ```
+
+> [!Note]
+> Note the prompt engineering for the 19th century context. This is a good example of how to instruct Copilot to generate code that is in line with the context of the application.
 
 - Copilot will suggest a new `FlightLog` record type and a `Parse` method. The `Parse` method splits the string and assigns each part to a corresponding property.
 
 
     ```csharp
+    // Make sure to add the System.Globalization namespace
+    using System.Globalization;
+
     public record FlightLog
     {
         public DateTime Date { get; init; }
@@ -159,33 +165,31 @@ TODO:  [Screenshot] - Accept
         public static FlightLog Parse(string flightLogSignature)
         {
             var parts = flightLogSignature.Split('-');
-
-            var date = DateTime.ParseExact(parts[0], "ddMMyy", CultureInfo.InvariantCulture);
-            var departure = parts[1];
-            var arrival = parts[2];
-            var flightNumber = parts[3];
+            if (parts.Length != 4){
+                throw new ArgumentException("Invalid flight log signature format.");
+            }
+         
+            var dateString = parts[0];
+            var date = DateTime.ParseExact(dateString, "ddMMyyyy", CultureInfo.InvariantCulture);
 
             return new FlightLog
             {
                 Date = date,
-                Departure = departure,
-                Arrival = arrival,
-                FlightNumber = flightNumber
+                Departure = parts[1],
+                Arrival = parts[2],
+                FlightNumber = parts[3]
             };
         }
     }
     ```
 
-- Here is how to use this class:
-
-    ```csharp
-    var flightLog = FlightLog.Parse("171203-DEP-ARR-WB001");
-    ```
+> [!Note]
+> A C# record type is a reference type that provides built-in functionality for encapsulating data. It is a reference type that is similar to a class, but it is immutable by default. It is a good choice for a simple data container.
 
 > [!Note]
 > GitHub Copilot is very good at understanding the context of the code. It understands that the `FlightLogSignature` is a string in a specific format and that it can be parsed into a `FlightLogSignature` model, to make the code more readable and maintainable.
 
-- In the Copilot Chat extension window, press the button to insert the suggested `FlightLog` class as a new file.
+- In the Copilot Chat extension window, press the button to insert the suggested `FlightLog` record as a new file into `WrightBrothersApi/Models/FlightLog.cs`.
 
     <img src="/Images/placeholderSmall.png" width="800">
 
@@ -196,7 +200,7 @@ TODO:  [Screenshot] - Accept
 
 - Open the `Flight.cs` file.
 
-- Add the Nullable `FlightLog` property to the `Flight` model.
+- Add the `FlightLog` property to the `Flight` model.
 
     ```csharp
     public class Flight
@@ -212,15 +216,18 @@ TODO:  [Screenshot] - Accept
     }
     ```
 
+TODO: MAybe Copilot will do this, because we did the previous steps to add the FlightLog to the Flight model.
+
 - Open the `FlightsController.cs` file.
 
 - Navigate to the `Post` method.
 
-- Add the following code to parse the `FlightLogSignature` property.
+- Add the following code to `Parse` the `FlightLogSignature` property to the .
 
 // TODO: Maybe Copilot will do this, because we did the previous steps to add the FlightLog to the Flight model.
 
     ```csharp
+
     public class FlightsController : ControllerBase
     {
         /* Rest of the methods */
@@ -230,13 +237,7 @@ TODO:  [Screenshot] - Accept
         {
             // Rest of the method
 
-            // Add the following code to parse the FlightLogSignature property
-            var flightLog = FlightLog.Parse(flight.FlightLogSignature); 
-
-            _logger.LogInformation($"Flight log parsed: {flightLog}");
-            
-            flight.FlightLog = flightLog;
-
+            <------ Place cursor here 
 
             Flights.Add(flight);
 
@@ -246,13 +247,57 @@ TODO:  [Screenshot] - Accept
     }
     ```
 
-- Open `Flights.http` file POST a new flight.
+- Type the following at the cursor
+
+    ```csharp
+    var flightLog
+    ```
+
+- Copilot will suggest the following code
+
+    ```csharp
+    var flightLog = FlightLog.Parse(flight.FlightLogSignature);
+    ```
+
+- Now press `Tab` to accept the suggestion.
+
+- Now press `Enter` and Copilot will suggest the following code:
+
+    ```csharp
+    flight.FlightLog = flightLog;
+    ```
+
+> [!Note]
+> As explained in an earlier lab, Copilot used the new created `FlightLog.cs` file in its context and suggests the `FlightLog.Parse` method.
+
+- Now, run the app and test the new functionality.
+
+    ```bash
+    dotnet run
+    ```
+
+- Open `Flights.http` file in the Visual Studio code IDE and POST a new flight.
 
     // TODO SCREENSHOT
 
-- Debug the code or investigate the log in the terminal to see the parsed flight log.
+
+- The Rest Client response will now include the `FlightLog` property as follows:
+
+    ```json
+    {
+        "id": 4,
+        "flightLogSignature": "17091908-DEP-ARR-WB004",
+        "flightLog": {
+            "date": "1908-09-17T00:00:00",
+            "departure": "DEP",
+            "arrival": "ARR",
+            "flightNumber": "WB004"
+        },
+    }
+    ```
 
     // TODO SCREENSHOT
+
 
 #### Step 5: - Regex Aerobatics Show - Regular Expressions
 
