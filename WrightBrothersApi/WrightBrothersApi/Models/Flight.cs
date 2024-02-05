@@ -36,5 +36,5 @@ public class Flight
     // Number represents repeat count, Letter represents difficulty (A-E), and each has a unique ID
     // Example 1: L4B-H2C-R3A-S1D-T2E
     // Example 2: L1A-H1B-R1C-S1D-T1E
-    public string AerobaticSequence { get; set; }
+    public string AerobaticSequenceSignature { get; set; }
 }

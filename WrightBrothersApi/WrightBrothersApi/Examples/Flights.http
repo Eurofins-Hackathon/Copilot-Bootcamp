@@ -13,7 +13,8 @@ content-type: application/json
     "status": 0,
     "fuelRange": 100,
     "fuelTankLeak": false,
-    "flightLogSignature": "17091908-DEP-ARR-WB004"
+    "flightLogSignature": "17091908-DEP-ARR-WB004",
+    "aerobaticSequenceSignature": "L4B-H2C-R3A-S1D-T2E"
 }
 
 ###
