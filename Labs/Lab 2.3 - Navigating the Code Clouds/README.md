@@ -294,7 +294,7 @@ TODO: MAybe Copilot will do this, because we did the previous steps to add the F
     }
     ```
 
-    // TODO SCREENSHOT
+    // TODO SCREENSHOT of Rest Client?
 
 ## Optional
 
@@ -389,4 +389,125 @@ Parse the selected AerobaticSequenceSignature property into c# models using a re
 
 - Copilot will suggest to change `List<Maneuver>` with `List<AerobaticSequence.Maneuver>`.    
 
-TODO: Copy/paste the steps from the previous lab.
+- Select all content of the `AerobaticSequence.cs` file.
+
+- Choose the option to insert the suggested code from Copilot Chat
+
+// TODO Screenshot
+
+- Now, let's add the new `AerobaticSequence` property to the `Flight` model.
+
+- Open the `Flight.cs` file.
+
+- Add the `AerobaticSequence` property to the `Flight` model.
+
+    ```csharp
+    public class Flight
+    {
+        // Other properties
+        // ...
+
+        // Existing property
+        public string AerobaticSequenceSignature { get; set; }
+
+        // New property
+        public AerobaticSequence AerobaticSequence { get; set; }
+    }
+    ```
+
+- Open the `FlightsController.cs` file.
+
+- Navigate to the `Post` method.
+
+- Add the following code to `Parse` the `AerobaticSequenceSignature` property to the `AerobaticSequence` property.
+
+    ```csharp
+
+    public class FlightsController : ControllerBase
+    {
+        /* Rest of the methods */
+
+        [HttpPost]
+        public ActionResult<Flight> Post(Flight flight)
+        {
+            // Rest of the method
+
+            <------ Place cursor here 
+
+            Flights.Add(flight);
+
+            return CreatedAtAction(nameof(GetById), new { id = flight.Id }, flight);
+        }
+
+    }
+    ```
+
+- Type the following at the cursor
+
+    ```csharp
+
+    var aerobaticSequence
+    ```
+
+- Copilot will suggest the following code
+
+    ```csharp
+
+    var aerobaticSequence = new AerobaticSequence(flight.AerobaticSequenceSignature);
+    ```
+
+- Now press `Tab` to accept the suggestion.
+
+- Now press `Enter` and Copilot will suggest the following code:
+
+    ```csharp
+    flight.AerobaticSequence = aerobaticSequence;
+    ```
+
+- Now, run the app and test the new functionality.
+
+    ```bash
+    dotnet run
+    ```
+
+- Open `Flights.http` file in the Visual Studio code IDE and POST a new flight.
+
+    // TODO SCREENSHOT
+
+- The Rest Client response will now include the `AerobaticSequence` property as follows:
+
+    ```json
+    {
+        "id": 4,
+        "aerobaticSequenceSignature": "L4B-H2C-R3A-S1D-T2E",
+        "aerobaticSequence": [
+            {
+                "type": "L",
+                "repeatCount": 4,
+                "difficulty": "B"
+            },
+            {
+                "type": "H",
+                "repeatCount": 2,
+                "difficulty": "C"
+            },
+            {
+                "type": "R",
+                "repeatCount": 3,
+                "difficulty": "A"
+            },
+            {
+                "type": "S",
+                "repeatCount": 1,
+                "difficulty": "D"
+            },
+            {
+                "type": "T",
+                "repeatCount": 2,
+                "difficulty": "E"
+            }
+        ]
+    }
+    ```
+
+    // TODO SCREENSHOT of Rest Client?
