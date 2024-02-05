@@ -142,30 +142,35 @@ TODO:  [Screenshot] - Accept
 - Open the Copilot Chat extension and ask the following question:
 
     ```
-    Create a c# model with a Parse method to for the selected FlightLogSignature property
+    Create a c# record with a Parse method to for the selected FlightLogSignature property
     ```
 
-- Copilot will suggest a new `FlightLog` class and a `Parse` method. The `Parse` method splits the string and assigns each part to a corresponding property.
+- Copilot will suggest a new `FlightLog` record type and a `Parse` method. The `Parse` method splits the string and assigns each part to a corresponding property.
 
 
     ```csharp
-    public class FlightLog
+    public record FlightLog
     {
-        public DateTime Date { get; set; }
-        public string Departure { get; set; }
-        public string Arrival { get; set; }
-        public string FlightNumber { get; set; }
+        public DateTime Date { get; init; }
+        public string Departure { get; init; }
+        public string Arrival { get; init; }
+        public string FlightNumber { get; init; }
 
         public static FlightLog Parse(string flightLogSignature)
         {
             var parts = flightLogSignature.Split('-');
 
+            var date = DateTime.ParseExact(parts[0], "ddMMyy", CultureInfo.InvariantCulture);
+            var departure = parts[1];
+            var arrival = parts[2];
+            var flightNumber = parts[3];
+
             return new FlightLog
             {
-                Date = parts[0],
-                Departure = parts[1],
-                Arrival = parts[2],
-                FlightNumber = parts[3]
+                Date = date,
+                Departure = departure,
+                Arrival = arrival,
+                FlightNumber = flightNumber
             };
         }
     }
@@ -203,7 +208,7 @@ TODO:  [Screenshot] - Accept
         public string FlightLogSignature { get; set; }
 
         // New property
-        public FlightLog? FlightLog { get; set; }
+        public FlightLog FlightLog { get; set; }
     }
     ```
 
@@ -226,8 +231,12 @@ TODO:  [Screenshot] - Accept
             // Rest of the method
 
             // Add the following code to parse the FlightLogSignature property
-            var flightLogSignature = flight.FlightLogSignature;
-            flight.FlightLog = FlightLog.Parse(flightLogSignature);
+            var flightLog = FlightLog.Parse(flight.FlightLogSignature); 
+
+            _logger.LogInformation($"Flight log parsed: {flightLog}");
+            
+            flight.FlightLog = flightLog;
+
 
             Flights.Add(flight);
 

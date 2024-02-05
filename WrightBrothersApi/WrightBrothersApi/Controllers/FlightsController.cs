@@ -62,7 +62,7 @@ public class FlightsController : ControllerBase
     }
 
     [HttpPost]
-    public ActionResult<Flight> Post(Flight flight)
+    public ActionResult<Flight> Post([FromBody] Flight flight)
     {
         _logger.LogInformation("POST ✈✈✈ NO PARAMS ✈✈✈");
 
