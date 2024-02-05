@@ -1,4 +1,4 @@
-# Auto-Pilot Mode: GitHub Copilot
+# Auto-Pilot Mode: AI Assistance in Software Development
 This lab exercise demonstrates integrating GitHub Copilot into .NET application development to implement health checks, automate CI/CD pipelines for Azure deployment, and explore AI's role in enhancing software development efficiency through practical programming tasks.
 
 ## Prerequisites
