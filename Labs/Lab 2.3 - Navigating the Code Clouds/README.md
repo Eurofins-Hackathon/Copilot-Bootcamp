@@ -246,6 +246,14 @@ TODO:  [Screenshot] - Accept
     }
     ```
 
+- Open `Flights.http` file POST a new flight.
+
+    // TODO SCREENSHOT
+
+- Debug the code or investigate the log in the terminal to see the parsed flight log.
+
+    // TODO SCREENSHOT
+
 #### Step 5: - Regex Aerobatics Show - Regular Expressions
 
 - Open the `Flight.cs` file.
