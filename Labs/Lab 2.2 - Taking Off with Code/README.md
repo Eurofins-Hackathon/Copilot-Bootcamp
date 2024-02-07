@@ -13,9 +13,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 ### Step 1: Taxying to the Runway - Run existing unit tests
 
-#### Use GitHub Copilot Chat Agent to run the unit tests
-
-- Open GitHub Copilot Chat, press `Ctrl+Shift+P` to access the Command Palette, start typing `Copilot` to find and select the GitHub Copilot: Open Copilot command, or directly click the `Chat icon` if visible in your toolbar or sidebar.
+- Open GitHub Copilot Chat Extension.
 
 - Type the following in the chat window: 
 
@@ -30,16 +28,24 @@ This lab exercise guides participants through coding exercises using GitHub Copi
     ```
 
 - Let's run the unit tests in the terminal to make sure everything is working as expected.
+
 - From the Copilot Chat window, select one of the two options:
-    - Click the ellipses, `...`, select `Insert into Terminal`.
-    - If there isn't a terminal open, click the `Open in Terminal` button.
-    - Click copy button, then, open a new Terminal window by pressing **Ctrl+`** (Control and backtick), paste into Terminal window.
+    1. Click the ellipses, `...`, select `Insert into Terminal`.
+
+    // TODO Screenshot
+    
+    1. If there isn't a terminal open, click the `Open in Terminal` button.
+
+    // TODO Screenshot
+
+    1. Click copy button, then, open a new Terminal window by pressing **Ctrl+`** (Control and backtick), paste into Terminal window.
+
+    // TODO Screenshot
 
 - Open the terminal and run the tests with the provided command.
 
     ```sh
-    cd WrightBrothersApi
-    dotnet test
+    dotnet test WrightBrothersApi.Tests/WrightBrothersApi.Tests.csproj
     ```
 
 - The tests should run and pass.
@@ -52,26 +58,23 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 ### Step 2: Pre-takeoff Pilot Checks - Completing Unit Tests
 
-- Open GitHub Copilot Chat, press `Ctrl+Shift+P` to access the Command Palette, start typing `Copilot` to find and select the GitHub Copilot: Open Copilot command, or directly click the `Chat icon` if visible in your toolbar or sidebar.
+- Open GitHub Copilot Chat Extension.
 
 - Type the following in the chat window: 
 
     ```sh
-    @workspace Where do I add additional unit tests?
+    @workspace where do I add additional unit tests?
     ```
 
-- Copilot will give a suggestion to add unit tests to the `PlanesControllerTests.cs` file.
+- Copilot will give a suggestion to add unit tests to the `Controllers/PlanesControllerTests.cs` file in the `WrightBrothersApi.Tests` project.
 
-    ```sh
-    ...
-    You can add additional unit tests in the PlanesControllerTest.cs file located in the Controller folder. This file is where the existing unit tests for the PlanesController are located.
-
-    etc...
-    ```
+// TODO Screenshot of the Chat
 
 - Open `PlanesControllerTests.cs` that GitHub Copilot suggested in the chat by clicking on the provided file name in the chat.
 
-- Make sure to have the `PlanesController.cs` file open as well.
+// TODO Screenshot of the Chat
+
+- Make sure to have the `PlanesController.cs` file open as well in your Visual Studio Code Editor in a tab next to the `PlanesControllerTests.cs` file.
 
 >[!Note]
 > Github Copilot will use any file that is open to gather extra context for its suggestions, this is why it's important to have the `PlanesController.cs` file open.
@@ -82,7 +85,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 public class PlanesControllerTests
 {
     [Fact]
-    public void Post_WithInvalidPlane_ReturnsBadRequest()
+    public void GetById_ReturnsPlane()
     {
         // method body
     }
@@ -91,15 +94,107 @@ public class PlanesControllerTests
 }
 ```
 
+- Press `Enter`, GitHub Copilot will now suggest `[Fact]` for a missing unit tests based on the code in the `PlanesController.cs` file.
+
+- Press `Tab` to accept the suggestion.
+
+- GitHub Copilot will automatically suggest the a missing unit test. Accept the suggestion by pressing `Tab`.
+
+    ```csharp
+    public class PlanesControllerTests
+    {
+        // Rest of the methods
+
+        [Fact]
+        public void GetById_ReturnsNotFound()
+        {
+            // Arrange
+            var id = 4;
+
+            // Act
+            var result = _planesController.GetById(id);
+
+            // Assert
+            result.Result.Should().BeOfType<NotFoundResult>();
+        }
+    }
+    ```
+
+- Now let's add a few more unit tests to the `PlanesControllerTests.cs` file.
+
+- Place your cursor after the `}` of the `Post_AddsPlaneAndReturnsCreated` method.
+
+    ```csharp
+    public class PlanesControllerTests
+    {
+        // Other method
+
+        [Fact]
+        public void Post_AddsPlaneAndReturnsCreated()
+        {
+            // method body
+        }
+
+        <---- Place your cursor here
+
+        // Other method
+    }
+    ```
+
+- Press `Enter`, GitHub Copilot will now suggest `[Fact]` for a missing unit tests based on the code in the `PlanesController.cs` file.
+
+- Press `Tab` to accept the suggestion.
+
+- GitHub Copilot will now suggest a missing unit test for the `Post` method of the `PlanesController.cs` file. Accept the suggestion by pressing `Tab`.
+
+
+    ```csharp
+    public class PlanesControllerTests
+    {
+        // Other method
+
+        [Fact]
+        public void Post_AddsPlaneAndReturnsCreated()
+        {
+            // method body
+        }
+
+        [Fact]
+        public void Post_ReturnsBadRequest()
+        {
+            // Arrange
+            var plane = new Plane { Name = "Wright Plane 1", Description = "First plane" };
+            _planesController.ModelState.AddModelError("Name", "Required");
+
+            // Act
+            var result = _planesController.Post(plane);
+
+            // Assert
+            result.Should().BeOfType<BadRequestObjectResult>();
+        }
+
+        // Other method
+    }
+    ```
+
 >[!Note]
-> Make sure you have the `PlanesController.cs` file open.
+> Copilot understood that it's likely that another unit test for the `Post` method is required, because the cursor is placed after the `}` of the `Post_AddsPlaneAndReturnsCreated` method.
 
-- Press `Enter`, GitHub Copilot will now suggest missing unit tests based on the code in the `PlanesController.cs` file.
-- After `[Fact]` attribute, press `Tab`.
-- GitHub Copilot will suggest a method name and the method body, press `Tab` to accept the suggestion.
+- You can repeat the process to add more unit tests to the `PlanesControllerTests.cs` file.
 
+- Now let's run the unit tests in the terminal to make sure everything is working as expected.
 
-### Optional Labs
+- Open the terminal and run the tests with the provided command.
+
+    ```sh
+    cd WrightBrothersApi
+    dotnet test
+    ```
+
+>[!Note]
+> Some tests might fail. Copilot does not always provide the correct suggestions. It's important to understand the suggestions and do some extra work to make sure the tests are correct. Copilot can help you with that as well.
+
+## Optional Labs
 
 ### Step 3: Taking Off - Developing Robust Tests
 

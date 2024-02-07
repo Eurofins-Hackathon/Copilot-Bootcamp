@@ -50,20 +50,6 @@ namespace WrightBrothersApi.Controllers
             return Planes;
         }
 
-        // Search planes by name
-        [HttpGet("search")]
-        public ActionResult<List<Plane>> SearchByName([FromQuery] string name)
-        {
-            var planes = Planes.FindAll(p => p.Name.Contains(name));
-
-            if (planes == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(planes);
-        }
-
         [HttpGet("{id}")]
         public ActionResult<Plane> GetById(int id)
         {
