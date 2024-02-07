@@ -50,5 +50,5 @@ namespace WrightBrothersApi.Tests.Controllers
             returnedPlane.Should().BeEquivalentTo(newPlane);
         }
 
-    }
+   }
 }

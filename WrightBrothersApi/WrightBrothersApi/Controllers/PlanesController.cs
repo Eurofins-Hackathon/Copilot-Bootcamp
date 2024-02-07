@@ -46,7 +46,8 @@ namespace WrightBrothersApi.Controllers
         public ActionResult<List<Plane>> GetAll()
         {
 
-            
+            _logger.LogInformation("GET all ✈✈✈ NO PARAMS ✈✈✈");
+
             return Planes;
         }
 
@@ -70,42 +71,5 @@ namespace WrightBrothersApi.Controllers
 
             return CreatedAtAction(nameof(GetById), new { id = plane.Id }, plane);
         }
-
-        [HttpPut("{id}")]
-        public ActionResult Put(int id, Plane plane)
-        {
-            if (id != plane.Id)
-            {
-                return BadRequest();
-            }
-
-            var index = Planes.FindIndex(p => p.Id == id);
-
-            if (index == -1)
-            {
-                return NotFound();
-            }
-
-            Planes[index] = plane;
-
-            return NoContent();
-        }
-
-        [HttpDelete("{id}")]
-        public ActionResult Delete(int id)
-        {
-            var index = Planes.FindIndex(p => p.Id == id);
-
-            if (index == -1)
-            {
-                return NotFound();
-            }
-
-            Planes.RemoveAt(index);
-
-            return NoContent();
-        }
-
-
     }
 }
