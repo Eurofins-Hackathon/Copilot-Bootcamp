@@ -47,7 +47,7 @@ namespace WrightBrothersApi.Controllers
         {
             _logger.LogInformation("GET all ✈✈✈ NO PARAMS ✈✈✈");
 
-            return Planes;
+            return Ok(Planes);
         }
 
         [HttpGet("{id}")]

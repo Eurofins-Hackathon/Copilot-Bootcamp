@@ -23,7 +23,9 @@ namespace WrightBrothersApi.Tests.Controllers
             var result = _planesController.GetAll();
 
             // Assert
-            result.Value.Should().NotBeEmpty();
+            var okObjectResult = (OkObjectResult)result.Result!;
+            var returnedPlanes = (List<Plane>)okObjectResult.Value!;
+            returnedPlanes.Should().NotBeEmpty();
         }
 
         [Fact]
