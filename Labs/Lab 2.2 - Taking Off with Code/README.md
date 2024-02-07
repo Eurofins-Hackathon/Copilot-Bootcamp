@@ -256,13 +256,11 @@ public class PlanesControllerTests
             // method body
         }
 
-        // Search term     | Amount of results | Test Description
-        // Wright Flyer II | 1                 | Specific search
-        // Wright          | 3                 | General search
-        // wright flyer    | 2                 | Case insensitive
-        //  Wright  flyer  | 2                 | Extra spaces
-
-
+        // Search by name term  | Amount of results | Test Description
+        // Wright Flyer II      | 1                 | Specific search
+        // Wright               | 3                 | General search
+        // wright flyer         | 2                 | Case insensitive
+        //  Wright  flyer       | 2                 | Extra spaces
         <---- Place your cursor here
     }
     ```
