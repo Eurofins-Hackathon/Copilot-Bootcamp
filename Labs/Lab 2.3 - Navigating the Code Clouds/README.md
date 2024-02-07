@@ -75,7 +75,7 @@ TODO:  [Screenshot] - Accept
 > [!Note]
 > GitHub Copilot used the `/docs` agent to generate the documentation for the entire file in a matter of seconds.
 
-### Step 3: - Flying in Formation - Pair Programming with Copilot
+### Step 3: - Flying in Formation - Code Refactoring
 
 - Open the `WrightBrothersApi/Controllers/FlightsController.cs` file.
 

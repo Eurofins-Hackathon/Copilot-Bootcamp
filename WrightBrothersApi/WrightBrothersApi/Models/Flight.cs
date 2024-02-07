@@ -1,14 +1,3 @@
-public enum FlightStatus
-{
-    Scheduled,
-    Boarding,
-    Departed,
-    InAir,
-    Landed,
-    Cancelled,
-    Delayed
-}
-
 public class Flight
 {
     public int Id { get; set; }
@@ -37,4 +26,15 @@ public class Flight
     // Example 1: L4B-H2C-R3A-S1D-T2E
     // Example 2: L1A-H1B-R1C-S1D-T1E
     public string AerobaticSequenceSignature { get; set; }
+}
+
+public enum FlightStatus
+{
+    Scheduled,
+    Boarding,
+    Departed,
+    InAir,
+    Landed,
+    Cancelled,
+    Delayed
 }
