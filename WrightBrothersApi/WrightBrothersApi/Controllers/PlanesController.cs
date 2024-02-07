@@ -45,9 +45,23 @@ namespace WrightBrothersApi.Controllers
         [HttpGet]
         public ActionResult<List<Plane>> GetAll()
         {
-
+            _logger.LogInformation("GET all ✈✈✈ NO PARAMS ✈✈✈");
 
             return Planes;
+        }
+
+        // Search planes by name
+        [HttpGet("search")]
+        public ActionResult<List<Plane>> SearchByName([FromQuery] string name)
+        {
+            var planes = Planes.FindAll(p => p.Name.Contains(name));
+
+            if (planes == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(planes);
         }
 
         [HttpGet("{id}")]
