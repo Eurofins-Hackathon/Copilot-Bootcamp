@@ -13,9 +13,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 ### Step 1: Taxying to the Runway - Run existing unit tests
 
-#### Use GitHub Copilot Chat Agent to run the unit tests
-
-- Open GitHub Copilot Chat, press `Ctrl+Shift+P` to access the Command Palette, start typing `Copilot` to find and select the GitHub Copilot: Open Copilot command, or directly click the `Chat icon` if visible in your toolbar or sidebar.
+- Open GitHub Copilot Chat Extension.
 
 - Type the following in the chat window: 
 
@@ -30,16 +28,24 @@ This lab exercise guides participants through coding exercises using GitHub Copi
     ```
 
 - Let's run the unit tests in the terminal to make sure everything is working as expected.
+
 - From the Copilot Chat window, select one of the two options:
-    - Click the ellipses, `...`, select `Insert into Terminal`.
-    - If there isn't a terminal open, click the `Open in Terminal` button.
-    - Click copy button, then, open a new Terminal window by pressing **Ctrl+`** (Control and backtick), paste into Terminal window.
+    1. Click the ellipses, `...`, select `Insert into Terminal`.
+
+    // TODO Screenshot
+    
+    1. If there isn't a terminal open, click the `Open in Terminal` button.
+
+    // TODO Screenshot
+
+    1. Click copy button, then, open a new Terminal window by pressing **Ctrl+`** (Control and backtick), paste into Terminal window.
+
+    // TODO Screenshot
 
 - Open the terminal and run the tests with the provided command.
 
     ```sh
-    cd WrightBrothersApi
-    dotnet test
+    dotnet test WrightBrothersApi.Tests/WrightBrothersApi.Tests.csproj
     ```
 
 - The tests should run and pass.
@@ -52,26 +58,23 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 ### Step 2: Pre-takeoff Pilot Checks - Completing Unit Tests
 
-- Open GitHub Copilot Chat, press `Ctrl+Shift+P` to access the Command Palette, start typing `Copilot` to find and select the GitHub Copilot: Open Copilot command, or directly click the `Chat icon` if visible in your toolbar or sidebar.
+- Open GitHub Copilot Chat Extension.
 
 - Type the following in the chat window: 
 
     ```sh
-    @workspace Where do I add additional unit tests?
+    @workspace where do I add additional unit tests?
     ```
 
-- Copilot will give a suggestion to add unit tests to the `PlanesControllerTests.cs` file.
+- Copilot will give a suggestion to add unit tests to the `Controllers/PlanesControllerTests.cs` file in the `WrightBrothersApi.Tests` project.
 
-    ```sh
-    ...
-    You can add additional unit tests in the PlanesControllerTest.cs file located in the Controller folder. This file is where the existing unit tests for the PlanesController are located.
-
-    etc...
-    ```
+// TODO Screenshot of the Chat
 
 - Open `PlanesControllerTests.cs` that GitHub Copilot suggested in the chat by clicking on the provided file name in the chat.
 
-- Make sure to have the `PlanesController.cs` file open as well.
+// TODO Screenshot of the Chat
+
+- Make sure to have the `PlanesController.cs` file open as well in your Visual Studio Code Editor in a tab next to the `PlanesControllerTests.cs` file.
 
 >[!Note]
 > Github Copilot will use any file that is open to gather extra context for its suggestions, this is why it's important to have the `PlanesController.cs` file open.
@@ -82,7 +85,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 public class PlanesControllerTests
 {
     [Fact]
-    public void Post_WithInvalidPlane_ReturnsBadRequest()
+    public void GetById_ReturnsPlane()
     {
         // method body
     }
@@ -91,21 +94,113 @@ public class PlanesControllerTests
 }
 ```
 
+- Press `Enter`, GitHub Copilot will now suggest `[Fact]` for a missing unit tests based on the code in the `PlanesController.cs` file.
+
+- Press `Tab` to accept the suggestion.
+
+- GitHub Copilot will automatically suggest the a missing unit test. Accept the suggestion by pressing `Tab`.
+
+    ```csharp
+    public class PlanesControllerTests
+    {
+        // Rest of the methods
+
+        [Fact]
+        public void GetById_ReturnsNotFound()
+        {
+            // Arrange
+            var id = 4;
+
+            // Act
+            var result = _planesController.GetById(id);
+
+            // Assert
+            result.Result.Should().BeOfType<NotFoundResult>();
+        }
+    }
+    ```
+
+- Now let's add a few more unit tests to the `PlanesControllerTests.cs` file.
+
+- Place your cursor after the `}` of the `Post_AddsPlaneAndReturnsCreated` method.
+
+    ```csharp
+    public class PlanesControllerTests
+    {
+        // Other method
+
+        [Fact]
+        public void Post_AddsPlaneAndReturnsCreated()
+        {
+            // method body
+        }
+
+        <---- Place your cursor here
+
+        // Other method
+    }
+    ```
+
+- Press `Enter`, GitHub Copilot will now suggest `[Fact]` for a missing unit tests based on the code in the `PlanesController.cs` file.
+
+- Press `Tab` to accept the suggestion.
+
+- GitHub Copilot will now suggest a missing unit test for the `Post` method of the `PlanesController.cs` file. Accept the suggestion by pressing `Tab`.
+
+
+    ```csharp
+    public class PlanesControllerTests
+    {
+        // Other method
+
+        [Fact]
+        public void Post_AddsPlaneAndReturnsCreated()
+        {
+            // method body
+        }
+
+        [Fact]
+        public void Post_ReturnsBadRequest()
+        {
+            // Arrange
+            var plane = new Plane { Name = "Wright Plane 1", Description = "First plane" };
+            _planesController.ModelState.AddModelError("Name", "Required");
+
+            // Act
+            var result = _planesController.Post(plane);
+
+            // Assert
+            result.Should().BeOfType<BadRequestObjectResult>();
+        }
+
+        // Other method
+    }
+    ```
+
 >[!Note]
-> Make sure you have the `PlanesController.cs` file open.
+> Copilot understood that it's likely that another unit test for the `Post` method is required, because the cursor is placed after the `}` of the `Post_AddsPlaneAndReturnsCreated` method.
 
-- Press `Enter`, GitHub Copilot will now suggest missing unit tests based on the code in the `PlanesController.cs` file.
-- After `[Fact]` attribute, press `Tab`.
-- GitHub Copilot will suggest a method name and the method body, press `Tab` to accept the suggestion.
+- You can repeat the process to add more unit tests to the `PlanesControllerTests.cs` file.
 
+- Now let's run the unit tests in the terminal to make sure everything is working as expected.
 
-### Optional Labs
+- Open the terminal and run the tests with the provided command.
+
+    ```sh
+    cd WrightBrothersApi
+    dotnet test
+    ```
+
+>[!Note]
+> Some tests might fail. Copilot does not always provide the correct suggestions. It's important to understand the suggestions and do some extra work to make sure the tests are correct. Copilot can help you with that as well.
+
+## Optional Labs
 
 ### Step 3: Taking Off - Developing Robust Tests
 
 - Open the `PlanesController.cs` file.
 
-- Make sure to add the `search` (by name) method to the `PlanesController.cs` file if you haven't already in the previous lab.
+- Make sure to add the `SearchByName` method to the `PlanesController.cs` file if you haven't already in the previous lab.
 
     ```csharp
     public class PlanesController : ControllerBase
@@ -113,22 +208,27 @@ public class PlanesControllerTests
         /* Rest of the methods */
         
         [HttpGet("search")]
-        public ActionResult<List<Plane>> search([FromQuery] string name)
+        public ActionResult<List<Plane>> SearchByName([FromQuery] string name)
         {
             _logger.LogInformation($"GET ✈✈✈ {name} ✈✈✈");
+
             var planes = Planes.FindAll(p => p.Name.Contains(name));
+
             if (planes == null)
             {
                 return NotFound();
             }
+            
             return Ok(planes);
         }
     }
     ```
 
+- Make sure to have the `PlanesController.cs` file open as well in your Visual Studio Code Editor in a tab next to the `PlanesControllerTests.cs` file.
+
 - Open `PlanesControllerTests.cs` file
 
-- Place your cursor at the end of the file, after the last unit tests `}`. Should be `GetById_ReturnsCorrectPlane()` method created in previous step.
+- Place your cursor at the end of the file, after the last unit tests `}`. Should be `GetById_ReturnsPlane()` method created in previous step.
 
     ```csharp
     public class PlanesControllerTests
@@ -143,101 +243,116 @@ public class PlanesControllerTests
     }
     ```
 
-- Type the following comment: 
+- Now, copy/paste the following:
 
     ```csharp
-    // Search term    | Amount of results | Description
-    // Wright Plane 1 | 1                 | Specific search
-    // Wright Plane   | 3                 | General search
-    // wright plane   | 3                 | Case insensitive
-    //  Wright  Plane | 3                 | Extra spaces
-
-
-    ```
-
-- Now press `Enter`, then `Enter` again to have Copilot suggest the unit tests.
-
-- GitHub Copilot will automatically suggest the `[Theory]` attribute. Accept the suggestion by pressing `Enter`.
-
-- GitHub Copilot will automatically suggest the `[InlineData]` attributes. Accept the suggestion by pressing `Enter`.
-
-    ```csharp
-    [Theory]
-    [InlineData("Wright Plane 1", 1, "Specific search")]
-    [InlineData("Wright Plane", 3, "General search")]
-    [InlineData("wright plane", 3, "Case insensitive")]
-    [InlineData(" Wright  Plane  ", 3, "Extra spaces")]
-    public void SearchByName_WithValidPlane_ReturnsOk(string searchTerm, int expectedAmountOfResults, string description)
+    public class PlanesControllerTests
     {
-        // Act
-        var result = _planesController.searchByName(searchTerm);
+        // Other method
 
-        // Assert
-        result.Value.Should().HaveCount(expectedAmountOfResults);
+        [Fact]
+        public void GetById_ReturnsPlane()
+        {
+            // method body
+        }
+
+        // Search term     | Amount of results | Test Description
+        // Wright Flyer II | 1                 | Specific search
+        // Wright          | 3                 | General search
+        // wright flyer    | 2                 | Case insensitive
+        //  Wright  flyer  | 2                 | Extra spaces
+
+
+        <---- Place your cursor here
     }
     ```
 
-> [!IMPORTANT]  
-> Occasionally, Copilot might return incorrect results due to its reliance on patterns learned from the vast amount of code and data it has been trained on.
+- Press `Enter`, GitHub Copilot will automatically suggest the `[Theory]` attribute. Accept the suggestion by pressing `Tab`.
+
+>[!Note]
+> GitHub Copilot will automatically suggest the `[Theory]` attribute because of the comments above the method. It understands that you want to run the same test with different parameters and outputs.
+
+- Press `Enter`, GitHub Copilot will automatically suggest the `[InlineData]` attributes. Accept the suggestion by pressing `Enter`. Repeat this for each `[InlineData]` attribute.
 
     ```csharp
-    var result = _planesController.Search(searchTerm);
+    [Theory]
+    [InlineData("Wright Flyer II", 1, "Specific search")]
+    [InlineData("Wright", 3, "General search")]
+    [InlineData("wright flyer", 2, "Case insensitive")]
+    [InlineData(" Wright  flyer ", 2, "Extra spaces")]
+    public void SearchByName_ReturnsPlanes(string searchTerm, intexpectedAmountOfResults, string testDescription)
+    {
+        // Act
+        var result = _planesController.SearchByName(searchTerm);
+
+        // Assert
+        var okObjectResult = (OkObjectResult)result.Result!;
+        var returnedPlanes = (List<Plane>)okObjectResult.Value!;
+        returnedPlanes.Should().HaveCount(expectedAmountOfResults, testDescription);
+    }  
     ```
-
-- Replace `Search` with `Search`.
-
-    ```csharp
-    var result = _planesController.Search(searchTerm);
-    ```
-
-> [!CAUTION]
-> Thijs! This needs to be Fixed. If result.Value is null, it means that the GetById method is not working as expected. It's possible that the Planes list in the PlanesController class is not properly initialized when the test is run, or the GetById method is not correctly finding the plane with the specified id.
 
 - Let's run the unit tests in the terminal to make sure everything is working as expected.
 
 - Open the terminal and run the tests with the provided command.
 
     ```sh
-    cd WrightBrothersApi
-    dotnet test
+    dotnet test WrightBrothersApi.Tests/WrightBrothersApi.Tests.csproj
     ```
 
-- Not all tests will pass. For example the `Case insensitive` test will fail. This is because the `Search` method is case sensitive. Let's fix this.
+- Not all tests will pass. For example the `Case insensitive` and `Extra spaces` test will fail. This is because the `SearchByName` method is case sensitive. Let's fix this.
 
     ```sh
     Starting test execution, please wait...
     A total of 1 test files matched the specified pattern.
-    Passed!  - Failed:     0, Passed:     5, , Failed:     2
+    Failed!  - Failed:     2, Passed:     6, Skipped:     0, Total:     8
     ```
 
-- Open `PlanesController.cs` file
+- Open `PlanesController.cs` file.
+
+- Select the content of the `SearchByName` method.
 
 - Ask Copilot to fix the case sensitivity issue by typing the following in the chat window: 
 
     ```
-    Fix case sensitivity issue
+    @workspace /fix case sensitivity issue
     ```
 
 - Copilot will give a suggestion to fix the case sensitivity issue.
 
+    ```csharp
+    public class PlanesController : ControllerBase
+    {
+        /* Rest of the methods */
+        
+        [HttpGet("search")]
+        public ActionResult<List<Plane>> SearchByName([FromQuery] string name)
+        {
+
+            // Rest of the method
+
+            var planes = Planes.FindAll(p => p.Name.Contains(name, StringComparison.OrdinalIgnoreCase)); // <---- Case insensitive
+
+            if (planes == null)
+            {
+                return NotFound();
+            }
+            
+            return Ok(planes);
+        }
+    }
+    ```
+
 >[!Note]
-> Copilot chat: "Here's how you can adjust the Search method to be case insensitive. You'll need to use the StringComparer.OrdinalIgnoreCase comparer in the FindAll method:"
+> You'll need to use the `StringComparer.OrdinalIgnoreCase` comparer in the FindAll method.
 
-- In the `Search` method, locate the `var planes`. This search is case sensitive.
+- Apply the changes to the `PlanesController.cs` file.
 
-    ```csharp
-    var planes = Planes.FindAll(p => p.Name.Contains(name));
-    ```
-
-- Now replace the `var planes` line with the with the following snippet. This will make the search case insensitive.
-
-    ```csharp
-    var planes = Planes.FindAll(p => p.Name.Contains(name, StringComparison.OrdinalIgnoreCase));
-    ```
-
-- Also the `Extra spaces` test will fail. This is because the `Search` is not trimming the search term. Let's fix this.
+- Also the `Extra spaces` test will fail. This is because the `SearchByName` is not trimming the search term. Let's fix this.
 
 - Open `PlanesController.cs` file
+
+- Select the content of the `SearchByName` method.
 
 - Ask Copilot to fix the trimming issue by typing the following in the chat window:
 
@@ -245,38 +360,41 @@ public class PlanesControllerTests
     Fix trimming issue
     ```
 
->[!Note]
-> Copilot chat: "It seems like you want to ignore leading and trailing spaces when searching for a plane by its name. You can achieve this by using the Trim method on the name parameter before using it in the Contains method. Here's how you can adjust the Search method."
-
-- In the `Search` method, place your cursor before the `var planes` line added above.
-
+- Copilot will give a suggestion to fix the trimming issue.
+    
     ```csharp
-    public class PlanesControllerTests
+    public class PlanesController : ControllerBase
     {
-      
-        <---- Place your cursor here
+        /* Rest of the methods */
+        
+        [HttpGet("search")]
+        public ActionResult<List<Plane>> SearchByName([FromQuery] string name)
+        {
 
-        var planes = Planes.FindAll(p => p.Name.Contains(name, StringComparison.OrdinalIgnoreCase));
+            // Rest of the method
 
-        // Rest of the method
+            name = name.Trim(); // <---- Removes leading and trailing spaces
 
+            var planes = Planes.FindAll(p => p.Name.Contains(name, StringComparison.OrdinalIgnoreCase));
+
+            if (planes == null)
+            {
+                return NotFound();
+            }
+            
+            return Ok(planes);
+        }
     }
     ```
 
-- Now add the suggested line `name = name.Trim();` line with the with the following snippet. This will ignore leading and trailing spaces.
-
-    ```csharp
-    name = name.Trim(); // Remove leading and trailing spaces
-    var planes = Planes.FindAll(p => p.Name.Contains(name, StringComparison.OrdinalIgnoreCase));
-    ```
+- Apply the changes to the `PlanesController.cs` file.
 
 - Let's run the unit tests in the terminal to make sure everything is working as expected.
 
 - Open the terminal and run the tests with the provided command
 
     ```sh
-    cd WrightBrothersApi
-    dotnet test
+    dotnet test WrightBrothersApi.Tests/WrightBrothersApi.Tests.csproj
     ```
 
 - The tests should run and pass.
@@ -284,7 +402,7 @@ public class PlanesControllerTests
     ```sh
     Starting test execution, please wait...
     A total of 1 test files matched the specified pattern.
-    Passed!  - Failed:     0, Passed:     7, , Failed:     0
+    Passed!  - Failed:     0, Passed:     8, , Failed:     0
     ```
     
 ### Congratulations you've made it to the end! &#9992; &#9992; &#9992;

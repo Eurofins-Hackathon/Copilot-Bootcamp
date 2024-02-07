@@ -45,10 +45,9 @@ namespace WrightBrothersApi.Controllers
         [HttpGet]
         public ActionResult<List<Plane>> GetAll()
         {
-
             _logger.LogInformation("GET all ✈✈✈ NO PARAMS ✈✈✈");
 
-            return Planes;
+            return Ok(Planes);
         }
 
         [HttpGet("{id}")]
