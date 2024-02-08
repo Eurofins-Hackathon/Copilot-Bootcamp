@@ -12,19 +12,18 @@
 			"NODE_VERSION": "lts/*"
 		}
 	},
-
-	// Set *default* container specific settings.json values on container create.
-	"settings": {},
-
-	// Add the IDs of extensions you want installed when the container is created.
-		"extensions": [
-		"ms-dotnettools.csharp",
-		"ms-vscode.powershell",
-		"humao.rest-client",
-		"GitHub.copilot",
-		"GitHub.copilot-chat",
-		"github.vscode-github-actions"
-	],
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-dotnettools.csharp",
+				"ms-vscode.powershell",
+				"humao.rest-client",
+				"GitHub.copilot",
+				"GitHub.copilot-chat",
+				"github.vscode-github-actions"
+			]
+		}
+	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [5000, 5001],
