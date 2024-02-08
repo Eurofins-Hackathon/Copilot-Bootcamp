@@ -36,8 +36,6 @@ public class Plane
 
 - Select all content of the `Planes` List.
 
-<img src="/Images/Screenshot123719.png" width="800">
-
 - Right click and select the option `Copilot` -> `Start Inline Chat`.
 
 - Type the following command
@@ -46,7 +44,10 @@ public class Plane
     Add the new ImageUrl property and complete the Wright Brothers Fleet
     ```
 
-<img src="/Images/Screenshot124031.png" width="800">
+<img src="../../Images/Screenshot-Planes-List.png" width="800">
+
+> [!Note]
+> Screenshot is made at 8th of February 2024. The UI of the Copilot Chat extension can be different at the time you are doing the lab. (Please notify us if the UI is different.)
 
 - Accept the suggestion by selecting `Accept` or pressing `Enter`.
 
@@ -61,16 +62,12 @@ public class Plane
 
 - Right click and choose for the option `Copilot` -> `Generate Docs`.
 
-TODO:  [Screenshot] - Select all - Right click - Generate Docs
+<img src="../../Images/Screenshot-PlanesController-docs.png" width="800">
 
-<img src="/Images/placeholderSmall.png" width="800">
+> [!Note]
+> Screenshot is made at 8th of February 2024. The UI of the Copilot Chat extension can be different at the time you are doing the lab. (Please notify us if the UI is different.)
 
 - Accept the suggestion by selecting `Accept`.
-
-TODO:  [Screenshot] - Accept
-<img src="/Images/placeholderSmall.png" width="800">
-<img src="/Images/placeholderSmall.png" width="800">
-
 
 > [!Note]
 > GitHub Copilot used the `/docs` agent to generate the documentation for the entire file in a matter of seconds.
@@ -81,8 +78,84 @@ TODO:  [Screenshot] - Accept
 
 - Navigate to the `UpdateFlightStatus` method.
 
+```csharp
+public class FlightsController : ControllerBase
+{
+
+    // Other methods
+
+    [HttpPost("{id}/status")]
+    public ActionResult UpdateFlightStatus(int id, FlightStatus newStatus)
+    {
+        var flight = Flights.Find(f => f.Id == id);
+        if (flight != null)
+        {
+            switch (newStatus)
+            {
+                case FlightStatus.Boarding:
+                    if (DateTime.Now > flight.DepartureTime)
+                    {
+                        return BadRequest("Cannot board, past departure time.");
+                    }
+
+                    break;
+
+                case FlightStatus.Departed:
+                    if (flight.Status != FlightStatus.Boarding)
+                    {
+                        return BadRequest("Flight must be in 'Boarding' status before it can be 'Departed'.");
+                    }
+
+                    break;
+
+                case FlightStatus.InAir:
+                    if (flight.Status != FlightStatus.Departed)
+                    {
+                        return BadRequest("Flight must be in 'Departed' status before it can be 'In Air'.");
+                    }
+                    break;
+
+                case FlightStatus.Landed:
+                    if (flight.Status != FlightStatus.InAir)
+                    {
+                        return BadRequest("Flight must be in 'In Air' status before it can be 'Landed'.");
+                    }
+
+                    break;
+
+                case FlightStatus.Cancelled:
+                    if (DateTime.Now > flight.DepartureTime)
+                    {
+                        return BadRequest("Cannot cancel, past departure time.");
+                    }
+                    break;
+
+                case FlightStatus.Delayed:
+                    if (flight.Status == FlightStatus.Cancelled)
+                    {
+                        return BadRequest("Cannot delay, flight is cancelled.");
+                    }
+                    break;
+
+                default:
+                    // Handle other statuses or unknown status
+                    return BadRequest("Unknown or unsupported flight status.");
+            }
+
+            flight.Status = newStatus;
+
+            return Ok($"Flight status updated to {newStatus}.");
+        }
+        else
+        {
+            return NotFound("Flight not found.");
+        }
+    }
+}
+```
+
 > [!Note]
-> Note that the `UpdateFlightStatus` method has a high code complexity rating of 8.
+> Note that the `UpdateFlightStatus` method has a high code complexity rating of 13, calculated by the Cyclomatic Complexity metric. This is a good candidate for refactoring.
 
 - Select all the content of the `UpdateFlightStatus` method.
 
@@ -94,13 +167,93 @@ TODO:  [Screenshot] - Accept
     Refactor the selected code to make it more readable and maintainable.
     ```
 
+<img src="../../Images/Screenshot-UpdateFlightStatus-Refactor.png" width="800">
+
+> [!Note]
+> Screenshot is made at 8th of February 2024. The UI of the Copilot Chat extension can be different at the time you are doing the lab. (Please notify us if the UI is different.)
+
 > [!Note]
 > GitHub Copilot Chat understands `the selected code`. It will use the selected code in your editor to generate the refactoring suggestions.
 
-> Copilot Chat: "The current code is a bit lengthy and has a lot of conditional statements. We can refactor it by extracting the validation logic into separate methods. This will make the code more readable and maintainable. Here's how we can do it:"
+- Copilot Chat suggests a code improvement to extract some of the complex code to their own methods to make the code more readible and maintainable:
+
+```csharp
+[HttpPost("{id}/status")]
+public ActionResult UpdateFlightStatus(int id, FlightStatus newStatus)
+{
+    var flight = Flights.Find(f => f.Id == id);
+    if (flight == null)
+    {
+        return NotFound("Flight not found.");
+    }
+
+    var validationResult = ValidateStatusChange(flight, newStatus);
+    if (validationResult != null)
+    {
+        return validationResult;
+    }
+
+    flight.Status = newStatus;
+    return Ok($"Flight status updated to {newStatus}.");
+}
+
+private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
+{
+    switch (newStatus)
+    {
+        case FlightStatus.Boarding:
+            if (DateTime.Now > flight.DepartureTime)
+            {
+                return BadRequest("Cannot board, past departure time.");
+            }
+            break;
+
+        case FlightStatus.Departed:
+            if (flight.Status != FlightStatus.Boarding)
+            {
+                return BadRequest("Flight must be in 'Boarding' status before it can be 'Departed'.");
+            }
+            break;
+
+        case FlightStatus.InAir:
+            if (flight.Status != FlightStatus.Departed)
+            {
+                return BadRequest("Flight must be in 'Departed' status before it can be 'In Air'.");
+            }
+            break;
+
+        case FlightStatus.Landed:
+            if (flight.Status != FlightStatus.InAir)
+            {
+                return BadRequest("Flight must be in 'In Air' status before it can be 'Landed'.");
+            }
+            break;
+
+        case FlightStatus.Cancelled:
+            if (DateTime.Now > flight.DepartureTime)
+            {
+                return BadRequest("Cannot cancel, past departure time.");
+            }
+            break;
+
+        case FlightStatus.Delayed:
+            if (flight.Status == FlightStatus.Cancelled)
+            {
+                return BadRequest("Cannot delay, flight is cancelled.");
+            }
+            break;
+
+        default:
+            // Handle other statuses or unknown status
+            return BadRequest("Unknown or unsupported flight status.");
+    }
+
+    return null;
+}
+```
 
 > [!Note]
-> To make it more readable and maintainable, Copilot will suggest to extract the code into a separate method, appying the Single Responsibility Principle of the SOLID principles.
+> The output of Copilot chat can vary, but the output should be a refactored method that is more readable and maintainable.
 
 > [!Note]
 > Note that GitHub Copilot Chat can make mistakes sometimes. Best practice is to have the method covered with unit tests before refactoring it. This is not a requirement for this lab, but it is a good practice to follow. These unit tests can be generated by GitHub Copilot as well, which is covered in a previous lab.
@@ -131,17 +284,19 @@ TODO:  [Screenshot] - Accept
 > [!Note]
 > Note that the `FlightLogSignature` is a fictional property that is used to demonstrate the capabilities of GitHub Copilot. It is not a real aviation concept.
 
-- Select all the content of the `FlightLogSignature` property and its description.
-
-// TODO UPDATE SCREENSHOT
-
-    ![Image of TBD](/Images/Screenshot125047.png)
+- Select all the content of `FlightLogSignature` property, including the comment above it.
 
 - Open the Copilot Chat extension and ask the following question:
 
     ```
     Create a c# record with a Parse method for the selected FlightLogSignature property. The Date must be a DateTime.
     ```
+
+
+<img src="../../Images/Screenshot-Flight-FlightLogSignature.png" width="800">
+
+> [!Note]
+> Screenshot is made at 8th of February 2024. The UI of the Copilot Chat extension can be different at the time you are doing the lab. (Please notify us if the UI is different.)
 
 > [!Note]
 > Note the prompt engineering for the 19th century context. This is a good example of how to instruct Copilot to generate code that is in line with the context of the application.
@@ -189,16 +344,35 @@ TODO:  [Screenshot] - Accept
 
 - In the Copilot Chat extension window, press the button to insert the suggested `FlightLog` record as a new file into `WrightBrothersApi/Models/FlightLog.cs`.
 
-    <img src="/Images/placeholderSmall.png" width="800">
+<img src="../../Images/Screenshot-Flight-FlightLogSignature.png" width="800">
 
 > [!Note]
-> GitHub Copilot has many quick actions that can be used to speed up the development process. In this case, it pasted the suggested code on the cursor in the editor. 
+> Screenshot is made at 8th of February 2024. The UI of the Copilot Chat extension can be different at the time you are doing the lab. (Please notify us if the UI is different.)
+
+> [!Note]
+> GitHub Copilot has many quick actions that can be used to speed up the development process. In this case, it created a new file based on the code suggestions. 
 
 - Now, let's add the new `FlightLog` property to the `Flight` model.
 
 - Open the `Flight.cs` file.
 
-- Add the `FlightLog` property to the `Flight` model.
+- Add the `FlightLog` property to the `Flight` model, by typing `public Fl`
+
+    ```csharp
+    public class Flight
+    {
+        // Other properties
+        // ...
+
+        // Existing property
+        public string FlightLogSignature { get; set; }
+
+        // New property
+        public Fl<---- Place cursor here
+    }
+    ```
+
+- Copilot will suggest the following code:
 
     ```csharp
     public class Flight
@@ -214,15 +388,13 @@ TODO:  [Screenshot] - Accept
     }
     ```
 
-TODO: MAybe Copilot will do this, because we did the previous steps to add the FlightLog to the Flight model.
+- Press `Tab` to accept the suggestion.
 
 - Open the `FlightsController.cs` file.
 
 - Navigate to the `Post` method.
 
-- Add the following code to `Parse` the `FlightLogSignature` property to the .
-
-// TODO: Maybe Copilot will do this, because we did the previous steps to add the FlightLog to the Flight model.
+- Place your cursor before the `Flights.Add(flight);` line.
 
     ```csharp
 
@@ -276,8 +448,10 @@ TODO: MAybe Copilot will do this, because we did the previous steps to add the F
 
 - Open `Flights.http` file in the Visual Studio code IDE and POST a new flight.
 
-    // TODO SCREENSHOT
+<img src="../../Images/Screenshot-Http-Flights.png" width="800">
 
+> [!Note]
+> Screenshot is made at 8th of February 2024. The UI of the Copilot Chat extension can be different at the time you are doing the lab. (Please notify us if the UI is different.)
 
 - The Rest Client response will now include the `FlightLog` property as follows:
 
@@ -293,8 +467,6 @@ TODO: MAybe Copilot will do this, because we did the previous steps to add the F
         },
     }
     ```
-
-    // TODO SCREENSHOT of Rest Client?
 
 ## Optional
 
@@ -472,7 +644,10 @@ Parse the selected AerobaticSequenceSignature property into c# models using a re
 
 - Open `Flights.http` file in the Visual Studio code IDE and POST a new flight.
 
-    // TODO SCREENSHOT
+<img src="../../Images/Screenshot-Http-Flights.png" width="800">
+
+> [!Note]
+> Screenshot is made at 8th of February 2024. The UI of the Copilot Chat extension can be different at the time you are doing the lab. (Please notify us if the UI is different.)
 
 - The Rest Client response will now include the `AerobaticSequence` property as follows:
 
@@ -509,5 +684,3 @@ Parse the selected AerobaticSequenceSignature property into c# models using a re
         ]
     }
     ```
-
-    // TODO SCREENSHOT of Rest Client?

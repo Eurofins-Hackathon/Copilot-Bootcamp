@@ -10,6 +10,10 @@ This module demonstrates how to utilize GitHub Copilot's Chat Extension and its 
 ## Objectives
 Introduction to GitHub Copilot Chat Extension and its agents for code completion and style adaptation.
 
+
+TODO: ADd Disclaimer about Copilot not always being correct or results do not match with actual results.
+
+
 ### Step 1: Plane Inspection - Explain the Codebase with Copilot Chat
 
 - Open GitHub Copilot Chat Extension
@@ -123,7 +127,7 @@ public class PlanesController : ControllerBase
 
 - Accept the suggestion by pressing `Tab` to accept this attribute.
 
-- Next, Copilot will automaticly suggest the method for the `[HttpPut]` attribute, press `Enter` to accept.
+- Next, Copilot will automatically suggest the method for the `[HttpPut]` attribute, press `Enter` to accept.
 
     ```csharp
     // * Suggested by Copilot
@@ -233,6 +237,8 @@ public class PlanesController : ControllerBase
 
 
 ## Optional Labs
+
+### ... Play Around Step to freely play with the Labs
 
 ### Step 5: Testing your flying style - Logging - Consistency
 
