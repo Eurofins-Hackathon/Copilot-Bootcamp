@@ -5,14 +5,13 @@ This module demonstrates how to utilize GitHub Copilot's Chat Extension and its 
 - The prerequisites steps are completed, see [Labs Prerequisites](https://github.com/XpiritBV/Copilot-Bootcamp#labs-prerequisites)
 
 ## Estimated time to complete
-- 30 min
+- 30 min **<--- ToDo! Update actual time**
 
 ## Objectives
 Introduction to GitHub Copilot Chat Extension and its agents for code completion and style adaptation.
 
-
-TODO: ADd Disclaimer about Copilot not always being correct or results do not match with actual results.
-
+> [!IMPORTANT]  
+> Please note that Copilot's responses are generated based on a mix of curated data, algorithms, and machine learning models, which means they may not always be accurate or reflect the most current information available. Users are advised to verify Copilot's outputs with trusted sources before making decisions based on them.
 
 ### Step 1: Plane Inspection - Explain the Codebase with Copilot Chat
 
@@ -26,7 +25,7 @@ TODO: ADd Disclaimer about Copilot not always being correct or results do not ma
 
 - Copilot will give a brief overview of the API. This is a good way to get a quick overview of the codebase.
 
-TODO: Add Screenshot of Copilot Chat explain the workspace
+~~TODO: Add Screenshot of Copilot Chat explain the workspace~~
 
 GitHub Copilot has the concept of Agents. `@workspace` is an agent that is specialized in answering questions about the currently open workspace.
 
@@ -68,9 +67,9 @@ Limitations:
 
 - Next, open `WrightBrothersApi` folder located in the `WrightBrothersApi` folder.
 
-- Open the `PlanesController.cs` file located in the `Controllers` folder.
+- Open the `Controllers/PlanesController.cs` file
 
-- Place your cursor at the end of the `Planes` List, after the `}` of `Plane` with `Id = 3`, press `Enter`.
+- Place your cursor at the end of the `Planes` List, after the `}` of `Plane` with `Id = 4`, press `Enter`.
 
 ```csharp
 public class PlanesController : ControllerBase
@@ -82,11 +81,11 @@ public class PlanesController : ControllerBase
         // Other planes
         new Plane
         {
-            Id = 3,
-            Name = "Wright Model A",
-            Year = 1908,
-            Description = "The first commercially successful airplane.",
-            RangeInKm = 40
+            Id = 4,
+            Name = "Wright Model B",
+            Year = 1910,
+            Description = "The first airplane used for military purposes.",
+            RangeInKm = 80
         },
         <---- Place your cursor here
     };
@@ -104,9 +103,9 @@ public class PlanesController : ControllerBase
 
 - Open `WrightBrothersApi` folder located in the `WrightBrothersApi` folder.
 
-- Open the `PlanesController.cs` file located in the `Controllers` folder.
+- Open the `Controllers/PlanesController.cs` file.
 
-- Place your cursor at the end of the file, after the `}` of the `Post` method, press `Enter`.
+- Place your cursor at the end of the file, after the `}` of the `Post` method, press `Enter` twice.
 
 ```csharp
 public class PlanesController : ControllerBase
@@ -125,9 +124,9 @@ public class PlanesController : ControllerBase
 
 - GitHub Copilot will automatically suggest the `[HttpPut]` method.
 
-- Accept the suggestion by pressing `Tab` to accept this attribute.
+- Accept the suggestion by pressing `Tab` to accept this attribute, then press `Enter`.
 
-- Next, Copilot will automatically suggest the method for the `[HttpPut]` attribute, press `Enter` to accept.
+- Next, Copilot will automatically suggest the method for the `[HttpPut]` attribute, press `Tab` to accept.
 
     ```csharp
     // * Suggested by Copilot
@@ -159,11 +158,11 @@ public class PlanesController : ControllerBase
 >[!Note]
 >The reason GitHub Copilot suggests the `[HttpPut]` method is because it understand that the `PlanesController.cs` class is a REST API controller and that the `[HttpPut]` is currently missing. The `[HttpPut]` method is the next logical step in the REST API for updating a resource.
 
-- Let's do it again, place your cursor at the end of the file, after the `}` of the `Put` method, press `Enter`.
+- Let's do it again, place your cursor at the end of the file, after the `}` of the `Put` method, press `Enter` twice.
 
-- GitHub Copilot will automatically suggest the `[HttpDelete]` method. - Accept the suggestion by pressing `Tab` to accept this attribute.
+- Accept the suggestion by pressing `Tab` to accept this attribute, then press `Enter`.
 
-- Copilot will now automically suggest the code for this method, press `Enter` to accept.
+- Next, Copilot will automatically suggest the method for the `[HttpDelete]` attribute, press `Tab` to accept.
 
     ```csharp
     // * Suggested by Copilot
@@ -188,9 +187,9 @@ public class PlanesController : ControllerBase
 
 - Open `WrightBrothersApi` folder located in the `WrightBrothersApi` folder.
 
-- Open the `PlanesController.cs` file located in the `Controllers` folder.
+- Open the `Controllers/PlanesController.cs` file.
 
-- Type `// Search planes by name` in the comment block. After the `}` of the `GetAll` method.
+- Type `// Search planes by name` in the comment block. After the `}` of the `GetAll` method, press `Enter`.
 
     ```csharp
     public class PlanesController : ControllerBase
@@ -208,11 +207,11 @@ public class PlanesController : ControllerBase
     }
     ```
 
-- Press `Enter` and GitHub Copilot will automatically suggest the `[HttpGet("search")]` method.
+- GitHub Copilot will automatically suggest the `[HttpGet("search")]` method.
 
 - Accept the suggestion by pressing `Tab` to accept this attribute.
 
-- Copilot will now automically suggest the code for this method, press `Enter` to accept.
+- Press `Enter`, Copilot will now automically suggest the code for this method, press `Tab` to accept.
 
     ```csharp
     // Search planes by name
@@ -238,15 +237,13 @@ public class PlanesController : ControllerBase
 
 ## Optional Labs
 
-### ... Play Around Step to freely play with the Labs
-
 ### Step 5: Testing your flying style - Logging - Consistency
 
 Let's present a code completion task for adding a logger with specific syntax (e.g., `_logger`). Use this to explain how Copilot adapts to and replicates your coding style.
 
 - Open `WrightBrothersApi` folder located in the `WrightBrothersApi` folder.
 
-- Open the `PlanesController.cs` file located in the `Controllers` folder.
+- Open the `Controllers/PlanesController.cs` file.
 
 - Go to the `GetAll` method and inspect the method. Notice the syntax of `✈✈✈ NO PARAMS ✈✈✈`. This is a custom syntax that is used in this codebase to log parameters of a method. 
 
@@ -265,7 +262,6 @@ Let's present a code completion task for adding a logger with specific syntax (e
 
     }
     ```
-
 
 - Go to the `GetById` method and let's add a logging statement with the same syntax.
 
@@ -294,7 +290,7 @@ Let's present a code completion task for adding a logger with specific syntax (e
     [HttpGet("{id}")]
     public ActionResult<Plane> GetById(int id)
     {
-        _logger.LogInformation($"GET ✈✈✈ {id} ✈✈✈");
+        _logger.LogInformation("GET by ID ✈✈✈ ID: {id} ✈✈✈", id);
 
         // Method body
     }
@@ -336,7 +332,7 @@ Let's present a code completion task for adding a logger with specific syntax (e
     [HttpPut("{id}")]
     public IActionResult Put(int id, Plane plane)
     {
-        _logger.LogInformation($"PUT ✈✈✈ {id} ✈✈✈");
+        _logger.LogInformation("PUT ✈✈✈ ID: {id} ✈✈✈", id);
 
         // Method body
     }
@@ -362,7 +358,7 @@ Let's present a code completion task for adding a logger with specific syntax (e
     [HttpDelete("{id}")]
     public IActionResult Delete(int id)
     {
-        _logger.LogInformation($"DELETE ✈✈✈ {id} ✈✈✈");
+        _logger.LogInformation("DELETE ✈✈✈ ID: {id} ✈✈✈", id);
 
         // Method body
     }
