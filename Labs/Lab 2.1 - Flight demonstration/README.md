@@ -5,7 +5,7 @@ This module demonstrates how to utilize GitHub Copilot's Chat Extension and its 
 - The prerequisites steps are completed, see [Labs Prerequisites](https://github.com/XpiritBV/Copilot-Bootcamp#labs-prerequisites)
 
 ## Estimated time to complete
-- 30 min **<--- ToDo! Update actual time**
+- 30 to 45 minutes, varying with optional labs.
 
 ## Objectives
 Introduction to GitHub Copilot Chat Extension and its agents for code completion and style adaptation.

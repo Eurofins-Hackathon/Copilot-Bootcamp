@@ -7,7 +7,7 @@ A reference to the [Air Crash Investigation](https://en.wikipedia.org/wiki/Mayda
 - The prerequisites steps are completed, see [Labs Prerequisites](https://github.com/XpiritBV/Copilot-Bootcamp#labs-prerequisites)
 
 ## Estimated time to complete
-- 30 min
+- 30 to 45 minutes, varying with optional labs.
 
 ## Objectives
 - Understanding the limitations of GitHub Copilot and learning how to troubleshoot its suggestions.
@@ -17,7 +17,7 @@ A reference to the [Air Crash Investigation](https://en.wikipedia.org/wiki/Mayda
 
 - Open `FlightController.cs` file located in the `Controllers` folder.
 
-- Navigate to the `TakeFlight` method.
+- Navigate to the `takeFlight` method.
 
 > [!Note]
 > The method simulates a flight and throws an exception if the flight runs out of fuel.
@@ -54,27 +54,40 @@ public class FlightsController : ControllerBase
 }
 ```
 
-- Now go to `Flights.http` file, located in the `Examples` folder, and execute the `takeFlight` request.
+- Open a terminal and navigate to the `WrightBrothersApi` folder
+- Run the application
+
+    ```sh
+    dotnet run
+    ```
+
+- Now go to `Examples/Flights.http` file and execute the `takeFlight` request.
 
 ```
 POST http://localhost:1903/flights/1/takeFlight/75 HTTP/1.1
 content-type: application/json
 ```
 
-TODO [Screenshot] pointing to the POST request option in VSCode
-<img src="/Images/placeholderSmall.png" width="800">
+~~TODO [Screenshot] pointing to the POST request option in VSCode~~
+~~<img src="/Images/placeholderSmall.png" width="800">~~
 
 > [!Note]
 > You must have the `Rest Client` with identifier `humao.rest-client` extension installed in Visual Studio Code to execute the request. Rest Client is a very useful extension to quickly execute HTTP requests and commit them to Git.
-
-TODO: Add Rest client extension to the devcontainer
 
 - You will see that the flight is taking off and the response is `200 OK`.
 
 > [!Note]
 > The flight is taking off and the response is `200 OK`. The flight that is simulated did not run out of fuel.
 
+
+    ```json
+    HTTP/1.1 200 OK
+    Connection: close
+    ```
+
 - Now execute the request again, but now for flight `3`.
+
+- Change the `1` to `3` in the request and execute it again.
 
 ```
 POST http://localhost:1903/flights/3/takeFlight/75 HTTP/1.1
@@ -83,13 +96,23 @@ content-type: application/json
 
 - You will see that the flight is taking off and the response is `500 Internal Server Error`. The flight that is simulated ran out of fuel and crashed.
 
+- The Rest Client response will now include the `FlightLog` property as follows:
+
+    ```json
+    HTTP/1.1 500 Internal Server Error
+    Connection: close
+
+    System.Exception: Plane crashed, due to lack of fuel
+   at FlightsController.takeFlight(Int32 id, Int32 flightLength) in C:\Temp\WrightBrothersApi\WrightBrothersApi\Controllers\FlightsController.cs:line 174
+    ```
+
+- Stop the app by pressing `Ctrl + C` or `Cmd + C` in the terminal.
+
 - Now, let's debug it with GitHub Copilot
 
 - Navigate to the `Terminal` and select the content of the throw exception.
 
-TODO Screenshot
-
-<img src="/Images/placeholderSmall.png" width="800">
+<img src="/Images/Screenshot-LackOfFuel152608.png" width="800">
 
 - Right click the terminal and select `Copilot: Explain this` from the context menu.
 
@@ -100,6 +123,8 @@ TODO Screenshot
 > [!Note]
 > GitHub Copilot will explain the code in a human readable format.
 
+TODO! Tijis, is this needed? I think we can skip this step.
+- Stop the app by pressing `Ctrl + C` or `Cmd + C` in the terminal.
 
 #### Step 2. Lightning Strikes, Unexpected Flight Crash - Stack Overflow Scenario
 
@@ -126,7 +151,14 @@ public class FlightsController : ControllerBase
 }
 ```
 
-- Go to the `Flights.http` file, located in the `Examples` folder, and execute the `lightningStrike` request.
+- Open a terminal and navigate to the `WrightBrothersApi` folder
+- Run the application
+
+    ```sh
+    dotnet run
+    ```
+
+- Go to the `Examples/Flights.http` file and execute the `lightningStrike` request.
 
     ```
     POST http://localhost:1903/flights/1/lightningStrike HTTP/1.1
@@ -134,6 +166,12 @@ public class FlightsController : ControllerBase
     ```
 
 - The application will crash.
+
+    ```json
+   Stack overflow.
+   at FlightsController.lightningStrike(Int32)
+
+    ```
 
 - Now, let's debug it with GitHub Copilot
 
@@ -221,16 +259,29 @@ TODO Screenshot
     }
     ```
 
-- Now go to `Flights.http` file, located in the `Examples` folder, and execute the `calculateAerodynamics` request.
+- Open a terminal and navigate to the `WrightBrothersApi` folder
+- Run the application
 
+    ```sh
+    dotnet run
     ```
+
+- Now go to `Examples/Flights.http` file click `Send Request` to execute the `calculateAerodynamics` request.
+
     POST http://localhost:1903/flights/1/calculateAerodynamics HTTP/1.1
     content-type: application/json
     ```
 
-Example output:
+- Response will be:
 
+    ```json
+    HTTP/1.1 200 OK
+    Connection: close
     ```
+
+- Terminal will show:
+
+    ```json
     Found 25997 prime numbers.
     Elapsed Time: 4.863 seconds
     ```
@@ -251,7 +302,7 @@ Example output:
 
 - Copilot will optimize the code.
 
-- Now go to `Flights.http` file, located in the `Examples` folder, and execute the `calculateAerodynamics` request again.
+- Now go to `Examples/Flights.http` file and execute the `calculateAerodynamics` request again.
 
     ```
     POST http://localhost:1903/flights/1/calculateAerodynamics HTTP/1.1
@@ -262,7 +313,7 @@ Example output:
 
     ```
     Found 25997 prime numbers.
-    Elapsed Time: 0.02 seconds
+    Elapsed Time: 0.014 seconds
     ```
 
 - The application will now calculate the prime numbers in less than 50 milliseconds.

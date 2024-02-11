@@ -5,7 +5,7 @@ This lab exercise delves into GitHub Copilot's advanced features, teaching parti
 - The prerequisites steps are completed, see [Labs Prerequisites](https://github.com/XpiritBV/Copilot-Bootcamp#labs-prerequisites)
 
 ## Estimated time to complete
-- 30 min **<--- ToDo! Update actual time**
+- 30 to 45 minutes, varying with optional labs.
 
 ## Objectives
 - To master GitHub Copilot's advanced features for solving complex coding exercises and optimizing code.

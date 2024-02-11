@@ -5,7 +5,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 - The prerequisites steps are completed, see [Labs Prerequisites](https://github.com/XpiritBV/Copilot-Bootcamp#labs-prerequisites)
 
 ## Estimated time to complete
-- 30 min **<--- ToDo! Update actual time**
+- 30 to 45 minutes, varying with optional labs.
 
 ## Objectives
 - Simple coding exercises using GitHub Copilot, focusing on understanding its suggestions and capabilities.

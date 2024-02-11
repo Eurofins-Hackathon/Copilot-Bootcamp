@@ -111,6 +111,8 @@ This lab exercise demonstrates integrating GitHub Copilot into .NET application 
     dotnet run
     ```
 
+*************** FIX !!!**************
+
 - Open a browser and navigate to `http://localhost:1903/health`
 
     ```sh
