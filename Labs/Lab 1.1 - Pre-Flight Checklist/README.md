@@ -26,28 +26,28 @@ Each Codespace you create is hosted by GitHub in a Docker container, running on 
 
 By default, Codespaces are created from an Ubuntu Linux image that includes a selection of popular languages and tools, but you can use an image based on a Linux distribution of your choice and configure it for your particular requirements.
 
-- Navigate to your own repository on the URL https://github.com/Microsoft-Bootcamp/attendeec2c-[yourhandle].
+- Navigate to your own repository on the URL https://github.com/Microsoft-Bootcamp/attendee-copilot-[yourhandle].
 
-- Locate the `Code` tab near the top menu. Next to Codespaces, click the "..." and choose "New with options".
 
-TODO: [Screenshot]
+- Locate the `Code` tab near the top menu.
+- Click the green `Code` button, then click on `Codespaces`, click the "..." and choose `"New with options"`.
 
-- Keep the defaults, but change the machine type to "4-core" and click "Create Codespace".
+- Keep the defaults, but change the machine type to `4-core` and click `Create Codespace`.
+
+<img src="../../Images/Screenshot-CodespaceSetUp.png" width="800">
 
 Your Codespace is being created. After a few minutes, you will be able to see your Codespace in the browser.
 
-### Step 2: 🔧 Install Extensions
+~~### Step 2: 🔧 Install Extensions~~
 
-Now that we have a Codespace, we need to make it our own and configure your Codespace to your needs.
+~~Now that we have a Codespace, we need to make it our own and configure your Codespace to your needs.~~
 
-- Go to the extensions tab on the left side and search the marketplace for GitHub Copilot. Install this extension.
+~~- Go to the extensions tab on the left side and search the marketplace for GitHub Copilot. Install this extension.~~
 
-- After installation, stay on the extensions page, and click the "cog" (:gear:) icon. Choose "Add to devcontainer.json".
+~~- After installation, stay on the extensions page, and click the "cog" (:gear:) icon. Choose "Add to devcontainer.json".~~
 
-TODO: [Screenshot]
-
-- GitHub Copilot Chat
-- GitHub Actions
+~~- GitHub Copilot Chat~~
+~~- GitHub Actions~~
 
 ### Step 3: ✅ Verify Extension Installation
 Let's make sure that the extensions we added, are indeed added. When you add extensions to the configuration file, this is noted as Infrastructure as Code. To check this follow these steps.
