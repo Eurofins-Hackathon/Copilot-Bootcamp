@@ -5,7 +5,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 - The prerequisites steps are completed, see [Labs Prerequisites](https://github.com/XpiritBV/Copilot-Bootcamp#labs-prerequisites)
 
 ## Estimated time to complete
-- 30 min
+- 30 min **<--- ToDo! Update actual time**
 
 ## Objectives
 - Simple coding exercises using GitHub Copilot, focusing on understanding its suggestions and capabilities.
@@ -32,15 +32,15 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 - From the Copilot Chat window, select one of the two options:
     1. Click the ellipses, `...`, select `Insert into Terminal`.
 
-    // TODO Screenshot
+    ~~// TODO Screenshot~~
     
     1. If there isn't a terminal open, click the `Open in Terminal` button.
 
-    // TODO Screenshot
+    ~~// TODO Screenshot~~
 
     1. Click copy button, then, open a new Terminal window by pressing **Ctrl+`** (Control and backtick), paste into Terminal window.
 
-    // TODO Screenshot
+    ~~// TODO Screenshot~~
 
 - Open the terminal and run the tests with the provided command.
 
@@ -53,7 +53,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
     ```sh
     Starting test execution, please wait...
     A total of 1 test files matched the specified pattern.
-    Passed!  - Failed:     0, Passed:     2
+    Passed!  - Failed:  0, Passed:  3, Skipped:  0, Total:  3
     ```
 
 ### Step 2: Pre-takeoff Pilot Checks - Completing Unit Tests
@@ -68,7 +68,9 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - Copilot will give a suggestion to add unit tests to the `Controllers/PlanesControllerTests.cs` file in the `WrightBrothersApi.Tests` project.
 
-// TODO Screenshot of the Chat
+    ```sh
+    You can add additional unit tests in the `PlanesControllerTests` class in the `WrightBrothersApi.Tests/Controllers/PlaneControllerTests.cs` file.
+    ```
 
 - Open `PlanesControllerTests.cs` that GitHub Copilot suggested in the chat by clicking on the provided file name in the chat.
 
@@ -79,7 +81,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 >[!Note]
 > Github Copilot will use any file that is open to gather extra context for its suggestions, this is why it's important to have the `PlanesController.cs` file open.
 
-- Place your cursor at the end of the file, after the `}` of the `Post_AddsPlaneAndReturnsCreated` method.
+- Place your cursor at the end of the file, after the `}` of the `GetById_ReturnsPlane` method.
 
 ```csharp
 public class PlanesControllerTests
@@ -96,7 +98,7 @@ public class PlanesControllerTests
 
 - Press `Enter`, GitHub Copilot will now suggest `[Fact]` for a missing unit tests based on the code in the `PlanesController.cs` file.
 
-- Press `Tab` to accept the suggestion.
+- Press `Tab` to accept the suggestion, press `Enter` to add a new line.
 
 - GitHub Copilot will automatically suggest the a missing unit test. Accept the suggestion by pressing `Tab`.
 
@@ -143,7 +145,7 @@ public class PlanesControllerTests
 
 - Press `Enter`, GitHub Copilot will now suggest `[Fact]` for a missing unit tests based on the code in the `PlanesController.cs` file.
 
-- Press `Tab` to accept the suggestion.
+- Press `Tab` to accept the suggestion, press `Enter` to add a new line.
 
 - GitHub Copilot will now suggest a missing unit test for the `Post` method of the `PlanesController.cs` file. Accept the suggestion by pressing `Tab`.
 
@@ -187,12 +189,19 @@ public class PlanesControllerTests
 - Open the terminal and run the tests with the provided command.
 
     ```sh
-    cd WrightBrothersApi
-    dotnet test
+    dotnet test WrightBrothersApi.Tests/WrightBrothersApi.Tests.csproj
     ```
 
 >[!Note]
 > Some tests might fail. Copilot does not always provide the correct suggestions. It's important to understand the suggestions and do some extra work to make sure the tests are correct. Copilot can help you with that as well.
+
+- The tests should run and pass.
+
+    ```sh
+    Starting test execution, please wait...
+    A total of 1 test files matched the specified pattern.
+    Passed!  - Failed:  0, Passed:  5, Skipped:  0, Total:  5
+    ```
 
 ## Optional Labs
 
@@ -210,7 +219,6 @@ public class PlanesControllerTests
         [HttpGet("search")]
         public ActionResult<List<Plane>> SearchByName([FromQuery] string name)
         {
-            _logger.LogInformation($"GET ✈✈✈ {name} ✈✈✈");
 
             var planes = Planes.FindAll(p => p.Name.Contains(name));
 
@@ -228,13 +236,13 @@ public class PlanesControllerTests
 
 - Open `PlanesControllerTests.cs` file
 
-- Place your cursor at the end of the file, after the last unit tests `}`. Should be `GetById_ReturnsPlane()` method created in previous step.
+- Place your cursor at the end of the file, after the last unit test `}`. Should be `GetById_ReturnsNotFound()` method created in previous step.
 
     ```csharp
     public class PlanesControllerTests
     {
         [Fact]
-        public void GetById_ReturnsCorrectPlane()
+        public void GetById_ReturnsNotFound()
         {
             // method body
         }
@@ -246,23 +254,11 @@ public class PlanesControllerTests
 - Now, copy/paste the following:
 
     ```csharp
-    public class PlanesControllerTests
-    {
-        // Other method
-
-        [Fact]
-        public void GetById_ReturnsPlane()
-        {
-            // method body
-        }
-
         // Search by name term  | Amount of results | Test Description
         // Wright Flyer II      | 1                 | Specific search
         // Wright               | 3                 | General search
         // wright flyer         | 2                 | Case insensitive
         //  Wright  flyer       | 2                 | Extra spaces
-        <---- Place your cursor here
-    }
     ```
 
 - Press `Enter`, GitHub Copilot will automatically suggest the `[Theory]` attribute. Accept the suggestion by pressing `Tab`.
@@ -308,7 +304,7 @@ public class PlanesControllerTests
 
 - Open `PlanesController.cs` file.
 
-- Select the content of the `SearchByName` method.
+- Select the entire `SearchByName` method.
 
 - Ask Copilot to fix the case sensitivity issue by typing the following in the chat window: 
 
@@ -345,6 +341,7 @@ public class PlanesControllerTests
 > You'll need to use the `StringComparer.OrdinalIgnoreCase` comparer in the FindAll method.
 
 - Apply the changes to the `PlanesController.cs` file.
+- Click on the `Insert at cursor` to replace the `SearchByName` method with the new one.
 
 - Also the `Extra spaces` test will fail. This is because the `SearchByName` is not trimming the search term. Let's fix this.
 
@@ -386,6 +383,7 @@ public class PlanesControllerTests
     ```
 
 - Apply the changes to the `PlanesController.cs` file.
+- Click on the `Insert at cursor` to replace the `SearchByName` method with the new one.
 
 - Let's run the unit tests in the terminal to make sure everything is working as expected.
 

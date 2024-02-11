@@ -5,7 +5,7 @@ This lab exercise delves into GitHub Copilot's advanced features, teaching parti
 - The prerequisites steps are completed, see [Labs Prerequisites](https://github.com/XpiritBV/Copilot-Bootcamp#labs-prerequisites)
 
 ## Estimated time to complete
-- 30 min
+- 30 min **<--- ToDo! Update actual time**
 
 ## Objectives
 - To master GitHub Copilot's advanced features for solving complex coding exercises and optimizing code.
@@ -32,7 +32,7 @@ public class Plane
 }
 ```
 
-- Open the `PlanesController.cs` file.
+- Open the `Controllers/PlanesController.cs` file.
 
 - Select all content of the `Planes` List.
 
@@ -41,7 +41,7 @@ public class Plane
 - Type the following command
 
     ```
-    Add the new ImageUrl property and complete the Wright Brothers Fleet
+    Add the new ImageUrl property and the next plane from the Wright Brothers Fleet
     ```
 
 <img src="../../Images/Screenshot-Planes-List.png" width="800">
@@ -52,7 +52,7 @@ public class Plane
 - Accept the suggestion by selecting `Accept` or pressing `Enter`.
 
 >[!Note]
-> GitHub Copilot can do more than one thing at a time. It added the new property and filled in the list of planes.
+> GitHub Copilot can do more than one thing at a time. It added the new property to each plane and next Wright Brothers plane to the list of planes.
 
 ### Step 2: - Flight Logbook - Logging Your Coding Journey
 
@@ -74,7 +74,7 @@ public class Plane
 
 ### Step 3: - Flying in Formation - Code Refactoring
 
-- Open the `WrightBrothersApi/Controllers/FlightsController.cs` file.
+- Open the `Controllers/FlightsController.cs` file.
 
 - Navigate to the `UpdateFlightStatus` method.
 
@@ -260,7 +260,7 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
 
 ### Step 4: - Parsing Flight Show - String parsing
 
-- Open the `WrightBrothersApi/Models/Flight.cs` file.
+- Open the `Models/Flight.cs` file.
 
 - Take a look at the `FlightLogSignature` property.
 
@@ -284,14 +284,13 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
 > [!Note]
 > Note that the `FlightLogSignature` is a fictional property that is used to demonstrate the capabilities of GitHub Copilot. It is not a real aviation concept.
 
-- Select all the content of `FlightLogSignature` property, including the comment above it.
+- Select all the content of `FlightLogSignature` property, including the comments above it.
 
 - Open the Copilot Chat extension and ask the following question:
 
     ```
     Create a c# record with a Parse method for the selected FlightLogSignature property. The Date must be a DateTime.
     ```
-
 
 <img src="../../Images/Screenshot-Flight-FlightLogSignature.png" width="800">
 
@@ -342,7 +341,11 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
 > [!Note]
 > GitHub Copilot is very good at understanding the context of the code. It understands that the `FlightLogSignature` is a string in a specific format and that it can be parsed into a `FlightLogSignature` model, to make the code more readable and maintainable.
 
-- In the Copilot Chat extension window, press the button to insert the suggested `FlightLog` record as a new file into `WrightBrothersApi/Models/FlightLog.cs`.
+- In the Copilot Chat extension window, click the ellipses `...` and select `Insert into new file` for the suggested `FlightLog` record as `WrightBrothersApi/Models/FlightLog.cs`.
+
+- Copilot will add the code to a new empty file, but must be saved.
+- Save the file by clicking pressing `Ctrl + S` or `Cmd + S`.
+- Enter the file name `FlightLog.cs` and click `Save`.
 
 <img src="../../Images/Screenshot-Flight-FlightLogSignature.png" width="800">
 
@@ -354,9 +357,9 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
 
 - Now, let's add the new `FlightLog` property to the `Flight` model.
 
-- Open the `Flight.cs` file.
+- Open the `Models/Flight.cs` file.
 
-- Add the `FlightLog` property to the `Flight` model, by typing `public Fl`
+- Add the `FlightLog` property to the `Flight` model, by typing `public Fli`
 
     ```csharp
     public class Flight
@@ -368,7 +371,7 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
         public string FlightLogSignature { get; set; }
 
         // New property
-        public Fl<---- Place cursor here
+        public Fli <---- Place cursor here
     }
     ```
 
@@ -388,7 +391,31 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
     }
     ```
 
-- Press `Tab` to accept the suggestion.
+- Press `Tab` to accept the suggestion, then press `Enter` to add the new property.
+
+- If the suggestion provided looks like this, you can type the following code manually:
+
+    ```csharp
+    public FlightLog FlightLog
+    {
+        get
+        {
+            return FlightLog.Parse(FlightLogSignature);
+        }
+    }
+    ```
+
+- Update code to look like this instead.
+
+    ```csharp
+    public class Flight
+    {
+        // Other properties
+
+        // New property
+        public FlightLog FlightLog { get; set; }
+    }
+    ```
 
 - Open the `FlightsController.cs` file.
 
@@ -429,13 +456,15 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
     var flightLog = FlightLog.Parse(flight.FlightLogSignature);
     ```
 
-- Now press `Tab` to accept the suggestion.
+- Now press `Tab` to accept the suggestion, then press `Enter` to add the new line.
 
-- Now press `Enter` and Copilot will suggest the following code:
+- Copilot will suggest the following code:
 
     ```csharp
     flight.FlightLog = flightLog;
     ```
+
+- Now press `Tab` to accept the suggestion, then press `Enter` to add the new line.
 
 > [!Note]
 > As explained in an earlier lab, Copilot used the new created `FlightLog.cs` file in its context and suggests the `FlightLog.Parse` method.
@@ -443,19 +472,28 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
 - Now, run the app and test the new functionality.
 
     ```bash
+    cd WrightBrothersApi
     dotnet run
     ```
 
-- Open `Flights.http` file in the Visual Studio code IDE and POST a new flight.
+- Open `Examples/Flights.http` file in the Visual Studio code IDE and POST a new flight.
 
 <img src="../../Images/Screenshot-Http-Flights.png" width="800">
 
 > [!Note]
 > Screenshot is made at 8th of February 2024. The UI of the Copilot Chat extension can be different at the time you are doing the lab. (Please notify us if the UI is different.)
 
+- Click the `Send Request` button for the first `POST`.
+
+    ```json
+    POST http://localhost:1903/flights HTTP/1.1
+    ```
+
 - The Rest Client response will now include the `FlightLog` property as follows:
 
     ```json
+    HTTP/1.1 201 Created
+    Connection: close
     {
         "id": 4,
         "flightLogSignature": "17091908-DEP-ARR-WB004",
@@ -467,6 +505,7 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
         },
     }
     ```
+- Stop the app by pressing `Ctrl + C` or `Cmd + C` in the terminal.
 
 ## Optional
 
@@ -547,11 +586,19 @@ Parse the selected AerobaticSequenceSignature property into c# models using a re
 > [!Note]
 > We prompt engineered the `AerobaticSequence` class to instruct Copilot to generate a very specific solution.
 
-- In the Copilot Chat extension window, press the button to insert the suggested `AerobaticSequence` class as a new file into `WrightBrothersApi/Models/AerobaticSequence.cs`.
+- In the Copilot Chat extension window, click the ellipses `...` and select `Insert into new file` for the suggested `FlightLog` record as `WrightBrothersApi/Models/AerobaticSequence.cs`.
+
+- Copilot will add the code to a new empty file, but must be saved.
+- Save the file by clicking pressing `Ctrl + S` or `Cmd + S`.
+- Enter the file name `AerobaticSequence.cs` and click `Save`.
 
 - Copilot sometimes makes a mistake with the Manouver reference in the `List<Maneuver>` class.
 
-- Ofcourse, you can use Copilot to fix this. First open the `AerobaticSequence.cs` file.
+    ```csharp
+    public class AerobaticSequence : List<Maneuver>
+    ```
+
+- Of course, you can use Copilot to fix this. First open the `AerobaticSequence.cs` file.
 
 - Now open the Copilot Chat extension and ask the following question:
 
@@ -561,15 +608,31 @@ Parse the selected AerobaticSequenceSignature property into c# models using a re
 
 - Copilot will suggest to change `List<Maneuver>` with `List<AerobaticSequence.Maneuver>`.    
 
-- Select all content of the `AerobaticSequence.cs` file.
+    - Select all content of the `AerobaticSequence.cs` file.
 
-- Choose the option to insert the suggested code from Copilot Chat
+    - In the Chat windows, click `Insert at cursor` to insert the suggested code from Copilot Chat.
 
-// TODO Screenshot
+- Copilot didn't suggest to change `List<Maneuver>` with `List<AerobaticSequence.Maneuver>`, no problem, you can do it manually.
+
+    - Change `List<Maneuver>` with `List<AerobaticSequence.Maneuver>`.
+
+    ```csharp
+    public class AerobaticSequence : List<AerobaticSequence.Maneuver>
+    ```
+
+- Most likely the `Regex.*` will have red squiggles because the Regex class is not recognized in the current context. This is likely because the System.Text.RegularExpressions namespace, which contains the Regex class, has not been imported into your file.
+
+- To fix this, you need to add a using directive at the top of your file:
+    
+    ```csharp
+    using System.Text.RegularExpressions;
+    ```
+
+~~// TODO Screenshot~~
 
 - Now, let's add the new `AerobaticSequence` property to the `Flight` model.
 
-- Open the `Flight.cs` file.
+- Open the `Models/Flight.cs` file.
 
 - Add the `AerobaticSequence` property to the `Flight` model.
 
@@ -636,22 +699,33 @@ Parse the selected AerobaticSequenceSignature property into c# models using a re
     flight.AerobaticSequence = aerobaticSequence;
     ```
 
+- Now press `Tab` to accept the suggestion.
+
 - Now, run the app and test the new functionality.
 
     ```bash
     dotnet run
     ```
 
-- Open `Flights.http` file in the Visual Studio code IDE and POST a new flight.
+- Open `Examples/Flights.http` file in the Visual Studio code IDE and POST a new flight.
 
 <img src="../../Images/Screenshot-Http-Flights.png" width="800">
 
 > [!Note]
 > Screenshot is made at 8th of February 2024. The UI of the Copilot Chat extension can be different at the time you are doing the lab. (Please notify us if the UI is different.)
 
+
+- Click the `Send Request` button for the first `POST`.
+
+    ```json
+    POST http://localhost:1903/flights HTTP/1.1
+    ```
+
 - The Rest Client response will now include the `AerobaticSequence` property as follows:
 
     ```json
+    HTTP/1.1 201 Created
+    Connection: close
     {
         "id": 4,
         "aerobaticSequenceSignature": "L4B-H2C-R3A-S1D-T2E",
@@ -684,3 +758,9 @@ Parse the selected AerobaticSequenceSignature property into c# models using a re
         ]
     }
     ```
+
+- Stop the app by pressing `Ctrl + C` or `Cmd + C` in the terminal.
+
+### Congratulations you've made it to the end! &#9992; &#9992; &#9992;
+
+#### And with that, you've now concluded this module. We hope you enjoyed it! &#x1F60A;
