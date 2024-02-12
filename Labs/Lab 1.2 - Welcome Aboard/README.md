@@ -1,5 +1,5 @@
 # Welcome Aboard: Introduction to AI and GitHub Copilot
-This lab exercise covers ...
+This session offers a comprehensive overview of AI's evolution, key terms, and core technologies, explains Azure OpenAI's role in powering Copilot, uses analogies to link foundational AI concepts to Copilot, stresses ethical AI use, and provides strategies for effectively integrating AI tools in coding.
 
 ## Prerequisites
 - The prerequisites steps are completed, see [Labs Prerequisites](https://github.com/XpiritBV/Copilot-Bootcamp#labs-prerequisites)
