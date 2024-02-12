@@ -27,7 +27,7 @@ In this model, you have a plane model, which has an ID, a name, a year, a descri
 
 Let's see how Copilot can help me with improving this or continuing on this code base. Let's begin by using GitHub Copilot to add extra planes in the List.
 
-#### Step 1 - Add extra planes
+### Step 1 - Add extra planes
 - Open Visual Studio Code and the folder `Lab-WrightBrothers`.
 - Open the `WrightBrothersApi` folder.
 - Open the `PlanesController.cs` file located in the `Controllers` folder.
@@ -71,7 +71,7 @@ Let's see how Copilot can help me with improving this or continuing on this code
 
 So it already gave your a suggestion about what you could do next. This plane model is not yet complete.
 
-#### Step 2 - Update the plane model
+### Step 2 - Update the plane model
 It would be nice if we have a image URL so we can display an image about the plane. So let's go to the plane model and let's add a new property.
 
 - Open the `Plane.cs` file located in the `Models` folder.
@@ -148,7 +148,7 @@ Let's continue adding all the images so it's also really fast in giving me these
 ```
 </details>
 
-#### Step 3 - Adding new methods
+### Step 3 - Adding new methods
 Copilot knows all about the controller. You can get planes, you can add planes, but I want to do more., you have a REST API, so you probably want to edit, delete, and count planes.
 
 ##### Add a PUT method
@@ -231,7 +231,7 @@ Copilot knows all about the controller. You can get planes, you can add planes, 
     }
 ```
 
-#### Step 4 - Adding a logger
+### Step 4 - Adding a logger
 This is great! Copilot is creating code, but you have a whole code base and this code base is designed in a certain way.  Maybe you have a certain style of doing things and worked on it for a couple of years and you have invented a certain style of doing things.
 
 For example, maybe you might you might have a kind of logging strategy where you where you log it.
@@ -298,7 +298,7 @@ Copilot exhibits a high level of intelligence in understanding the tasks at hand
 
 So what if I want to get the airplanes, but I want to only get the airplanes for a specific year, So let's add a comment, a get method for year.
 
-#### Step 1 - Add a comment to the code for suggesting a GET method for year
+### Step 1 - Add a comment to the code for suggesting a GET method for year
 - Open the `PlanesController.cs` file.
 - Place the cursor after the `[HttpGet("count")]` method.
 - Press `enter` to add a new line.
@@ -346,7 +346,7 @@ By typing this, copilot understands like I want to have a get method for a year 
 >[!Note]
 > Remember, Copilot takes into account the log information because you are using it in all methods. It also knows that there is a style in your code base to put the dashes around the variable.
 
-#### Step 2 - Check if plane already exists by name
+### Step 2 - Check if plane already exists by name
 If I want to add a new airplane but it's already there in the list, I want to return a bad request.
 - In the `public ActionResult<Plane> Post(Plane plane)` method, place the cursor before the `Planes.Add(plane);` line 
 - Type `//Return BadRequest if plane already exists` to add a comment, press `enter`, then press the `tab` key to accept the suggestion.

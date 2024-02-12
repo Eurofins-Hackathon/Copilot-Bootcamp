@@ -13,7 +13,7 @@ A reference to the [Air Crash Investigation](https://en.wikipedia.org/wiki/Mayda
 - Understanding the limitations of GitHub Copilot and learning how to troubleshoot its suggestions.
 - Group challenge to fix a set of buggy codes using Copilot, highlighting the importance of human oversight.
 
-#### Step 1. Flight Crash Investigation - Fuel Depletion Scenario
+### Step 1. Flight Crash Investigation - Fuel Depletion Scenario
 
 - Open `FlightController.cs` file located in the `Controllers` folder.
 
@@ -126,7 +126,7 @@ TODO Screenshot
 TODO! Tijis, is this needed? I think we can skip this step.
 - Stop the app by pressing `Ctrl + C` or `Cmd + C` in the terminal.
 
-#### Step 2. Lightning Strikes, Unexpected Flight Crash - Stack Overflow Scenario
+### Step 2. Lightning Strikes, Unexpected Flight Crash - Stack Overflow Scenario
 
 - Open `FlightController.cs` file located in the `Controllers` folder.
 
@@ -207,7 +207,7 @@ TODO Screenshot
 
 ### Optional
 
-#### Step 3. Aerodynamics of an Airplane - Performance Optimization
+### Step 3. Aerodynamics of an Airplane - Performance Optimization
 
 - Open `FlightController.cs` file located in the `Controllers` folder.
 
