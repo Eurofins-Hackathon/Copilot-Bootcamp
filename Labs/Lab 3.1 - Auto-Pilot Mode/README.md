@@ -11,7 +11,7 @@ This lab exercise demonstrates integrating GitHub Copilot into .NET application 
 - Recap of the day's learning, emphasizing the blend of AI assistance with human skills.
 - Discussion on the future of AI in programming and its evolving role in software development.
 
-### Step 1. The aircraft alarm lights are blinking - Prepare code example
+### Step 1. The aircraft alarm lights are blinking
 
 - Configure HealthChecks package in your application
 - Open a terminal and navigate to the `WrightBrothersApi` folder.
