@@ -1,5 +1,5 @@
-# Air Crash Investigation:
-A reference to the [Air Crash Investigation](https://en.wikipedia.org/wiki/Mayday_(Canadian_TV_series)) TV show, where the investigators try to find the root cause of an airplane crash. In this module, we will simulate a few airplane crashes and use GitHub Copilot to troubleshoot and fix the issues.
+# Safe Landing: Review and Future of AI in Coding
+The session ends with a summary of how AI helps in coding. It highlights better workflows for developers, how AI understands context, and the importance of checking AI's work. It stresses keeping essential skills sharp and not depending too much on AI. This is followed by a Q&A session. There's a talk about AI's future in programming
 
 
 ## Prerequisites

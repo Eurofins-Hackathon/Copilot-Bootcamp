@@ -13,7 +13,7 @@ A reference to the [Air Crash Investigation](https://en.wikipedia.org/wiki/Mayda
 - Understanding the limitations of GitHub Copilot and learning how to troubleshoot its suggestions.
 - Group challenge to fix a set of buggy codes using Copilot, highlighting the importance of human oversight.
 
-### Step 1. Flight Crash Investigation - Fuel Depletion Scenario
+#### Step 1. Flight Crash Investigation - Fuel Depletion Scenario
 
 - Open `FlightController.cs` file located in the `Controllers` folder.
 

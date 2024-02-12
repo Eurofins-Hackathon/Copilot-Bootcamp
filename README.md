@@ -103,6 +103,6 @@ Prepare for takeoff! Your journey concludes with a hands-on lab to apply these c
 - [Air Crash Investigation ✈ Troubleshooting and Fine-Tuning](#)
 
 ### Safe Landing ✈ Review and Future of AI in Coding
-The session concludes with a recap of AI's role in coding, emphasizing improved developer flows, context understanding, balancing AI reliance with verification, maintaining core skills, and avoiding AI over-reliance, followed by a Q&A session, a discussion on AI's future in programming, encouragement for further Copilot exploration with resources, and an exclusive preview of Copilot's roadmap and features like Copilot Chat's application in GitHub.com.
+The session ends with a summary of how AI helps in coding. It highlights better workflows for developers, how AI understands context, and the importance of checking AI's work. It stresses keeping essential skills sharp and not depending too much on AI. This is followed by a Q&A session. There's a talk about AI's future in programming. Attendees are encouraged to explore Copilot more, with resources provided. There's also a sneak peek at Copilot's upcoming features, including how Copilot Chat works on GitHub.com.
 
 - [Safe Landing ✈ Review and Future of AI in Coding](#)
