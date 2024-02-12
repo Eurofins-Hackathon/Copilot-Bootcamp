@@ -1,5 +1,5 @@
 # Safe Landing: Review and Future of AI in Coding
-The session ends with a summary of how AI helps in coding. It highlights better workflows for developers, how AI understands context, and the importance of checking AI's work. It stresses keeping essential skills sharp and not depending too much on AI. This is followed by a Q&A session. There's a talk about AI's future in programming
+The session ends with a summary of how AI helps in coding. It highlights better workflows for developers, how AI understands context, and the importance of checking AI's work. It stresses keeping essential skills sharp and not depending too much on AI. This is followed by a Q&A session.
 
 
 ## Prerequisites

@@ -1,8 +1,5 @@
 # Lab 1.1 Pre-Flight Checklist: Setting Up GitHub Copilot and your repository
-
-Compare this to "Preparing Your Travel Itinerary, Checking Passport, Printing Boarding Pass". Just as travelers plan their journey, participants will set up their GitHub repository, planning their coding journey.
-
-In this Hands-On Lab, you will learn how to navigate GitHub, create a new issue and obtain your own GitHub repo with the code for these hands-on labs. You will be working on your own repo in the following labs.
+Compare this to "Preparing Your Travel Itinerary, Checking Passport, Printing Boarding Pass". Just as travelers plan their journey, participants will set up their GitHub repository, planning their coding journey. In this Hands-On Lab, you will learn how to navigate GitHub, create a new issue and obtain your own GitHub repo with the code for these hands-on labs. You will be working on your own repo in the following labs.
 
 ## Prerequisites
 - The prerequisites steps are completed, see [Labs Prerequisites](https://github.com/XpiritBV/Copilot-Bootcamp#labs-prerequisites)
@@ -38,18 +35,7 @@ By default, Codespaces are created from an Ubuntu Linux image that includes a se
 
 Your Codespace is being created. After a few minutes, you will be able to see your Codespace in the browser.
 
-~~### Step 2: 🔧 Install Extensions~~
-
-~~Now that we have a Codespace, we need to make it our own and configure your Codespace to your needs.~~
-
-~~- Go to the extensions tab on the left side and search the marketplace for GitHub Copilot. Install this extension.~~
-
-~~- After installation, stay on the extensions page, and click the "cog" (:gear:) icon. Choose "Add to devcontainer.json".~~
-
-~~- GitHub Copilot Chat~~
-~~- GitHub Actions~~
-
-### Step 3: ✅ Verify Extension Installation
+### Step 2: ✅ Verify Extension Installation
 Let's make sure that the extensions we added, are indeed added. When you add extensions to the configuration file, this is noted as Infrastructure as Code. To check this follow these steps.
 
 In the files section of your Codespace, navigate to the `.devcontainer` folder and open the `devcontainer.json` file. Check under the "extensions" section to ensure that the extensions are added.
@@ -83,7 +69,7 @@ Execute requests as follows:
 
 
 
-### Step 4: ☁️ Install addtional tools and features
+### Step 3: ☁️ Install addtional tools and features
 
 You cannot only add additional extensions, you can also add additional tools and features in the container itself. Because we are going to work with Azure, we want to install the Azure CLI as well. To do this follow these steps:
 
@@ -94,7 +80,7 @@ You cannot only add additional extensions, you can also add additional tools and
 - Can you think of more features / tools?
 -- 💡 Press CTRL+P and look for Add Dev container configuration files | Modify Active configuration and browse the available tools.
 
-### Step 5: 💾 Save and Rebuild
+### Step 4: 💾 Save and Rebuild
 After making the necessary changes to your dev container configuration, follow these final steps:
 
 - Save the devcontainer.json file.
@@ -104,7 +90,7 @@ After making the necessary changes to your dev container configuration, follow t
 By completing these steps, you have successfully set up your Codespace with the desired configuration, including the installation of the Azure CLI. Your Codespace is now ready for use, and the configuration will be applied to new Codespaces in the future.
 
 
-### Step 6: Verify Functionality
+### Step 5: Verify Functionality
 
 - Verify Copilot functionality. Say Hello to Copilot in Copilot Chat extension
 - Verify an autocompletion by typing code
