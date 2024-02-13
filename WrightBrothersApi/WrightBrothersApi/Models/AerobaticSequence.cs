@@ -2,62 +2,68 @@ using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-public class AerobaticSequence : List<AerobaticSequence.Maneuver>
+public class Maneuver
 {
-    public class Maneuver
-    {
-        public string Type { get; set; }
-        public int RepeatCount { get; set; }
-        public char Difficulty { get; set; }
-    }
+    public string Type { get; set; }
+    public int RepeatCount { get; set; }
+    public char Difficulty { get; set; }
+}
+
+public class AerobaticSequence
+{
+    public List<Maneuver> Maneuvers { get; set; } = new List<Maneuver>();
+    public double Difficulty { get; set; }
 
     public static AerobaticSequence Parse(string signature)
     {
         var sequence = new AerobaticSequence();
-        var matches = Regex.Matches(signature, @"([LHRTS])(\d+)([A-F])");
+        var maneuvers = Regex.Matches(signature, @"([LHRTS]\d+[A-F])");
 
-        foreach (Match match in matches)
+        for (int i = 0; i < maneuvers.Count; i++)
         {
-            sequence.Add(new Maneuver
+            var maneuver = new Maneuver
             {
-                Type = match.Groups[1].Value,
-                RepeatCount = int.Parse(match.Groups[2].Value),
-                Difficulty = match.Groups[3].Value[0]
-            });
+                Type = maneuvers[i].Value[0].ToString(),
+                RepeatCount = int.Parse(maneuvers[i].Value.Substring(1, maneuvers[i].Value.Length - 2)),
+                Difficulty = maneuvers[i].Value[^1]
+            };
+
+            sequence.Maneuvers.Add(maneuver);
         }
+
+        sequence.CalculateDifficulty();
 
         return sequence;
     }
 
-    public double CalculateDifficulty()
+    private void CalculateDifficulty()
     {
-        double score = 0;
-        string previousType = null;
-
-        foreach (var maneuver in this)
+        var difficultyMultipliers = new Dictionary<char, double>
         {
-            double difficultyMultiplier = (maneuver.Difficulty - 'A') / 5.0 + 1.0;
-            double repeatMultiplier = maneuver.RepeatCount;
+            { 'A', 1.0 },
+            { 'B', 1.2 },
+            { 'C', 1.4 },
+            { 'D', 1.6 },
+            { 'E', 1.8 },
+            { 'F', 2.0 }
+        };
 
-            if (maneuver.Type == "H" && previousType == "H")
+        for (int i = 0; i < Maneuvers.Count; i++)
+        {
+            var multiplier = difficultyMultipliers[Maneuvers[i].Difficulty];
+            var score = Maneuvers[i].RepeatCount * multiplier;
+
+            if (i > 0)
             {
-                repeatMultiplier *= 1.5;
+                if (Maneuvers[i].Type == "R" && Maneuvers[i - 1].Type == "L")
+                    score *= 2;
+                else if (Maneuvers[i].Type == "S" && Maneuvers[i - 1].Type == "T")
+                    score *= 3;
             }
 
-            if (maneuver.Type == "R" && previousType == "L")
-            {
-                repeatMultiplier *= 2.0;
-            }
-
-            if (maneuver.Type == "S" && previousType == "T")
-            {
-                repeatMultiplier *= 3.0;
-            }
-
-            score += difficultyMultiplier * repeatMultiplier;
-            previousType = maneuver.Type;
+            Difficulty += score;
         }
 
-        return score;
+        Difficulty = Math.Round(Difficulty, 2);
     }
 }

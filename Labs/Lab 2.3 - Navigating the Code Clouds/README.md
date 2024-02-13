@@ -518,7 +518,7 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
 - Open the Copilot Chat extension and ask the following advanced prompt engineered question:
 
     ```
-    Parse a AerobaticSequenceSignature property into a c# model and add a difficulty calculation method.
+    Parse a AerobaticSequenceSignature property into a c# model.
 
     ## AerobaticSequence Examples
     - L4B-H2C-R3A-S1D-T2E
@@ -532,32 +532,34 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
 
     ## AerobaticSequence Difficulty Method
     - Add a difficulty calculation method with the following rules:
-    - Difficulty multipliers:
-    A = 1.0, B = 1.2, C = 1.4, D = 1.6, E = 1.8, F = 2.0
-    - Every next hammerhead is multiplied with an extra 1.5
-    - A roll right after a loop is scored double
-    - A spin right after a tailslide is scored triple
+    - A roll after a loop is scored double
+    - A spin after a tailslide is scored triple
 
     ## Chain of Thought reasoning
+    Example
     L4B-R3A-H2C-T2E-S1D
+    Difficulty multipliers
+    - A = 1.0 
+    - B = 1.2
+    - C = 1.4
+    - D = 1.6
+    - E = 1.8
+    - F = 2.0
+    Maneuvers
     - Loop: 4 * 1.2 = 4.8
     - Roll: 3 * 1 * 2(roll after a loop) = 6.0
-    - Hammerhead: 2 * 1.4 * 1.5(extra hammerhead) = 4.2
+    - Hammerhead: 2 * 1.4 = 2.8
     - Tailslide: 2 * 1.8 = 3.6
     - Spin: 1 * 1.6 * 3(spin after a tailslide) = 4.8
-    - Total: 23.4
-
-    ## Additional Rules
-    - The repeat count is always a number
-    - The difficulty is always a letter
-    - Maximum maneuvers is 5
+    Total: 22
 
     ## Technical Requirements
-    - Create a AerobaticSequence class that inherits a List of AerobaticSequence.Maneuver
+    - Create a AerobaticSequence class with a list of Maneuvers and a difficulty property
     - Add the Maneuver class inside the AerobaticSequence class
     - Use static Parse method to parse the AerobaticSequenceSignature
     - Parse the signature with a Regex
     - include usings at the top of the file
+    - Round the difficulty result to 2 decimal places
 
     Think step by step
     ```
