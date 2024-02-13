@@ -66,7 +66,5 @@ namespace WrightBrothersApi.Tests.Controllers
             var returnedPlane = (Plane)okObjectResult.Value!;
             returnedPlane.Should().NotBeNull();
         }
- 
-
     }
 }

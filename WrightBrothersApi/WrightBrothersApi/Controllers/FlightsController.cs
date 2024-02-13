@@ -22,7 +22,8 @@ public class FlightsController : ControllerBase
             Status = FlightStatus.Scheduled,
             FuelRange = 100,
             FuelTankLeak = false,
-            FlightLogSignature = "171203-DEP-ARR-WB001"
+            FlightLogSignature = "171203-DEP-ARR-WB001",
+            AerobaticSequenceSignature = "L4B-H2C-R3A-S1D-T2E"
         },
         // Second ever flight of the Wright Brothers
         new Flight
@@ -36,7 +37,8 @@ public class FlightsController : ControllerBase
             Status = FlightStatus.Scheduled,
             FuelRange = 100,
             FuelTankLeak = false,
-            FlightLogSignature = "171203-DEP-ARR-WB002"
+            FlightLogSignature = "171203-DEP-ARR-WB002",
+            AerobaticSequenceSignature = "L1A-H1B-R1C-T1E"
         },
         // This is the first Wright Brothers plane that crashed.
         new Flight
@@ -51,7 +53,8 @@ public class FlightsController : ControllerBase
             FuelRange = 100,
             // The cause of the crash was NOT a fuel tank leak, but we will pretend it was
             FuelTankLeak = true,
-            FlightLogSignature = "170908-DEP-ARR-WB003"
+            FlightLogSignature = "170908-DEP-ARR-WB003",
+            AerobaticSequenceSignature = "L2A-H2B-R2C"
         },
 
     };
@@ -197,7 +200,7 @@ public class FlightsController : ControllerBase
         Stopwatch stopwatch = new Stopwatch();
         stopwatch.Start();
 
-        List<int> primes = CalculatePrimes(2, 300000); // Adjust the range to ensure the operation takes about 10 seconds
+        List<int> primes = CalculatePrimes(2, 300000);
 
         stopwatch.Stop();
         Console.WriteLine($"Found {primes.Count} prime numbers.");
