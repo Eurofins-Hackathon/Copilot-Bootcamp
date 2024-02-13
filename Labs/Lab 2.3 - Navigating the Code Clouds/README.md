@@ -509,14 +509,7 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
 
 ## Optional
 
-### Step 5: - Navigating Through Prairie Skies – Applying Prompt Engineering
-
-- Open the `Airfield.cs` file.
-
-#### Todo! Randy will complete this section soon!
-
-
-### Step 6: - Regex Aerobatics Show - Regular Expressions
+### Step 5: - Regex Aerobatics Show - Regular Expressions
 
 - Open the `Flight.cs` file.
 
