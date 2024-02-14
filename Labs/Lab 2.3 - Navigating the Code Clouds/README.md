@@ -510,9 +510,10 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
     - L2A-H2B-R2C
 
     ## Maneuver
-    - L = Loop, H = Hammerhead, R = Roll, S = Spin, T = Tailslide
-    - Number represents repeat count, 
-    - The Letter represents difficulty (A-F)
+    - Manouvers: L = Loop, H = Hammerhead, R = Roll, S = Spin, T = Tailslide
+    - Number represents repeat count
+    - The Letter represents difficulty (A-E)
+    - Difficulty multipliers: A = 1.0, B = 1.2, C = 1.4, D = 1.6, E = 1.8
 
     ## AerobaticSequence Difficulty Method
     - Add a difficulty calculation method with the following rules:
@@ -520,20 +521,14 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
     - A spin after a tailslide is scored triple
 
     ## Chain-of-Thought reasoning
-    Example
-    L4B-R3A-H2C-T2E-S1D
-    Difficulty multipliers
-    - A = 1.0 
-    - B = 1.2
-    - C = 1.4
-    - D = 1.6
-    - E = 1.8
-    Maneuvers
+    Example: L4B-R3A-H2C-T2E-S1D
+
     - Loop: 4 * 1.2 = 4.8
     - Roll: 3 * 1 * 2(roll after a loop) = 6.0
     - Hammerhead: 2 * 1.4 = 2.8
     - Tailslide: 2 * 1.8 = 3.6
     - Spin: 1 * 1.6 * 3(spin after a tailslide) = 4.8
+    
     Total: 22
 
     ## Technical Requirements
