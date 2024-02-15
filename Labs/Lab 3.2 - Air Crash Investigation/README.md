@@ -69,7 +69,7 @@ content-type: application/json
 ```
 
 ~~TODO [Screenshot] pointing to the POST request option in VSCode~~
-~~<img src="/Images/placeholderSmall.png" width="800">~~
+~~<img src="../../Images/placeholderSmall.png" width="800">~~
 
 > [!Note]
 > You must have the `Rest Client` with identifier `humao.rest-client` extension installed in Visual Studio Code to execute the request. Rest Client is a very useful extension to quickly execute HTTP requests and commit them to Git.
@@ -113,7 +113,7 @@ content-type: application/json
 - Navigate to the `Terminal` and select the content of the throw exception.
 
 // FIX Screenshot with Right -> Click Explain This
-<img src="/Images/Screenshot-LackOfFuel152608.png" width="800">
+<img src="../../Images/Screenshot-LackOfFuel152608.png" width="800">
 
 > [!Note]
 > GitHub Copilot will explain the code in a human readable format.
@@ -174,13 +174,13 @@ public class FlightsController : ControllerBase
 
 TODO Screenshot
 
-<img src="/Images/placeholderSmall.png" width="800">
+<img src="../../Images/placeholderSmall.png" width="800">
 
 - Right click the terminal and select `Copilot: Explain this` from the context menu.
 
 TODO Screenshot
 
-<img src="/Images/placeholderSmall.png" width="800">
+<img src="../../Images/placeholderSmall.png" width="800">
 
 > [!Note]
 > GitHub Copilot will explain the code in a human readable format.
@@ -189,7 +189,7 @@ TODO Screenshot
 
 TODO Screenshot
 
-<img src="/Images/placeholderSmall.png" width="800">
+<img src="../../Images/placeholderSmall.png" width="800">
 
 - Now ask GitHub Copilot to fix the code.
 

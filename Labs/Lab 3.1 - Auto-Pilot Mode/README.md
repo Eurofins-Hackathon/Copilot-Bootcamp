@@ -120,28 +120,24 @@ git checkout -b feature/health-checks
 
 - Open the Source Control tab in VS Code
 
-<img src="/Images/placeholderSmall.png" width="800">
-
 - In the `Changes` area, click the `+` icon to `Stage all changes`
 
-<img src="/Images/Screenshot144605.png" width="500">
+- Click on the `Magic` icon to generate a commit message
 
-- Click on the magic icon to generate a commit message
+<img src="../../Images/Screenshot-Healthcheck-commit.png" width="800">
 
-<img src="/Images/Screenshot144729.png" width="500">
 
 > [!Note]
-> The commit message is very generic and does not provide much information. Best practice when using Git is to keep your commits small and concise.
+> GitHub Copilot Chat suggests a commit message based on the changes made to the code. This is a great way to get started with a commit message.
 
-- Click the `✓ Commit` button to commit the changes.
 
-~~- Click the `Sync` button icon to push the changes~~
+- Click the `✓ Commit & Sync` button to commit the changes.
+
+<img src="../../Images/Screenshot-commit-sync.png" width="800">
 
 - Click the `Publish branch` button to push the changes.
 
-<img src="/Images/Screenshot145014.png" width="500">
-
-### Step 3. Turn on Autopilot Mode - Automating GitHub Pull Requests
+### Step 2. Turn on Autopilot Mode - Automating GitHub Pull Requests
 
 > [!WARNING]  
 > You must complete the previous lab before continuing.
@@ -158,17 +154,17 @@ git checkout -b feature/health-checks
 - Select the `main` branch for the base branch.
 - Select the `feature/health-checks` branch as the compare branch
 
-<img src="/Images/Screenshot145342.png" width="500">
+<img src="../../Images/Screenshot145342.png" width="500">
 
 - Click the `Create pull request` button
 
 - Click on the `Copilot` icon, select `Summary` to generate a summary of changes in this pull request.
 
-<img src="/Images/Screenshot171550.png" width="800">
+<img src="../../Images/Screenshot171550.png" width="800">
 
 - Click `Preview` to see the summary.
 
-<img src="/Images/Screenshot160132.png" width="800">
+<img src="../../Images/Screenshot160132.png" width="800">
 
 - Click `Create pull request` to create the pull request.
 
@@ -205,15 +201,15 @@ builder.Services.AddHealthChecks()
 
 - Open the Source Control tab in VS Code
 
-<img src="/Images/placeholderSmall.png" width="800">
+<img src="../../Images/placeholderSmall.png" width="800">
 
 - In the `Changes` area, click the `+` icon to `Stage all changes`
 
-<img src="/Images/Screenshot144605.png" width="500">
+<img src="../../Images/Screenshot144605.png" width="500">
 
 - Click on the magic icon to generate a commit message
 
-<img src="/Images/Screenshot144729.png" width="500">
+<img src="../../Images/Screenshot144729.png" width="500">
 
 >![!Note]
 > The commit message is now very detailed, due to the small changes in the code. Best practice when using Git is to make keep your commits small and concise.
@@ -224,7 +220,7 @@ builder.Services.AddHealthChecks()
 
 - Click the `Publish branch` button to push the changes.
 
-<img src="/Images/Screenshot145014.png" width="500">
+<img src="../../Images/Screenshot145014.png" width="500">
 
 - Go to your `GitHub.com` repository
 
@@ -232,13 +228,13 @@ builder.Services.AddHealthChecks()
 
 TODO: Add a Screenshot here!
 
-<img src="/Images/placeholderSmall.png" width="800">
+<img src="../../Images/placeholderSmall.png" width="800">
 
 - Click on the `feature/health-checks` pull request
 
 TODO: Add a Screenshot here!
 
-<img src="/Images/placeholderSmall.png" width="800">
+<img src="../../Images/placeholderSmall.png" width="800">
 
 - Click on the `Copilot` icon, select `Summary` to generate a summary of changes in this pull request.
 
@@ -246,7 +242,7 @@ TODO: Add a Screenshot here!
 
 TODO: Add a Screenshot here!
 
-<img src="/Images/placeholderSmall.png" width="800">
+<img src="../../Images/placeholderSmall.png" width="800">
 
 - Click `Create pull request` to create the pull request.
 
@@ -273,7 +269,7 @@ automating CI/CD pipelines for deployment to Azure.
 
 TODO: Add a Screenshot here!
 
-<img src="/Images/placeholderSmall.png" width="800">
+<img src="../../Images/placeholderSmall.png" width="800">
 
 > [!Note]
 > With the @workspace agent, GitHub Copilot understand that the current workspace is a .NET application with a Test project in it.
