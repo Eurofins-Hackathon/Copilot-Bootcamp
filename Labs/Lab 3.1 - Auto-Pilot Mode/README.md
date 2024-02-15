@@ -224,7 +224,7 @@ automating CI/CD pipelines for deployment to Azure.
 
 ## Optional
 
-### Step 4. Ground Control - Something in the Cloud  - Deploying to Azure
+### Step 4. Ground Control - How to assent to the Azure Cloud
 Deploying your application to Azure facilitates scalable, secure, and efficient hosting, leveraging Microsoft's cloud infrastructure. This allows for easy scaling, robust disaster recovery, and global reach, enhancing your app's performance and accessibility while minimizing maintenance efforts and costs.
 
 > [!WARNING]  
