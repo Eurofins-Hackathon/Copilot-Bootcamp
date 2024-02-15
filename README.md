@@ -69,6 +69,11 @@ This session introduces Copilot as an AI-powered code assistant, covers supporte
 Prepare for takeoff! Your journey concludes with a hands-on lab to apply these concepts in real-world scenarios.
 - [Pre-Flight Checklist ✈ Introduction to Copilot and Setup](./Labs/Lab%201.1%20-%20Pre-Flight%20Checklist)
 
+Welcome Aboard: Introduction to AI and GitHub Copilot
+This session offers a comprehensive overview of AI's evolution, key terms, and core technologies, explains Azure OpenAI's role in powering Copilot.
+
+- [Welcome Aboard: Introduction to AI and GitHub Copilot](./Labs/Lab%201.2%20-%20Welcome%20Aboard)
+
 ## Module 2
 ### Flight demonstration ✈ Basic Coding with Copilot Assistance
 This session begins with Copilot's fundamental code autocompletion and suggestions, advances to customizing these suggestions, explores its capabilities in generating larger code blocks and unit tests, concludes with generating test data, and integrates pair programming sessions to apply these concepts practically.
