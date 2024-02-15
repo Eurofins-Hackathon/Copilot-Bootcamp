@@ -633,7 +633,6 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
 
 <img src="../../Images/Screenshot-Flight-AerobaticsSequenceSignature.png" width="800">
 
-
 - Copilot will add the code to a new empty file, but must be saved.
 
 - Save the file by clicking pressing `Ctrl + S` or `Cmd + S`.

@@ -491,6 +491,8 @@ public class PlanesControllerTests
 
 - In the Copilot Chat extension window, click the ellipses `...` and select `Insert into New File` for the suggested `AirfieldController`.
 
+<img src="../../Images/Screenshot-Flight-AerobaticsSequenceSignature.png" width="800">
+
 - Copilot will add the code to a new empty file, but must be saved.
 - Save the file by clicking pressing `Ctrl + S` or `Cmd + S`.
 - Change directory to the `Controllers` folder`.
@@ -606,12 +608,11 @@ public class PlanesControllerTests
 
 - In the Copilot Chat extension window, click the ellipses `...` and select `Insert into New File` for the suggested `AirfieldControllerTests`.
 
+<img src="../../Images/Screenshot-AirfieldControllerTests.png" width="800">
+
 - Copilot will add the code to a new empty file, but must be saved.
-
 - Save the file by clicking pressing `Ctrl + S` or `Cmd + S`.
-
 - Change directory to the `Controllers` folder`.
-
 - Enter the file name `AirfieldControllerTests.cs` and click `Save`.
 
 - Now let's run the unit tests in the terminal to make sure everything is working as expected.
