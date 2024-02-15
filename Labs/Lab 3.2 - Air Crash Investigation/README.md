@@ -112,13 +112,8 @@ content-type: application/json
 
 - Navigate to the `Terminal` and select the content of the throw exception.
 
+// FIX Screenshot with Right -> Click Explain This
 <img src="/Images/Screenshot-LackOfFuel152608.png" width="800">
-
-- Right click the terminal and select `Copilot: Explain this` from the context menu.
-
-TODO Screenshot
-
-<img src="/Images/placeholderSmall.png" width="800">
 
 > [!Note]
 > GitHub Copilot will explain the code in a human readable format.

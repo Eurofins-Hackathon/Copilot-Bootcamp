@@ -211,23 +211,21 @@ public class FlightsController : ControllerBase
 
     public static List<int> CalculatePrimes(int start, int end)
     {
-        ConcurrentBag<int> primes = new ConcurrentBag<int>();
-        Parallel.For(start, end + 1, number =>
+        List<int> primes = new List<int>();
+        for (int number = start; number <= end; number++)
         {
             if (IsPrime(number))
             {
                 primes.Add(number);
             }
-        });
-        return primes.ToList();
+        }
+        return primes;
     }
 
     public static bool IsPrime(int number)
     {
         if (number <= 1) return false;
-        int boundary = (int)Math.Floor(Math.Sqrt(number));
-
-        for (int i = 2; i <= boundary; i++)  // Efficient check for prime numbers
+        for (int i = 2; i < number; i++) // Inefficient check for prime numbers
         {
             if (number % i == 0) return false;
         }

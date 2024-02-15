@@ -203,8 +203,6 @@ public class PlanesControllerTests
     Passed!  - Failed:  0, Passed:  5, Skipped:  0, Total:  5
     ```
 
-## Optional Labs
-
 ### Step 3: Taking Off - Developing Robust Tests
 
 - Open the `PlanesController.cs` file.
@@ -352,7 +350,7 @@ public class PlanesControllerTests
 - Ask Copilot to fix the trimming issue by typing the following in the chat window:
 
     ```
-    Fix trimming issue
+    @workspace /fix trimming issue
     ```
 
 - Copilot will give a suggestion to fix the trimming issue.
@@ -400,6 +398,240 @@ public class PlanesControllerTests
     A total of 1 test files matched the specified pattern.
     Passed!  - Failed:     0, Passed:     8, , Failed:     0
     ```
+
+
+## Optional
+
+### Step 4 - Ascending to the Clouds: Creating the AirfieldController from thin air
+
+- Open the `WrightBrothersApi` project in Visual Studio Code.
+
+- Open the `Models/Airfields.cs` file.
+
+- Open the Copilot Chat extension window.
+
+- Ask the following question in GitHub Copilot chat window:
+
+    ```
+    @workspace Using the Airfield class, create an ApiController based on the first 3 airfields used by the Wright Brothers. Make sure to include all the CRUD operations.
+    ```
+
+- Copilot will give a suggestion to create an `AirfieldController` class based on the `Airfield` class.
+
+    ```csharp
+    using Microsoft.AspNetCore.Mvc;
+    using System.Collections.Generic;
+    using WrightBrothersApi.Models;
+
+    [ApiController]
+    [Route("[controller]")]
+    public class AirfieldsController : ControllerBase
+    {
+        private List<Airfield> Airfields = new List<Airfield>
+        {
+            new Airfield("Kitty Hawk", "North Carolina", "1900-1903", "First successful flight"),
+            new Airfield("Huffman Prairie", "Ohio", "1904-1905", "First practical airplane"),
+            new Airfield("Fort Myer", "Virginia", "1908-1909", "Military flight trials")
+        };
+
+        // GET: api/Airfields
+        [HttpGet]
+        public IEnumerable<Airfield> GetAirfields()
+        {
+            return Airfields;
+        }
+
+        // GET: api/Airfields/5
+        [HttpGet("{id}")]
+        public ActionResult<Airfield> GetAirfield(int id)
+        {
+            if (id < 0 || id >= Airfields.Count)
+            {
+                return NotFound();
+            }
+
+            return Airfields[id];
+        }
+
+        // POST: api/Airfields
+        [HttpPost]
+        public ActionResult<Airfield> PostAirfield(Airfield airfield)
+        {
+            Airfields.Add(airfield);
+            return CreatedAtAction(nameof(GetAirfield), new { id = Airfields.Count - 1 }, airfield);
+        }
+
+        // PUT: api/Airfields/5
+        [HttpPut("{id}")]
+        public IActionResult PutAirfield(int id, Airfield airfield)
+        {
+            if (id < 0 || id >= Airfields.Count)
+            {
+                return NotFound();
+            }
+
+            Airfields[id] = airfield;
+            return NoContent();
+        }
+
+        // DELETE: api/Airfields/5
+        [HttpDelete("{id}")]
+        public IActionResult DeleteAirfield(int id)
+        {
+            if (id < 0 || id >= Airfields.Count)
+            {
+                return NotFound();
+            }
+
+            Airfields.RemoveAt(id);
+            return NoContent();
+        }
+    }
+    ```
+
+- In the Copilot Chat extension window, click the ellipses `...` and select `Insert into New File` for the suggested `AirfieldController`.
+
+- Copilot will add the code to a new empty file, but must be saved.
+- Save the file by clicking pressing `Ctrl + S` or `Cmd + S`.
+- Change directory to the `Controllers` folder`.
+- Enter the file name `AirfieldController.cs` and click `Save`.
+
+> [!Note]
+> Copilot is not only context aware, knows you need a list of items and knows the `Air Fields` used by the Wright Brothers, the `Huffman Prairie`, which is the first one used by the Wright Brothers.
+
+- Now that you have created the `AirfieldController` with CRUD operations, it's time to ensure that it's working as expected. In this step, you will write unit tests for the `AirfieldController`.
+
+- Open the `AirfieldController.cs` file.
+
+- Open the Copilot Chat extension window.
+
+- Ask the following question in GitHub Copilot chat window:
+
+    ```
+    @workspace create all the unit tests for this AirfieldController
+    ```
+
+- Copilot will give a suggestion to create an `AirfieldControllerTests` class based on the `AirfieldController` class with all the needed unit tests.
+
+    ```csharp
+    using Xunit;
+    using FluentAssertions;
+    using Microsoft.AspNetCore.Mvc;
+    using WrightBrothersApi.Models;
+    using System.Collections.Generic;
+    using System.Linq;
+
+    public class AirfieldsControllerTests
+    {
+        private readonly AirfieldsController _controller;
+
+        public AirfieldsControllerTests()
+        {
+            _controller = new AirfieldsController();
+        }
+
+        [Fact]
+        public void GetAirfields_ReturnsAllAirfields()
+        {
+            var result = _controller.GetAirfields();
+
+            result.Should().NotBeNull();
+            result.Count().Should().Be(3);
+        }
+
+        [Fact]
+        public void GetAirfield_ValidId_ReturnsAirfield()
+        {
+            var result = _controller.GetAirfield(1);
+
+            result.Result.Should().BeOfType<OkObjectResult>();
+            ((OkObjectResult)result.Result).Value.Should().BeOfType<Airfield>();
+        }
+
+        [Fact]
+        public void GetAirfield_InvalidId_ReturnsNotFound()
+        {
+            var result = _controller.GetAirfield(100);
+
+            result.Result.Should().BeOfType<NotFoundResult>();
+        }
+
+        [Fact]
+        public void PostAirfield_ValidAirfield_ReturnsCreatedAirfield()
+        {
+            var airfield = new Airfield("Test", "Test", "Test", "Test");
+            var result = _controller.PostAirfield(airfield);
+
+            result.Result.Should().BeOfType<CreatedAtActionResult>();
+            ((CreatedAtActionResult)result.Result).Value.Should().BeEquivalentTo(airfield);
+        }
+
+        [Fact]
+        public void PutAirfield_ValidIdAndAirfield_UpdatesAirfield()
+        {
+            var airfield = new Airfield("Updated", "Updated", "Updated", "Updated");
+            var result = _controller.PutAirfield(1, airfield);
+
+            result.Should().BeOfType<NoContentResult>();
+            _controller.GetAirfield(1).Value.Should().BeEquivalentTo(airfield);
+        }
+
+        [Fact]
+        public void PutAirfield_InvalidId_ReturnsNotFound()
+        {
+            var airfield = new Airfield("Updated", "Updated", "Updated", "Updated");
+            var result = _controller.PutAirfield(100, airfield);
+
+            result.Should().BeOfType<NotFoundResult>();
+        }
+
+        [Fact]
+        public void DeleteAirfield_ValidId_RemovesAirfield()
+        {
+            var result = _controller.DeleteAirfield(1);
+
+            result.Should().BeOfType<NoContentResult>();
+            _controller.GetAirfield(1).Result.Should().BeOfType<NotFoundResult>();
+        }
+
+        [Fact]
+        public void DeleteAirfield_InvalidId_ReturnsNotFound()
+        {
+            var result = _controller.DeleteAirfield(100);
+
+            result.Should().BeOfType<NotFoundResult>();
+        }
+    }
+    ```
+
+- In the Copilot Chat extension window, click the ellipses `...` and select `Insert into New File` for the suggested `AirfieldControllerTests`.
+
+- Copilot will add the code to a new empty file, but must be saved.
+
+- Save the file by clicking pressing `Ctrl + S` or `Cmd + S`.
+
+- Change directory to the `Controllers` folder`.
+
+- Enter the file name `AirfieldControllerTests.cs` and click `Save`.
+
+- Now let's run the unit tests in the terminal to make sure everything is working as expected.
+
+- Open the terminal and run the tests with the provided command.
+
+    ```sh
+    dotnet test WrightBrothersApi.Tests/WrightBrothersApi.Tests.csproj
+    ```
+
+- The tests should run and pass.
+
+    ```sh
+    Starting test execution, please wait...
+    A total of 1 test files matched the specified pattern.
+    Passed!  - Failed:  0, Passed:  8, Skipped:  0, Total:  8
+    ```
+
+>[!Note]
+> Sometimes not all tests are succeeding. Copilot got you there 95% of the way, the Pilot (you) still has to take control and make sure the tests are corrected.
     
 ### Congratulations you've made it to the end! &#9992; &#9992; &#9992;
 
