@@ -11,126 +11,108 @@ This lab exercise demonstrates integrating GitHub Copilot into .NET application 
 - Recap of the day's learning, emphasizing the blend of AI assistance with human skills.
 - Discussion on the future of AI in programming and its evolving role in software development.
 
-### Step 1. The aircraft alarm lights are blinking
+### Step 1. Fasten your seatbelts, turbulance incoming - Committing Code Changes
 
-- Configure HealthChecks package in your application
-- Open a terminal and navigate to the `WrightBrothersApi` folder.
+- Open `Program.cs` in `WrightBrothersApi` folder
 
-    ```sh
-    cd WrightBrothersApi/
-    dotnet add package Microsoft.Extensions.Diagnostics.HealthChecks 
-    ```
-
-- Open `Program.cs`
-
-- Add the using statement for `Microsoft.Extensions.Diagnostics.HealthChecks` to top of file.
+- Note the following code that adds a health check to the application. The healthcheck simulates a health check that sometimes is healthy, sometimes is degraded, and sometimes is unhealthy.
 
     ```csharp
-    using Microsoft.Extensions.Diagnostics.HealthChecks;
-    ```
+    // Other code
 
-- Add HealthChecks through the `builder` method.
-
-    ```csharp
     var builder = WebApplication.CreateBuilder(args);
 
-    // Add healthcheck services to the container.
-
-    <---- Place your cursor here
-    ```
-
-- Add the following health check code to the `Program.cs` file
-
-    ```csharp
-
     builder.Services.AddHealthChecks()
-        .AddCheck("CruisingAltitudeCheck", () =>
+    .AddCheck("CruisingAltitudeCheck", () =>
+    {
+        bool atCruisingAltitude = CheckSystemPerformance(); 
+
+        if (atCruisingAltitude)
+
         {
-            bool atCruisingAltitude = CheckSystemPerformance(); 
+            return HealthCheckResult.Healthy("The application is cruising smoothly at optimal altitude.");
+        }
+        else
+        {
+            bool minorIssue = CheckIfMinorIssue();
 
-            if (atCruisingAltitude)
+            return minorIssue ?
+                HealthCheckResult.Degraded("The application is experiencing turbulence but remains stable.") :
+                HealthCheckResult.Unhealthy("The application is facing a system failure and needs immediate attention.");
+        }
 
-            {
-                return HealthCheckResult.Healthy("The application is cruising smoothly at optimal altitude.");
-            }
-            else
-            {
-                bool minorIssue = CheckIfMinorIssue();
+        bool CheckSystemPerformance()
+        {
+            // Simulate a check to determine if the application is "at cruising altitude"
+            // For the sake of this example, we'll just return a random value
+            Random random = new Random();
+            int randomNumber = random.Next(1, 100);
 
-                return minorIssue ?
-                    HealthCheckResult.Degraded("The application is experiencing turbulence but remains stable.") :
-                    HealthCheckResult.Unhealthy("The application is facing a system failure and needs immediate attention.");
-            }
+            return randomNumber > 10;
+        }
 
-            bool CheckSystemPerformance()
-            {
-                // Simulate a check to determine if the application is "at cruising altitude"
-                // For the sake of this example, we'll just return a random value
-                Random random = new Random();
-                int randomNumber = random.Next(1, 100);
+        bool CheckIfMinorIssue()
+        {
+            // Simulate a check to determine if the application is "at cruising altitude"
+            // For the sake of this example, we'll just return a random value
+            Random random = new Random();
+            int randomNumber = random.Next(1, 100);
 
-                return randomNumber > 10;
-            }
+            return randomNumber > 50;
+        }
+    });
 
-            bool CheckIfMinorIssue()
-            {
-                // Simulate a check to determine if the application is "at cruising altitude"
-                // For the sake of this example, we'll just return a random value
-                Random random = new Random();
-                int randomNumber = random.Next(1, 100);
-
-                return randomNumber > 50;
-            }
-        });
+    // Other code
     ```
 
-- Add the following code below the `var app = builder.Build();` line
 
-    ```csharp
-    // Rest of the Program.cs file
-
-    var app = builder.Build();
-
-    // Add the following code to map the health checks to an endpoint
-    <---- Place your cursor here
-    ```
-
-    ```csharp
-    // Rest of the Program.cs file
-
-    var app = builder.Build();
-
-    // Add the following code to map the health checks to an endpoint
-    app.MapHealthChecks("/health");
-    ```
-
-- Open a terminal and navigate to the `WrightBrothersApi` folder
-- Run the application
+- Run the application to see the health check in action.
 
     ```sh
+    cd WrightBrothersApi
     dotnet run
     ```
 
-*************** FIX !!!**************
+- Open `WrightBrothersApi/Examples/Healthcheck.http` file in the Visual Studio code IDE and POST a new flight.
 
-- Open a browser and navigate to `http://localhost:1903/health`
+// TODO Change Screenshot
+<img src="../../Images/Screenshot-Http-Healthcheck.png" width="800">
 
-    ```sh
-    http://localhost:1903/health
+> [!Note]
+> Screenshot is made at 8th of February 2024. The UI of the Copilot Chat extension can be different at the time you are doing the lab. (Please notify us if the UI is different.)
+
+- Click the `Send Request` button for the `GET` below:
+
+    ```json
+    GET http://localhost:1903/health HTTP/1.1
     ```
 
-// TODO Do this with Rest Client
+- The response should be `200 OK` with the following body:
 
-- You should see the response `Healthy`, `Degraded` or `Unhealthy`
+    ```json
+    {
+        "status": "Healthy", // or "Degraded" or "Unhealthy"
+        "totalDuration": "00:00:00.0000001"
+    }
+    ```
 
-- Stop the application by pressing `Ctrl + C` in the terminal
+- Stop the application by pressing `Ctrl+C` in the terminal.
 
-### Step 2. Fasten your seatbelts, turbulance incoming - Committing Code Changes
+- Let's make a small change to the code. Change the `CheckSystemPerformance` method to return a random number greater than 50. This will simulate a more unstable system.
 
-> [!WARNING]  
-> You must complete the previous lab before continuing.
+    ```csharp
+    bool CheckSystemPerformance()
+    {
+        // Simulate a check to determine if the application is "at cruising altitude"
+        // For the sake of this example, we'll just return a random value
+        Random random = new Random();
+        int randomNumber = random.Next(1, 100);
 
-- Create a new feature branch `feature/health-checks` from main in your terminal
+        return randomNumber > 50;
+    }
+    ```
+
+- Create a new feature branch `feature/health-checks` from the `main` branch in your terminal
 
 ```sh
 git checkout -b feature/health-checks
