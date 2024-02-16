@@ -94,6 +94,7 @@ By completing these steps, you have successfully set up your Codespace with the 
 
 - Verify Copilot functionality. Say Hello to Copilot in Copilot Chat extension
 - Verify an autocompletion by typing code
+- From the command line, go to the application folder: `cd ./WrightBrothersApi/WrightBrothersApi/`
 - Startup the application with `dotnet run` and verify the application is running
 - Call to API using the REST examples
 - Run existing unit tests with `dotnet test`
