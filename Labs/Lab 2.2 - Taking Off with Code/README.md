@@ -296,7 +296,9 @@ public class PlanesControllerTests
 
 - Not all tests will pass. For example the `Case insensitive` and `Extra spaces` test will fail. This is because the `SearchByName` method is case sensitive. Let's fix this.
 
-    ```sh
+> ![Note] It could happen that Copilot already made the method case insensitve during creation. You can then continue with the next task as still some tests cases will fail.
+
+    ```
     Starting test execution, please wait...
     A total of 1 test files matched the specified pattern.
     Failed!  - Failed:     2, Passed:     6, Skipped:     0, Total:     8
