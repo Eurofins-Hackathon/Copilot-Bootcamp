@@ -15,7 +15,7 @@ A reference to the [Air Crash Investigation](https://en.wikipedia.org/wiki/Mayda
 
 ### Step 1. Flight Crash Investigation - Fuel Depletion Scenario
 
-- Open `FlightController.cs` file located in the `Controllers` folder.
+- Open `FlightsController.cs` file located in the `Controllers` folder.
 
 - Navigate to the `takeFlight` method.
 
@@ -118,12 +118,11 @@ content-type: application/json
 > [!Note]
 > GitHub Copilot will explain the code in a human readable format.
 
-TODO! Tijis, is this needed? I think we can skip this step.
-- Stop the app by pressing `Ctrl + C` or `Cmd + C` in the terminal.
+- Stop the app by pressing `Ctrl + C` or `Cmd + C` in the terminal, or by clicking on the 'Stop' button in the debugger panel
 
 ### Step 2. Lightning Strikes, Unexpected Flight Crash - Stack Overflow Scenario
 
-- Open `FlightController.cs` file located in the `Controllers` folder.
+- Open `FlightsController.cs` file located in the `Controllers` folder.
 
 - Navigate to the `lightningStrike` method.
 
@@ -204,55 +203,55 @@ TODO Screenshot
 
 ### Step 3. Aerodynamics of an Airplane - Performance Optimization
 
-- Open `FlightController.cs` file located in the `Controllers` folder.
+- Open `FlightsController.cs` file located in the `Controllers` folder.
 
 - Navigate to the `calculateAerodynamics` method.
 
 > [!Note]
 > The method is calculating prime numbers.
 
-    ```csharp
-    public class FlightsController : ControllerBase
+```csharp
+public class FlightsController : ControllerBase
+{
+    [HttpPost("{id}/calculateAerodynamics")]
+    public ActionResult calculateAerodynamics(int id)
     {
-        [HttpPost("{id}/calculateAerodynamics")]
-        public ActionResult calculateAerodynamics(int id)
-        {
-            Stopwatch stopwatch = new Stopwatch();
-            stopwatch.Start();
+        Stopwatch stopwatch = new Stopwatch();
+        stopwatch.Start();
 
-            List<int> primes = CalculatePrimes(2, 300000); // Adjust the range to ensure the operation takes about 10 seconds
+        List<int> primes = CalculatePrimes(2, 300000);
 
-            stopwatch.Stop();
-            Console.WriteLine($"Found {primes.Count} prime numbers.");
-            Console.WriteLine($"Elapsed Time: {stopwatch.ElapsedMilliseconds / 1000.0} seconds");
+        stopwatch.Stop();
+        Console.WriteLine($"Found {primes.Count} prime numbers.");
+        Console.WriteLine($"Elapsed Time: {stopwatch.ElapsedMilliseconds / 1000.0} seconds");
 
-            return Ok($"Calculated aerodynamics.");
-        }
-
-        public static List<int> CalculatePrimes(int start, int end)
-        {
-            List<int> primes = new List<int>();
-            for (int number = start; number <= end; number++)
-            {
-                if (IsPrime(number))
-                {
-                    primes.Add(number);
-                }
-            }
-            return primes;
-        }
-
-        public static bool IsPrime(int number)
-        {
-            if (number <= 1) return false;
-            for (int i = 2; i < number; i++)
-            {
-                if (number % i == 0) return false;
-            }
-            return true;
-        }
+        return Ok($"Calculated aerodynamics.");
     }
-    ```
+
+    public static List<int> CalculatePrimes(int start, int end)
+    {
+        List<int> primes = new List<int>();
+        for (int number = start; number <= end; number++)
+        {
+            if (IsPrime(number))
+            {
+                primes.Add(number);
+            }
+        }
+        return primes;
+    }
+
+    public static bool IsPrime(int number)
+    {
+        if (number <= 1) return false;
+        for (int i = 2; i < number; i++)
+        {
+            if (number % i == 0) return false;
+        }
+        return true;
+    }
+}
+```
 
 - Open a terminal and navigate to the `WrightBrothersApi` folder
 - Run the application
