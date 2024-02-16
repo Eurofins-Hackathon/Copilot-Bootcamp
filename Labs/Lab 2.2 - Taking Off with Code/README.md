@@ -236,7 +236,7 @@ public class PlanesControllerTests
 
 - Open `PlanesControllerTests.cs` file
 
-- Place your cursor at the end of the file, after the last unit test `}`. Should be `GetById_ReturnsNotFound()` method created in previous step.
+- Place your cursor at the end of the file, after the last unit test `}`. This should be the `GetById_ReturnsNotFound()` method created in previous step.
 
     ```csharp
     public class PlanesControllerTests
