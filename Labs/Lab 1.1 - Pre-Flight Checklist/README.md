@@ -67,36 +67,35 @@ Execute requests as follows:
 
 // TODO Screenshot
 
-
-
-### Step 3: ☁️ Install addtional tools and features
-
-You cannot only add additional extensions, you can also add additional tools and features in the container itself. Because we are going to work with Azure, we want to install the Azure CLI as well. To do this follow these steps:
-
-- Open the command bar by pressing CTRL+P. (You can also click the name of the Codespace in the left bottom corner to get the command bar)
-- Type > in the command bar and choose Codespaces: Add dev container configuration files....
-- Select Modify your existing configuration.
-- Choose Azure CLI.
-- Can you think of more features / tools?
--- 💡 Press CTRL+P and look for Add Dev container configuration files | Modify Active configuration and browse the available tools.
-
-### Step 4: 💾 Save and Rebuild
-After making the necessary changes to your dev container configuration, follow these final steps:
-
-- Save the devcontainer.json file.
-- Commit and sync the changes to your repository.
-- Rebuild the container by opening the command bar and selecting Codespaces: Rebuild container.
-
-By completing these steps, you have successfully set up your Codespace with the desired configuration, including the installation of the Azure CLI. Your Codespace is now ready for use, and the configuration will be applied to new Codespaces in the future.
-
-
-### Step 5: Verify Functionality
+### Step 3: Verify Functionality
 
 - Verify Copilot functionality. Say Hello to Copilot in Copilot Chat extension
 - Verify an autocompletion by typing code
 - Startup the application with `dotnet run` and verify the application is running
 - Call to API using the REST examples
 - Run existing unit tests with `dotnet test`
+
+### Additional Information: ☁️ Installing Additional Tools and Features
+
+While not necessary for this bootcamp, you have the option to add additional extensions, tools, and features to your container. For instance, if you plan to work with Azure, you might want to install the Azure CLI. Here's how you could do it:
+
+- Open the command bar by pressing CTRL+P. (Alternatively, click the name of the Codespace in the left bottom corner to access the command bar)
+- Type > in the command bar and select 'Codespaces: Add dev container configuration files...'.
+- Choose 'Modify your existing configuration'.
+- Select 'Azure CLI'.
+
+Feel free to explore other features/tools:
+- 💡 Press CTRL+P and look for 'Add Dev container configuration files | Modify Active configuration' and browse the available tools.
+
+### Additional Information: 💾 Saving and Rebuilding
+
+If you make changes to your dev container configuration, you can apply them with these steps:
+
+- Save the `devcontainer.json` file.
+- Commit and sync the changes to your repository.
+- Rebuild the container by opening the command bar and selecting 'Codespaces: Rebuild container'.
+
+Remember, these steps are optional. They allow you to customize your Codespace with desired configurations, including the installation of the Azure CLI. The configuration will be applied to new Codespaces in the future.
 
 ### Congratulations you've made it to the end! &#9992;
 #### And with that, you've now concluded this module. We hope you enjoyed it! &#x1F60A;
