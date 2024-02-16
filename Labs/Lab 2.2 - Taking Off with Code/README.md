@@ -402,7 +402,7 @@ public class PlanesControllerTests
     A total of 1 test files matched the specified pattern.
     Passed!  - Failed:     0, Passed:     8, , Failed:     0
     ```
-
+>![NOTE] If the tests still fail, there is a good chance you need to also handle the use case of double spaces in the search paramater. Try to let Copilot suggest that fix as well and implement it.
 
 ## Optional
 
