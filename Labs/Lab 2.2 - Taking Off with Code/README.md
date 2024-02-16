@@ -47,6 +47,8 @@ This lab exercise guides participants through coding exercises using GitHub Copi
     ```sh
     dotnet test WrightBrothersApi.Tests/WrightBrothersApi.Tests.csproj
     ```
+>[!Note]
+> If you get an error resembling this: `MSBUILD : error MSB1009: Project file does not exist.`, then you are most likely running this command from the wrong folder. Change into the correct directory with `cd ./WrightBrothersApi` or with `cd ..` to go one folder level upwards.
 
 - The tests should run and pass.
 
