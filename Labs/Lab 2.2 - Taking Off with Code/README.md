@@ -70,7 +70,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - Copilot will give a suggestion to add unit tests to the `Controllers/PlanesControllerTests.cs` file in the `WrightBrothersApi.Tests` project.
 
-    ```sh
+    ```
     You can add additional unit tests in the `PlanesControllerTests` class in the `WrightBrothersApi.Tests/Controllers/PlaneControllerTests.cs` file.
     ```
 
