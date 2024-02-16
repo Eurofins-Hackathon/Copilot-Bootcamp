@@ -82,7 +82,7 @@ Limitations:
 
 - Open the `Controllers/PlanesController.cs` file
 
-- Place your cursor at the end of the `Planes` List, after the `}` of `Plane` with `Id = 4`, press `Enter`.
+- Place your cursor at the end of the `Planes` List, after the `}` of `Plane` with `Id = 4`, type a comma and press `Enter`.
 
 ```csharp
 public class PlanesController : ControllerBase
@@ -99,8 +99,7 @@ public class PlanesController : ControllerBase
             Year = 1910,
             Description = "The first airplane used for military purposes.",
             RangeInKm = 80
-        },
-        <---- Place your cursor here
+        }<---- Place your cursor here
     };
 }
 ```
