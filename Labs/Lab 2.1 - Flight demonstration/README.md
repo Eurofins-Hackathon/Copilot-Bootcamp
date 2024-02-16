@@ -29,6 +29,16 @@ Introduction to GitHub Copilot Chat Extension and its agents for code completion
 
 GitHub Copilot has the concept of Agents. `@workspace` is an agent that is specialized in answering questions about the currently open workspace.
 
+Compare the difference between asking the two following things:
+1) without workspace:
+```
+what does the flightscontroller do?
+```
+2) with workspace:
+```
+@workspace what does the flightscontroller do?
+```
+
 There are two other Agents `@terminal` and `@vscode`. They are used to help navigate the terminal and VS Code settings respectively.
 
 - Try `@terminal` agent by typing the following in the chat window:
