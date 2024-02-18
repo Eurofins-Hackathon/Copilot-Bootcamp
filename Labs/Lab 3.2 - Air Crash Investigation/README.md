@@ -61,15 +61,12 @@ public class FlightsController : ControllerBase
     dotnet run
     ```
 
-- Now go to `Examples/Flights.http` file and execute the `takeFlight` request.
+- Now go to `Examples/Flights.http` file, click `Send Request` to execute the `takeFlight` request.
 
 ```
 POST http://localhost:1903/flights/1/takeFlight/75 HTTP/1.1
 content-type: application/json
 ```
-
-~~TODO [Screenshot] pointing to the POST request option in VSCode~~
-~~<img src="../../Images/placeholderSmall.png" width="800">~~
 
 > [!Note]
 > You must have the `Rest Client` with identifier `humao.rest-client` extension installed in Visual Studio Code to execute the request. Rest Client is a very useful extension to quickly execute HTTP requests and commit them to Git.
@@ -152,7 +149,7 @@ public class FlightsController : ControllerBase
     dotnet run
     ```
 
-- Go to the `Examples/Flights.http` file and execute the `lightningStrike` request.
+- Go to the `Examples/Flights.http` file, click `Send Request` to execute the `lightningStrike` request.
 
     ```
     POST http://localhost:1903/flights/1/lightningStrike HTTP/1.1
@@ -260,7 +257,7 @@ public class FlightsController : ControllerBase
     dotnet run
     ```
 
-- Now go to `Examples/Flights.http` file click `Send Request` to execute the `calculateAerodynamics` request.
+- Now go to `Examples/Flights.http` file, click `Send Request` to execute the `calculateAerodynamics` request.
 
     POST http://localhost:1903/flights/1/calculateAerodynamics HTTP/1.1
     content-type: application/json
@@ -296,7 +293,7 @@ public class FlightsController : ControllerBase
 
 - Copilot will optimize the code.
 
-- Now go to `Examples/Flights.http` file and execute the `calculateAerodynamics` request again.
+- Now go to `Examples/Flights.http` file, click `Send Request` to execute the `calculateAerodynamics` request again.
 
     ```
     POST http://localhost:1903/flights/1/calculateAerodynamics HTTP/1.1

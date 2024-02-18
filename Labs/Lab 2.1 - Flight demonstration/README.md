@@ -25,8 +25,6 @@ Introduction to GitHub Copilot Chat Extension and its agents for code completion
 
 - Copilot will give a brief overview of the API. This is a good way to get a quick overview of the codebase.
 
-~~TODO: Add Screenshot of Copilot Chat explain the workspace~~
-
 GitHub Copilot has the concept of Agents. `@workspace` is an agent that is specialized in answering questions about the currently open workspace.
 
 Compare the difference between asking the two following things:

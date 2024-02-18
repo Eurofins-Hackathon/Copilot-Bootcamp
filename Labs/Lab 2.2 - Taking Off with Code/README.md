@@ -32,15 +32,9 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 - From the Copilot Chat window, select one of the two options:
     1. Click the ellipses, `...`, select `Insert into Terminal`.
 
-    ~~// TODO Screenshot~~
-    
     1. If there isn't a terminal open, click the `Open in Terminal` button.
 
-    ~~// TODO Screenshot~~
-
     1. Click copy button, then, open a new Terminal window by pressing **Ctrl+`** (Control and backtick), paste into Terminal window.
-
-    ~~// TODO Screenshot~~
 
 - Open the terminal and run the tests with the provided command.
 
