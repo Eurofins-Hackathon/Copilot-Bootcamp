@@ -65,7 +65,6 @@ This lab exercise demonstrates integrating GitHub Copilot into .NET application 
     // Other code
     ```
 
-
 - Run the application to see the health check in action.
 
     ```sh
@@ -73,9 +72,10 @@ This lab exercise demonstrates integrating GitHub Copilot into .NET application 
     dotnet run
     ```
 
-- Open `WrightBrothersApi/Examples/Healthcheck.http` file in the Visual Studio code IDE and POST a new flight.
+>[!Note]
+> If you encounter an error message like `Project file does not exist.` or `Couldn't find a project to run.`, it's likely that you're executing the command from an incorrect directory. To resolve this, navigate to the correct directory using the command `cd ./WrightBrothersApi`. If you need to move one level up in the directory structure, use the command `cd ..`. The corrcect directory is the one that contains the `WrightBrothersApi.csproj` file.
 
-TODO! Randy to provide Screenshot here
+- Open the `Examples/Healthcheck.http` file, click `Send Request` to execute the `health` request.
 
 <img src="../../Images/Screenshot-Http-Healthcheck.png" width="600">
 
@@ -241,7 +241,7 @@ Deploying your application to Azure facilitates scalable, secure, and efficient 
     Deploy to Azure
     ```
 
-<img src="../../Images/Screenshot-deploy-azure.png" width="400">
+<img src="../../Images/Screenshot-deploy-azure.png" width="500">
 
 - GitHub Copilot Chat will suggest adding a deploy step to the pipeline, which is a Azure Web App deployment.
 
@@ -276,7 +276,7 @@ deploy:
 
 - Copilot will give components need to create a Web App in Azure. and a button to create the full bicep project.
 
-<img src="../../Images/Screenshot-azure-bicep.png" width="400">
+<img src="../../Images/Screenshot-azure-bicep.png" width="300">
 
 ### Congratulations you've made it to the end! &#9992; &#9992; &#9992;
 

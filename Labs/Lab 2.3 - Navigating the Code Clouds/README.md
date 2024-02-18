@@ -431,6 +431,9 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
     dotnet run
     ```
 
+>[!Note]
+> If you encounter an error message like `Project file does not exist.` or `Couldn't find a project to run.`, it's likely that you're executing the command from an incorrect directory. To resolve this, navigate to the correct directory using the command `cd ./WrightBrothersApi`. If you need to move one level up in the directory structure, use the command `cd ..`. The corrcect directory is the one that contains the `WrightBrothersApi.csproj` file.
+
 - Open `WrightBrothersApi/Examples/Flights.http` file in the Visual Studio code IDE and POST a new flight.
 
 <img src="../../Images/Screenshot-Http-Flights.png" width="800">
@@ -707,6 +710,9 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
     cd WrightBrothersApi
     dotnet run
     ```
+
+>[!Note]
+> If you encounter an error message like `Project file does not exist.` or `Couldn't find a project to run.`, it's likely that you're executing the command from an incorrect directory. To resolve this, navigate to the correct directory using the command `cd ./WrightBrothersApi`. If you need to move one level up in the directory structure, use the command `cd ..`. The corrcect directory is the one that contains the `WrightBrothersApi.csproj` file.
 
 - Open `WrightBrothersApi/Examples/Flights.http` file in the Visual Studio code IDE and POST a new flight.
 

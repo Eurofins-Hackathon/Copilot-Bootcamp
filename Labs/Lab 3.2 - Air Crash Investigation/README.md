@@ -149,6 +149,9 @@ public class FlightsController : ControllerBase
     dotnet run
     ```
 
+>[!Note]
+> If you encounter an error message like `Project file does not exist.` or `Couldn't find a project to run.`, it's likely that you're executing the command from an incorrect directory. To resolve this, navigate to the correct directory using the command `cd ./WrightBrothersApi`. If you need to move one level up in the directory structure, use the command `cd ..`. The corrcect directory is the one that contains the `WrightBrothersApi.csproj` file.
+
 - Go to the `Examples/Flights.http` file, click `Send Request` to execute the `lightningStrike` request.
 
     ```
@@ -250,6 +253,9 @@ public class FlightsController : ControllerBase
     ```sh
     dotnet run
     ```
+
+>[!Note]
+> If you encounter an error message like `Project file does not exist.` or `Couldn't find a project to run.`, it's likely that you're executing the command from an incorrect directory. To resolve this, navigate to the correct directory using the command `cd ./WrightBrothersApi`. If you need to move one level up in the directory structure, use the command `cd ..`. The corrcect directory is the one that contains the `WrightBrothersApi.csproj` file.
 
 - Now go to `Examples/Flights.http` file, click `Send Request` to execute the `calculateAerodynamics` request.
 

@@ -45,6 +45,10 @@ Your Codespace is being created. After a few minutes, you will be able to see yo
     ```sh
     dotnet run
     ```
+
+>[!Note]
+> If you encounter an error message like `Project file does not exist.` or `Couldn't find a project to run.`, it's likely that you're executing the command from an incorrect directory. To resolve this, navigate to the correct directory using the command `cd ./WrightBrothersApi`. If you need to move one level up in the directory structure, use the command `cd ..`. The corrcect directory is the one that contains the `WrightBrothersApi.csproj` file.
+
 #### Verify calling the REST API
 #### Rest Client Extension
 The REST API client extension is very useful to quickly execute HTTP requests in your IDE and have all HTTP requests in source control.
@@ -74,9 +78,6 @@ The REST API client extension is very useful to quickly execute HTTP requests in
     dotnet test WrightBrothersApi.Tests/WrightBrothersApi.Tests.csproj
     ```
 - Run existing unit tests with `dotnet test`
-
->[!Note]
-> If you encounter an error message like `Project file does not exist.` or `Couldn't find a project to run.`, it's likely that you're executing the command from an incorrect directory. To resolve this, navigate to the correct directory using the command `cd ./WrightBrothersApi`. If you need to move one level up in the directory structure, use the command `cd ..`. The corrcect directory is the one that contains the `WrightBrothersApi.csproj` file.
 
 - The tests should run and pass.
 
