@@ -155,7 +155,7 @@ public class FlightsController : ControllerBase
 ```
 
 > [!Note]
-> Note that the `UpdateFlightStatus` method has a high code complexity rating of 13, calculated by the Cyclomatic Complexity metric. This is a good candidate for refactoring.
+> Note that the `UpdateFlightStatus` method has a high code complexity rating of 13, calculated by the [Cyclomatic Complexity metric](https://en.wikipedia.org/wiki/Cyclomatic_complexity). This is a good candidate for refactoring.
 
 - Select all the content of the `UpdateFlightStatus` method.
 
@@ -298,7 +298,7 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
 
 - The prompt contains a few-shot prompting example of a `FlightLogSignature` and a few technical requirements.
 
->![!Note]
+> [!Note]
 > Few-Shot prompting is a concept of prompt engineering. In the prompt you provide a demonstration of the solution. In this case we provide examples of the input and also requirements for the output. This is a good way to instruct Copilot to generate specific solutions.
 
 - Take a look at the following link to learn more about few-shot prompting: https://www.promptingguide.ai/techniques/fewshot

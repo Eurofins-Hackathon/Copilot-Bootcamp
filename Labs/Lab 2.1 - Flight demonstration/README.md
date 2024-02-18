@@ -29,6 +29,16 @@ Introduction to GitHub Copilot Chat Extension and its agents for code completion
 
 GitHub Copilot has the concept of Agents. `@workspace` is an agent that is specialized in answering questions about the currently open workspace.
 
+Compare the difference between asking the two following things:
+1) without workspace:
+```
+what does the flightscontroller do?
+```
+2) with workspace:
+```
+@workspace what does the flightscontroller do?
+```
+
 There are two other Agents `@terminal` and `@vscode`. They are used to help navigate the terminal and VS Code settings respectively.
 
 - Try `@terminal` agent by typing the following in the chat window:
@@ -52,6 +62,9 @@ Limitations:
 > Currently the `@workspace` command doesn't always give the correct answer. It also makes things up. This is a known issue and will be improved in the future. However, it does give a good idea of what is possible.
 > When asking follow-up questions, the @agent needs to be provided again. For example, if you ask `@workspace` a question and then ask another question, you need to type `@workspace` again.
 
+> [!IMPORTANT]  
+> What the `@workspace` agent does, is look at the opened Workspace in VS Code (usually a folder or a project), and use the file tree information to analyze each file briefly and see if it would be intesting context to send into Copilot. This analysis happens clientside and only the files that match (for example the file name indicates a match, or a piece of the file content looks like a match), then those files/parts are send in as extra context. This can be seen in the "Used x references" in the Chat interface that can be openened and reviewed for the file references.
+
 ### Step 2: Airplane Docking - Add new Flight Model
 
 - Open GitHub Copilot Chat Extension
@@ -69,7 +82,7 @@ Limitations:
 
 - Open the `Controllers/PlanesController.cs` file
 
-- Place your cursor at the end of the `Planes` List, after the `}` of `Plane` with `Id = 4`, press `Enter`.
+- Place your cursor at the end of the `Planes` List, after the `}` of `Plane` with `Id = 4`, type a comma and press `Enter`.
 
 ```csharp
 public class PlanesController : ControllerBase
@@ -86,8 +99,7 @@ public class PlanesController : ControllerBase
             Year = 1910,
             Description = "The first airplane used for military purposes.",
             RangeInKm = 80
-        },
-        <---- Place your cursor here
+        }<---- Place your cursor here
     };
 }
 ```

@@ -47,6 +47,8 @@ This lab exercise guides participants through coding exercises using GitHub Copi
     ```sh
     dotnet test WrightBrothersApi.Tests/WrightBrothersApi.Tests.csproj
     ```
+>[!Note]
+> If you get an error resembling this: `MSBUILD : error MSB1009: Project file does not exist.`, then you are most likely running this command from the wrong folder. Change into the correct directory with `cd ./WrightBrothersApi` or with `cd ..` to go one folder level upwards.
 
 - The tests should run and pass.
 
@@ -68,7 +70,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - Copilot will give a suggestion to add unit tests to the `Controllers/PlanesControllerTests.cs` file in the `WrightBrothersApi.Tests` project.
 
-    ```sh
+    ```
     You can add additional unit tests in the `PlanesControllerTests` class in the `WrightBrothersApi.Tests/Controllers/PlaneControllerTests.cs` file.
     ```
 
@@ -234,7 +236,7 @@ public class PlanesControllerTests
 
 - Open `PlanesControllerTests.cs` file
 
-- Place your cursor at the end of the file, after the last unit test `}`. Should be `GetById_ReturnsNotFound()` method created in previous step.
+- Place your cursor at the end of the file, after the last unit test `}`. This should be the `GetById_ReturnsNotFound()` method created in previous step.
 
     ```csharp
     public class PlanesControllerTests
@@ -259,7 +261,7 @@ public class PlanesControllerTests
         //  Wright  flyer       | 2                 | Extra spaces
     ```
 
-- Press `Enter`, GitHub Copilot will automatically suggest the `[Theory]` attribute. Accept the suggestion by pressing `Tab`.
+- Press `Enter`, GitHub Copilot will automatically suggest the `[Theory]` attribute. Accept the suggestion by pressing `Tab`. If Copilot suggess the next comment, then press `Enter` once more.
 
 >[!Note]
 > GitHub Copilot will automatically suggest the `[Theory]` attribute because of the comments above the method. It understands that you want to run the same test with different parameters and outputs.
@@ -294,7 +296,9 @@ public class PlanesControllerTests
 
 - Not all tests will pass. For example the `Case insensitive` and `Extra spaces` test will fail. This is because the `SearchByName` method is case sensitive. Let's fix this.
 
-    ```sh
+> ![Note] It could happen that Copilot already made the method case insensitve during creation. You can then continue with the next task as still some tests cases will fail.
+
+    ```
     Starting test execution, please wait...
     A total of 1 test files matched the specified pattern.
     Failed!  - Failed:     2, Passed:     6, Skipped:     0, Total:     8
@@ -398,7 +402,7 @@ public class PlanesControllerTests
     A total of 1 test files matched the specified pattern.
     Passed!  - Failed:     0, Passed:     8, , Failed:     0
     ```
-
+>![NOTE] If the tests still fail, there is a good chance you need to also handle the use case of double spaces in the search paramater. Try to let Copilot suggest that fix as well and implement it.
 
 ## Optional
 
