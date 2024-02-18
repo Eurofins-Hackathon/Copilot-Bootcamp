@@ -109,7 +109,6 @@ content-type: application/json
 
 - Navigate to the `Terminal` and select the content of the throw exception.
 
-// FIX Screenshot with Right -> Click Explain This
 <img src="../../Images/Screenshot-LackOfFuel152608.png" width="800">
 
 > [!Note]
@@ -166,15 +165,15 @@ public class FlightsController : ControllerBase
 
 - Now, let's debug it with GitHub Copilot
 
-- Navigate to the `Terminal` and select the content of the throw exception.
+- Navigate to the `Terminal` and select the content of the thrown exception.
 
-TODO Screenshot
+TODO! Randy to provide Screenshot here
 
 <img src="../../Images/placeholderSmall.png" width="800">
 
 - Right click the terminal and select `Copilot: Explain this` from the context menu.
 
-TODO Screenshot
+TODO! Randy to provide Screenshot here
 
 <img src="../../Images/placeholderSmall.png" width="800">
 
@@ -183,7 +182,7 @@ TODO Screenshot
 
 - Move the conversation to the Copilot Chat extension window.
 
-TODO Screenshot
+TODO! Randy to provide Screenshot here
 
 <img src="../../Images/placeholderSmall.png" width="800">
 
