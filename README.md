@@ -21,34 +21,8 @@ Participants will learn about AI basics, ethical considerations in AI use, and t
 - Live Demos. Real-time demonstrations of Copilot's capabilities.
 - Skill Development. Enhance your programming skills using Copilot.
 
-
-## Labs Prerequisites
-Ensure the following for a smooth GitHub Copilot experience in Visual Studio Code:
-
-- [Install Visual Studio Code](https://code.visualstudio.com/)
-- [Sign up for a GitHub account](https://github.com/) (if you don't already have one)
-- Install GitHub Copilot extensions from the [VS Code Marketplace](https://marketplace.visualstudio.com/):
-  - GitHub Copilot v1.143.0 or higher
-  - GitHub Copilot Chat v0.12.2023120701 or higher
-- Sign in to GitHub within VS Code to enable Copilot features
-- Maintain a stable internet connection (Copilot relies on cloud-based services)
-- If you haven't previously authorized Visual Studio Code in your GitHub account, you're prompted to sign in to GitHub in Visual Studio Code. Select Sign in to GitHub.
-
-  <details>
-  <summary>Managing GitHub Copilot in VS Code</summary>
-
-  - The Copilot Status Menu, located in the bottom panel of the Visual Studio Code window, allows you to enable or disable GitHub Copilot.
-  - You can choose to disable suggestions globally (`Disable Globally`), or for the language of the file you're currently editing (`Disable for LANGUAGE`).
-
-  </details>
-
-  <details>
-  <summary>Diagnosing Issues with GitHub Copilot</summary>
-
-  - Log files, stored in the standard location for Visual Studio Code extensions, can help diagnose connection issues.
-  - To access these logs, open the Command Palette (Shift+Command+P for Mac, Ctrl+Shift+P for Windows/Linux), type `Diagnostics`, and select `GitHub Copilot: Collect Diagnostics`.
-
-  </details>
+## Prerequisites
+- The prerequisites steps must be completed, see [Labs Prerequisites](./Labs/Lab%201.1%20-%20Pre-Flight%20Checklist)
 
 # Table of Contents
 
