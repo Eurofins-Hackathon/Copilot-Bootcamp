@@ -8,8 +8,8 @@ This lab exercise demonstrates integrating GitHub Copilot into .NET application 
 - 15 min
 
 ## Objectives
-- Recap of the day's learning, emphasizing the blend of AI assistance with human skills.
-- Discussion on the future of AI in programming and its evolving role in software development.
+- Demonstrate GitHub Copilot's capabilities in .NET development, focusing on automating health checks, CI/CD pipelines for Azure, infrastructure as code, and generating concise "Summarized Check in Comments" and "Summarized Pull Request Comments".
+- Highlight Copilot's impact on streamlining development workflows, improving code quality, and enhancing collaboration through practical tasks
 
 ### Step 1. Fasten your seatbelts, turbulance incoming - Committing Code Changes
 
