@@ -61,6 +61,9 @@ public class FlightsController : ControllerBase
     dotnet run
     ```
 
+>[!Note]
+> If you encounter an error message like `Project file does not exist.` or `Couldn't find a project to run.`, it's likely that you're executing the command from an incorrect directory. To resolve this, navigate to the correct directory using the command `cd ./WrightBrothersApi`. If you need to move one level up in the directory structure, use the command `cd ..`. The corrcect directory is the one that contains the `WrightBrothersApi.csproj` file.
+
 - Now go to `Examples/Flights.http` file, click `Send Request` to execute the `takeFlight` request.
 
 ```
@@ -70,8 +73,6 @@ content-type: application/json
 
 > [!Note]
 > You must have the `Rest Client` with identifier `humao.rest-client` extension installed in Visual Studio Code to execute the request. Rest Client is a very useful extension to quickly execute HTTP requests and commit them to Git.
-
-- You will see that the flight is taking off and the response is `200 OK`.
 
 > [!Note]
 > The flight is taking off and the response is `200 OK`. The flight that is simulated did not run out of fuel.
@@ -103,7 +104,7 @@ content-type: application/json
    at FlightsController.takeFlight(Int32 id, Int32 flightLength) in C:\Temp\WrightBrothersApi\WrightBrothersApi\Controllers\FlightsController.cs:line 174
     ```
 
-- Stop the app by pressing `Ctrl + C` or `Cmd + C` in the terminal.
+- Stop the app by pressing `Ctrl + C` or `Cmd + C` in the terminal, or by clicking on the 'Stop' button in the debugger panel.
 
 - Now, let's debug it with GitHub Copilot
 
@@ -111,10 +112,10 @@ content-type: application/json
 
 <img src="../../Images/Screenshot-LackOfFuel152608.png" width="800">
 
+- Right click the terminal and select `Copilot: Explain this` from the context menu.
+
 > [!Note]
 > GitHub Copilot will explain the code in a human readable format.
-
-- Stop the app by pressing `Ctrl + C` or `Cmd + C` in the terminal, or by clicking on the 'Stop' button in the debugger panel
 
 ### Step 2. Lightning Strikes, Unexpected Flight Crash - Stack Overflow Scenario
 
@@ -167,30 +168,24 @@ public class FlightsController : ControllerBase
 
 - Navigate to the `Terminal` and select the content of the thrown exception.
 
-TODO! Randy to provide Screenshot here
+<img src="../../Images/Screenshot-lightningStrikeError.png" width="800">
 
-<img src="../../Images/placeholderSmall.png" width="800">
-
-- Right click the terminal and select `Copilot: Explain this` from the context menu.
+- Copy the content of the exception to the clipboard by pressing `Ctrl + C` or `Cmd + C`.
 
 TODO! Randy to provide Screenshot here
 
 <img src="../../Images/placeholderSmall.png" width="800">
 
-> [!Note]
-> GitHub Copilot will explain the code in a human readable format.
-
-- Move the conversation to the Copilot Chat extension window.
-
-TODO! Randy to provide Screenshot here
-
-<img src="../../Images/placeholderSmall.png" width="800">
-
-- Now ask GitHub Copilot to fix the code.
+- Open the `Chat` extension window to have Copilot explain how to fix the code.
 
     ```sh
     @workspace how to fix this?
     ```
+
+ - Right after the `?`, paste the content of the exception by pressing `Ctrl + V` or `Cmd + V`.
+
+> [!Note]
+> GitHub Copilot will explain the code in a human readable format.
 
 > [!Note]
 > GitHub Copilot will suggest how to handle recursion. Using @workspace with the question will make Github Copilot use more context to generate the suggestion.
