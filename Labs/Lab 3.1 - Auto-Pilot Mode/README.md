@@ -75,8 +75,9 @@ This lab exercise demonstrates integrating GitHub Copilot into .NET application 
 
 - Open `WrightBrothersApi/Examples/Healthcheck.http` file in the Visual Studio code IDE and POST a new flight.
 
-// TODO Change Screenshot
-<img src="../../Images/Screenshot-Http-Healthcheck.png" width="800">
+TODO! Randy to provide Screenshot here
+
+<img src="../../Images/Screenshot-Http-Healthcheck.png" width="600">
 
 > [!Note]
 > Screenshot is made at 8th of February 2024. The UI of the Copilot Chat extension can be different at the time you are doing the lab. (Please notify us if the UI is different.)
@@ -124,7 +125,7 @@ git checkout -b feature/health-checks
 
 - Click on the `Magic` icon to generate a commit message
 
-<img src="../../Images/Screenshot-Healthcheck-commit.png" width="800">
+<img src="../../Images/Screenshot-Healthcheck-commit.png" width="600">
 
 
 > [!Note]
@@ -133,7 +134,7 @@ git checkout -b feature/health-checks
 
 - Click the `✓ Commit & Sync` button to commit the changes.
 
-<img src="../../Images/Screenshot-commit-sync.png" width="800">
+<img src="../../Images/Screenshot-commit-sync.png" width="400">
 
 - Click the `Publish branch` button to push the changes.
 
@@ -240,7 +241,7 @@ Deploying your application to Azure facilitates scalable, secure, and efficient 
     Deploy to Azure
     ```
 
-<img src="../../Images/Screenshot-deploy-azure.png" width="800">
+<img src="../../Images/Screenshot-deploy-azure.png" width="400">
 
 - GitHub Copilot Chat will suggest adding a deploy step to the pipeline, which is a Azure Web App deployment.
 
@@ -275,7 +276,7 @@ deploy:
 
 - Copilot will give components need to create a Web App in Azure. and a button to create the full bicep project.
 
-<img src="../../Images/Screenshot-azure-bicep.png" width="800">
+<img src="../../Images/Screenshot-azure-bicep.png" width="400">
 
 ### Congratulations you've made it to the end! &#9992; &#9992; &#9992;
 
