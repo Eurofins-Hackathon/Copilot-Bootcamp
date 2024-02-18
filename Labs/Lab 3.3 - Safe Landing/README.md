@@ -3,7 +3,7 @@ The session ends with a summary of how AI helps in coding. It highlights better 
 
 
 ## Prerequisites
-- The prerequisites steps are completed, see [Labs Prerequisites](https://github.com/XpiritBV/Copilot-Bootcamp#labs-prerequisites)
+- The prerequisites steps must be completed, see [Labs Prerequisites](./Labs/Lab%201.1%20-%20Pre-Flight%20Checklist)
 
 ## Estimated time to complete
 - 30 min

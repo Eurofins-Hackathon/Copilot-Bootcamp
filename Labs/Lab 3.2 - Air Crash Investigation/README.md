@@ -4,7 +4,7 @@ The module simulates airplane crash scenarios using GitHub Copilot to identify a
 A reference to the [Air Crash Investigation](https://en.wikipedia.org/wiki/Mayday_(Canadian_TV_series)) TV show, where the investigators try to find the root cause of an airplane crash. In this module, we will simulate a few airplane crashes and use GitHub Copilot to troubleshoot and fix the issues.
 
 ## Prerequisites
-- The prerequisites steps are completed, see [Labs Prerequisites](https://github.com/XpiritBV/Copilot-Bootcamp#labs-prerequisites)
+- The prerequisites steps must be completed, see [Labs Prerequisites](./Labs/Lab%201.1%20-%20Pre-Flight%20Checklist)
 
 ## Estimated time to complete
 - 30 to 45 minutes, varying with optional labs.
