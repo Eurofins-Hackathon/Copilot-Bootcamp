@@ -5,7 +5,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 - The prerequisites steps must be completed, see [Labs Prerequisites](./Labs/Lab%201.1%20-%20Pre-Flight%20Checklist)
 
 ## Estimated time to complete
-- 30 to 45 minutes, varying with optional labs.
+- 30 minutes, varying with optional labs.
 
 ## Objectives
 - Simple coding exercises using GitHub Copilot, focusing on understanding its suggestions and capabilities.

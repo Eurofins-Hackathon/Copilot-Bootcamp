@@ -7,7 +7,7 @@ A reference to the [Air Crash Investigation](https://en.wikipedia.org/wiki/Mayda
 - The prerequisites steps must be completed, see [Labs Prerequisites](./Labs/Lab%201.1%20-%20Pre-Flight%20Checklist)
 
 ## Estimated time to complete
-- 30 to 45 minutes, varying with optional labs.
+- 30 minutes, varying with optional labs.
 
 ## Objectives
 - Understanding the limitations of GitHub Copilot and learning how to troubleshoot its suggestions.

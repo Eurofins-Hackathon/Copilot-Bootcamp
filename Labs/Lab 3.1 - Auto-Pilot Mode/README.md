@@ -5,7 +5,7 @@ This lab exercise demonstrates integrating GitHub Copilot into .NET application 
 - The prerequisites steps must be completed, see [Labs Prerequisites](./Labs/Lab%201.1%20-%20Pre-Flight%20Checklist)
 
 ## Estimated time to complete
-- 30 min
+- 15 min
 
 ## Objectives
 - Recap of the day's learning, emphasizing the blend of AI assistance with human skills.

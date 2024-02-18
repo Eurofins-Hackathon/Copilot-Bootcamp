@@ -5,7 +5,7 @@ This module demonstrates how to utilize GitHub Copilot's Chat Extension and its 
 - The prerequisites steps must be completed, see [Labs Prerequisites](./Labs/Lab%201.1%20-%20Pre-Flight%20Checklist)
 
 ## Estimated time to complete
-- 30 to 45 minutes, varying with optional labs.
+- 30 minutes, varying with optional labs.
 
 ## Objectives
 Introduction to GitHub Copilot Chat Extension and its agents for code completion and style adaptation.

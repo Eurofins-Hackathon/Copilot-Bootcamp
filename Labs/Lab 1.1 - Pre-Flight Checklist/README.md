@@ -2,7 +2,7 @@
 Compare this to "Preparing Your Travel Itinerary, Checking Passport, Printing Boarding Pass". Just as travelers plan their journey, participants will set up their GitHub repository, planning their coding journey. In this Hands-On Lab, you will learn how to navigate GitHub, create a new issue and obtain your own GitHub repo with the code for these hands-on labs. You will be working on your own repo in the following labs.
 
 ## Estimated time to complete
-- 10 min
+- 15 min
 
 ## Objectives
 - Getting familiar with GitHub Codespace 
