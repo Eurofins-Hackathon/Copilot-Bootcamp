@@ -70,7 +70,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - Open `PlanesControllerTests.cs` that GitHub Copilot suggested in the chat by clicking on the provided file name in the chat.
 
-// TODO Screenshot of the Chat
+<img src="../../Images/Screenshot-WhereToAddUnitTests.png" width="800">
 
 - Make sure to have the `PlanesController.cs` file open as well in your Visual Studio Code Editor in a tab next to the `PlanesControllerTests.cs` file.
 
@@ -630,8 +630,8 @@ public class PlanesControllerTests
     ```
 
 >[!Note]
-> Sometimes not all tests are succeeding. Copilot got you there 95% of the way, the Pilot (you) still has to take control and make sure the tests are corrected.
-    
+> Sometimes not all tests succeed.  Make sure `dotnt test` is run in the root of the project `WrightBrothersApi`.  If the tests fail, you will need to debug the tests and correct the issues.  Although tools like Copilot can assist greatly, you, the Pilot, must take charge to diagnose and fix the discrepancies.
+  
 ### Congratulations you've made it to the end! &#9992; &#9992; &#9992;
 
 #### And with that, you've now concluded this module. We hope you enjoyed it! &#x1F60A;
