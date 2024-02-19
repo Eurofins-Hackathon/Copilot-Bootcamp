@@ -110,12 +110,11 @@ content-type: application/json
 
 - Navigate to the `Terminal` and select the content of the throw exception.
 
-<img src="../../Images/Screenshot-LackOfFuel152608.png" width="800">
-
 - Right click the terminal and select `Copilot: Explain this` from the context menu.
 
-> [!Note]
-> GitHub Copilot will explain the code in a human readable format.
+- GitHub Copilot Chat extension will open and explain the code in a human readable format, instead of the technical exception message.
+
+<img src="../../Images/Screenshot-LackOfFuel.png" width="800">
 
 ### Step 2. Lightning Strikes, Unexpected Flight Crash - Stack Overflow Scenario
 
@@ -167,31 +166,47 @@ public class FlightsController : ControllerBase
 
     ```
 
+<img src="../../Images/Screenshot-lightningStrikeError.png" width="800">
+
 - Now, let's debug it with GitHub Copilot
 
 - Navigate to the `Terminal` and select the content of the thrown exception.
 
-<img src="../../Images/Screenshot-lightningStrikeError.png" width="800">
+- Open GitHub Copilot chat extension window and ask the following question:
 
-- Copy the content of the exception to the clipboard by pressing `Ctrl + C` or `Cmd + C`.
-
-TODO! Randy to provide Screenshot here
-
-<img src="../../Images/placeholderSmall.png" width="800">
-
-- Open the `Chat` extension window to have Copilot explain how to fix the code.
-
-    ```sh
-    @workspace how to fix this?
+    ```
+    @terminal #terminalSelection #file:FlightsController.cs how to fix this
     ```
 
- - Right after the `?`, paste the content of the exception by pressing `Ctrl + V` or `Cmd + V`.
+- Note that `@terminal` `#terminalSelection` will provide GitHub Copilot access to what the user has selected in the terminal. It can not be used in combination with `@workspace`. So it does not have additional context to generate the suggestion. To add more context to the suggestion you can use `#file:FlightsController.cs`.
+
+<img src="../../Images/Screenshot-lightningStrikeError-fix.png" width="800">
+
+- Copilot will suggest how to handle recursion by adding a condition to stop the recursion:
+
+```csharp
+public class FlightsController : ControllerBase
+{
+    // Rest of the FlightsController.cs file
+
+    [HttpPost("{id}/lightningStrike")]
+    public ActionResult lightningStrike(int id, int recursionDepth = 10)
+    {
+        if (recursionDepth == 0)
+        {
+            return Ok($"Recovers from lightning strike.");
+        }
+
+        // Lightning caused recursion on an inflight instrument
+        lightningStrike(id, recursionDepth - 1);
+
+        return Ok($"Recovers from lightning strike.");
+    }
+```
 
 > [!Note]
-> GitHub Copilot will explain the code in a human readable format.
+> This is an extreme example. In the real world you will probably not see this often. This example does show how GitHub Copilot can help with debugging and troubleshooting and this technique is applicable to other scenarios as well.
 
-> [!Note]
-> GitHub Copilot will suggest how to handle recursion. Using @workspace with the question will make Github Copilot use more context to generate the suggestion.
 
 ### Optional
 
@@ -259,6 +274,7 @@ public class FlightsController : ControllerBase
 
 - Now go to `Examples/Flights.http` file, click `Send Request` to execute the `calculateAerodynamics` request.
 
+    ```
     POST http://localhost:1903/flights/1/calculateAerodynamics HTTP/1.1
     content-type: application/json
     ```
