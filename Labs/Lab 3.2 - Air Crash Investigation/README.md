@@ -116,6 +116,8 @@ content-type: application/json
 
 <img src="../../Images/Screenshot-LackOfFuel.png" width="800">
 
+## Optional
+
 ### Step 2. Lightning Strikes, Unexpected Flight Crash - Stack Overflow Scenario
 
 - Open `FlightsController.cs` file located in the `Controllers` folder.
@@ -207,8 +209,7 @@ public class FlightsController : ControllerBase
 > [!Note]
 > This is an extreme example. In the real world you will probably not see this often. This example does show how GitHub Copilot can help with debugging and troubleshooting and this technique is applicable to other scenarios as well.
 
-
-### Optional
+## Optional
 
 ### Step 3. Aerodynamics of an Airplane - Performance Optimization
 
