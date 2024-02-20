@@ -11,7 +11,7 @@ This lab exercise demonstrates integrating GitHub Copilot into .NET application 
 - Demonstrate GitHub Copilot's capabilities in .NET development, focusing on automating health checks, CI/CD pipelines for Azure, infrastructure as code, and generating concise "Summarized Check in Comments" and "Summarized Pull Request Comments".
 - Highlight Copilot's impact on streamlining development workflows, improving code quality, and enhancing collaboration through practical tasks.
 
-### Step 1. Fasten your seatbelts, turbulance incoming - Committing Code Changes
+### Step 1. Fasten your seatbelts, turbulence incoming - Committing Code Changes
 
 - Open `Program.cs` in `WrightBrothersApi` folder
 
