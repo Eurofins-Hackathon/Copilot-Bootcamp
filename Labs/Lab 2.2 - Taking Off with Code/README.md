@@ -199,6 +199,8 @@ public class PlanesControllerTests
     Passed!  - Failed:  0, Passed:  5, Skipped:  0, Total:  5
     ```
 
+## Optional
+
 ### Step 3: Taking Off - Developing Robust Tests
 
 - Open the `PlanesController.cs` file.
