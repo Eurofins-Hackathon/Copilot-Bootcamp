@@ -30,6 +30,29 @@ GitHub Codespaces is a feature that allows you to code directly in the browser. 
 
 Your Codespace is being created. After a few minutes, you will be able to see your Codespace in the browser.
 
+### Setting up Visual Studio Code locally
+Ensure the following for a smooth GitHub Copilot experience in Visual Studio Code:
+
+- [Install Visual Studio Code](https://code.visualstudio.com/)
+- [Sign up for a GitHub account](https://github.com/) (if you don't already have one)
+- Install GitHub Copilot extensions from the [VS Code Marketplace](https://marketplace.visualstudio.com/):
+  - GitHub Copilot v1.143.0 or higher
+  - GitHub Copilot Chat v0.12.2023120701 or higher
+- Sign in to GitHub within VS Code to enable Copilot features
+- Clone the repository to your local machine OR download and unzip the file `Copilot-Bootcamp-main.zip`. 
+
+- If you are cloning the repository, you can do this by running the following command in your terminal:
+
+    ```bash
+    git clone https://github.com/XpiritBV/Copilot-Bootcamp.git
+    ```
+
+- Open a terminal or command prompt
+- Navigate to the folder where you unzipped the file `cd Copilot-Bootcamp-main`
+- Open the repository in VS Code
+    - navigate to the folder where you cloned the repository `cd Copilot-Bootcamp`
+- Maintain a stable internet connection (Copilot relies on cloud-based services)
+- Install additional VS Code extensions as needed for your project (languages, frameworks, tools not covered by Copilot)
 ### Step 3: Verify Functionality
 
 #### Verify Copilot functionality
