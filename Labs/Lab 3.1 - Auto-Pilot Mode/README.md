@@ -174,6 +174,8 @@ git checkout -b feature/health-checks
 > [!IMPORTANT]  
 > This is a `Copilot Enterprise` feature only! In order to use the Pull Request Summaries feature you need a Copilot Enterprise License and have this feature enabled in your GitHub account.
 
+## Optional
+
 ### Step 3. Smooth Flying in the Cloud - Automating GitHub Pipelines
 A build pipeline automates your software's build, test, and deployment processes, ensuring consistent and error-free releases while saving time and improving code quality. It streamlines development, enables quick feedback, and supports efficient version management.  Let's begin by
 automating CI/CD pipelines for deployment to Azure.
