@@ -19,7 +19,7 @@ GitHub Codespaces is a feature that allows you to code directly in the browser. 
 
 - First, we are going to create a plain vanilla Codespace that you will use throughout this bootcamp.
 
-- Navigate to your own repository on the URL https://github.com/one-thd/Copilot-Bootcamp-**YourLDAP_thdgit**.
+- Navigate to your own repository on the URL `https://github.com/one-thd/Copilot-Bootcamp-`**YourLDAP_thdgit**.
 
 ~~- Navigate to your own repository on the URL https://github.com/Microsoft-Bootcamp/attendee-copilot-[yourhandle].~~
 
@@ -28,7 +28,7 @@ GitHub Codespaces is a feature that allows you to code directly in the browser. 
 
 - Keep the defaults, but change the machine type to `4-core` and click `Create Codespace`.
 
-<img src="../../Images/Screenshot-CodespaceSetUp.png" width="400">
+<img src="../../Images/Screenshot-CodespaceSetUp.png" width="500">
 
 Your Codespace is being created. After a few minutes, you will be able to see your Codespace in the browser.
 
