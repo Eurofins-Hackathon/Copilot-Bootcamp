@@ -80,7 +80,7 @@ Limitations:
 
 - Open the `Controllers/PlanesController.cs` file
 
-- Place your cursor at the end of the `Planes` List, after the `}` of `Plane` with `Id = 4`, type a comma and press `Enter`.
+- Place your cursor at the end of the `Planes` List, after the `}` of `Plane` with `Id = 4`, type a `,` and press `Enter`.
 
 ```csharp
 public class PlanesController : ControllerBase
