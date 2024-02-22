@@ -101,11 +101,12 @@ The REST API client extension is very useful to quickly execute HTTP requests in
 
 #### Verify the unit tests
 
-- Open the terminal and run the tests with the provided command.
 - From the terminal window, navigate to the root folder: `cd ./WrightBrothersApi/`, this is the folder that contains the `WrightBrothersApi.Tests` folder.
 
+- Run the unit tests by typing the following command in the terminal:
+
     ```sh
-    dotnet test WrightBrothersApi.Tests/WrightBrothersApi.Tests.csproj
+    dotnet test
     ```
 - Run existing unit tests with `dotnet test`
 
