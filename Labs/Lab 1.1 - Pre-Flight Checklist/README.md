@@ -28,11 +28,11 @@ GitHub Codespaces is a feature that allows you to code directly in the browser. 
 
 - Keep the defaults, but change the machine type to `4-core` and click `Create Codespace`.
 
-<img src="../../Images/Screenshot-CodespaceSetUp.png" width="600">
+<img src="../../Images/Screenshot-CodespaceSetUp.png" width="400">
 
 Your Codespace is being created. After a few minutes, you will be able to see your Codespace in the browser.
 
-### Setting up Visual Studio Code locally
+### Step 3: 💻 (Optional) Local setup up Visual Studio Code
 Ensure the following for a smooth GitHub Copilot experience in Visual Studio Code:
 
 - [Install Visual Studio Code](https://code.visualstudio.com/)
@@ -55,7 +55,8 @@ Ensure the following for a smooth GitHub Copilot experience in Visual Studio Cod
     - navigate to the folder where you cloned the repository `cd Copilot-Bootcamp`
 - Maintain a stable internet connection (Copilot relies on cloud-based services)
 - Install additional VS Code extensions as needed for your project (languages, frameworks, tools not covered by Copilot)
-### Step 3: Verify Functionality
+
+### Step 4: Verify Functionality
 
 #### Verify Copilot functionality
 - Verify Copilot functionality by saying hello.
@@ -70,6 +71,7 @@ Ensure the following for a smooth GitHub Copilot experience in Visual Studio Cod
     ```sh
     dotnet run
     ```
+<img src="../../Images/Screenshot-Lab1.1-Run.png" width="400">
 
 >[!Note]
 > If you encounter an error message like `Project file does not exist.` or `Couldn't find a project to run.`, it's likely that you're executing the command from an incorrect directory. To resolve this, navigate to the correct directory using the command `cd ./WrightBrothersApi`. If you need to move one level up in the directory structure, use the command `cd ..`. The corrcect directory is the one that contains the `WrightBrothersApi.csproj` file.
@@ -103,6 +105,8 @@ The REST API client extension is very useful to quickly execute HTTP requests in
     dotnet test WrightBrothersApi.Tests/WrightBrothersApi.Tests.csproj
     ```
 - Run existing unit tests with `dotnet test`
+
+<img src="../../Images/Screenshot-Lab1.1-Test.png" width="400">
 
 - The tests should run and pass.
 
