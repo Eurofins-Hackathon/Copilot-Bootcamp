@@ -102,6 +102,7 @@ The REST API client extension is very useful to quickly execute HTTP requests in
 #### Verify the unit tests
 
 - Open the terminal and run the tests with the provided command.
+- From the terminal window, navigate to the root folder: `cd ./WrightBrothersApi/`, this is the folder that contains the `WrightBrothersApi.Tests` folder.
 
     ```sh
     dotnet test WrightBrothersApi.Tests/WrightBrothersApi.Tests.csproj
@@ -109,7 +110,7 @@ The REST API client extension is very useful to quickly execute HTTP requests in
 - Run existing unit tests with `dotnet test`
 
 >[!Note]
-> If you encounter an error message like `Project file does not exist.` or `Couldn't find a project to run.`, it's likely that you're executing the command from an incorrect directory. To resolve this, navigate to the correct directory using the command `cd ./WrightBrothersApi`. If you need to move one level up in the directory structure, use the command `cd ..`. The corrcect directory is the one that contains the `WrightBrothersApi.Tests` file.
+> If you encounter an error message like `Project file does not exist.` or `Couldn't find a project to run.`, it's likely that you're executing the command from an incorrect directory. To resolve this, navigate to the correct directory using the command `cd ./WrightBrothersApi`. If you need to move one level up in the directory structure, use the command `cd ..`. The correct directory is the one that contains the `WrightBrothersApi.Tests` folder.
 
 <img src="../../Images/Screenshot-Lab1.1-Test.png" width="600">
 
