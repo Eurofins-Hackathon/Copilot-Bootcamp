@@ -71,10 +71,12 @@ Ensure the following for a smooth GitHub Copilot experience in Visual Studio Cod
     ```sh
     dotnet run
     ```
-<img src="../../Images/Screenshot-Lab1.1-Run.png" width="400">
 
 >[!Note]
 > If you encounter an error message like `Project file does not exist.` or `Couldn't find a project to run.`, it's likely that you're executing the command from an incorrect directory. To resolve this, navigate to the correct directory using the command `cd ./WrightBrothersApi`. If you need to move one level up in the directory structure, use the command `cd ..`. The corrcect directory is the one that contains the `WrightBrothersApi.csproj` file.
+
+<img src="../../Images/Screenshot-Lab1.1-Run.png" width="600">
+
 
 #### Verify calling the REST API
 #### Rest Client Extension
@@ -106,7 +108,10 @@ The REST API client extension is very useful to quickly execute HTTP requests in
     ```
 - Run existing unit tests with `dotnet test`
 
-<img src="../../Images/Screenshot-Lab1.1-Test.png" width="400">
+>[!Note]
+> If you encounter an error message like `Project file does not exist.` or `Couldn't find a project to run.`, it's likely that you're executing the command from an incorrect directory. To resolve this, navigate to the correct directory using the command `cd ./WrightBrothersApi`. If you need to move one level up in the directory structure, use the command `cd ..`. The corrcect directory is the one that contains the `WrightBrothersApi.Tests` file.
+
+<img src="../../Images/Screenshot-Lab1.1-Test.png" width="600">
 
 - The tests should run and pass.
 
