@@ -19,9 +19,7 @@ GitHub Codespaces is a feature that allows you to code directly in the browser. 
 
 - First, we are going to create a plain vanilla Codespace that you will use throughout this bootcamp.
 
-- Navigate to your own repository on the URL `https://github.com/one-thd/Copilot-Bootcamp-`**YourLDAP_thdgit**.
-
-~~- Navigate to your own repository on the URL https://github.com/Microsoft-Bootcamp/attendee-copilot-[yourhandle].~~
+Navigate to your own repository on the URL https://github.com/Microsoft-Bootcamp/attendee-copilot-[yourhandle].
 
 - Locate the `Code` tab near the top menu.
 - Click the green `Code` button, then click on `Codespaces`, click the "..." and choose `"New with options"`.
@@ -32,36 +30,17 @@ GitHub Codespaces is a feature that allows you to code directly in the browser. 
 
 Your Codespace is being created. After a few minutes, you will be able to see your Codespace in the browser.
 
-### Step 3: 💻 (Optional) Local setup up Visual Studio Code
-Ensure the following for a smooth GitHub Copilot experience in Visual Studio Code:
+### Step 3: Verify Functionality
 
-- [Install Visual Studio Code](https://code.visualstudio.com/)
-- [Sign up for a GitHub account](https://github.com/) (if you don't already have one)
-- Install GitHub Copilot extensions from the [VS Code Marketplace](https://marketplace.visualstudio.com/):
-  - GitHub Copilot v1.143.0 or higher
-  - GitHub Copilot Chat v0.12.2023120701 or higher
-- Sign in to GitHub within VS Code to enable Copilot features
-- Clone the repository to your local machine OR download and unzip the file `Copilot-Bootcamp-main.zip`. 
+#### Verify Copilot Functionality
+- Click on the Copilot icon on the left side of the screen to open the chat.
 
-- If you are cloning the repository, you can do this by running the following command in your terminal:
+<img src="../../Images/Screenshot-ChatIcon.png" width="300">
 
-    ```bash
-    git clone https://github.com/XpiritBV/Copilot-Bootcamp.git
-    ```
+- Type `Hello` and press `Enter` to interact with Copilot.
 
-- Open a terminal or command prompt
-- Navigate to the folder where you unzipped the file `cd Copilot-Bootcamp-main`
-- Open the repository in VS Code
-    - navigate to the folder where you cloned the repository `cd Copilot-Bootcamp`
-- Maintain a stable internet connection (Copilot relies on cloud-based services)
-- Install additional VS Code extensions as needed for your project (languages, frameworks, tools not covered by Copilot)
 
-### Step 4: Verify Functionality
-
-#### Verify Copilot functionality
-- Verify Copilot functionality by saying hello.
-- Open the Copilot Chat window by clicking on the Copilot icon in the left-hand side of the screen.
-- Type `Hello` in the chat window and press `Enter` to see the response from Copilot.
+### Optional Verification Steps
 
 #### Verify the application runs
 - Startup the application and verify the application is running.
@@ -76,7 +55,6 @@ Ensure the following for a smooth GitHub Copilot experience in Visual Studio Cod
 > If you encounter an error message like `Project file does not exist.` or `Couldn't find a project to run.`, it's likely that you're executing the command from an incorrect directory. To resolve this, navigate to the correct directory using the command `cd ./WrightBrothersApi`. If you need to move one level up in the directory structure, use the command `cd ..`. The corrcect directory is the one that contains the `WrightBrothersApi.csproj` file.
 
 <img src="../../Images/Screenshot-Lab1.1-Run.png" width="600">
-
 
 #### Verify calling the REST API
 #### Rest Client Extension
