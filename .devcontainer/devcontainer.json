@@ -22,6 +22,7 @@
 				"humao.rest-client",
 				"GitHub.copilot",
 				"GitHub.copilot-chat",
+				"ms-dotnettools.csdevkit",
 				"github.vscode-github-actions"
 			]
 		}
