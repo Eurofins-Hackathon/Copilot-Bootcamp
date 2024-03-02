@@ -22,7 +22,7 @@ GitHub Codespaces is a feature that allows you to code directly in the browser. 
 Navigate to your own repository on the URL https://github.com/Microsoft-Bootcamp/attendee-copilot-[yourhandle].
 
 - Locate the `Code` tab near the top menu.
-- Click the green `Code` button, then click on `Codespaces`, click the "..." and choose `"New with options"`.
+- Click the green `Code` button, then click on `Codespaces`, click the 3 ellipses, "...", and choose `"New with options"`.
 
 - Keep the defaults, but change the machine type to `4-core` and click `Create Codespace`.
 
