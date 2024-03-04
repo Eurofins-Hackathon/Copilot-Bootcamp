@@ -285,7 +285,7 @@ Let's present a code completion task for adding a logger with specific syntax (e
         [HttpGet("{id}")]
         public ActionResult<Plane> GetById(int id)
         {
-            _log <---- Place your cursor here
+            <---- Place your cursor here
 
             // Method body
         }
