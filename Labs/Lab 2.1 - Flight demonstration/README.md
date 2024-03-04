@@ -80,7 +80,7 @@ Limitations:
 
 - Open the `Controllers/PlanesController.cs` file
 
-- Place your cursor at the end of the `Planes` List, after the `}` of `Plane` with `Id = 4`, type a `,` and press `Enter`.
+- Place your cursor at the end of the `Planes` List, after the `}` of `Plane` with `Id = 3`, type a `,` and press `Enter`.
 
 ```csharp
 public class PlanesController : ControllerBase
@@ -92,11 +92,11 @@ public class PlanesController : ControllerBase
         // Other planes
         new Plane
         {
-            Id = 4,
-            Name = "Wright Model B",
-            Year = 1910,
-            Description = "The first airplane used for military purposes.",
-            RangeInKm = 80
+            Id = 3,
+            Name = "Wright Model A",
+            Year = 1908,
+            Description = "The first commercially successful airplane.",
+            RangeInKm = 40
         }<---- Place your cursor here
     };
 }
