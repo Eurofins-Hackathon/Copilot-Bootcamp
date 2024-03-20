@@ -250,7 +250,7 @@ public class PlanesControllerTests
 - Now, copy/paste the following:
 
     ```csharp
-        // Search by name term  | Amount of results | Test Description
+        // Search by name term using SearchByName | Amount of results | Test Description
         // Wright Flyer II      | 1                 | Specific search
         // Wright               | 3                 | General search
         // wright flyer         | 2                 | Case insensitive
