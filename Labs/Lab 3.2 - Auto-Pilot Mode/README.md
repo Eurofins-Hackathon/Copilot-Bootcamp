@@ -140,6 +140,9 @@ git checkout -b feature/health-checks
 
 <img src="../../Images/Screenshot145014.png" width="500">
 
+
+## GitHub Copilot Enterprise Only
+
 ### Step 2. Turn on Autopilot Mode - Automating GitHub Pull Requests
 
 > [!WARNING]  

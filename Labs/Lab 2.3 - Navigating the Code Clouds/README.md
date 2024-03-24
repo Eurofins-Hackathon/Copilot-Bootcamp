@@ -5,7 +5,7 @@ This lab exercise delves into GitHub Copilot's advanced features, teaching parti
 - The prerequisites steps must be completed, see [Labs Prerequisites](./Labs/Lab%201.1%20-%20Pre-Flight%20Checklist)
 
 ## Estimated time to complete
-- 30 minutes, varying with optional labs.
+- 20 minutes, varying with optional labs.
 
 ## Objectives
 - To master GitHub Copilot's advanced features for solving complex coding exercises and optimizing code.

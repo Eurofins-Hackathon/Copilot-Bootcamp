@@ -7,7 +7,7 @@ A reference to the [Air Crash Investigation](https://en.wikipedia.org/wiki/Mayda
 - The prerequisites steps must be completed, see [Labs Prerequisites](./Labs/Lab%201.1%20-%20Pre-Flight%20Checklist)
 
 ## Estimated time to complete
-- 30 minutes, varying with optional labs.
+- 20 minutes, varying with optional labs.
 
 ## Objectives
 - Understanding the limitations of GitHub Copilot and learning how to troubleshoot its suggestions.
@@ -296,7 +296,9 @@ public class FlightsController : ControllerBase
 
 - The application will calculate the prime numbers in more than 5 seconds.
 
-- Now, let's optimize it with GitHub Copilot
+- Stop the app by pressing `Ctrl + C` or `Cmd + C` in the terminal, or by clicking on the 'Stop' button in the debugger panel.
+
+- Now, let's use GitHub Copilot to optimize the code.
 
 - Open the Copilot Chat extension window.
 
@@ -310,6 +312,14 @@ public class FlightsController : ControllerBase
 
 - Copilot will optimize the code.
 
+- Click on the `Insert at cursor` to replace the `calculateAerodynamics` method with the new one.
+
+- Run the application
+
+    ```sh
+    dotnet run
+    ```
+
 - Now go to `Examples/Flights.http` file, click `Send Request` to execute the `calculateAerodynamics` request again.
 
     ```
@@ -317,7 +327,7 @@ public class FlightsController : ControllerBase
     content-type: application/json
     ```
 
-Example output:
+    Example output
 
     ```
     Found 25997 prime numbers.
