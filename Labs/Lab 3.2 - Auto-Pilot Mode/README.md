@@ -382,6 +382,113 @@ For a scenario focusing on a .NET 7 Web API application and requiring the execut
 > [!Note]
 > This prompt is structured to ensure that GitHub Copilot generates a detailed plan, breaking down the requirements for a .NET 7 Web API application's CI/CD pipeline, including specific focus on IaC with Bicep for Azure deployments. By explicitly asking for a 'main.bicep' to orchestrate the deployment of other Bicep modules, it directs the AI towards creating a scalable and maintainable infrastructure setup.
 
+<details>
+  <summary>Click to expand Solution</summary>
+
+    #### Build Stage for .NET 7 Web API:
+    ```
+    # build.yaml
+    trigger:
+    - main
+
+    pool:
+    vmImage: 'windows-latest'
+
+    variables:
+    buildConfiguration: 'Release'
+
+    steps:
+    - task: NuGetToolInstaller@1
+
+    - task: NuGetCommand@2
+    inputs:
+        restoreSolution: '**/*.sln'
+
+    - task: VSBuild@1
+    inputs:
+        solution: '**/*.sln'
+        msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="Default Web Site"'
+        platform: '$(BuildPlatform)'
+        configuration: '$(BuildConfiguration)'
+
+    - task: VSTest@2
+    inputs:
+        platform: '$(BuildPlatform)'
+        configuration: '$(BuildConfiguration)'
+
+    - task: PublishBuildArtifacts@1
+    ```
+
+    #### IaC Stage with Bicep Execution
+    ```
+    // main.bicep
+    targetScope = 'resourceGroup'
+
+    module appService './appservice.bicep' = {
+    name: 'appServiceModule'
+    params: {
+        name: 'myAppService'
+    }
+    }
+
+    module sqlDatabase './sqldatabase.bicep' = {
+    name: 'sqlDatabaseModule'
+    params: {
+        name: 'mySqlDatabase'
+    }
+    }
+
+    # iac-deploy.yaml
+    trigger:
+    - main
+
+    pool:
+    vmImage: 'windows-latest'
+
+    steps:
+    - task: AzureCLI@2
+    inputs:
+        azureSubscription: '<Azure-Subscription-Name>'
+        scriptType: 'bash'
+        scriptLocation: 'inlineScript'
+        inlineScript: 'az deployment group create --resource-group <Resource-Group-Name> --template-file ./main.bicep'
+        
+    ```
+
+    #### QA Stage
+    ```
+    # qa-deploy.yaml
+    trigger:
+    - main
+
+    pool:
+    vmImage: 'windows-latest'
+
+    steps:
+    - task: AzureRmWebAppDeployment@4
+    inputs:
+        ConnectionType: 'AzureRM'
+        azureSubscription: '<Azure-Subscription-Name>'
+        appType: 'webApp'
+        WebAppName: '<Web-App-Name>'
+        packageForLinux: '$(Build.ArtifactStagingDirectory)/**/*.zip'
+
+    - task: AzureCLI@2
+    inputs:
+        azureSubscription: '<Azure-Subscription-Name>'
+        scriptType: 'bash'
+        scriptLocation: 'inlineScript'
+        inlineScript: 'az webapp config appsettings set --name <Web-App-Name> --resource-group <Resource-Group-Name> --settings "ASPNETCORE_ENVIRONMENT=QA"'
+
+    - task: VSTest@2
+    inputs:
+        testAssemblyVer2: '**\*test*.dll'
+        platform: '$(BuildPlatform)'
+        configuration: '$(BuildConfiguration)
+    ```
+</details>
+<br>
+
 The evolution of the Chain of Thought (CoT) techniques across our conversation began with crafting a directive to create a single pipeline with stages for Build, IaC using Bicep, and QA for cloud resources. The initial CoT prompt lacked explicit steps and reasoning for each stage, focusing more on what to do rather than how and why to do it.
 
 We then refined the approach to break down the task into more detailed steps, adding explanations and context to guide GitHub Copilot more effectively. This included describing the application, specifying resources, and detailing actions for each stage but still didn't fully integrate the execution of Bicep files.
