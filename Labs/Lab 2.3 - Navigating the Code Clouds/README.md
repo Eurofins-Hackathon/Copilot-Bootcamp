@@ -41,7 +41,7 @@ public class Plane
 - Type the following command
 
     ```
-    Add the new ImageUrl property and the next plane from the Wright Brothers Fleet
+    Add the new ImageUrl property to each plane and complete the Wright Brothers Fleet.
     ```
 
 <img src="../../Images/Screenshot-Planes-List.png" width="800">
@@ -67,10 +67,24 @@ public class Plane
 > [!Note]
 > Screenshot is made at 8th of February 2024. The UI of the Copilot Chat extension can be different at the time you are doing the lab. (Please notify us if the UI is different.)
 
-- Accept the suggestion by selecting `Accept`.
+- Do not accept the suggestion, click `Discard`.
 
 > [!Note]
-> GitHub Copilot used the `/docs` agent to generate the documentation for the entire file in a matter of seconds.
+> GitHub Copilot used the `/docs` agent to generate the documentation for the entire file in a matter of seconds. This is a great way to document your codebase quickly and efficiently. However, we will use the Inline Chat to document the code in a more controlled way.
+
+- Let's try this using a different approach, select all content of the `PlanesController.cs` file.
+
+- Open the Copilot Chat extension and type the following command:
+
+    ```
+    Document all my code
+    ```
+
+- Review the documentation to ensure it's accurate, then click on `Insert at cursor` to replace the `PlanesController.cs` method with the new documentation.
+
+> [!Note]
+> The difference is that Inline Chat does light documentation vs GitHub Copilot window does a thorough job documenting every important section of code.
+
 
 ### Step 3: - Flying in Formation - Code Refactoring
 

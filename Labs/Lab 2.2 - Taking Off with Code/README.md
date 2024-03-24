@@ -413,7 +413,7 @@ public class PlanesControllerTests
 - Ask the following question in GitHub Copilot chat window:
 
     ```
-    @workspace Using the Airfield class, create an ApiController based on the first 3 airfields used by the Wright Brothers. Make sure to include all the CRUD operations.
+    @workspace Using the Airfield class, create the ApiController with all the CRUD operations and add test data for the first 3 airfields used by the Wright Brothers.
     ```
 
 - Copilot will give a suggestion to create an `AirfieldController` class based on the `Airfield` class.
@@ -491,12 +491,12 @@ public class PlanesControllerTests
 
 - In the Copilot Chat extension window, click the ellipses `...` and select `Insert into New File` for the suggested `AirfieldController`.
 
-<img src="../../Images/Screenshot-Flight-AerobaticsSequenceSignature.png" width="800">
-
 - Copilot will add the code to a new empty file, but must be saved.
 - Save the file by clicking pressing `Ctrl + S` or `Cmd + S`.
 - Change directory to the `Controllers` folder`.
 - Enter the file name `AirfieldController.cs` and click `Save`.
+
+<img src="../../Images/Screenshot-AirfieldController.Controller.png" width="800">
 
 > [!Note]
 > Copilot is not only context aware, knows you need a list of items and knows the `Air Fields` used by the Wright Brothers, the `Huffman Prairie`, which is the first one used by the Wright Brothers.

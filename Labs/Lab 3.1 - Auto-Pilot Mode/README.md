@@ -188,7 +188,7 @@ automating CI/CD pipelines for deployment to Azure.
     @workspace create a build pipeline for the application
     ```
 
-- GitHub Copilot Chat will suggest creating a GitHub Pipeline for the application. It also includes a build step and a test step.
+- GitHub Copilot Chat will suggest creating a GitHub Actions build pipeline for the application. It also includes a build step and a test step.
 
     ```yaml
     name: .NET Core CI
@@ -222,6 +222,13 @@ automating CI/CD pipelines for deployment to Azure.
         run: dotnet test "WrightBrothersApi.Tests/WrightBrothersApi.Tests.csproj" --no-restore --verbosity normal
     ```
 
+- In the Copilot Chat extension window, click the ellipses `...` and select `Insert into New File` for the suggested pipeline.
+- Copilot will add the code to a new empty file, but must be saved.
+- Save the file by clicking pressing `Ctrl + S` or `Cmd + S`.
+- Change directory to the `.github/workflows` folder`.
+- Enter the file name `Build.yml` and click `Save`.
+
+
 > [!Note]
 > With the @workspace agent, GitHub Copilot understands that the current workspace is a .NET application with a Test project in it. It also understands that the application is hosted in a folder called `WrightBrothersApi` and the test project is in a folder called `WrightBrothersApi.Tests`. This is a great example of how GitHub Copilot can understand the context of the current workspace and provide suggestions based on that context.
 
@@ -233,11 +240,10 @@ Deploying your application to Azure facilitates scalable, secure, and efficient 
 > [!WARNING]  
 > You must complete the previous lab before continuing.
 
-- Pre-requisite is a valid `*.yaml` build pipeline from previous step.
+- Pre-requisite is a valid `*.yml` build pipeline from previous step.
 
-- Select all the content of the deploy.yaml and start an inline chat with GitHub Copilot Chat.
-
-- Type the following command
+- Select all the content of the `Build.yml`.
+- In the Copilot Chat extension window, type the following command.
 
     ```
     Deploy to Azure
@@ -247,39 +253,148 @@ Deploying your application to Azure facilitates scalable, secure, and efficient 
 
 - GitHub Copilot Chat will suggest adding a deploy step to the pipeline, which is a Azure Web App deployment.
 
-```yaml
-# Rest of the pipeline
+    ```yaml
+    # Rest of the pipeline
 
-deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Login to Azure
-        uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+    deploy:
+        needs: build
+        runs-on: ubuntu-latest
+        steps:
+        - name: Login to Azure
+            uses: azure/login@v1
+            with:
+            creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Deploy to Azure Web App
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: 'your-app-name' # replace with your app name
-          publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
-          package: './WrightBrothersApi'
-```
+        - name: Deploy to Azure Web App
+            uses: azure/webapps-deploy@v2
+            with:
+            app-name: 'your-app-name' # replace with your app name
+            publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
+            package: './WrightBrothersApi'
+    ```
 
-- Start a new chat with GitHub Copilot Chat and type the following command
+- In the Copilot Chat extension window, click the ellipses `...` and select `Insert into New File` for the suggested pipeline.
+- Copilot will add the code to a new empty file, but must be saved.
+- Save the file by clicking pressing `Ctrl + S` or `Cmd + S`.
+- Change directory to the `.github/workflows` folder`.
+- Enter the file name `Deploy.yml` and click `Save`.
+
+- Start a new chat with GitHub Copilot Chat and type the following command.
 
     ```
-    @workspace /new infrastructure as Code using Bicep that I need for a Web App in Azure
+    @workspace create the infrastructure as Code files using Bicep that I need for a Web App in Azure
+    ```
+
+- In the Copilot Chat extension window, click the ellipses `...` and select `Insert into New File` for the suggested pipeline.
+- Copilot will add the code to a new empty file, but must be saved.
+- Save the file by clicking pressing `Ctrl + S` or `Cmd + S`.
+- Change directory to the `WrightBrothersAPI` root folder`.
+- Enter the file name `Main.bicep` and click `Save`.
+
+
+## Optional
+
+### Step 5. Flight Plan - Crafting a Detailed DevOps Pipeline with Bicep IaC
+Using Infrastructure as Code (IaC) to manage your cloud resources, specifically with Bicep for Azure environments, offers several significant advantages that make it an essential practice for modern cloud infrastructure management. 
+
+> [!Note]
+> GitHub Copilot's advanced prompt is a powerful feature that allows you to ask complex questions and receive detailed responses. It can help you plan and execute complex tasks, ensuring that all steps are clearly defined and logically sequenced for efficient execution.
+
+- Open the Copilot Chat extension and ask the following advanced `Chain of Thought` prompt engineered question:
+
+    ```
+    Create a single DevOps pipeline comprising three stages: Build, Infrastructure as Code (IaC), and Quality Assurance (QA). 
+
+    - **Task 1: Build Stage**
+    - Describe the application and its architecture.
+    - List the programming languages and frameworks used.
+    - Outline the steps needed to compile and build the application.
+    
+    - **Task 2: IaC (Infrastructure as Code) Stage**
+    - Explain what Bicep is and why it's chosen for this project.
+    - Specify the Azure resources required for the application (e.g., App Service, Azure SQL Database).
+    - Request the creation of Bicep templates for these resources, highlighting any dependencies between them.
+
+    - **Task 3: QA (Quality Assurance) Stage**
+    - Describe the deployment environment in Azure.
+    - List the tests that need to be performed (e.g., unit tests, integration tests, UI tests).
+    - Detail the steps for deploying the application to Azure for QA purposes.
+    
+    Please create a comprehensive plan for each stage, ensuring that all steps are clearly defined and logically sequenced for efficient execution.
+
+    Let's think step by step.
     ```
 
 > [!Note]
-> The /new command is a special command that scaffolds a new project based on the current workspace.
+> This prompt adds clarity by breaking down each stage into more detailed tasks and requesting specific outcomes. This method encourages Copilot to follow a logical sequence of thoughts and generate outputs that closely align with your requirements. By providing more context and detail, you increase the likelihood of receiving a comprehensive and actionable plan from GitHub Copilot.
 
-- Copilot will give components need to create a Web App in Azure. and a button to create the full bicep project.
+To refine the Chain of Thought prompt further, incorporating explicit instructions for GitHub Copilot to scaffold out each required file, let's adjust the prompt to specify the creation of file outlines or templates. This approach will help in generating a more structured and practical output that includes the scaffolding for each stage of the project.
 
-<img src="../../Images/Screenshot-azure-bicep.png" width="300">
+- Open the Copilot Chat extension and ask the following advanced `Chain of Thought` prompt engineered question:
+
+    ```
+    Create a single DevOps pipeline comprising three stages: Build, Infrastructure as Code (IaC), and Quality Assurance (QA). 
+
+    - **Task 1: Build Stage**
+    - Describe the application and its architecture.
+    - List the programming languages and frameworks used.
+    - Outline the steps needed to compile and build the application.
+    
+    - **Task 2: IaC (Infrastructure as Code) Stage**
+    - Explain what Bicep is and why it's chosen for this project.
+    - Specify the Azure resources required for the application (e.g., App Service, Azure SQL Database).
+    - Request the creation of Bicep templates for these resources, highlighting any dependencies between them.
+
+    - **Task 3: QA (Quality Assurance) Stage**
+    - Describe the deployment environment in Azure.
+    - List the tests that need to be performed (e.g., unit tests, integration tests, UI tests).
+    - Detail the steps for deploying the application to Azure for QA purposes.
+    
+    Please create a comprehensive plan for each stage, ensuring that all steps are clearly defined and logically sequenced for efficient execution.
+
+    Let's think step by step.
+    ```
+
+> [!Note]
+> This revised prompt explicitly requests the scaffolding of files for each stage of the development and deployment process. It guides GitHub Copilot to not only describe the steps involved but also to create the basic structure of each required file, providing a clear starting point for development. By doing so, you're asking for both a plan and the initial implementation files, streamlining the setup process for your project.
+
+For a scenario focusing on a .NET 7 Web API application and requiring the execution of Bicep files for Infrastructure as Code (IaC) deployment, the prompt should guide the AI to scaffold the project with specific attention to .NET 7, Azure resources, and the execution hierarchy of Bicep files.
+
+- Open the Copilot Chat extension and ask the following advanced `Chain of Thought` prompt engineered question:
+
+    ```
+    Let's set up a CI/CD pipeline for a .NET 7 Web API application, which includes stages for Build, Infrastructure as Code (IaC) deployment using Bicep, and Quality Assurance (QA). Each stage should be clearly defined, and necessary files and configurations must be scaffolded out.
+
+    1. **Build Stage for .NET 7 Web API**:
+    - The application is built with .NET 7, utilizing C# as the programming language. Scaffold the build process, which should include steps for restoring NuGet packages, compiling the solution, running unit tests, and publishing the output. Create a 'build.yml' file that outlines these steps for the CI pipeline.
+
+    2. **IaC Stage with Bicep Execution**:
+    - For deployment to Azure, identify the required Azure resources (e.g., Azure App Service for hosting the Web API, Azure SQL Database for data storage). Scaffold Bicep templates for these resources, ensuring they're modular and reusable.
+    - Create a 'main.bicep' file that acts as the entry point, invoking other Bicep files (e.g., 'appservice.bicep', 'sqldatabase.bicep') to define the entire infrastructure. Include a step in the CI/CD pipeline ('iac-deploy.yaml') to authenticate with Azure and execute 'main.bicep', deploying the infrastructure.
+
+    3. **QA Stage**:
+    - Detail the process for deploying the .NET 7 Web API to the provisioned Azure App Service in a QA environment. This includes applying database migrations if necessary and running integration and acceptance tests.
+    - Scaffold a 'qa-deploy.yml' file that outlines the steps for deploying the application to Azure, setting up the environment, and executing tests.
+
+    In addition to scaffolding these files, provide explanations for each file's purpose and the critical sections within them. This approach ensures a comprehensive understanding and correct implementation of the pipeline for deploying a .NET 7 Web API application to Azure."
+    ```
+
+> [!Note]
+> This prompt is structured to ensure that GitHub Copilot generates a detailed plan, breaking down the requirements for a .NET 7 Web API application's CI/CD pipeline, including specific focus on IaC with Bicep for Azure deployments. By explicitly asking for a 'main.bicep' to orchestrate the deployment of other Bicep modules, it directs the AI towards creating a scalable and maintainable infrastructure setup.
+
+The evolution of the Chain of Thought (CoT) techniques across our conversation began with crafting a directive to create a single pipeline with stages for Build, IaC using Bicep, and QA for cloud resources. The initial CoT prompt lacked explicit steps and reasoning for each stage, focusing more on what to do rather than how and why to do it.
+
+We then refined the approach to break down the task into more detailed steps, adding explanations and context to guide GitHub Copilot more effectively. This included describing the application, specifying resources, and detailing actions for each stage but still didn't fully integrate the execution of Bicep files.
+
+Finally, we further adjusted the prompt for a .NET 7 Web API application, explicitly including the execution of Bicep files through a main.bicep file. This approach provided a detailed, step-by-step guide that not only outlined what needed to be done but also how to do it, specifically tailoring the tasks for .NET 7 and ensuring a modular and executable IaC setup.
+
+> [!Note]
+> By following this iterative process of refining the CoT prompt, you can effectively guide GitHub Copilot to generate more accurate and actionable outputs that align with your project requirements. This method helps in leveraging the AI's capabilities to scaffold out the necessary files and configurations, streamlining the development and deployment process for your cloud-based applications.
 
 ### Congratulations you've made it to the end! &#9992; &#9992; &#9992;
 
 #### And with that, you've now concluded this module. We hope you enjoyed it! &#x1F60A;
+
+> [!Note]
+> ~~GitHub Copilot's /new command is a special command that scaffolds a new project can be a powerful ally in generating Infrastructure as Code. It enhances learning, increases efficiency, reduces errors, and helps maintain high-quality, up-to-date code~~
+~~<img src="../../Images/Screenshot-azure-bicep.png" width="300">~~
