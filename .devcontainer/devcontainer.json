@@ -12,10 +12,17 @@
 	},
 
 	// Set *default* container specific settings.json values on container create.
-	"settings": {},
+	// "settings": {
+	// 	"files.autoSave": "afterDelay",
+	// 	"files.autoSaveDelay": 1000
+	// },
 
 	"customizations": {
 		"vscode": {
+			"settings": {
+				"files.autoSave": "afterDelay",
+				"files.autoSaveDelay": 1000
+			},
 			"extensions": [
 				"ms-dotnettools.csharp",
 				"ms-vscode.powershell",
