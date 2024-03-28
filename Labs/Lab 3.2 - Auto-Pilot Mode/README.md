@@ -303,6 +303,7 @@ Using Infrastructure as Code (IaC) to manage your cloud resources, specifically 
 > [!Note]
 > GitHub Copilot's advanced prompt is a powerful feature that allows you to ask complex questions and receive detailed responses. It can help you plan and execute complex tasks, ensuring that all steps are clearly defined and logically sequenced for efficient execution.
 
+#### Scenario 1 - Describe a Single DevOps Pipeline with Three Stages
 - Open the Copilot Chat extension and ask the following advanced `Chain of Thought` prompt engineered question:
 
     ```
@@ -331,35 +332,8 @@ Using Infrastructure as Code (IaC) to manage your cloud resources, specifically 
 > [!Note]
 > This prompt adds clarity by breaking down each stage into more detailed tasks and requesting specific outcomes. This method encourages Copilot to follow a logical sequence of thoughts and generate outputs that closely align with your requirements. By providing more context and detail, you increase the likelihood of receiving a comprehensive and actionable plan from GitHub Copilot.
 
+#### Scenario 2 - Refining the DevOps Pipeline with Detailed File Outlines
 To refine the Chain of Thought prompt further, incorporating explicit instructions for GitHub Copilot to scaffold out each required file, let's adjust the prompt to specify the creation of file outlines or templates. This approach will help in generating a more structured and practical output that includes the scaffolding for each stage of the project.
-
-- Open the Copilot Chat extension and ask the following advanced `Chain of Thought` prompt engineered question:
-
-    ```
-    Create a single DevOps pipeline comprising three stages: Build, Infrastructure as Code (IaC), and Quality Assurance (QA). 
-
-    - **Task 1: Build Stage**
-    - Describe the application and its architecture.
-    - List the programming languages and frameworks used.
-    - Outline the steps needed to compile and build the application.
-    
-    - **Task 2: IaC (Infrastructure as Code) Stage**
-    - Explain what Bicep is and why it's chosen for this project.
-    - Specify the Azure resources required for the application (e.g., App Service, Azure SQL Database).
-    - Request the creation of Bicep templates for these resources, highlighting any dependencies between them.
-
-    - **Task 3: QA (Quality Assurance) Stage**
-    - Describe the deployment environment in Azure.
-    - List the tests that need to be performed (e.g., unit tests, integration tests, UI tests).
-    - Detail the steps for deploying the application to Azure for QA purposes.
-    
-    Please create a comprehensive plan for each stage, ensuring that all steps are clearly defined and logically sequenced for efficient execution.
-
-    Let's think step by step.
-    ```
-
-> [!Note]
-> This revised prompt explicitly requests the scaffolding of files for each stage of the development and deployment process. It guides GitHub Copilot to not only describe the steps involved but also to create the basic structure of each required file, providing a clear starting point for development. By doing so, you're asking for both a plan and the initial implementation files, streamlining the setup process for your project.
 
 For a scenario focusing on a .NET 7 Web API application and requiring the execution of Bicep files for Infrastructure as Code (IaC) deployment, the prompt should guide the AI to scaffold the project with specific attention to .NET 7, Azure resources, and the execution hierarchy of Bicep files.
 
@@ -378,6 +352,10 @@ For a scenario focusing on a .NET 7 Web API application and requiring the execut
     3. **QA Stage**:
     - Detail the process for deploying the .NET 7 Web API to the provisioned Azure App Service in a QA environment. This includes applying database migrations if necessary and running integration and acceptance tests.
     - Scaffold a 'qa-deploy.yml' file that outlines the steps for deploying the application to Azure, setting up the environment, and executing tests.
+
+    4. **Chain Workflows**:
+    - Use the workflow_run event to ensure that the Build workflow triggers the IaC workflow, which then triggers the QA workflow.
+    - This event will aloow to trigger a workflow as a result of another workflow's completion. 
 
     In addition to scaffolding these files, provide explanations for each file's purpose and the critical sections within them. This approach ensures a comprehensive understanding and correct implementation of the pipeline for deploying a .NET 7 Web API application to Azure."
     ```

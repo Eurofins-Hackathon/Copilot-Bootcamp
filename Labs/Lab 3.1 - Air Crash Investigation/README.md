@@ -110,7 +110,19 @@ content-type: application/json
 
 - Navigate to the `Terminal` and select the content of the throw exception.
 
-- Right click the terminal and select `Copilot: Explain this` from the context menu.
+- Open GitHub Copilot chat window and ask the following question:
+
+    `Option 1`: If you want to provide more context to GitHub Copilot, you can use the `@terminal` agent. This directive will provide GitHub Copilot access to what the user has selected in the terminal. It can not be used in combination with `@workspace`. So it does not have additional context to generate the suggestion. To add more context to the suggestion you can use `#file:FlightsController.cs`.
+
+    ```
+    @terminal #terminalSelection #file:FlightsController.cs how to fix this
+    ```
+
+    `Option 2`: If you want to provide more context to GitHub Copilot, you can use the `@workspace` agent. This directive will provide GitHub Copilot access to the entire workspace. It can not be used in combination with `@terminal`. So it does not have additional context to generate the suggestion. To add more context to the suggestion you can use `#file:FlightsController.cs`.
+
+    ```
+    @workspace #terminalSelection #file:FlightsController.cs how to fix this
+ 
 
 - GitHub Copilot Chat extension will open and explain the code in a human readable format, instead of the technical exception message.
 
@@ -174,10 +186,18 @@ public class FlightsController : ControllerBase
 
 - Navigate to the `Terminal` and select the content of the thrown exception.
 
-- Open GitHub Copilot chat extension window and ask the following question:
+- Open GitHub Copilot chat window and ask the following question:
+
+    `Option 1`: If you want to provide more context to GitHub Copilot, you can use the `@terminal` agent. This directive will provide GitHub Copilot access to what the user has selected in the terminal. It can not be used in combination with `@workspace`. So it does not have additional context to generate the suggestion. To add more context to the suggestion you can use `#file:FlightsController.cs`.
 
     ```
     @terminal #terminalSelection #file:FlightsController.cs how to fix this
+    ```
+
+    `Option 2`: If you want to provide more context to GitHub Copilot, you can use the `@workspace` agent. This directive will provide GitHub Copilot access to the entire workspace. It can not be used in combination with `@terminal`. So it does not have additional context to generate the suggestion. To add more context to the suggestion you can use `#file:FlightsController.cs`.
+
+    ```
+    @workspace #terminalSelection #file:FlightsController.cs how to fix this
     ```
 
 - Note that `@terminal` `#terminalSelection` will provide GitHub Copilot access to what the user has selected in the terminal. It can not be used in combination with `@workspace`. So it does not have additional context to generate the suggestion. To add more context to the suggestion you can use `#file:FlightsController.cs`.
