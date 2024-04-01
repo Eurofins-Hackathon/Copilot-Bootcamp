@@ -1,11 +1,11 @@
-# Auto-Pilot Mode: AI Assistance in Software Development
+# Lab 3.2 - Auto-Pilot Mode: AI Assistance in Software Development
 This lab exercise demonstrates integrating GitHub Copilot into .NET application development to implement health checks, automate CI/CD pipelines for Azure deployment, and explore AI's role in enhancing software development efficiency through practical programming tasks.
 
 ## Prerequisites
 - The prerequisites steps must be completed, see [Labs Prerequisites](./Labs/Lab%201.1%20-%20Pre-Flight%20Checklist)
 
 ## Estimated time to complete
-- 15 min
+- 20 min, times may vary with optional labs.
 
 ## Objectives
 - Demonstrate GitHub Copilot's capabilities in .NET development, focusing on automating health checks, CI/CD pipelines for Azure, infrastructure as code, and generating concise "Summarized Check in Comments" and "Summarized Pull Request Comments".
@@ -188,7 +188,7 @@ automating CI/CD pipelines for deployment to Azure.
 - Type the following command
 
     ```
-    @workspace create a build pipeline for the application
+    @workspace create a build pipeline
     ```
 
 - GitHub Copilot Chat will suggest creating a GitHub Actions build pipeline for the application. It also includes a build step and a test step.
@@ -213,7 +213,7 @@ automating CI/CD pipelines for deployment to Azure.
         - name: Setup .NET
         uses: actions/setup-dotnet@v1
         with:
-            dotnet-version: 5.0.x
+            dotnet-version: 7.0.x
 
         - name: Restore dependencies
         run: dotnet restore "WrightBrothersApi/WrightBrothersApi.csproj"
@@ -304,6 +304,8 @@ Using Infrastructure as Code (IaC) to manage your cloud resources, specifically 
 > GitHub Copilot's advanced prompt is a powerful feature that allows you to ask complex questions and receive detailed responses. It can help you plan and execute complex tasks, ensuring that all steps are clearly defined and logically sequenced for efficient execution.
 
 #### Scenario 1 - Describe a Single DevOps Pipeline with Three Stages
+This prompt will create a decription for creating a DevOps pipeline with three stages: Build, Infrastructure as Code (IaC), and Quality Assurance (QA). It outlines the requirements for each stage, including describing the application, specifying the Azure resources needed, creating Bicep templates, and detailing the steps for deploying the application to Azure for QA purposes.
+
 - Open the Copilot Chat extension and ask the following advanced `Chain of Thought` prompt engineered question:
 
     ```
@@ -333,9 +335,11 @@ Using Infrastructure as Code (IaC) to manage your cloud resources, specifically 
 > This prompt adds clarity by breaking down each stage into more detailed tasks and requesting specific outcomes. This method encourages Copilot to follow a logical sequence of thoughts and generate outputs that closely align with your requirements. By providing more context and detail, you increase the likelihood of receiving a comprehensive and actionable plan from GitHub Copilot.
 
 #### Scenario 2 - Refining the DevOps Pipeline with Detailed File Outlines
-To refine the Chain of Thought prompt further, incorporating explicit instructions for GitHub Copilot to scaffold out each required file, let's adjust the prompt to specify the creation of file outlines or templates. This approach will help in generating a more structured and practical output that includes the scaffolding for each stage of the project.
+To refine the Chain of Thought prompt further, incorporating explicit instructions for GitHub Copilot to scaffold out each required file, let's adjust the prompt to specify the creation of file outlines or templates.
 
-For a scenario focusing on a .NET 7 Web API application and requiring the execution of Bicep files for Infrastructure as Code (IaC) deployment, the prompt should guide the AI to scaffold the project with specific attention to .NET 7, Azure resources, and the execution hierarchy of Bicep files.
+This prompt will create a plan to set up a CI/CD pipeline for a .NET 7 Web API application. It includes a build stage for compiling the solution and running tests, an Infrastructure as Code (IaC) stage using Bicep for Azure resource deployment, and a Quality Assurance (QA) stage for deploying the application to a QA environment and running tests. The workflows are chained together using the workflow_run event.
+
+This approach will help in generating a more structured and practical output that includes the scaffolding for each stage of the project.
 
 - Open the Copilot Chat extension and ask the following advanced `Chain of Thought` prompt engineered question:
 

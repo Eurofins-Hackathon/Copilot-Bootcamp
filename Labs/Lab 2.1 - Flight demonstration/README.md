@@ -1,11 +1,11 @@
-# Flight demonstration: Basic Coding with Copilot Assistance
+# Lab 2.1 - Flight demonstration: Basic Coding with Copilot Assistance
 This module demonstrates how to utilize GitHub Copilot's Chat Extension and its agents (@workspace, @terminal, @vscode) to understand and navigate a codebase, implement REST API methods, generate code from comments, and maintain coding style consistency, culminating in a comprehensive, productivity-enhancing coding experience.
 
 ## Prerequisites
 - The prerequisites steps must be completed, see [Labs Prerequisites](./Labs/Lab%201.1%20-%20Pre-Flight%20Checklist)
 
 ## Estimated time to complete
-- 20 minutes, varying with optional labs.
+- 20 minutes, times may vary with optional labs.
 
 ## Objectives
 Introduction to GitHub Copilot Chat Extension and its agents for code completion and style adaptation.
@@ -19,8 +19,14 @@ Introduction to GitHub Copilot Chat Extension and its agents for code completion
 
 - Type the following in the chat window: 
 
+Compare the difference between asking the two following things:
+1) without workspace:
 ```
 @workspace explain the WrightBrothers API
+```
+2) with workspace:
+```
+@workspace  summarize this project
 ```
 
 - Copilot will give a brief overview of the API. This is a good way to get a quick overview of the codebase.

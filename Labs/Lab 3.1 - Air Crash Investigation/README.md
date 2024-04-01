@@ -1,4 +1,4 @@
-# Air Crash Investigation: Troubleshooting with GitHub Copilot
+# Lab 3.1 - Air Crash Investigation: Troubleshooting with GitHub Copilot
 The module simulates airplane crash scenarios using GitHub Copilot to identify and fix the root causes, enhancing understanding of Copilot's limitations and emphasizing human oversight in coding challenges.
 
 A reference to the [Air Crash Investigation](https://en.wikipedia.org/wiki/Mayday_(Canadian_TV_series)) TV show, where the investigators try to find the root cause of an airplane crash. In this module, we will simulate a few airplane crashes and use GitHub Copilot to troubleshoot and fix the issues.
@@ -7,7 +7,7 @@ A reference to the [Air Crash Investigation](https://en.wikipedia.org/wiki/Mayda
 - The prerequisites steps must be completed, see [Labs Prerequisites](./Labs/Lab%201.1%20-%20Pre-Flight%20Checklist)
 
 ## Estimated time to complete
-- 20 minutes, varying with optional labs.
+- 20 minutes, times may vary with optional labs.
 
 ## Objectives
 - Understanding the limitations of GitHub Copilot and learning how to troubleshoot its suggestions.
@@ -64,9 +64,11 @@ public class FlightsController : ControllerBase
 >[!Note]
 > If you encounter an error message like `Project file does not exist.` or `Couldn't find a project to run.`, it's likely that you're executing the command from an incorrect directory. To resolve this, navigate to the correct directory using the command `cd ./WrightBrothersApi`. If you need to move one level up in the directory structure, use the command `cd ..`. The corrcect directory is the one that contains the `WrightBrothersApi.csproj` file.
 
-- Now go to `Examples/Flights.http` file, click `Send Request` to execute the `takeFlight` request.
+- Open the `Examples/Flights.http` file.
+- Click `Send Request` to execute the `takeFlight` request.
 
 ```
+Send Request
 POST http://localhost:1903/flights/1/takeFlight/75 HTTP/1.1
 content-type: application/json
 ```
@@ -77,11 +79,10 @@ content-type: application/json
 > [!Note]
 > The flight is taking off and the response is `200 OK`. The flight that is simulated did not run out of fuel.
 
-
-    ```json
-    HTTP/1.1 200 OK
-    Connection: close
-    ```
+```json
+HTTP/1.1 200 OK
+Connection: close
+```
 
 - Now execute the request again, but now for flight `3`.
 
@@ -170,6 +171,7 @@ public class FlightsController : ControllerBase
 - Go to the `Examples/Flights.http` file, click `Send Request` to execute the `lightningStrike` request.
 
     ```
+    Send Request
     POST http://localhost:1903/flights/1/lightningStrike HTTP/1.1
     content-type: application/json
     ```
@@ -300,6 +302,7 @@ public class FlightsController : ControllerBase
 - Now go to `Examples/Flights.http` file, click `Send Request` to execute the `calculateAerodynamics` request.
 
     ```
+    Send Request
     POST http://localhost:1903/flights/1/calculateAerodynamics HTTP/1.1
     content-type: application/json
     ```
@@ -311,7 +314,7 @@ public class FlightsController : ControllerBase
     Connection: close
     ```
 
-- Terminal will show:
+- Terminal will show something like this:
 
     ```json
     Found 25997 prime numbers.
@@ -326,7 +329,12 @@ public class FlightsController : ControllerBase
 
 - Open the Copilot Chat extension window.
 
-- Select all the code for the `calculateAerodynamics` method.
+- Select all the code for the 3 following methods:
+    - `calculateAerodynamics` method.
+    - `CalculatePrimes` method.
+    - `IsPrime` method.
+
+    <img src="../../Images/Screenshot-calculateAerodynamicsSelected3.png" width="800">
 
 - Ask the following question in GitHub Copilot chat window:
 
@@ -347,6 +355,7 @@ public class FlightsController : ControllerBase
 - Now go to `Examples/Flights.http` file, click `Send Request` to execute the `calculateAerodynamics` request again.
 
     ```
+    Send Request
     POST http://localhost:1903/flights/1/calculateAerodynamics HTTP/1.1
     content-type: application/json
     ```

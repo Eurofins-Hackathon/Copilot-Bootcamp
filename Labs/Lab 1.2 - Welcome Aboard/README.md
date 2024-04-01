@@ -1,4 +1,4 @@
-# Welcome Aboard: Introduction to AI and GitHub Copilot
+# Lab 1.2 - Welcome Aboard: Introduction to AI and GitHub Copilot
 This session offers a comprehensive overview of AI's evolution, key terms, and core technologies, explains Azure OpenAI's role in powering Copilot, uses analogies to link foundational AI concepts to Copilot, stresses ethical AI use, and provides strategies for effectively integrating AI tools in coding.
 
 ## Objectives
@@ -24,7 +24,5 @@ The aviation theme of the copilot bootcamp symbolizes innovation and breakthroug
 - Also in 2017, Generative AI, a subset of artificial intelligence focused on creating new content like text, images, and audio, was gaining significant attention and making strides in various creative and practical applications.
 - In 2020, a research paper was written on GitHub Copilot to explore the possibilities of Generative AI.
 - By 2021, Generative AI had been used to create new written, visual, and auditory content given prompts or existing data.
-
-
 
 ### Welcome aboard, and let's take flight into the future of coding! &#9992; &#9992; &#9992;

@@ -1,11 +1,11 @@
-# Navigating the Code Clouds: Advanced Features of GitHub Copilot 
+# Lab 2.3 - Navigating the Code Clouds: Advanced Features of GitHub Copilot 
 This lab exercise delves into GitHub Copilot's advanced features, teaching participants to enhance coding efficiency through complex tasks like adding new properties, generating documentation, refactoring code, and parsing strings, supplemented by optional labs on context understanding and regex parsing.
 
 ## Prerequisites
 - The prerequisites steps must be completed, see [Labs Prerequisites](./Labs/Lab%201.1%20-%20Pre-Flight%20Checklist)
 
 ## Estimated time to complete
-- 20 minutes, varying with optional labs.
+- 20 minutes, times may vary with optional labs.
 
 ## Objectives
 - To master GitHub Copilot's advanced features for solving complex coding exercises and optimizing code.
@@ -41,7 +41,7 @@ public class Plane
 - Type the following command
 
     ```
-    Add the new ImageUrl property to each plane and complete the Wright Brothers Fleet.
+    Add the new ImageUrl property to each plane and add the next 2 additional planes to complete the Wright Brothers Fleet.
     ```
 
 <img src="../../Images/Screenshot-Planes-List.png" width="800">
@@ -58,27 +58,50 @@ public class Plane
 
 - Open the `PlanesController.cs` file.
 
-- Select all content of the `PlanesController.cs` file.
+- Select all content of the method `GetById` in the `PlanesController.cs` file.
+
+    ```csharp
+            [HttpGet("{id}")]
+        public ActionResult<Plane> GetById(int id)
+        {
+            var plane = Planes.Find(p => p.Id == id);
+
+            if (plane == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(plane);
+        }
+    ```
 
 - Right click and choose for the option `Copilot` -> `Generate Docs`.
 
-<img src="../../Images/Screenshot-PlanesController-docs.png" width="800">
+<img src="../../Images/Screenshot-PlanesController-docs2.png" width="800">
 
 > [!Note]
-> Screenshot is made at 8th of February 2024. The UI of the Copilot Chat extension can be different at the time you are doing the lab. (Please notify us if the UI is different.)
+> Screenshot is made at 1st of April 2024. The UI of the Copilot Chat extension can be different at the time you are doing the lab. (Please notify us if the UI is different.)
 
 - Do not accept the suggestion, click `Discard`.
 
 > [!Note]
-> GitHub Copilot used the `/docs` agent to generate the documentation for the entire file in a matter of seconds. This is a great way to document your codebase quickly and efficiently. However, we will use the Inline Chat to document the code in a more controlled way.
+> GitHub Copilot used the `/docs` agent to generate the documentation for a single method or the entire file in a matter of seconds. This is a great way to document your codebase quickly and efficiently. However, we will use the Inline Chat to document the code in a more controlled way.
 
-- Let's try this using a different approach, select all content of the `PlanesController.cs` file.
+- Let's try this using a different approach, select all content of the method `GetById` in the `PlanesController.cs` file.
+
+<img src="../../Images/Screenshot-PlanesController-docs2.png" width="800">
 
 - Open the Copilot Chat extension and type the following command:
 
-    ```
-    Document all my code
-    ```
+Compare the difference between asking the two following things:
+1) Simple:
+```
+Document all my code
+```
+2) More details using dotnet method documentation
+```
+document all my code with details using dotnet method documentation
+```
 
 - Review the documentation to ensure it's accurate, then click on `Insert at cursor` to replace the `PlanesController.cs` method with the new documentation.
 
@@ -407,13 +430,7 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
         public string FlightLogSignature { get; set; }
 
         // New property
-        public FlightLog FlightLog
-        {
-            get
-            {
-                return FlightLog.Parse(FlightLogSignature);
-            }
-        }
+        public FlightLog FlightLog => FlightLog.Parse(FlightLogSignature);
     }
     ```
 
