@@ -60,24 +60,9 @@ public class Plane
 
 - Select all content of the method `GetById` in the `PlanesController.cs` file.
 
-    ```csharp
-            [HttpGet("{id}")]
-        public ActionResult<Plane> GetById(int id)
-        {
-            var plane = Planes.Find(p => p.Id == id);
-
-            if (plane == null)
-            {
-                return NotFound();
-            }
-
-            return Ok(plane);
-        }
-    ```
+<img src="../../Images/Screenshot-PlanesController-docs2.png" width="350">
 
 - Right click and choose for the option `Copilot` -> `Generate Docs`.
-
-<img src="../../Images/Screenshot-PlanesController-docs2.png" width="800">
 
 > [!Note]
 > Screenshot is made at 1st of April 2024. The UI of the Copilot Chat extension can be different at the time you are doing the lab. (Please notify us if the UI is different.)
