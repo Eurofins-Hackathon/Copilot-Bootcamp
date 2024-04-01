@@ -74,7 +74,7 @@ public class Plane
 
 - Let's try this using a different approach, select all content of the method `GetById` in the `PlanesController.cs` file.
 
-<img src="../../Images/Screenshot-PlanesController-docs2.png" width="800">
+<img src="../../Images/Screenshot-PlanesController-docs2.png" width="350">
 
 - Open the Copilot Chat extension and type the following command:
 
