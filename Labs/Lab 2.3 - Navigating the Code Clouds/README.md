@@ -47,7 +47,7 @@ public class Plane
 <img src="../../Images/Screenshot-Planes-List.png" width="800">
 
 > [!Note]
-> Screenshot is made at 8th of February 2024. The UI of the Copilot Chat extension can be different at the time you are doing the lab. (Please notify us if the UI is different.)
+> Screenshot is made at 8th of February 2024. The UI of GitHub Copilot Chat can be different at the time you are doing the lab. (Please notify us if the UI is different.)
 
 - Accept the suggestion by selecting `Accept` or pressing `Enter`.
 
@@ -65,7 +65,7 @@ public class Plane
 - Right click and choose for the option `Copilot` -> `Generate Docs`.
 
 > [!Note]
-> Screenshot is made at 1st of April 2024. The UI of the Copilot Chat extension can be different at the time you are doing the lab. (Please notify us if the UI is different.)
+> Screenshot is made at 1st of April 2024. The UI of GitHub Copilot Chat can be different at the time you are doing the lab. (Please notify us if the UI is different.)
 
 - Do not accept the suggestion, click `Discard`.
 
@@ -76,7 +76,7 @@ public class Plane
 
 <img src="../../Images/Screenshot-PlanesController-docs2.png" width="350">
 
-- Open the Copilot Chat extension and type the following command:
+- Open GitHub Copilot Chat and type the following command:
 
 Compare the difference between asking the two following things:
 1) Simple:
@@ -181,7 +181,7 @@ public class FlightsController : ControllerBase
 
 - Select all the content of the `UpdateFlightStatus` method.
 
-- Open the Copilot Chat extension.
+- Open GitHub Copilot Chat.
 
 - Ask the following question:
 
@@ -192,7 +192,7 @@ public class FlightsController : ControllerBase
 <img src="../../Images/Screenshot-UpdateFlightStatus-Refactor.png" width="800">
 
 > [!Note]
-> Screenshot is made at 8th of February 2024. The UI of the Copilot Chat extension can be different at the time you are doing the lab. (Please notify us if the UI is different.)
+> Screenshot is made at 8th of February 2024. The UI of GitHub Copilot Chat can be different at the time you are doing the lab. (Please notify us if the UI is different.)
 
 > [!Note]
 > GitHub Copilot Chat understands `the selected code`. It will use the selected code in your editor to generate the refactoring suggestions.
@@ -301,7 +301,7 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
 > [!Note]
 > Note that the `FlightLogSignature` is a fictional property that is used to demonstrate the capabilities of GitHub Copilot. It is not a real aviation concept.
 
-- Open the Copilot Chat extension and ask the following question:
+- Open GitHub Copilot Chat and ask the following question:
 
     ```
     Create a c# model for a FlightLogSignature property.
@@ -367,12 +367,12 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
 > [!Note]
 > GitHub Copilot is very good at understanding the context of the code. From the prompt we gave it, it understood that the `FlightLogSignature` is a string in a specific format and that it can be parsed into a `FlightLogSignature` model, to make the code more readable and maintainable.
 
-- In the Copilot Chat extension window, click the ellipses `...` and select `Insert into New File` for the suggested `FlightLog` record as `WrightBrothersApi/Models/FlightLog.cs`.
+- In GitHub Copilot Chat, click the ellipses `...` and select `Insert into New File` for the suggested `FlightLog` record as `WrightBrothersApi/Models/FlightLog.cs`.
 
 <img src="../../Images/Screenshot-Flight-FlightLogSignature.png" width="800">
 
 > [!Note]
-> Screenshot is made at 8th of February 2024. The UI of the Copilot Chat extension can be different at the time you are doing the lab. (Please notify us if the UI is different.)
+> Screenshot is made at 8th of February 2024. The UI of GitHub Copilot Chat can be different at the time you are doing the lab. (Please notify us if the UI is different.)
 
 > [!Note]
 > GitHub Copilot has many quick actions that can be used to speed up the development process. In this case, it created a new file based on the code suggestions. 
@@ -457,7 +457,7 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
 <img src="../../Images/Screenshot-Http-Flights.png" width="800">
 
 > [!Note]
-> Screenshot is made at 8th of February 2024. The UI of the Copilot Chat extension can be different at the time you are doing the lab. (Please notify us if the UI is different.)
+> Screenshot is made at 8th of February 2024. The UI of GitHub Copilot Chat can be different at the time you are doing the lab. (Please notify us if the UI is different.)
 
 - Click the `Send Request` button for the `POST` below:
 
@@ -520,7 +520,7 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
 
 - Let's prompt engineer Copilot to generate a solution for the `AerobaticSequenceSignature` property.
 
-- Open the Copilot Chat extension and ask the following advanced prompt engineered question:
+- Open GitHub Copilot Chat and ask the following advanced prompt engineered question:
 
     ```
     Parse a AerobaticSequenceSignature property into a c# model.
@@ -650,7 +650,7 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
     ```
 
 
-- In the Copilot Chat extension window, click the ellipses `...` and select `Insert into New File` for the suggested `AerobaticSequence` class as `WrightBrothersApi/Models/AerobaticSequence.cs`.
+- In GitHub Copilot Chat, click the ellipses `...` and select `Insert into New File` for the suggested `AerobaticSequence` class as `WrightBrothersApi/Models/AerobaticSequence.cs`.
 
 <img src="../../Images/Screenshot-Flight-AerobaticsSequenceSignature.png" width="800">
 
@@ -737,7 +737,7 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
 <img src="../../Images/Screenshot-Http-Flights.png" width="800">
 
 > [!Note]
-> Screenshot is made at 8th of February 2024. The UI of the Copilot Chat extension can be different at the time you are doing the lab. (Please notify us if the UI is different.)
+> Screenshot is made at 8th of February 2024. The UI of GitHub Copilot Chat  can be different at the time you are doing the lab. (Please notify us if the UI is different.)
 
 - Click the `Send Request` button for the `POST` below:
 

@@ -127,7 +127,7 @@ content-type: application/json
     @workspace #terminalSelection #file:FlightsController.cs how to fix this
     ```
 
-- GitHub Copilot Chat extension will open and explain the code in a human readable format, instead of the technical exception message.
+- GitHub Copilot Chat will open and explain the code in a human readable format, instead of the technical exception message.
 
 <img src="../../Images/Screenshot-LackOfFuel.png" width="800">
 
@@ -327,7 +327,7 @@ public class FlightsController : ControllerBase
 
 - Now, let's use GitHub Copilot to optimize the code.
 
-- Open the Copilot Chat extension window.
+- Open the Copilot Chat .
 
 - Select all the code for the 3 following methods:
     - `calculateAerodynamics` method.

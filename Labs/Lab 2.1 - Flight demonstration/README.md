@@ -8,23 +8,23 @@ This module demonstrates how to utilize GitHub Copilot's Chat Extension and its 
 - 20 minutes, times may vary with optional labs.
 
 ## Objectives
-Introduction to GitHub Copilot Chat Extension and its agents for code completion and style adaptation.
+Introduction to GitHub Copilot Chat and its agents for code completion and style adaptation.
 
 > [!IMPORTANT]  
 > Please note that Copilot's responses are generated based on a mix of curated data, algorithms, and machine learning models, which means they may not always be accurate or reflect the most current information available. Users are advised to verify Copilot's outputs with trusted sources before making decisions based on them.
 
-### Step 1: Plane Inspection - Explain the Codebase with Copilot Chat
+### Step 1: Plane Inspection - Explain the Codebase with GitHub Copilot Chat
 
-- Open GitHub Copilot Chat Extension
+- Open GitHub Copilot Chat
 
 - Type the following in the chat window: 
 
 Compare the difference between asking the two following things:
-1) without workspace:
+1) without @workspace:
 ```
-@workspace explain the WrightBrothers API
+explain the WrightBrothers API
 ```
-2) with workspace:
+2) with @workspace:
 ```
 @workspace  summarize this project
 ```
@@ -71,7 +71,7 @@ Limitations:
 
 ### Step 2: Airplane Docking - Add new Flight Model
 
-- Open GitHub Copilot Chat Extension
+- Open GitHub Copilot Chat
 
 - Ask Copilot to explain the `PlanesController.cs` class
 

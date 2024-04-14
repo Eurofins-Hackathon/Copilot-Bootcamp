@@ -80,7 +80,7 @@ This lab exercise demonstrates integrating GitHub Copilot into .NET application 
 <img src="../../Images/Screenshot-Http-Healthcheck.png" width="600">
 
 > [!Note]
-> Screenshot is made at 8th of February 2024. The UI of the Copilot Chat extension can be different at the time you are doing the lab. (Please notify us if the UI is different.)
+> Screenshot is made at 8th of February 2024. The UI of GitHub Copilot Chat can be different at the time you are doing the lab. (Please notify us if the UI is different.)
 
 - Click the `Send Request` button for the `GET` below:
 
@@ -183,7 +183,7 @@ git checkout -b feature/health-checks
 A build pipeline automates your software's build, test, and deployment processes, ensuring consistent and error-free releases while saving time and improving code quality. It streamlines development, enables quick feedback, and supports efficient version management.  Let's begin by
 automating CI/CD pipelines for deployment to Azure.
 
-- Open the GitHub Copilot Chat extension
+- Open GitHub Copilot Chat
 
 - Type the following command
 
@@ -225,7 +225,7 @@ automating CI/CD pipelines for deployment to Azure.
         run: dotnet test "WrightBrothersApi.Tests/WrightBrothersApi.Tests.csproj" --no-restore --verbosity normal
     ```
 
-- In the Copilot Chat extension window, click the ellipses `...` and select `Insert into New File` for the suggested pipeline.
+- In GitHub Copilot Chat, click the ellipses `...` and select `Insert into New File` for the suggested pipeline.
 - Copilot will add the code to a new empty file, but must be saved.
 - Save the file by clicking pressing `Ctrl + S` or `Cmd + S`.
 - Change directory to the `.github/workflows` folder`.
@@ -246,7 +246,7 @@ Deploying your application to Azure facilitates scalable, secure, and efficient 
 - Pre-requisite is a valid `*.yml` build pipeline from previous step.
 
 - Select all the content of the `Build.yml`.
-- In the Copilot Chat extension window, type the following command.
+- In GitHub Copilot Chat, type the following command.
 
     ```
     Deploy to Azure
@@ -276,7 +276,7 @@ Deploying your application to Azure facilitates scalable, secure, and efficient 
             package: './WrightBrothersApi'
     ```
 
-- In the Copilot Chat extension window, click the ellipses `...` and select `Insert into New File` for the suggested pipeline.
+- In GitHub Copilot Chat, click the ellipses `...` and select `Insert into New File` for the suggested pipeline.
 - Copilot will add the code to a new empty file, but must be saved.
 - Save the file by clicking pressing `Ctrl + S` or `Cmd + S`.
 - Change directory to the `.github/workflows` folder`.
@@ -288,7 +288,7 @@ Deploying your application to Azure facilitates scalable, secure, and efficient 
     @workspace create the infrastructure as Code files using Bicep that I need for a Web App in Azure
     ```
 
-- In the Copilot Chat extension window, click the ellipses `...` and select `Insert into New File` for the suggested pipeline.
+- In GitHub Copilot Chat, click the ellipses `...` and select `Insert into New File` for the suggested pipeline.
 - Copilot will add the code to a new empty file, but must be saved.
 - Save the file by clicking pressing `Ctrl + S` or `Cmd + S`.
 - Change directory to the `WrightBrothersAPI` root folder`.
@@ -306,7 +306,7 @@ Using Infrastructure as Code (IaC) to manage your cloud resources, specifically 
 #### Scenario 1 - Describe a Single DevOps Pipeline with Three Stages
 This prompt will create a decription for creating a DevOps pipeline with three stages: Build, Infrastructure as Code (IaC), and Quality Assurance (QA). It outlines the requirements for each stage, including describing the application, specifying the Azure resources needed, creating Bicep templates, and detailing the steps for deploying the application to Azure for QA purposes.
 
-- Open the Copilot Chat extension and ask the following advanced `Chain of Thought` prompt engineered question:
+- Open GitHub Copilot Chat and ask the following advanced `Chain of Thought` prompt engineered question:
 
     ```
     Create a single DevOps pipeline comprising three stages: Build, Infrastructure as Code (IaC), and Quality Assurance (QA). 
@@ -341,7 +341,7 @@ This prompt will create a plan to set up a CI/CD pipeline for a .NET 7 Web API a
 
 This approach will help in generating a more structured and practical output that includes the scaffolding for each stage of the project.
 
-- Open the Copilot Chat extension and ask the following advanced `Chain of Thought` prompt engineered question:
+- Open GitHub Copilot Chat  and ask the following advanced `Chain of Thought` prompt engineered question:
 
     ```
     Let's set up a CI/CD pipeline for a .NET 7 Web API application, which includes stages for Build, Infrastructure as Code (IaC) deployment using Bicep, and Quality Assurance (QA). Each stage should be clearly defined, and necessary files and configurations must be scaffolded out.

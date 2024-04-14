@@ -13,7 +13,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 ### Step 1: Taxying to the Runway - Run existing unit tests
 
-- Open GitHub Copilot Chat Extension.
+- Open GitHub Copilot Chat.
 
 - Type the following in the chat window: 
 
@@ -54,7 +54,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 ### Step 2: Pre-takeoff Pilot Checks - Completing Unit Tests
 
-- Open GitHub Copilot Chat Extension.
+- Open GitHub Copilot Chat.
 
 - Type the following in the chat window: 
 
@@ -408,7 +408,7 @@ public class PlanesControllerTests
 
 - Open the `Models/Airfields.cs` file.
 
-- Open the Copilot Chat extension window.
+- Open GitHub Copilot Chat.
 
 - Ask the following question in GitHub Copilot chat window:
 
@@ -489,7 +489,7 @@ public class PlanesControllerTests
     }
     ```
 
-- In the Copilot Chat extension window, click the ellipses `...` and select `Insert into New File` for the suggested `AirfieldController`.
+- In GitHub Copilot Chat, click the ellipses `...` and select `Insert into New File` for the suggested `AirfieldController`.
 
 - Copilot will add the code to a new empty file, but must be saved.
 - Save the file by clicking pressing `Ctrl + S` or `Cmd + S`.
@@ -505,7 +505,7 @@ public class PlanesControllerTests
 
 - Open the `AirfieldController.cs` file.
 
-- Open the Copilot Chat extension window.
+- Open GitHub Copilot Chat.
 
 - Ask the following question in GitHub Copilot chat window:
 
@@ -606,7 +606,7 @@ public class PlanesControllerTests
     }
     ```
 
-- In the Copilot Chat extension window, click the ellipses `...` and select `Insert into New File` for the suggested `AirfieldControllerTests`.
+- In GitHub Copilot Chat, click the ellipses `...` and select `Insert into New File` for the suggested `AirfieldControllerTests`.
 
 <img src="../../Images/Screenshot-AirfieldControllerTests.png" width="800">
 
