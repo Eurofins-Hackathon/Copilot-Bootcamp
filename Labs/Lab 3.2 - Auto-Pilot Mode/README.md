@@ -352,11 +352,11 @@ This approach will help in generating a more structured and practical output tha
     - The application is built with .NET 7, utilizing C# as the programming language. Scaffold the build process, which should include steps for restoring NuGet packages, compiling the solution, running unit tests, and publishing the output. Create a 'build.yml' file that outlines these steps for the CI pipeline.
 
     2. **IaC Stage with Bicep Execution**:
-    - For deployment to Azure, identify the required Azure resources (e.g., Azure App Service for hosting the Web API, Azure SQL Database for data storage). Scaffold Bicep templates for these resources, ensuring they're modular and reusable.
-    - Create a 'main.bicep' file that acts as the entry point, invoking other Bicep files (e.g., 'appservice.bicep', 'sqldatabase.bicep') to define the entire infrastructure. Include a step in the CI/CD pipeline ('iac-deploy.yaml') to authenticate with Azure and execute 'main.bicep', deploying the infrastructure.
+    - For deployment to Azure, identify the required Azure resources (e.g. Azure App Service for hosting the Web API). Scaffold Bicep templates for these resources, ensuring they're modular and reusable.
+    - Create a 'main.bicep' file that acts as the entry point, invoking other Bicep files (e.g. 'appservice.bicep') to define the entire infrastructure. Include a step in the CI/CD pipeline ('iac-deploy.yaml') to authenticate with Azure and execute 'main.bicep', deploying the infrastructure.
 
     3. **QA Stage**:
-    - Detail the process for deploying the .NET 7 Web API to the provisioned Azure App Service in a QA environment. This includes applying database migrations if necessary and running integration and acceptance tests.
+    - Detail the process for deploying the .NET 7 Web API to the provisioned Azure App Service in a QA environment. This includes running integration and acceptance tests.
     - Scaffold a 'qa-deploy.yml' file that outlines the steps for deploying the application to Azure, setting up the environment, and executing tests.
 
     4. **Chain Workflows**:
@@ -415,13 +415,6 @@ This approach will help in generating a more structured and practical output tha
     name: 'appServiceModule'
     params: {
         name: 'myAppService'
-    }
-    }
-
-    module sqlDatabase './sqldatabase.bicep' = {
-    name: 'sqlDatabaseModule'
-    params: {
-        name: 'mySqlDatabase'
     }
     }
 

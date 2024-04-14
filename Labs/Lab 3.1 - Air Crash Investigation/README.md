@@ -109,7 +109,7 @@ content-type: application/json
 
 - Now, let's debug it with GitHub Copilot
 
-- Navigate to the `Terminal` and select the content of the throw exception.
+- Navigate to the `Terminal` and `select` all the content of the throw exception.
 
 - Open GitHub Copilot Chat, click **+** to clear prompt history, then ask the following question:
 
@@ -188,7 +188,7 @@ public class FlightsController : ControllerBase
 
 - Now, let's debug it with GitHub Copilot
 
-- Navigate to the `Terminal` and select the content of the thrown exception.
+- Navigate to the `Terminal` and `select` all the content of the thrown exception.
 
 - Open GitHub Copilot Chat, click **+** to clear prompt, then ask the following question:
 

@@ -40,7 +40,7 @@ Your Codespace is being created. After a few minutes, you will be able to see yo
 - Type `Hello` and press `Enter` to interact with Copilot.
 
 
-### Optional Verification Steps
+## Optional Verification Steps
 
 #### Verify the application runs
 - Startup the application and verify the application is running.
@@ -63,6 +63,7 @@ The REST API client extension is very useful to quickly execute HTTP requests in
 - Open the `Examples/Flights.http` file, click `Send Request` to execute the `takeFlight` request.
 
 	```
+    Send Request
 	POST http://localhost:1903/flights/1/takeFlight/75 HTTP/1.1
 	content-type: application/json
 	```

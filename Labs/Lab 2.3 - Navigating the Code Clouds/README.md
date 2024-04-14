@@ -660,6 +660,9 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
 
 - Navigate to folder `/WrightBrothersApi/Models` and save the file as `AerobaticSequence.cs`.
 
+>[!Note]
+> The required file already exists. If your output does not align with the provided example, feel free to utilize this existing file.
+
 - Now, let's add the new `AerobaticSequence` property to the `Flight` model.
 
 - Open the `Models/Flight.cs` file.

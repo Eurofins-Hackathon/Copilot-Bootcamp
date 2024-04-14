@@ -26,7 +26,7 @@ explain the WrightBrothers API
 ```
 2) with @workspace:
 ```
-@workspace  summarize this project
+@workspace summarize this project
 ```
 
 - Copilot will give a brief overview of the API. This is a good way to get a quick overview of the codebase.
@@ -36,11 +36,11 @@ GitHub Copilot has the concept of Agents. `@workspace` is an agent that is speci
 Compare the difference between asking the two following things:
 1) without workspace:
 ```
-what does the flightscontroller do?
+what does the PlanesController do?
 ```
 2) with workspace:
 ```
-@workspace what does the flightscontroller do?
+@workspace what does the PlanesController do?
 ```
 
 There are two other Agents `@terminal` and `@vscode`. They are used to help navigate the terminal and VS Code settings respectively.
@@ -56,7 +56,7 @@ There are two other Agents `@terminal` and `@vscode`. They are used to help navi
 - Try `@vscode` agent by typing the following in the chat window:
 
 ```
-@vscode how to install extensions?
+how to install extensions?
 ```
 
 - It will provide a corresponding setting or an action button to install extensions.
@@ -82,11 +82,11 @@ Limitations:
 > [!Note]
 > GitHub Copilot will give a brief overview of the `PlanesController.cs` class.
 
-- Next, open `WrightBrothersApi` folder located in the `WrightBrothersApi` folder.
+- Now that we know what the PlanesController does, open `WrightBrothersApi` folder located in the `WrightBrothersApi` folder.
 
-- Open the `Controllers/PlanesController.cs` file
+- Open the `Controllers/PlanesController.cs` file.
 
-- Place your cursor at the end of the `Planes` List, after the `}` of `Plane` with `Id = 3`, type a `,` and press `Enter`.
+- Let's add a new plane to the list by placing your cursor at the end of the `Planes` list, after the `}` of `Plane` with `Id = 3`, type a `,` then press `Enter`.
 
 ```csharp
 public class PlanesController : ControllerBase

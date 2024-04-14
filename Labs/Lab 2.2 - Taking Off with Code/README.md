@@ -24,7 +24,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 - Copilot will give a suggestion to run the unit tests in the terminal.
 
     ```sh
-    dotnet test WrightBrothersApi.Tests/WrightBrothersApi.Tests.csproj
+    dotnet test
     ```
 
 - Let's run the unit tests in the terminal to make sure everything is working as expected.
@@ -39,7 +39,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 - Open the terminal and run the tests with the provided command.
 
     ```sh
-    dotnet test WrightBrothersApi.Tests/WrightBrothersApi.Tests.csproj
+    dotnet test
     ```
 >[!Note]
 > If you get an error resembling this: `MSBUILD : error MSB1009: Project file does not exist.`, then you are most likely running this command from the wrong folder. Change into the correct directory with `cd ./WrightBrothersApi` or with `cd ..` to go one folder level upwards.
@@ -185,7 +185,7 @@ public class PlanesControllerTests
 - Open the terminal and run the tests with the provided command.
 
     ```sh
-    dotnet test WrightBrothersApi.Tests/WrightBrothersApi.Tests.csproj
+    dotnet test
     ```
 
 >[!Note]
@@ -250,6 +250,7 @@ public class PlanesControllerTests
 - Now, copy/paste the following:
 
     ```csharp
+        //
         // Search by name term using SearchByName | Amount of results | Test Description
         // Wright Flyer II      | 1                 | Specific search
         // Wright               | 4                 | General search
@@ -287,7 +288,7 @@ public class PlanesControllerTests
 - Open the terminal and run the tests with the provided command.
 
     ```sh
-    dotnet test WrightBrothersApi.Tests/WrightBrothersApi.Tests.csproj
+    dotnet test
     ```
 
 - Not all tests will pass. For example the `Case insensitive` and `Extra spaces` test will fail. This is because the `SearchByName` method is case sensitive. Let's fix this.
@@ -388,7 +389,7 @@ public class PlanesControllerTests
 - Open the terminal and run the tests with the provided command
 
     ```sh
-    dotnet test WrightBrothersApi.Tests/WrightBrothersApi.Tests.csproj
+    dotnet test
     ```
 
 - The tests should run and pass.
@@ -413,7 +414,7 @@ public class PlanesControllerTests
 - Ask the following question:
 
     ```
-    @workspace Using the Airfield class, create the ApiController with all the CRUD operations and add test data for the first 3 airfields used by the Wright Brothers.
+    @workspace using the Airfield class, create the ApiController with all the CRUD operations and add test data for the first 3 airfields used by the Wright Brothers.
     ```
 
 - Copilot will give a suggestion to create an `AirfieldController` class based on the `Airfield` class.
@@ -620,7 +621,7 @@ public class PlanesControllerTests
 - Open the terminal and run the tests with the provided command.
 
     ```sh
-    dotnet test WrightBrothersApi.Tests/WrightBrothersApi.Tests.csproj
+    dotnet test
     ```
 
 - The tests should run and pass.
