@@ -5,7 +5,7 @@ This lab exercise delves into GitHub Copilot's advanced features, teaching parti
 - The prerequisites steps must be completed, see [Labs Prerequisites](./Labs/Lab%201.1%20-%20Pre-Flight%20Checklist)
 
 ## Estimated time to complete
-- 20 minutes, times may vary with optional labs.
+- 30 minutes, times may vary with optional labs.
 
 ## Objectives
 - To master GitHub Copilot's advanced features for solving complex coding exercises and optimizing code.
@@ -76,7 +76,7 @@ public class Plane
 
 <img src="../../Images/Screenshot-PlanesController-docs2.png" width="350">
 
-- Open GitHub Copilot Chat and type the following command:
+- Open GitHub Copilot Chat, click **+** to clear prompt history, then type the following command:
 
 Compare the difference between asking the two following things:
 1) Simple:
@@ -181,7 +181,7 @@ public class FlightsController : ControllerBase
 
 - Select all the content of the `UpdateFlightStatus` method.
 
-- Open GitHub Copilot Chat.
+- Open GitHub Copilot Chat, click **+** to clear prompt history.
 
 - Ask the following question:
 
@@ -301,7 +301,7 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
 > [!Note]
 > Note that the `FlightLogSignature` is a fictional property that is used to demonstrate the capabilities of GitHub Copilot. It is not a real aviation concept.
 
-- Open GitHub Copilot Chat and ask the following question:
+- Open GitHub Copilot Chat, click **+** to clear prompt history, then ask the following question:
 
     ```
     Create a c# model for a FlightLogSignature property.
@@ -520,7 +520,7 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
 
 - Let's prompt engineer Copilot to generate a solution for the `AerobaticSequenceSignature` property.
 
-- Open GitHub Copilot Chat and ask the following advanced prompt engineered question:
+- Open GitHub Copilot Chat, click **+** to clear prompt history, then ask the question:
 
     ```
     Parse a AerobaticSequenceSignature property into a c# model.

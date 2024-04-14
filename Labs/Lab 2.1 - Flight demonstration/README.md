@@ -71,7 +71,7 @@ Limitations:
 
 ### Step 2: Airplane Docking - Add new Flight Model
 
-- Open GitHub Copilot Chat
+- Open GitHub Copilot Chat, click **+** to clear prompt history.
 
 - Ask Copilot to explain the `PlanesController.cs` class
 

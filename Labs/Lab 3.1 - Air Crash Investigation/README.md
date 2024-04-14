@@ -111,7 +111,7 @@ content-type: application/json
 
 - Navigate to the `Terminal` and select the content of the throw exception.
 
-- Open GitHub Copilot chat window and ask the following question:
+- Open GitHub Copilot Chat, click **+** to clear prompt history, then ask the following question:
 
     #### Option 1 
     If you want to provide more context to GitHub Copilot, you can use the `@terminal` agent. This directive will provide GitHub Copilot access to what the user has selected in the terminal. It can not be used in combination with `@workspace`. So it does not have additional context to generate the suggestion. To add more context to the suggestion you can use `#file:FlightsController.cs`.
@@ -129,7 +129,7 @@ content-type: application/json
 
 - GitHub Copilot Chat will open and explain the code in a human readable format, instead of the technical exception message.
 
-<img src="../../Images/Screenshot-LackOfFuel.png" width="800">
+<!-- <img src="../../Images/Screenshot-LackOfFuel.png" width="800"> -->
 
 ## Optional
 
@@ -190,7 +190,7 @@ public class FlightsController : ControllerBase
 
 - Navigate to the `Terminal` and select the content of the thrown exception.
 
-- Open GitHub Copilot chat window and ask the following question:
+- Open GitHub Copilot Chat, click **+** to clear prompt, then ask the following question:
 
     #### Option 1 
     If you want to provide more context to GitHub Copilot, you can use the `@terminal` agent. This directive will provide GitHub Copilot access to what the user has selected in the terminal. It can not be used in combination with `@workspace`. So it does not have additional context to generate the suggestion. To add more context to the suggestion you can use `#file:FlightsController.cs`.
@@ -336,7 +336,7 @@ public class FlightsController : ControllerBase
 
     <img src="../../Images/Screenshot-calculateAerodynamicsSelected3.png" width="800">
 
-- Ask the following question in GitHub Copilot chat window:
+- Ask the following question in GitHub Copilot Chat:
 
     ```
     Can you optimize the selected code?

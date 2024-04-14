@@ -246,7 +246,7 @@ Deploying your application to Azure facilitates scalable, secure, and efficient 
 - Pre-requisite is a valid `*.yml` build pipeline from previous step.
 
 - Select all the content of the `Build.yml`.
-- In GitHub Copilot Chat, type the following command.
+- In GitHub Copilot Chat, click **+** to clear prompt history, then type the following command.
 
     ```
     Deploy to Azure
@@ -306,7 +306,8 @@ Using Infrastructure as Code (IaC) to manage your cloud resources, specifically 
 #### Scenario 1 - Describe a Single DevOps Pipeline with Three Stages
 This prompt will create a decription for creating a DevOps pipeline with three stages: Build, Infrastructure as Code (IaC), and Quality Assurance (QA). It outlines the requirements for each stage, including describing the application, specifying the Azure resources needed, creating Bicep templates, and detailing the steps for deploying the application to Azure for QA purposes.
 
-- Open GitHub Copilot Chat and ask the following advanced `Chain of Thought` prompt engineered question:
+- Open GitHub Copilot Chat, , click **+** to clear prompt history.
+- Ask the following advanced `Chain of Thought` prompt engineered question:
 
     ```
     Create a single DevOps pipeline comprising three stages: Build, Infrastructure as Code (IaC), and Quality Assurance (QA). 
@@ -341,7 +342,8 @@ This prompt will create a plan to set up a CI/CD pipeline for a .NET 7 Web API a
 
 This approach will help in generating a more structured and practical output that includes the scaffolding for each stage of the project.
 
-- Open GitHub Copilot Chat  and ask the following advanced `Chain of Thought` prompt engineered question:
+- Open GitHub Copilot Chat, click **+** to clear prompt history.
+- Ask the following advanced `Chain of Thought` prompt engineered question:
 
     ```
     Let's set up a CI/CD pipeline for a .NET 7 Web API application, which includes stages for Build, Infrastructure as Code (IaC) deployment using Bicep, and Quality Assurance (QA). Each stage should be clearly defined, and necessary files and configurations must be scaffolded out.

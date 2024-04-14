@@ -13,7 +13,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 ### Step 1: Taxying to the Runway - Run existing unit tests
 
-- Open GitHub Copilot Chat.
+- Open GitHub Copilot Chat, click **+** to clear prompt history.
 
 - Type the following in the chat window: 
 
@@ -54,7 +54,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 ### Step 2: Pre-takeoff Pilot Checks - Completing Unit Tests
 
-- Open GitHub Copilot Chat.
+- Open GitHub Copilot Chat, click **+** to clear prompt history.
 
 - Type the following in the chat window: 
 
@@ -408,9 +408,9 @@ public class PlanesControllerTests
 
 - Open the `Models/Airfields.cs` file.
 
-- Open GitHub Copilot Chat.
+- Open GitHub Copilot Chat, click **+** to clear prompt history.
 
-- Ask the following question in GitHub Copilot chat window:
+- Ask the following question:
 
     ```
     @workspace Using the Airfield class, create the ApiController with all the CRUD operations and add test data for the first 3 airfields used by the Wright Brothers.
@@ -505,9 +505,9 @@ public class PlanesControllerTests
 
 - Open the `AirfieldController.cs` file.
 
-- Open GitHub Copilot Chat.
+- Open GitHub Copilot Chat, click **+** to clear prompt history.
 
-- Ask the following question in GitHub Copilot chat window:
+- Ask the following question:
 
     ```
     @workspace create all the unit tests for this AirfieldController
