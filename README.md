@@ -60,11 +60,11 @@ Prepare for takeoff! Your journey concludes with a hands-on lab to apply these c
 - [Navigating the Code Clouds ✈ Advanced Features of Copilot](./Labs/Lab%202.3%20-%20Navigating%20the%20Code%20Clouds)
 
 ## Module 3
-### Lab 3.1 - Air Crash Investigation ✈ Troubleshooting and Fine-Tuning
+### Lab 3.1 - Aviation Incident Analysis ✈ Troubleshooting and Fine-Tuning
 This session uside discusses Copilot's limitations and the need for human judgment, provides best practices and cautions for its use, introduces debugging techniques and tools, strategies for troubleshooting exceptions, how it assists in code refactoring, and its role in optimizing code performance and improving overall code quality.
 
 Prepare for takeoff! Your journey concludes with a hands-on lab to apply these concepts in real-world scenarios.
-- [Air Crash Investigation ✈ Troubleshooting and Fine-Tuning](./Labs/Lab%203.1%20-%20Air%20Crash%20Investigation)
+- [Aviation Incident Analysis ✈ Troubleshooting and Fine-Tuning](./Labs/Lab%203.1%20-%20Air%20Crash%20Investigation)
 
 ### Lab 3.2 - Auto-Pilot Mode ✈ Automating Tasks with Copilot
 This session covers coding automation, focusing on GitHub Copilot for streamlining tasks like generating code and configuring files. It explores GitHub Action Pipelines for workflow automation, emphasizes the significance of concise commit messages, and discusses crafting detailed pull request summaries for collaboration. The role of chat integration in GitHub for immediate communication is highlighted, along with using DocSets for documentation management. It concludes with the benefits of custom DocSets in enterprise environments.
