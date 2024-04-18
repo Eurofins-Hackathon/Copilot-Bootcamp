@@ -16,8 +16,6 @@ public class Flight
     public string FlightLogSignature { get; set; }
 
     public string AerobaticSequenceSignature { get; set; }
-
-    public AerobaticSequence AerobaticSequence => AerobaticSequence.Parse(AerobaticSequenceSignature);
 }
 
 public enum FlightStatus
