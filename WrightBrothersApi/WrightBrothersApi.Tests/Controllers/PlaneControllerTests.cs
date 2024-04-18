@@ -29,7 +29,7 @@ namespace WrightBrothersApi.Tests.Controllers
         }
 
         [Fact]
-        public void Post_AddsPlaneAndReturnsCreated()
+        public void Post_WithValidPlane_ReturnsCreatedAtActionResult()
         {
             // Arrange
             var newPlane = new Plane
@@ -53,18 +53,18 @@ namespace WrightBrothersApi.Tests.Controllers
         }
 
         [Fact]
-        public void GetById_ReturnsPlane()
+        public void Post_WithNullPlane_ReturnsBadRequest()
         {
             // Arrange
-            var id = 1;
+            Plane newPlane = null;
 
             // Act
-            var result = _planesController.GetById(id);
+            var result = _planesController.Post(newPlane);
 
             // Assert
-            var okObjectResult = (OkObjectResult)result.Result!;
-            var returnedPlane = (Plane)okObjectResult.Value!;
-            returnedPlane.Should().NotBeNull();
+            result.Result.Should().BeOfType<BadRequestResult>();
         }
+
+        
     }
 }

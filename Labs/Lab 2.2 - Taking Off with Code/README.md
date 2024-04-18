@@ -68,22 +68,66 @@ This lab exercise guides participants through coding exercises using GitHub Copi
     You can add additional unit tests in the `PlanesControllerTests` class in the `WrightBrothersApi.Tests/Controllers/PlaneControllerTests.cs` file.
     ```
 
-- Open `PlanesControllerTests.cs` that GitHub Copilot suggested in the chat by clicking on the provided file name in the chat.
-
 <img src="../../Images/Screenshot-WhereToAddUnitTests.png" width="800">
 
-- Make sure to have the `PlanesController.cs` file open as well in your Visual Studio Code Editor in a tab next to the `PlanesControllerTests.cs` file.
+- Let's now open the `PlaneController.cs` file and select all the content of the `GetById` method.
+
+- Open Copilot Chat and type the following:
+
+    ```md
+    Generate all unit test scenarios for #selection
+
+    ## Unit Test
+    - Test should match #file:PlaneControllerTests.cs
+    ```
+
+- Copilot will give a suggestion to generate all unit test scenarios for the `GetById` method.
+
+    ```csharp
+    [Fact]
+    public void GetById_ExistingId_ReturnsPlane()
+    {
+        // Arrange
+        var id = 1; // assuming a plane with this id exists
+
+        // Act
+        var result = _planesController.GetById(id);
+
+        // Assert
+        var okObjectResult = (OkObjectResult)result.Result!;
+        var returnedPlane = (Plane)okObjectResult.Value!;
+        returnedPlane.Should().NotBeNull();
+        returnedPlane.Id.Should().Be(id);
+    }
+
+    [Fact]
+    public void GetById_NonExistingId_ReturnsNotFound()
+    {
+        // Arrange
+        var id = 999; // assuming no plane with this id exists
+
+        // Act
+        var result = _planesController.GetById(id);
+
+        // Assert
+        result.Result.Should().BeOfType<NotFoundResult>();
+    }
+
+    ```
 
 >[!Note]
-> Github Copilot will use any file that is open to gather extra context for its suggestions, this is why it's important to have the `PlanesController.cs` file open.
+> Copilot generated two unit tests for the `GetById` method. The first test checks if the method returns a plane when the id exists. The second test checks if the method returns a `NotFound` result when the id does not exist. It also matches how the unit tests are structured in the `PlanesControllerTests.cs` file.
 
-- Place your cursor at the end of the file, after the `}` of the `GetById_ReturnsPlane` method.
+>[!Note]
+> Creating unit tests works best when the scope is limited to a single method. You can then use `#file` to make sure it creates unit tests that is in line with the existing unit tests.
+
+- Now Open `PlanesControllerTests.cs` and Place your cursor at the end of the file, after the `}` of the `Post_AddsPlaneAndReturnsCreated` method.
 
 ```csharp
 public class PlanesControllerTests
 {
     [Fact]
-    public void GetById_ReturnsPlane()
+    public void Post_AddsPlaneAndReturnsCreated()
     {
         // method body
     }
@@ -92,104 +136,91 @@ public class PlanesControllerTests
 }
 ```
 
-- Press `Enter`, GitHub Copilot will now suggest `[Fact]` for a missing unit tests based on the code in the `PlanesController.cs` file.
+- In GitHub Copilot Chat, click the ellipses `...` and select `Insert at Cursor` for the suggested unit test methods.
 
-- Press `Tab` to accept the suggestion, press `Enter` to add a new line.
+- Let's test the newly added tests by opening the terminal and run the tests with the provided command.
 
-- GitHub Copilot will automatically suggest the a missing unit test. Accept the suggestion by pressing `Tab`.
+    ```sh
+    dotnet test
+    ```
+
+- Open the `PlaneController.cs` once again and repeat the steps for the `Post` method.
+
+- Open Copilot Chat and type the following:
+
+    ```md
+    Generate all unit test scenarios for #selection
+
+    ## Unit Test
+    - Test should match #file:PlaneControllerTests.cs
+    ```
+
+- Copilot will give a suggestion to generate all unit test scenarios for the `Post` method.
 
     ```csharp
-    public class PlanesControllerTests
+    [Fact]
+    public void Post_WithValidPlane_ReturnsCreatedAtActionResult()
     {
-        // Rest of the methods
-
-        [Fact]
-        public void GetById_ReturnsNotFound()
+        // Arrange
+        var newPlane = new Plane
         {
-            // Arrange
-            var id = 4;
+            Id = 3,
+            Name = "Test Plane",
+            Year = 2022,
+            Description = "A test plane.",
+            RangeInKm = 1000
+        };
 
-            // Act
-            var result = _planesController.GetById(id);
+        // Act
+        var result = _planesController.Post(newPlane);
 
-            // Assert
-            result.Result.Should().BeOfType<NotFoundResult>();
-        }
+        // Assert
+        result.Result.Should().BeOfType<CreatedAtActionResult>();
+
+        var createdAtActionResult = (CreatedAtActionResult)result.Result!;
+        var returnedPlane = (Plane)createdAtActionResult.Value!;
+        returnedPlane.Should().BeEquivalentTo(newPlane);
+    }
+
+    [Fact]
+    public void Post_WithNullPlane_ReturnsBadRequest()
+    {
+        // Arrange
+        Plane newPlane = null;
+
+        // Act
+        var result = _planesController.Post(newPlane);
+
+        // Assert
+        result.Result.Should().BeOfType<BadRequestResult>();
     }
     ```
 
-- Now let's add a few more unit tests to the `PlanesControllerTests.cs` file.
+- Open `PlanesControllerTests.cs` and Place your cursor at the end of the file, after the `}` of the `GetById_NonExistingId_ReturnsNotFound` method.
 
-- Place your cursor after the `}` of the `Post_AddsPlaneAndReturnsCreated` method.
-
-    ```csharp
-    public class PlanesControllerTests
+```csharp
+public class PlanesControllerTests
+{
+    [Fact]
+    public void GetById_NonExisting
     {
-        // Other method
-
-        [Fact]
-        public void Post_AddsPlaneAndReturnsCreated()
-        {
-            // method body
-        }
-
-        <---- Place your cursor here
-
-        // Other method
+        // method body
     }
-    ```
 
-- Press `Enter`, GitHub Copilot will now suggest `[Fact]` for a missing unit tests based on the code in the `PlanesController.cs` file.
+    <---- Place your cursor here
+}
+```
 
-- Press `Tab` to accept the suggestion, press `Enter` to add a new line.
+- In GitHub Copilot Chat, click the ellipses `...` and select `Insert at Cursor` for the suggested unit test methods.
 
-- GitHub Copilot will now suggest a missing unit test for the `Post` method of the `PlanesController.cs` file. Accept the suggestion by pressing `Tab`.
-
-
-    ```csharp
-    public class PlanesControllerTests
-    {
-        // Other method
-
-        [Fact]
-        public void Post_AddsPlaneAndReturnsCreated()
-        {
-            // method body
-        }
-
-        [Fact]
-        public void Post_ReturnsBadRequest()
-        {
-            // Arrange
-            var plane = new Plane { Name = "Wright Plane 1", Description = "First plane" };
-            _planesController.ModelState.AddModelError("Name", "Required");
-
-            // Act
-            var result = _planesController.Post(plane);
-
-            // Assert
-            result.Should().BeOfType<BadRequestObjectResult>();
-        }
-
-        // Other method
-    }
-    ```
-
->[!Note]
-> Copilot understood that it's likely that another unit test for the `Post` method is required, because the cursor is placed after the `}` of the `Post_AddsPlaneAndReturnsCreated` method.
-
-- You can repeat the process to add more unit tests to the `PlanesControllerTests.cs` file.
-
-- Now let's run the unit tests in the terminal to make sure everything is working as expected.
-
-- Open the terminal and run the tests with the provided command.
+- Let's test the newly added tests by opening the terminal and run the tests with the provided command.
 
     ```sh
     dotnet test
     ```
 
 >[!Note]
-> Some tests might fail. Copilot does not always provide the correct suggestions. It's important to understand the suggestions and do some extra work to make sure the tests are correct. Copilot can help you with that as well.
+> Some tests might still fail. Copilot does not always provide the correct suggestions. It's important to understand the suggestions and do some extra work to make sure the tests are correct. Copilot can help you with that as well.
 
 - The tests should run and pass.
 

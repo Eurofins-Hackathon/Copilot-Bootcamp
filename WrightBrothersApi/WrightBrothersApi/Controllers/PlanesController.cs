@@ -66,6 +66,11 @@ namespace WrightBrothersApi.Controllers
         [HttpPost]
         public ActionResult<Plane> Post(Plane plane)
         {
+            if(plane == null)
+            {
+                return BadRequest();
+            }
+
             Planes.Add(plane);
 
             return CreatedAtAction(nameof(GetById), new { id = plane.Id }, plane);
