@@ -76,3 +76,8 @@ Prepare for takeoff! Your journey concludes with a hands-on lab to apply these c
 The session ends with a summary of how AI helps in coding. It highlights better workflows for developers, how AI understands context, and the importance of checking AI's work. It stresses keeping essential skills sharp and not depending too much on AI. This is followed by a Q&A session. There's also a sneak peek at Copilot's upcoming features, including how Copilot Chat works on GitHub.com.
 
 - [Safe Landing ✈ Review and Future of AI in Coding](./Labs/Lab%203.3%20-%20Safe%20Landing)
+
+## Module 4
+### Lab 4.1 - TBD
+### Lab 4.2 - TBD
+### Lab 4.3 - TBD
