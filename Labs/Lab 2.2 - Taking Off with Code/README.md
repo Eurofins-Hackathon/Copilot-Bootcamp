@@ -70,16 +70,41 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 <img src="../../Images/Screenshot-WhereToAddUnitTests.png" width="800">
 
-- Let's now open the `PlaneController.cs` file and select all the content of the `GetById` method.
-
-- Open Copilot Chat and type the following:
+- Open Copilot Chat and Copy/Paste the following
 
     ```md
     Generate all unit test scenarios for #selection
-
-    ## Unit Test
-    - Test should match #file:PlaneControllerTests.cs
     ```
+
+- For `#selection`, open the `PlaneController.cs` file.
+
+- Select all the code for the `GetById` method.
+
+<img src="../../Images/Screenshot-GetById-Selection.png" width="800">
+
+- Press `Enter`, GitHub Copilot will automatically suggest the `[Fact]` attributes.
+
+- The problem is that the generated test methods do not match with the style of the existing test methods in the `PlanesControllerTests.cs` file.
+
+-  Let's fix this. Open Copilot Chat and Copy/Paste the following and place your cursor after `tests should match `:
+
+    ```md
+    Generate all unit test scenarios for #selection and the tests should match <---- Place your cursor here
+    ```
+
+- A pop-up will appear where you can search for files.
+
+- Select the file `PlanesControllerTests.cs` and press Enter. 
+
+<img src="../../Images/Screenshot-GetById-File.png" width="800">
+
+>[!Note]
+> With `#file` you can easily add a file to the Copilot Context.
+
+>[!Note]
+> `#file` will not work with copy/pasting `#file:PlaneControllerTests.cs`. You need to type it out.
+
+- Now submit the prompt by pressing Enter.
 
 - Copilot will give a suggestion to generate all unit test scenarios for the `GetById` method.
 
@@ -146,16 +171,7 @@ public class PlanesControllerTests
 
 - Open the `PlaneController.cs` once again and repeat the steps for the `Post` method.
 
-- Open Copilot Chat and type the following:
-
-    ```md
-    Generate all unit test scenarios for #selection
-
-    ## Unit Test
-    - Test should match #file:PlaneControllerTests.cs
-    ```
-
-- Copilot will give a suggestion to generate all unit test scenarios for the `Post` method.
+- Copilot will then give a suggestion to generate all unit test scenarios for the `Post` method.
 
     ```csharp
     [Fact]
