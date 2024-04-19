@@ -84,13 +84,13 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - The problem is that the generated test methods do not match with the style of the existing test methods in the `PlanesControllerTests.cs` file.  Copilot might suggest you use '[TestClass]' and '[TestMethod]' attributes, which are not used in xUnit.
 
--  Let's fix this. Open Copilot Chat and Copy/Paste the following and place your cursor after `tests should match `, deleting `<---- Place your cursor here`:
+-  Let's fix this. Open Copilot Chat and Copy/Paste the following and place your cursor after `tests should match `:
 
     ```md
     Generate all unit test scenarios for #selection and the tests should match <---- Place your cursor here
     ```
 
-- Type `#file` in the chat window and press Enter.
+- Delete `<---- Place your cursor here`, and type `#file` in the chat window and press Enter.
 
 - A pop-up will appear where you can search for files.
 
@@ -209,13 +209,13 @@ public class PlanesControllerTests
 
 - The problem is that the generated test methods do not match with the style of the existing test methods in the `PlanesControllerTests.cs` file.  Copilot might suggest you use '[TestClass]' and '[TestMethod]' attributes, which are not used in xUnit.
 
--  Let's fix this. Open Copilot Chat and Copy/Paste the following and place your cursor after `tests should match `, deleting `<---- Place your cursor here`:
+-  Let's fix this. Open Copilot Chat and Copy/Paste the following and place your cursor after `tests should match `:
 
     ```md
     Generate all unit test scenarios for #selection and the tests should match <---- Place your cursor here
     ```
 
-- Type `#file` in the chat window and press Enter.
+- Delete `<---- Place your cursor here`, and type `#file` in the chat window and press Enter.
 
 - A pop-up will appear where you can search for files.
 
