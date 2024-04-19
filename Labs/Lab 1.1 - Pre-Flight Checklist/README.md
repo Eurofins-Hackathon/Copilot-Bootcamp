@@ -7,6 +7,11 @@ Compare this to "Preparing Your Travel Itinerary, Checking Passport, Printing Bo
 ## Objectives
 - Getting familiar with GitHub Codespace 
 - Set up a Codespace for your repository with specific extensions and configurations. 
+    - Step 1: What is a codespace?
+    - Step 2: Create a codespace in your repository
+    - Step 3: Verify Copilot Functionality
+    - Step 4: Verify the application runs (Optional)
+    - Step 5: Verify calling the REST API (Optional)
 
 You can then use this codespace to work on the exercises in the Hands on Labs. 🔨
 
@@ -30,9 +35,9 @@ Navigate to your own repository on the URL https://github.com/Technical-Bootcamp
 
 Your Codespace is being created. After a few minutes, you will be able to see your Codespace in the browser.
 
-### Step 3: Verify Functionality
+### Step 3: Verify Copilot Functionality
 
-#### Verify Copilot Functionality
+#### Hello to Copilot
 - Click on the Copilot icon on the left side of the screen to open the chat.
 
 <img src="../../Images/Screenshot-ChatIcon.png" width="300">
@@ -42,7 +47,9 @@ Your Codespace is being created. After a few minutes, you will be able to see yo
 
 ## Optional Verification Steps
 
-#### Verify the application runs
+### Step 4: Verify the application runs
+
+#### Run application
 - Startup the application and verify the application is running.
 - From the terminal window, navigate to the application folder: `cd ./WrightBrothersApi/WrightBrothersApi/`
 - Run the application by typing the following command in the terminal:
@@ -56,7 +63,8 @@ Your Codespace is being created. After a few minutes, you will be able to see yo
 
 <img src="../../Images/Screenshot-Lab1.1-Run.png" width="600">
 
-#### Verify calling the REST API
+### Step 5: Verify calling the REST API
+
 #### Rest Client Extension
 The REST API client extension is very useful to quickly execute HTTP requests in your IDE and have all HTTP requests in source control.
 
