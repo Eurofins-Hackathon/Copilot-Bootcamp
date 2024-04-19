@@ -66,7 +66,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - You can add additional unit tests in the `PlanesControllerTests` class in the `WrightBrothersApi.Tests/Controllers/PlaneControllerTests.cs` file.
 
-<img src="../../Images/Screenshot-WhereToAddUnitTests.png" width="400">
+<img src="../../Images/Screenshot-WhereToAddUnitTests.png" width="800">
 
 - Open Copilot Chat and Copy/Paste the following
 
@@ -78,7 +78,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - Select all the code for the `GetById` method.
 
-<img src="../../Images/Screenshot-GetById-Selection.png" width="800">
+<img src="../../Images/Screenshot-GetById-Selection.png" width="400">
 
 - Press `Enter`, GitHub Copilot will automatically suggest the `[Fact]` attributes.
 
