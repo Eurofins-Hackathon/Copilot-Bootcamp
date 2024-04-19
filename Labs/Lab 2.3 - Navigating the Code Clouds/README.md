@@ -9,6 +9,11 @@ This lab exercise delves into GitHub Copilot's advanced features, teaching parti
 
 ## Objectives
 - To master GitHub Copilot's advanced features for solving complex coding exercises and optimizing code.
+    - Step 1 - The Complete Wright Brothers Fleet
+    - Step 2 - Flight Logbook - Logging Your Coding Journey
+    - Step 3 - Flying in Formation - Code Refactoring
+    - Step 4 - Parsing Flight Show - Prompt Engineering (Optional)
+    - Step 5 - Regex Aerobatics Show - Advanced Prompt Engineering  (Optional)
 
 ### Step 1: - The Complete Wright Brothers Fleet
 
@@ -36,7 +41,7 @@ public class Plane
 
 - Select all content of the `Planes` List.
 
-- Right click and select the option `Copilot` -> `Start Inline Chat`.
+- Right click and select the option `Copilot` -> `Start in editor`.
 
 - Type the following command
 
@@ -70,7 +75,7 @@ public class Plane
 - Do not accept the suggestion, click `Discard`.
 
 > [!Note]
-> GitHub Copilot used the `/docs` agent to generate the documentation for a single method or the entire file in a matter of seconds. This is a great way to document your codebase quickly and efficiently. However, we will use the Inline Chat to document the code in a more controlled way.
+> GitHub Copilot used the `/docs` agent to generate the documentation for a single method or the entire file in a matter of seconds. This is a great way to document your codebase quickly and efficiently. However, we will use the in editor Chat to document the code in a more controlled way.
 
 - Let's try this using a different approach, select all content of the method `GetById` in the `PlanesController.cs` file.
 
@@ -91,7 +96,7 @@ document all my code with details using dotnet method documentation
 - Review the documentation to ensure it's accurate, then click on `Insert at cursor` to replace the `PlanesController.cs` method with the new documentation.
 
 > [!Note]
-> The difference is that Inline Chat does light documentation vs GitHub Copilot window does a thorough job documenting every important section of code.
+> The difference is that in editor Chat does light documentation vs GitHub Copilot window does a thorough job documenting every important section of code.
 
 
 ### Step 3: - Flying in Formation - Code Refactoring

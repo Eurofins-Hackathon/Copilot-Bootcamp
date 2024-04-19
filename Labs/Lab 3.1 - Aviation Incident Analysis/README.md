@@ -12,6 +12,9 @@ A reference to the [Aviation Incident Analysis](https://en.wikipedia.org/wiki/Ma
 ## Objectives
 - Understanding the limitations of GitHub Copilot and learning how to troubleshoot its suggestions.
 - Group challenge to fix a set of buggy codes using Copilot, highlighting the importance of human oversight.
+    - Step 1 - Flight Crash Investigation - Fuel Depletion Scenario
+    - Step 2 - Lightning Strikes, Unexpected Flight Crash - Stack Overflow Scenario
+    - Step 3 - Aerodynamics of an Airplane - Performance Optimization
 
 ### Step 1. Flight Crash Investigation - Fuel Depletion Scenario
 

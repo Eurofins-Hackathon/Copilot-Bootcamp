@@ -11,6 +11,11 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 - Simple coding exercises using GitHub Copilot, focusing on understanding its suggestions and capabilities.
 - Pair programming: One 'pilot' codes, the other guides using Copilot's suggestions.
 
+    - Step 1 - Taxying to the Runway - Run existing unit tests
+    - Step 2 - Pre-takeoff Pilot Checks - Completing Unit Tests
+    - Step 3 - Takeoff - Adding Unit Tests for Case Sensitivity
+    - Step 4 - Ascending to the Clouds: Creating the AirfieldController from thin air (Optional)
+
 ### Step 1: Taxying to the Runway - Run existing unit tests
 
 - Open GitHub Copilot Chat, click **+** to clear prompt history.
@@ -512,7 +517,7 @@ public class PlanesControllerTests
 
 - Open the `WrightBrothersApi` project in Visual Studio Code.
 
-- Open the `Models/Airfields.cs` file.
+- Open the `Models/Airfield.cs` file.
 
 - Open GitHub Copilot Chat, click **+** to clear prompt history.
 

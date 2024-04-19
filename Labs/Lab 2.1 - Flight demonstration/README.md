@@ -8,7 +8,13 @@ This module demonstrates how to utilize GitHub Copilot's Chat Extension and its 
 - 20 minutes, times may vary with optional labs.
 
 ## Objectives
-Introduction to GitHub Copilot Chat and its agents for code completion and style adaptation.
+- Introduction to GitHub Copilot Chat and its agents for code completion and style adaptation.
+
+    - Step 1 - Plane Inspection - Explain the Codebase with GitHub Copilot Chat
+    - Step 2 - Airplane Docking - Add new Flight Model
+    - Step 3 - Test Flight - Autocompletion and Suggestions
+    - Step 4 - Flight Plan - Code Completion and Style Adaptation
+    - Step 5 - Flight Control - Code Navigation and Documentation (Optional)
 
 > [!IMPORTANT]  
 > Please note that Copilot's responses are generated based on a mix of curated data, algorithms, and machine learning models, which means they may not always be accurate or reflect the most current information available. Users are advised to verify Copilot's outputs with trusted sources before making decisions based on them.
