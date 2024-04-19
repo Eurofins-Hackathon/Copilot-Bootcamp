@@ -80,9 +80,9 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 <img src="../../Images/Screenshot-GetById-Selection.png" width="400">
 
-- Press `Enter`, GitHub Copilot will automatically suggest the `[Fact]` attributes.
+- Press `Enter`, GitHub Copilot will automatically suggest the `[Test]` attributes.
 
-- The problem is that the generated test methods do not match with the style of the existing test methods in the `PlanesControllerTests.cs` file.  Copilot might suggest you use '[TestClass]' and '[TestMethod]' attributes, which are not used in xUnit.
+- The problem is that the generated test methods do not match with the style of the existing test methods in the `PlanesControllerTests.cs` file.
 
 -  Let's fix this. Open Copilot Chat and Copy/Paste the following and place your cursor after `tests should match `:
 
@@ -94,15 +94,15 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - A pop-up will appear where you can search for files.
 
-    >[!Note]
-    > With `#file` you can easily add a file to the Copilot Context.
+>[!Note]
+> With `#file` you can easily add a file to the Copilot Context.
 
 - Select the file `PlanesControllerTests.cs` and press Enter. 
 
 <img src="../../Images/Screenshot-GetById-File.png" width="600">
 
-    >[!Important]
-    > `#file` will not work with copy/pasting `#file:PlaneControllerTests.cs`. You need to select it from the pop-up window.
+>[!Important]
+> `#file` will not work with copy/pasting `#file:PlaneControllerTests.cs`. You need to select it from the pop-up window.
 
 - Now submit the prompt by pressing Enter.
 
@@ -180,9 +180,11 @@ public class PlanesControllerTests
     Passed!  - Failed:  0, Passed:  5, Skipped:  0, Total:  5
     ```
 
-- Open the `PlaneController.cs` once again and repeat the steps for the `Post` method.
+- With the `PlaneController.cs` opened, once again and repeat the steps for the `Post` method.
 
-- Open Copilot Chat and Copy/Paste the following
+- Open Copilot Chat, click **+** to clear prompt history.
+
+- Then Copy/Paste the following
 
     ```md
     Generate all unit test scenarios for #selection
@@ -205,7 +207,7 @@ public class PlanesControllerTests
         }
    ```
 
-- Press `Enter`, GitHub Copilot will automatically suggest the `[Fact]` attributes.
+- Press `Enter`, GitHub Copilot will automatically suggest the `[Test]` attributes.
 
 - The problem is that the generated test methods do not match with the style of the existing test methods in the `PlanesControllerTests.cs` file.  Copilot might suggest you use '[TestClass]' and '[TestMethod]' attributes, which are not used in xUnit.
 
@@ -219,13 +221,13 @@ public class PlanesControllerTests
 
 - A pop-up will appear where you can search for files.
 
-    >[!Note]
-    > With `#file` you can easily add a file to the Copilot Context.
+>[!Note]
+> With `#file` you can easily add a file to the Copilot Context.
 
 - Select the file `PlanesControllerTests.cs` and press Enter. 
 
-    >[!Important]
-    > `#file` will not work with copy/pasting `#file:PlaneControllerTests.cs`. You need to select it from the pop-up window.
+>[!Important]
+> `#file` will not work with copy/pasting `#file:PlaneControllerTests.cs`. You need to select it from the pop-up window.
 
 - Copilot will then give a suggestion to generate all unit test scenarios for the `Post` method.
 
