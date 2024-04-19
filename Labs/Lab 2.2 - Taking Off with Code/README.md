@@ -64,11 +64,9 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - Copilot will give a suggestion to add unit tests to the `Controllers/PlanesControllerTests.cs` file in the `WrightBrothersApi.Tests` project.
 
-    ```
-    You can add additional unit tests in the `PlanesControllerTests` class in the `WrightBrothersApi.Tests/Controllers/PlaneControllerTests.cs` file.
-    ```
+- You can add additional unit tests in the `PlanesControllerTests` class in the `WrightBrothersApi.Tests/Controllers/PlaneControllerTests.cs` file.
 
-<img src="../../Images/Screenshot-WhereToAddUnitTests.png" width="800">
+<img src="../../Images/Screenshot-WhereToAddUnitTests.png" width="400">
 
 - Open Copilot Chat and Copy/Paste the following
 
@@ -84,25 +82,27 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - Press `Enter`, GitHub Copilot will automatically suggest the `[Fact]` attributes.
 
-- The problem is that the generated test methods do not match with the style of the existing test methods in the `PlanesControllerTests.cs` file.
+- The problem is that the generated test methods do not match with the style of the existing test methods in the `PlanesControllerTests.cs` file.  Copilot might suggest you use '[TestClass]' and '[TestMethod]' attributes, which are not used in xUnit.
 
--  Let's fix this. Open Copilot Chat and Copy/Paste the following and place your cursor after `tests should match `:
+-  Let's fix this. Open Copilot Chat and Copy/Paste the following and place your cursor after `tests should match `, deleting `<---- Place your cursor here`:
 
     ```md
     Generate all unit test scenarios for #selection and the tests should match <---- Place your cursor here
     ```
 
+- Type `#file` in the chat window and press Enter.
+
 - A pop-up will appear where you can search for files.
+
+>[!Note]
+> With `#file` you can easily add a file to the Copilot Context.
 
 - Select the file `PlanesControllerTests.cs` and press Enter. 
 
 <img src="../../Images/Screenshot-GetById-File.png" width="800">
 
->[!Note]
-> With `#file` you can easily add a file to the Copilot Context.
-
->[!Note]
-> `#file` will not work with copy/pasting `#file:PlaneControllerTests.cs`. You need to type it out.
+>[!Important]
+> `#file` will not work with copy/pasting `#file:PlaneControllerTests.cs`. You need to select it from the pop-up window.
 
 - Now submit the prompt by pressing Enter.
 
@@ -146,13 +146,13 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 >[!Note]
 > Creating unit tests works best when the scope is limited to a single method. You can then use `#file` to make sure it creates unit tests that is in line with the existing unit tests.
 
-- Now Open `PlanesControllerTests.cs` and Place your cursor at the end of the file, after the `}` of the `Post_AddsPlaneAndReturnsCreated` method.
+- Now Open `PlanesControllerTests.cs` and Place your cursor at the end of the file, after the `}` of the `Post_WithNullPlane_ReturnsBadRequest()` method.
 
 ```csharp
 public class PlanesControllerTests
 {
     [Fact]
-    public void Post_AddsPlaneAndReturnsCreated()
+    public void Post_WithNullPlane_ReturnsBadRequest()
     {
         // method body
     }
@@ -169,7 +169,67 @@ public class PlanesControllerTests
     dotnet test
     ```
 
+>[!Note]
+> Some tests might still fail. Copilot does not always provide the correct suggestions. It's important to understand the suggestions and do some extra work to make sure the tests are correct. Copilot can help you with that as well.
+
+- The tests should run and pass.
+
+    ```sh
+    Starting test execution, please wait...
+    A total of 1 test files matched the specified pattern.
+    Passed!  - Failed:  0, Passed:  5, Skipped:  0, Total:  5
+    ```
+
 - Open the `PlaneController.cs` once again and repeat the steps for the `Post` method.
+
+- Open Copilot Chat and Copy/Paste the following
+
+    ```md
+    Generate all unit test scenarios for #selection
+    ```
+
+- For `#selection`, select all the code for the `Post(Plane plane)` method.
+
+   ```csharp
+        [HttpPost]
+        public ActionResult<Plane> Post(Plane plane)
+        {
+            if(plane == null)
+            {
+                return BadRequest();
+            }
+
+            Planes.Add(plane);
+
+            return CreatedAtAction(nameof(GetById), new { id = plane.Id }, plane);
+        }
+   ```
+
+- Press `Enter`, GitHub Copilot will automatically suggest the `[Fact]` attributes.
+
+- The problem is that the generated test methods do not match with the style of the existing test methods in the `PlanesControllerTests.cs` file.  Copilot might suggest you use '[TestClass]' and '[TestMethod]' attributes, which are not used in xUnit.
+
+-  Let's fix this. Open Copilot Chat and Copy/Paste the following and place your cursor after `tests should match `, deleting `<---- Place your cursor here`:
+
+    ```md
+    Generate all unit test scenarios for #selection and the tests should match <---- Place your cursor here
+    ```
+
+- Type `#file` in the chat window and press Enter.
+
+- A pop-up will appear where you can search for files.
+
+>[!Note]
+> With `#file` you can easily add a file to the Copilot Context.
+
+- Select the file `PlanesControllerTests.cs` and press Enter. 
+
+>[!Important]
+> `#file` will not work with copy/pasting `#file:PlaneControllerTests.cs`. You need to select it from the pop-up window.
+
+
+
+
 
 - Copilot will then give a suggestion to generate all unit test scenarios for the `Post` method.
 
@@ -212,13 +272,13 @@ public class PlanesControllerTests
     }
     ```
 
-- Open `PlanesControllerTests.cs` and Place your cursor at the end of the file, after the `}` of the `GetById_NonExistingId_ReturnsNotFound` method.
+- Open `PlanesControllerTests.cs` and Place your cursor at the end of the file, after the `}` of the `GetById_WithInvalidId_ReturnsNotFound()` method.
 
 ```csharp
 public class PlanesControllerTests
 {
     [Fact]
-    public void GetById_NonExisting
+    public void GetById_WithInvalidId_ReturnsNotFound()
     {
         // method body
     }
@@ -243,7 +303,7 @@ public class PlanesControllerTests
     ```sh
     Starting test execution, please wait...
     A total of 1 test files matched the specified pattern.
-    Passed!  - Failed:  0, Passed:  5, Skipped:  0, Total:  5
+    Passed!  - Failed:  0, Passed:  7, Skipped:  0, Total:  5
     ```
 
 ## Optional
