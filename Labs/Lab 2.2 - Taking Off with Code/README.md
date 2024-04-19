@@ -94,15 +94,15 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - A pop-up will appear where you can search for files.
 
->[!Note]
-> With `#file` you can easily add a file to the Copilot Context.
+    >[!Note]
+    > With `#file` you can easily add a file to the Copilot Context.
 
 - Select the file `PlanesControllerTests.cs` and press Enter. 
 
-<img src="../../Images/Screenshot-GetById-File.png" width="800">
+<img src="../../Images/Screenshot-GetById-File.png" width="600">
 
->[!Important]
-> `#file` will not work with copy/pasting `#file:PlaneControllerTests.cs`. You need to select it from the pop-up window.
+    >[!Important]
+    > `#file` will not work with copy/pasting `#file:PlaneControllerTests.cs`. You need to select it from the pop-up window.
 
 - Now submit the prompt by pressing Enter.
 
@@ -219,17 +219,13 @@ public class PlanesControllerTests
 
 - A pop-up will appear where you can search for files.
 
->[!Note]
-> With `#file` you can easily add a file to the Copilot Context.
+    >[!Note]
+    > With `#file` you can easily add a file to the Copilot Context.
 
 - Select the file `PlanesControllerTests.cs` and press Enter. 
 
->[!Important]
-> `#file` will not work with copy/pasting `#file:PlaneControllerTests.cs`. You need to select it from the pop-up window.
-
-
-
-
+    >[!Important]
+    > `#file` will not work with copy/pasting `#file:PlaneControllerTests.cs`. You need to select it from the pop-up window.
 
 - Copilot will then give a suggestion to generate all unit test scenarios for the `Post` method.
 
