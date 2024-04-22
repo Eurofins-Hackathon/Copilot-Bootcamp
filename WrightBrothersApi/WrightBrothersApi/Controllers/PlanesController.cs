@@ -75,5 +75,27 @@ namespace WrightBrothersApi.Controllers
 
             return CreatedAtAction(nameof(GetById), new { id = plane.Id }, plane);
         }
+
+        [HttpGet("search")]
+        public ActionResult<List<Plane>> SearchByName([FromQuery] string name)
+        {
+            var planes = Planes.FindAll(p => p.Name.Contains(name));
+
+            if (planes == null)
+            {
+                return NotFound();
+            }
+            
+            return Ok(planes);
+        }
+
+        [HttpPost("setup")]
+        public ActionResult SetupPlanesData(List<Plane> planes)
+        {
+            Planes.Clear();
+            Planes.AddRange(planes);
+
+            return Ok();
+        }
     }
 }

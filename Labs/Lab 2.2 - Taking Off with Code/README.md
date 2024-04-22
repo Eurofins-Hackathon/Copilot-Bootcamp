@@ -338,7 +338,27 @@ public class PlanesControllerTests
     }
     ```
 
-- Make sure to have the `PlanesController.cs` file open as well in your Visual Studio Code Editor in a tab next to the `PlanesControllerTests.cs` file.
+- Also, add the following method to setup data for the tests we are about to create.
+
+    ```csharp
+    public class PlanesController : ControllerBase
+    {
+
+        /* Rest of the methods */
+
+        [HttpPost("setup")]
+        public ActionResult SetupPlanesData(List<Plane> planes)
+        {
+            Planes.Clear();
+            Planes.AddRange(planes);
+
+            return Ok();
+        }
+    }
+    ```
+
+>[!Note]
+> Setting up data like this is not recommended in a production environment. It's better to use a database or a mock database for this purpose. For the sake of this lab, we are using this approach.
 
 - Open `PlanesControllerTests.cs` file
 
@@ -357,40 +377,93 @@ public class PlanesControllerTests
     }
     ```
 
-- Now, copy/paste the following:
 
-    ```csharp
-    // Method: SearchByName
-    // Name                 | Amount of results | Test Description
-    // Wright Flyer II      | 1                 | Specific search
-    // Wright               | 4                 | General search
-    // wright flyer         | 2                 | Case insensitive
-    //  Wright  flyer       | 2                 | Extra spaces
+- Copy/Paste the following in the Copilot Chat window:
+
+    ```md
+    Generate unit tests for #selection the following scenario:
+
+    - Specific Search for "Wright Flyer III"
+    - General Search for "Wright"
+    - Case insensitive search for "wright flyer"
+    - Search with extra spaces for " Wright flyer "
+
+    ## Technical Details
+    - Create 5 Planes about the Wright Brothers based on #file:Plane.cs for the scenarios and POST to SetupPlanesData
+    - Use Theory attribute
+    - Assert the amount of planes returned
+    - Use FluentAssertions
+
+    ## Thoughts
+    - When Test Data contains 3 different "Wright Flyer" planes then assert count is also 3
+    
+    Give me only the test method as a result to apply in #file:PlanesControllerTests.cs
     ```
 
-- Press `Enter`, GitHub Copilot will automatically suggest the `[Theory]` attribute. Accept the suggestion by pressing `Tab`. If Copilot suggess the next comment, then press `Enter` once more.
+- For `#selection`, select the following two methods in the `PlanesController.cs` class.
 
->[!Note]
-> GitHub Copilot will automatically suggest the `[Theory]` attribute because of the comments above the method. It understands that you want to run the same test with different parameters and outputs.
+    ```csharp
+    [HttpGet("search")]
+    public ActionResult<List<Plane>> SearchByName([FromQuery] string name)
+    {
+        var planes = Planes.FindAll(p => p.Name.Contains(name));
 
-- Press `Enter`, GitHub Copilot will automatically suggest the `[InlineData]` attributes. Accept the suggestion by pressing `Enter`. Repeat this for each `[InlineData]` attribute.
+        if (planes == null)
+        {
+            return NotFound();
+        }
+        
+        return Ok(planes);
+    }
+
+    [HttpPost("setup")]
+    public ActionResult SetupPlanesData(List<Plane> planes)
+    {
+        Planes.Clear();
+        Planes.AddRange(planes);
+
+        return Ok();
+    }
+    ```
+
+- For the first `#file`, select the `Plane.cs` file.
+
+- For second `#file`, select the `PlanesControllerTests.cs` file.
+
+- Open Copilot Chat and Copy/Paste the prompt.
+
+- Submit the prompt by pressing Enter.
+
+- Copilot will then give the following suggestion to generate unit tests for the `SearchByName` method.
 
     ```csharp
     [Theory]
-    [InlineData("Wright Flyer II", 1, "Specific search")]
-    [InlineData("Wright", 3, "General search")]
-    [InlineData("wright flyer", 2, "Case insensitive")]
-    [InlineData(" Wright  flyer ", 2, "Extra spaces")]
-    public void SearchByName_ReturnsPlanes(string searchTerm, intexpectedAmountOfResults, string testDescription)
+    [InlineData("Wright Flyer III", 1)]
+    [InlineData("Wright", 5)]
+    [InlineData("wright flyer", 3)]
+    [InlineData(" Wright flyer ", 3)]
+    public void SearchByName_ReturnsExpectedPlanes(string searchTerm, int expectedCount)
     {
+        // Arrange
+        var planes = new List<Plane>
+        {
+            new Plane { Id = 1, Name = "Wright Flyer I", Year = 1903, Description = "First powered flight", RangeInKm = 37 },
+            new Plane { Id = 2, Name = "Wright Flyer II", Year = 1904, Description = "Improved design", RangeInKm = 61 },
+            new Plane { Id = 3, Name = "Wright Flyer III", Year = 1905, Description = "First practical plane", RangeInKm = 39 },
+            new Plane { Id = 4, Name = "Wright Model A", Year = 1906, Description = "First production plane", RangeInKm = 100 },
+            new Plane { Id = 5, Name = "Wright Model B", Year = 1910, Description = "Improved Model A", RangeInKm = 120 }
+        };
+        _planesController.SetupPlanesData(planes);
+
         // Act
         var result = _planesController.SearchByName(searchTerm);
 
         // Assert
-        var okObjectResult = (OkObjectResult)result.Result!;
-        var returnedPlanes = (List<Plane>)okObjectResult.Value!;
-        returnedPlanes.Should().HaveCount(expectedAmountOfResults, testDescription);
-    }  
+        result.Result.Should().BeOfType<OkObjectResult>();
+        var okObjectResult = (OkObjectResult)result.Result;
+        var returnedPlanes = (List<Plane>)okObjectResult.Value;
+        returnedPlanes.Count.Should().Be(expectedCount);
+    }
     ```
 
 - Let's run the unit tests in the terminal:
@@ -409,17 +482,40 @@ public class PlanesControllerTests
     Failed!  - Failed:     2, Passed:     6, Skipped:     0, Total:     8
     ```
 
+- Let's now use the generated tests as a guide to fix the case sensitivity issue.
+
 - Open `PlanesController.cs` file.
 
-- Select the entire `SearchByName` method.
+- Open GitHub Copilot Chat, click **+** to clear prompt history.
 
-- Ask Copilot to fix the case sensitivity issue by typing the following in the chat window: 
+- Copy/Paste the following in the chat window:
 
     ```
-    @workspace /fix case sensitivity issue
+    #selection fix method based on tests in #file:PlaneControllerTests.cs
     ```
 
-- Copilot will give a suggestion to fix the case sensitivity issue.
+- For `#selection`, select the `SearchByName` method in the `PlanesController.cs` file.
+
+    ```csharp
+    [HttpGet("search")]
+    public ActionResult<List<Plane>> SearchByName([FromQuery] string name)
+    {
+        var planes = Planes.FindAll(p => p.Name.Contains(name));
+
+        if (planes == null)
+        {
+            return NotFound();
+        }
+        
+        return Ok(planes);
+    }
+    ```
+
+- For `#file`, select the `PlanesControllerTests.cs` file.
+
+- Submit the prompt by pressing Enter.
+
+- Copilot will give a suggestion to fix the case sensitivity and the extra spaces issue based on the test cases.
 
     ```csharp
     public class PlanesController : ControllerBase
@@ -429,12 +525,10 @@ public class PlanesControllerTests
         [HttpGet("search")]
         public ActionResult<List<Plane>> SearchByName([FromQuery] string name)
         {
+            var trimmedName = name.Trim();
+            var planes = Planes.FindAll(p => p.Name.Trim().Equals(trimmedName, StringComparison.OrdinalIgnoreCase));
 
-            // Rest of the method
-
-            var planes = Planes.FindAll(p => p.Name.Contains(name, StringComparison.OrdinalIgnoreCase)); // <---- Case insensitive
-
-            if (planes == null)
+            if (planes == null || planes.Count == 0)
             {
                 return NotFound();
             }
@@ -445,56 +539,11 @@ public class PlanesControllerTests
     ```
 
 >[!Note]
-> You'll need to use the `StringComparer.OrdinalIgnoreCase` comparer in the FindAll method.
+> `StringComparer.OrdinalIgnoreCase` is used to make the comparison case insensitive and `Trim()` is used to remove leading and trailing spaces.
 
 - Apply the changes to the `PlanesController.cs` file.
 
 - Click on the `Insert at cursor` to replace the `SearchByName` method with the new one.
-
-- Also the `Extra spaces` test will fail. This is because the `SearchByName` is not trimming the search term. Let's fix this.
-
-- Open `PlanesController.cs` file
-
-- Select the content of the `SearchByName` method.
-
-- Ask Copilot to fix the issue for the extra spaces by typing the following in the chat window:
-
-    ```
-    @workspace /fix trimming issue
-    ```
-
-- Copilot will give a suggestion to fix the trimming issue.
-    
-    ```csharp
-    public class PlanesController : ControllerBase
-    {
-        /* Rest of the methods */
-        
-        [HttpGet("search")]
-        public ActionResult<List<Plane>> SearchByName([FromQuery] string name)
-        {
-
-            // Rest of the method
-
-            name = name.Trim(); // <---- Removes leading and trailing spaces
-
-            var planes = Planes.FindAll(p => p.Name.Contains(name, StringComparison.OrdinalIgnoreCase));
-
-            if (planes == null)
-            {
-                return NotFound();
-            }
-            
-            return Ok(planes);
-        }
-    }
-    ```
-
-- Apply the changes to the `PlanesController.cs` file.
-
-- Click on the `Insert at cursor` to replace the `SearchByName` method with the new one.
-
-- Let's run the unit tests in the terminal to make sure everything is working as expected.
 
 - Open the terminal and run the tests with the provided command
 
@@ -507,9 +556,11 @@ public class PlanesControllerTests
     ```sh
     Starting test execution, please wait...
     A total of 1 test files matched the specified pattern.
-    Passed!  - Failed:     0, Passed:     8, , Failed:     0
+    Passed!  - Failed:     0, Passed:     5, , Failed:     0
     ```
->![NOTE] If the tests still fail, there is a good chance you need to also handle the use case of double spaces in the search paramater. Try to let Copilot suggest that fix as well and implement it.
+
+>[!Note]
+> If all tests pass, you have successfully completed this step. If not, you will need to debug the tests. GitHub Copilot got you started, but you, the Pilot, must take charge to diagnose and fix the discrepancies.
 
 ## Optional
 
