@@ -151,13 +151,13 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 >[!Note]
 > Creating unit tests works best when the scope is limited to a single method. You can then use `#file` to make sure it creates unit tests that is in line with the existing unit tests.
 
-- Now Open `PlanesControllerTests.cs` and Place your cursor at the end of the file, after the `}` of the `Post_WithNullPlane_ReturnsBadRequest()` method.
+- Now Open `PlanesControllerTests.cs` and Place your cursor at the end of the file, after the `}` of the `GetAll_ReturnsListOfPlanes()` method.
 
 ```csharp
 public class PlanesControllerTests
 {
     [Fact]
-    public void Post_WithNullPlane_ReturnsBadRequest()
+    public void GetAll_ReturnsListOfPlanes()
     {
         // method body
     }
@@ -360,12 +360,12 @@ public class PlanesControllerTests
 - Now, copy/paste the following:
 
     ```csharp
-        //
-        // Search by name term using SearchByName | Amount of results | Test Description
-        // Wright Flyer II      | 1                 | Specific search
-        // Wright               | 4                 | General search
-        // wright flyer         | 2                 | Case insensitive
-        //  Wright  flyer       | 2                 | Extra spaces
+    // Method: SearchByName
+    // Name                 | Amount of results | Test Description
+    // Wright Flyer II      | 1                 | Specific search
+    // Wright               | 4                 | General search
+    // wright flyer         | 2                 | Case insensitive
+    //  Wright  flyer       | 2                 | Extra spaces
     ```
 
 - Press `Enter`, GitHub Copilot will automatically suggest the `[Theory]` attribute. Accept the suggestion by pressing `Tab`. If Copilot suggess the next comment, then press `Enter` once more.
@@ -393,9 +393,7 @@ public class PlanesControllerTests
     }  
     ```
 
-- Let's run the unit tests in the terminal to make sure everything is working as expected.
-
-- Open the terminal and run the tests with the provided command.
+- Let's run the unit tests in the terminal:
 
     ```sh
     dotnet test
@@ -450,6 +448,7 @@ public class PlanesControllerTests
 > You'll need to use the `StringComparer.OrdinalIgnoreCase` comparer in the FindAll method.
 
 - Apply the changes to the `PlanesController.cs` file.
+
 - Click on the `Insert at cursor` to replace the `SearchByName` method with the new one.
 
 - Also the `Extra spaces` test will fail. This is because the `SearchByName` is not trimming the search term. Let's fix this.
@@ -458,7 +457,7 @@ public class PlanesControllerTests
 
 - Select the content of the `SearchByName` method.
 
-- Ask Copilot to fix the trimming issue by typing the following in the chat window:
+- Ask Copilot to fix the issue for the extra spaces by typing the following in the chat window:
 
     ```
     @workspace /fix trimming issue
@@ -492,6 +491,7 @@ public class PlanesControllerTests
     ```
 
 - Apply the changes to the `PlanesController.cs` file.
+
 - Click on the `Insert at cursor` to replace the `SearchByName` method with the new one.
 
 - Let's run the unit tests in the terminal to make sure everything is working as expected.
@@ -743,7 +743,7 @@ public class PlanesControllerTests
     ```
 
 >[!Note]
-> Sometimes not all tests succeed.  Make sure `dotnt test` is run in the root of the project `WrightBrothersApi`.  If the tests fail, you will need to debug the tests and correct the issues.  Although tools like Copilot can assist greatly, you, the Pilot, must take charge to diagnose and fix the discrepancies.
+> Sometimes not all tests succeed.  Make sure `dotnet test` is run in the root of the project `WrightBrothersApi`.  If the tests fail, you will need to debug the tests and correct the issues.  Although tools like Copilot can assist greatly, you, the Pilot, must take charge to diagnose and fix the discrepancies.
   
 ### Congratulations you've made it to the end! &#9992; &#9992; &#9992;
 
