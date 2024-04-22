@@ -22,11 +22,13 @@ export const animateLanded = (planeRef: MutableRefObject<null>) => {
 
   gsap.to(planeRef.current, {
     scale: 1.2,
-    x: "25vw",
-    y: "20vh",
+    y: "0",
     ease: "power1.in",
-    duration: 2,
+    duration: 1,
     rotation: 0,
+    // right
+    right: "300",
+    top: "50",
   });
 };
 
@@ -76,47 +78,6 @@ export const animateCrashed = (
   });
 };
 
-const maneuversMap = {
-  L: { path: "M 0 0 Q 0 100 100 100 Q 100 0 0 0", rotation: 360 },
-  H: { path: "M 0 0 L 50 100 L 100 0", rotation: 180 },
-  R: { path: "M 0 0 Q 50 100 100 0 Q 50 -100 0 0", rotation: 360 },
-  S: { path: "M 0 0 Q 50 0 100 0", rotation: 360 },
-  T: { path: "M 0 0 L 100 0", rotation: 180 },
-};
-
-const difficultyMap = {
-  A: 1,
-  B: 2,
-  C: 3,
-  D: 4,
-  E: 5,
-};
-
-export const animateManeuvers = (
-  airplaneRef: MutableRefObject<null>,
-  maneuvers: string
-) => {
-  const timeline = gsap.timeline();
-
-  maneuvers.split("-").forEach((maneuver) => {
-    const type = maneuver.charAt(0);
-    const repeat = parseInt(maneuver.charAt(1));
-    const difficulty = maneuver.charAt(2);
-
-    timeline.to(airplaneRef.current, {
-      motionPath: {
-        path: maneuversMap[type].path,
-        align: "self",
-        autoRotate: true,
-      },
-      rotation: maneuversMap[type].rotation,
-      repeat: repeat - 1,
-      duration: difficultyMap[difficulty],
-    });
-  });
-
-  return timeline;
-};
 function describeSvgArc(
   x: number,
   y: number,

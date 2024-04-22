@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import Banner from "../components/Banner";
 import PlaneList from "../components/PlaneList";
 import PlaneService from "../services/PlaneService";
-import Container from "../components/Container";
+import PageContent from "../components/PageContent";
 
 function HomePage() {
   const [planes, setPlanes] = React.useState([]);
@@ -23,9 +23,9 @@ function HomePage() {
   return (
     <div>
       <Banner />
-      <Container>
+      <PageContent>
         <PlaneList planes={planes} />
-      </Container>
+      </PageContent>
     </div>
   );
 }
