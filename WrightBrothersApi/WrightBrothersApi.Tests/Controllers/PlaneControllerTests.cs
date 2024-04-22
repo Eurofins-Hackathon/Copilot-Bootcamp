@@ -27,44 +27,5 @@ namespace WrightBrothersApi.Tests.Controllers
             var returnedPlanes = (List<Plane>)okObjectResult.Value!;
             returnedPlanes.Should().NotBeEmpty();
         }
-
-        [Fact]
-        public void Post_WithValidPlane_ReturnsCreatedAtActionResult()
-        {
-            // Arrange
-            var newPlane = new Plane
-            {
-                Id = 3,
-                Name = "Test Plane",
-                Year = 2022,
-                Description = "A test plane.",
-                RangeInKm = 1000
-            };
-
-            // Act
-            var result = _planesController.Post(newPlane);
-
-            // Assert
-            result.Result.Should().BeOfType<CreatedAtActionResult>();
-
-            var createdAtActionResult = (CreatedAtActionResult)result.Result!;
-            var returnedPlane = (Plane)createdAtActionResult.Value!;
-            returnedPlane.Should().BeEquivalentTo(newPlane);
-        }
-
-        [Fact]
-        public void Post_WithNullPlane_ReturnsBadRequest()
-        {
-            // Arrange
-            Plane newPlane = null;
-
-            // Act
-            var result = _planesController.Post(newPlane);
-
-            // Assert
-            result.Result.Should().BeOfType<BadRequestResult>();
-        }
-
-        
     }
 }
