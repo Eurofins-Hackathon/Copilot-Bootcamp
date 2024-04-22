@@ -4,7 +4,7 @@ const API_URL = "http://localhost:1903/flights";
 
 class FlightService {
   calculateAerodynamics(planeId: string) {
-    return axios.get(`${API_URL}/${planeId}/calculateAerodynamics/`);
+    return axios.post(`${API_URL}/${planeId}/calculateAerodynamics/`);
   }
 
   getFlightById(flightId: string) {

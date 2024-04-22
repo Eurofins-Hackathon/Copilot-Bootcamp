@@ -1,10 +1,10 @@
-import Container from "../components/Container";
+import PageContent from "../components/PageContent";
 
 const NewPlane = () => {
   return (
-    <Container>
+    <PageContent>
       <h1>New Plane</h1>
-    </Container>
+    </PageContent>
   );
 };
 

@@ -7,11 +7,12 @@ import {
   animateCrashed,
   animateInitialFlight,
   animateLanded,
-  animateManeuvers,
 } from "../animationHelpers";
 import PlaneService from "../services/PlaneService";
 import FlightService from "../services/FlightService";
-import Container from "../components/Container";
+import PageContent from "../components/PageContent";
+import FlightDetails from "../components/FlightDetails";
+import Card from "../components/Card";
 
 gsap.registerPlugin(MotionPathPlugin);
 
@@ -86,65 +87,60 @@ const PlaneDetail = () => {
     return <div>Plane not found</div>;
   }
 
-  const startFlightSimulation = () => {
-    animateManeuvers(planeRef, flightDetails.aerobaticSequenceSignature);
-  };
 
   return (
-    <div>
-      <Container>
-        <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-amber-900">
-            {planeDetails.name}
-          </h2>
-          <p className="text-xl text-amber-800">{planeDetails.year}</p>
-          <p className="mt-4 mb-12 text-amber-700">
-            {planeDetails.description}
-          </p>
-          {landed && (
-            <button
-              className="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
-              onClick={startFlightSimulation}
-            >
-              Start Flight Maneuver Simulation
-            </button>
-          )}
-          <div className="relative w-72 h-72">
-            <div ref={planeRef}>
-              <Airplane />
-            </div>
+    <PageContent>
+      <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-3xl font-bold text-amber-900">
+          {planeDetails.name}
+        </h2>
+        <p className="text-xl text-amber-800">{planeDetails.year}</p>
+        <p className="mt-4 mb-8 text-amber-700">
+          {planeDetails.description}
+        </p>
+        <h3 className="text-2xl text-amber-900 mb-4">
+          Flight Details
+        </h3>
+        <div className="relative w-2/3">
+          <Card>
+            <div className="min-h-96">
+              <div className="absolute w-36 h-28" ref={planeRef}>
+                <Airplane />
+              </div>
 
-            <div
-              ref={explosionRef}
-              className="absolute top-0 left-0 right-0 bottom-0"
-              style={{
-                borderRadius: "50%",
-                backgroundColor: "transparent",
-                zIndex: 2,
-              }}
-            ></div>
-            {debrisRefs.current.map((ref, index) => (
               <div
-                key={index}
-                ref={ref as React.RefObject<HTMLDivElement>}
-                className="absolute"
+                ref={explosionRef}
+                className="absolute top-0 left-0 right-0 bottom-0"
                 style={{
-                  top: "50%",
-                  left: "50%",
-                  backgroundColor: "#333",
-                  transform: "translate(-50%, -50%)",
-                  zIndex: 1,
-                  opacity: 0, // Initialize with opacity 0
+                  borderRadius: "50%",
+                  backgroundColor: "transparent",
+                  zIndex: 2,
                 }}
               ></div>
-            ))}
-          </div>
+              {debrisRefs.current.map((ref, index) => (
+                <div
+                  key={index}
+                  ref={ref as React.RefObject<HTMLDivElement>}
+                  className="absolute"
+                  style={{
+                    top: "50%",
+                    left: "50%",
+                    backgroundColor: "#333",
+                    transform: "translate(-50%, -50%)",
+                    zIndex: 1,
+                    opacity: 0, // Initialize with opacity 0
+                  }}
+                ></div>
+              ))}
+              {landed && (
+                <FlightDetails flight={flightDetails} />
+              )}
+            </div>
+          </Card>
         </div>
-      </Container>
-    </div>
+      </div>
+    </PageContent>
   );
 };
-
-// Generate a random number within a range
 
 export default PlaneDetail;
