@@ -187,111 +187,6 @@ public class PlanesControllerTests
 
 - With the `PlaneController.cs` opened, once again and repeat the steps for the `Post` method.
 
-- Open Copilot Chat, click **+** to clear prompt history.
-
-- Then Copy/Paste the following
-
-    ```md
-    Generate all unit test scenarios for #selection
-    ```
-
-- For `#selection`, select all the code for the `Post(Plane plane)` method.
-
-   ```csharp
-        [HttpPost]
-        public ActionResult<Plane> Post(Plane plane)
-        {
-            if(plane == null)
-            {
-                return BadRequest();
-            }
-
-            Planes.Add(plane);
-
-            return CreatedAtAction(nameof(GetById), new { id = plane.Id }, plane);
-        }
-   ```
-
-- Press `Enter`, GitHub Copilot will automatically suggest the `[Test]` attributes.
-
-- The problem is that the generated test methods do not match with the style of the existing test methods in the `PlanesControllerTests.cs` file.  Copilot might suggest you use '[TestClass]' and '[TestMethod]' attributes, which are not used in xUnit.
-
--  Let's fix this. Open Copilot Chat and Copy/Paste the following and place your cursor after `tests should match `:
-
-    ```md
-    Generate all unit test scenarios for #selection and the tests should match <---- Place your cursor here
-    ```
-
-- Delete `<---- Place your cursor here`, and type `#file` in the chat window and press Enter.
-
-- A pop-up will appear where you can search for files.
-
->[!Note]
-> With `#file` you can easily add a file to the Copilot Context.
-
-- Select the file `PlanesControllerTests.cs` and press Enter. 
-
->[!Important]
-> `#file` will not work with copy/pasting `#file:PlaneControllerTests.cs`. You need to select it from the pop-up window.
-
-- Copilot will then give a suggestion to generate all unit test scenarios for the `Post` method.
-
-    ```csharp
-    [Fact]
-    public void Post_WithValidPlane_ReturnsCreatedAtActionResult()
-    {
-        // Arrange
-        var newPlane = new Plane
-        {
-            Id = 3,
-            Name = "Test Plane",
-            Year = 2022,
-            Description = "A test plane.",
-            RangeInKm = 1000
-        };
-
-        // Act
-        var result = _planesController.Post(newPlane);
-
-        // Assert
-        result.Result.Should().BeOfType<CreatedAtActionResult>();
-
-        var createdAtActionResult = (CreatedAtActionResult)result.Result!;
-        var returnedPlane = (Plane)createdAtActionResult.Value!;
-        returnedPlane.Should().BeEquivalentTo(newPlane);
-    }
-
-    [Fact]
-    public void Post_WithNullPlane_ReturnsBadRequest()
-    {
-        // Arrange
-        Plane newPlane = null;
-
-        // Act
-        var result = _planesController.Post(newPlane);
-
-        // Assert
-        result.Result.Should().BeOfType<BadRequestResult>();
-    }
-    ```
-
-- Open `PlanesControllerTests.cs` and Place your cursor at the end of the file, after the `}` of the `GetById_WithInvalidId_ReturnsNotFound()` method.
-
-```csharp
-public class PlanesControllerTests
-{
-    [Fact]
-    public void GetById_WithInvalidId_ReturnsNotFound()
-    {
-        // method body
-    }
-
-    <---- Place your cursor here
-}
-```
-
-- In GitHub Copilot Chat, click the ellipses `...` and select `Insert at Cursor` for the suggested unit test methods.
-
 - Let's test the newly added tests by opening the terminal and run the tests with the provided command.
 
     ```sh
@@ -360,23 +255,7 @@ public class PlanesControllerTests
 >[!Note]
 > Setting up data like this is not recommended in a production environment. It's better to use a database or a mock database for this purpose. For the sake of this lab, we are using this approach.
 
-- Open `PlanesControllerTests.cs` file
-
-- Place your cursor at the end of the file, after the last unit test `}`. This should be the `GetById_ReturnsNotFound()` method created in previous step.
-
-    ```csharp
-    public class PlanesControllerTests
-    {
-        [Fact]
-        public void GetById_ReturnsNotFound()
-        {
-            // method body
-        }
-
-        <---- Place your cursor here
-    }
-    ```
-
+- Open GitHub Copilot Chat, click **+** to clear prompt history.Í
 
 - Copy/Paste the following in the Copilot Chat window:
 
@@ -426,9 +305,21 @@ public class PlanesControllerTests
     }
     ```
 
-- For the first `#file`, select the `Plane.cs` file.
+- Next Re-enter `#file.Plane.cs`
 
-- For second `#file`, select the `PlanesControllerTests.cs` file.
+> [!Note]
+> When copy/posting the `#file:Plane.cs`, it will not work. You will need to select the file again from the pop-up window, like in the previous step.
+
+- First remove `#file:Plane.cs` and keep your cursor at the same position.
+
+- Next, type `#file` again in the chat window and press Enter, like in the previous step and select the `Plane.cs` file.
+
+<img src="../../Images/Screenshot-SearchByName-Tests.png" width="600">
+
+- Now, repeat this for `#file:PlanesControllerTests.cs` on the bottom of the prompt.
+
+>[!Note]
+> This example shows how `#file` is used in a way how a human might approach a problem. You can include context at any time to help Copilot understand the problem or solution better.
 
 - Open Copilot Chat and Copy/Paste the prompt.
 
@@ -466,6 +357,21 @@ public class PlanesControllerTests
     }
     ```
 
+- Open `PlanesControllerTests.cs` file
+
+- Place your cursor at the end of the file, after the last unit test `}`.
+
+    ```csharp
+    public class PlanesControllerTests
+    {
+        /* Rest of the methods */
+
+        <---- Place your cursor here
+    }
+    ```
+
+- In GitHub Copilot Chat, click the ellipses `...` and select `Insert at Cursor` for the suggested unit test methods.
+
 - Let's run the unit tests in the terminal:
 
     ```sh
@@ -484,7 +390,6 @@ public class PlanesControllerTests
 
 - Let's now use the generated tests as a guide to fix the case sensitivity issue.
 
-- Open `PlanesController.cs` file.
 
 - Open GitHub Copilot Chat, click **+** to clear prompt history.
 
@@ -493,6 +398,8 @@ public class PlanesControllerTests
     ```
     #selection fix method based on tests in #file:PlaneControllerTests.cs
     ```
+
+- Open `PlanesController.cs` file.
 
 - For `#selection`, select the `SearchByName` method in the `PlanesController.cs` file.
 
@@ -512,6 +419,8 @@ public class PlanesControllerTests
     ```
 
 - For `#file`, select the `PlanesControllerTests.cs` file.
+
+<img src="../../Images/Screenshot-SearchByName-Fix.png" width="600">
 
 - Submit the prompt by pressing Enter.
 
