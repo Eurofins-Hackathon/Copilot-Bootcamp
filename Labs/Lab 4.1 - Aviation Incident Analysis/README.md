@@ -1,4 +1,4 @@
-# Lab 4.1 - Aviation Incident Analysis: Troubleshooting with GitHub Copilot
+# Lab 4.1 - Aviation Incident Analysis ✈ Troubleshooting with GitHub Copilot
 The module simulates airplane crash scenarios using GitHub Copilot to identify and fix the root causes, enhancing understanding of Copilot's limitations and emphasizing human oversight in coding challenges.
 
 A reference to the [Aviation Incident Analysis](https://en.wikipedia.org/wiki/Mayday_(Canadian_TV_series)) TV show, where the investigators try to find the root cause of an airplane crash. In this module, we will simulate a few airplane crashes and use GitHub Copilot to troubleshoot and fix the issues.
