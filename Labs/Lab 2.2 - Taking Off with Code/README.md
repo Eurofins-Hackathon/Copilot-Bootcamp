@@ -185,25 +185,6 @@ public class PlanesControllerTests
     Passed!  - Failed:  0, Passed:  5, Skipped:  0, Total:  5
     ```
 
-- With the `PlaneController.cs` opened, once again and repeat the steps for the `Post` method.
-
-- Let's test the newly added tests by opening the terminal and run the tests with the provided command.
-
-    ```sh
-    dotnet test
-    ```
-
->[!Note]
-> Some tests might still fail. Copilot does not always provide the correct suggestions. It's important to understand the suggestions and do some extra work to make sure the tests are correct. Copilot can help you with that as well.
-
-- The tests should run and pass.
-
-    ```sh
-    Starting test execution, please wait...
-    A total of 1 test files matched the specified pattern.
-    Passed!  - Failed:  0, Passed:  7, Skipped:  0, Total:  5
-    ```
-
 ## Optional
 
 ### Step 3: Taking Off - Developing Robust Tests
