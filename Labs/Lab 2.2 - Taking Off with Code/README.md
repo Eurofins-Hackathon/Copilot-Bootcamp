@@ -13,7 +13,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
     - Step 1 - Taxying to the Runway - Run existing unit tests
     - Step 2 - Pre-takeoff Pilot Checks - Completing Unit Tests
-    - Step 3 - Takeoff - Adding Unit Tests for Case Sensitivity
+    - Step 3 - Takeoff - Adding Unit Tests for Case Sensitivity (Optional)
     - Step 4 - Ascending to the Clouds: Creating the AirfieldController from thin air (Optional)
 
 ### Step 1: Taxying to the Runway - Run existing unit tests
@@ -191,52 +191,41 @@ public class PlanesControllerTests
 
 - Open the `PlanesController.cs` file.
 
-- Make sure to add the `SearchByName` method to the `PlanesController.cs` file if you haven't already in the previous lab.
+- Make sure to add the `SearchByName` method to the `PlanesController.cs` file if you haven't already in the previous lab.  If not, use the following code snippet to add the method at bottom of the file.
 
     ```csharp
-    public class PlanesController : ControllerBase
+    [HttpGet("search")]
+    public ActionResult<List<Plane>> SearchByName([FromQuery] string name)
     {
-        /* Rest of the methods */
-        
-        [HttpGet("search")]
-        public ActionResult<List<Plane>> SearchByName([FromQuery] string name)
+
+        var planes = Planes.FindAll(p => p.Name.Contains(name));
+
+        if (planes == null)
         {
-
-            var planes = Planes.FindAll(p => p.Name.Contains(name));
-
-            if (planes == null)
-            {
-                return NotFound();
-            }
-            
-            return Ok(planes);
+            return NotFound();
         }
+        
+        return Ok(planes);
     }
     ```
 
-- Also, add the following method to setup data for the tests we are about to create.
+- Also, add the following method at the bottom of file to setup data for the tests we are about to create.
 
     ```csharp
-    public class PlanesController : ControllerBase
+    [HttpPost("setup")]
+    public ActionResult SetupPlanesData(List<Plane> planes)
     {
+        Planes.Clear();
+        Planes.AddRange(planes);
 
-        /* Rest of the methods */
-
-        [HttpPost("setup")]
-        public ActionResult SetupPlanesData(List<Plane> planes)
-        {
-            Planes.Clear();
-            Planes.AddRange(planes);
-
-            return Ok();
-        }
+        return Ok();
     }
     ```
 
 >[!Note]
 > Setting up data like this is not recommended in a production environment. It's better to use a database or a mock database for this purpose. For the sake of this lab, we are using this approach.
 
-- Open GitHub Copilot Chat, click **+** to clear prompt history.Í
+- Open GitHub Copilot Chat, click **+** to clear prompt history.
 
 - Copy/Paste the following in the Copilot Chat window:
 
@@ -301,8 +290,6 @@ public class PlanesControllerTests
 
 >[!Note]
 > This example shows how `#file` is used in a way how a human might approach a problem. You can include context at any time to help Copilot understand the problem or solution better.
-
-- Open Copilot Chat and Copy/Paste the prompt.
 
 - Submit the prompt by pressing Enter.
 
@@ -371,7 +358,6 @@ public class PlanesControllerTests
 
 - Let's now use the generated tests as a guide to fix the case sensitivity issue.
 
-
 - Open GitHub Copilot Chat, click **+** to clear prompt history.
 
 - Copy/Paste the following in the chat window:
@@ -399,7 +385,10 @@ public class PlanesControllerTests
     }
     ```
 
-- For `#file`, select the `PlanesControllerTests.cs` file.
+- First remove `#file:PlaneControllerTests.cs` and keep your cursor at the same position.
+
+- Next, type `#file` again in the chat window and press Enter and select the `PlaneControllerTests.cs` file.
+
 
 <img src="../../Images/Screenshot-SearchByName-Fix.png" width="600">
 

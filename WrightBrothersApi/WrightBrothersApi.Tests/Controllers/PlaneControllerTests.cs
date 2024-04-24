@@ -27,5 +27,6 @@ namespace WrightBrothersApi.Tests.Controllers
             var returnedPlanes = (List<Plane>)okObjectResult.Value!;
             returnedPlanes.Should().NotBeEmpty();
         }
+
     }
 }
