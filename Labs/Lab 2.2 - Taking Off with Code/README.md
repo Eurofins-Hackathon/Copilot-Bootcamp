@@ -76,7 +76,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 - Open Copilot Chat and Copy/Paste the following
 
     ```md
-    Generate all unit test scenarios for the controller action #selection
+    Generate all unit test scenarios for #selection
     Use the existing list of planes for test data
     ```
 
