@@ -76,7 +76,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 - Open Copilot Chat and Copy/Paste the following
 
     ```md
-    Generate all unit test scenarios for #selection
+    Generate all unit test scenarios for the controller action #selection
     Use the existing list of planes for test data
     ```
 
@@ -93,7 +93,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 -  Let's fix this. Open Copilot Chat and Copy/Paste the following and place your cursor after `tests should match `:
 
     ```md
-    Generate all unit test scenarios for #selection and the tests should match <---- Place your cursor here
+    Generate all unit test scenarios for #selection and the tests should match the style in <---- Place your cursor here
     Use the existing list of planes for test data
     ```
 

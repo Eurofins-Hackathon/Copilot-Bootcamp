@@ -175,7 +175,7 @@ public class PlanesController : ControllerBase
     ```csharp
     // * Suggested by Copilot
     [HttpPut("{id}")]
-    public IActionResult Put(int id, Plane plane)
+    public ActionResult Put(int id, Plane plane)
     {
         if (id != plane.Id)
         {
@@ -211,7 +211,7 @@ public class PlanesController : ControllerBase
     ```csharp
     // * Suggested by Copilot
     [HttpDelete("{id}")]
-    public IActionResult Delete(int id)
+    public ActionResult Delete(int id)
     {
         var plane = Planes.Find(p => p.Id == id);
 

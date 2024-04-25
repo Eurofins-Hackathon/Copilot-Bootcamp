@@ -114,7 +114,7 @@ The REST API client extension is very useful to quickly execute HTTP requests in
     ```sh
     Starting test execution, please wait...
     A total of 1 test files matched the specified pattern.
-    Passed!  - Failed:  0, Passed:  3, Skipped:  0, Total:  3
+    Passed!  - Failed:  0, Passed:  1, Skipped:  0, Total:  1
     ```
 
 ### Congratulations you've made it to the end! &#9992;
