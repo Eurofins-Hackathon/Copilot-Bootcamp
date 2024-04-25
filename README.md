@@ -32,7 +32,7 @@ Participants will learn about AI basics, ethical considerations in AI use, and t
 ### Lab 1.0 - Boarding Pass ✈ History of AI
 This session offers a comprehensive overview of AI's evolution, key terms, and core technologies, explains Azure OpenAI's role in powering Copilot, uses analogies to link foundational AI concepts to Copilot, stresses ethical AI use, and provides strategies for effectively integrating AI tools in coding.
 
-- [Welcome Aboard: Boarding Pass ✈ History of AI](./Labs/Lab%201.2%20-%20Welcome%20Aboard)
+- [Welcome Aboard: Boarding Pass ✈ History of AI](./Labs/Lab%201.0%20-%20Welcome%20Aboard)
 
 ### Lab 1.1 - Pre-Flight Checklist ✈ Introduction to Copilot and Setup
 This session introduces Copilot as an AI-powered code assistant, covers supported languages and IDEs, provides a setup and navigation tutorial, includes an interactive session for integrating Copilot with IDEs, explores its real-time code suggestion and language-specific capabilities, compares it to human pair programming, and concludes with its benefits in software development.
