@@ -66,13 +66,10 @@ public class Plane
 
 - Right click and choose for the option `Copilot` -> `Generate Docs`.
 
-> [!Note]
-> Screenshot is made at 1st of April 2024. The UI of GitHub Copilot Chat can be different at the time you are doing the lab. (Please notify us if the UI is different.)
-
 - Do not accept the suggestion, click `Discard`.
 
 > [!Note]
-> GitHub Copilot used the `/docs` agent to generate the documentation for a single method or the entire file in a matter of seconds. This is a great way to document your codebase quickly and efficiently. However, we will use the in editor Chat to document the code in a more controlled way.
+> GitHub Copilot used the `/doc` agent to generate the documentation for a single method or the entire file in a matter of seconds. This is a great way to document your codebase quickly and efficiently. However, we will use the in editor Chat to document the code in a more controlled way.
 
 - Let's try this using a different approach, select all content of the method `GetById` in the `PlanesController.cs` file.
 
@@ -556,7 +553,7 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
     Let's think step by step.
     ```
 
-> [!Note]
+> [!Important]
 > Sometimes the Copilot doens't complete the output of the prompt. Make sure to try the prompt again if you are not successful the first time.
 
 - Note the `Chain-of-Thought reasoning` heading. In this case we add reasoning about how a difficulty is calculated based on the sequence of maneuvers.

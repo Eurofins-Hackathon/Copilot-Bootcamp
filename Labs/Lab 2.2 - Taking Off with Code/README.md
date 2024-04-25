@@ -77,6 +77,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
     ```md
     Generate all unit test scenarios for #selection
+    Use the existing list of planes for test data
     ```
 
 <img src="../../Images/Screenshot-GetById-Selection.png" width="400">
@@ -93,6 +94,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
     ```md
     Generate all unit test scenarios for #selection and the tests should match <---- Place your cursor here
+    Use the existing list of planes for test data
     ```
 
 - Delete `<---- Place your cursor here`, and type `#file` in the chat window and press Enter.
@@ -225,6 +227,8 @@ public class PlanesControllerTests
 >[!Note]
 > Setting up data like this is not recommended in a production environment. It's better to use a database or a mock database for this purpose. For the sake of this lab, we are using this approach.
 
+- In the following exercise you will combine everything you learned in the previous steps, but then for the `SearchByName` method. The following prompt is a more detailed description of a problem and the expected solution. You will prompt GitHub Copilot to make it use a `#selection`. besides that you will use `#file` two times in the prompt to make sure Copilot knows the context of the problem.
+
 - Open GitHub Copilot Chat, click **+** to clear prompt history.
 
 - Copy/Paste the following in the Copilot Chat window:
@@ -239,13 +243,11 @@ public class PlanesControllerTests
 
     ## Technical Details
     - Create 5 Planes about the Wright Brothers based on #file:Plane.cs for the scenarios and POST to SetupPlanesData
+    - When Test Data contains 3 different "Wright Flyer" planes then assert count is also 3
     - Use Theory attribute
     - Assert the amount of planes returned
     - Use FluentAssertions
 
-    ## Thoughts
-    - When Test Data contains 3 different "Wright Flyer" planes then assert count is also 3
-    
     Give me only the test method as a result to apply in #file:PlanesControllerTests.cs
     ```
 
@@ -286,11 +288,10 @@ public class PlanesControllerTests
 
 - Next, type `#file` again in the chat window and press Enter, like in the previous step and select the `Plane.cs` file.
 
-
-- Now, repeat this for `#file:PlanesControllerTests.cs` on the bottom of the prompt.
+- Now, do the same for `#file:PlanesControllerTests.cs` on the bottom of the prompt.
 
 >[!Note]
-> This example shows how `#file` is used in a way how a human might approach a problem. You can include context at any time to help Copilot understand the problem or solution better.
+> This example shows how `#file` is used in a way how a human might approach a problem. You can include context at any position in the prompt to help Copilot understand the problem or solution better.
 
 - Submit the prompt by pressing Enter.
 
