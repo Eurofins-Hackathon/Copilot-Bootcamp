@@ -49,31 +49,53 @@ what does the PlanesController do?
 @workspace what does the PlanesController do?
 ```
 
-There are two other Agents `@terminal` and `@vscode`. They are used to help navigate the terminal and VS Code settings respectively.
+> [!NOTE]  
+> What the `@workspace` agent does, is look at the opened Workspace in VS Code (usually a folder or a project), and use the file tree information to analyze each file briefly and see if it would be intesting context to send into Copilot. This analysis happens clientside and only the files that match (for example the file name indicates a match, or a piece of the file content looks like a match), then those files/parts are send in as extra context. This can be seen in the "Used x references" in the Chat interface that can be openened and reviewed for the file references.
+
+> [!IMPORTANT]  
+> When asking follow-up questions, the @agent needs to be provided again. For example, if you ask `@workspace` a question and then ask another question, you need to type `@workspace` again.
+
+- There are two other Agents `@terminal` and `@vscode`. They are used to help navigate the terminal and VS Code settings respectively.
 
 - Try `@terminal` agent by typing the following in the chat window:
 
+    ```md
+    @terminal how to run the application
+    ```
+
+- GitHub Copilot will tell that it needs more information:
+
+    ```md
+    I'm sorry, but I need more information about your application. Could you please specify the programming language or the command usually used to run your application?
+    ```
+
+> [!Note]
+> `@terminal` agent is used to help navigate the terminal and does not have the context of the codebase. It is used to answer generic questions about how to do things in the terminal.
+
+- Try `@terminal` again by typing the following in the chat window:
+
+```md
+@terminal how to run a dotnet application
 ```
-@terminal how to run the application?
+
+- This is a generic question about running a application in the terminal. Copilot will give a suggestion to run the application in the terminal.
+
+```md
+To run a .NET application, you can use the `dotnet run` command in the terminal. This command will build and run the application in the terminal.
 ```
 
 - It will give a suggestion to run the application in the terminal.
 
-- Try `@vscode` agent by typing the following in the chat window:
+- Next, try `@vscode` agent by typing the following in the chat window:
 
 ```
-how to install extensions?
+@vscode how to install extensions?
 ```
 
 - It will provide a corresponding setting or an action button to install extensions.
 
-Limitations:
-> [!IMPORTANT]  
-> Currently the `@workspace` command doesn't always give the correct answer. It also makes things up. This is a known issue and will be improved in the future. However, it does give a good idea of what is possible.
-> When asking follow-up questions, the @agent needs to be provided again. For example, if you ask `@workspace` a question and then ask another question, you need to type `@workspace` again.
-
-> [!IMPORTANT]  
-> What the `@workspace` agent does, is look at the opened Workspace in VS Code (usually a folder or a project), and use the file tree information to analyze each file briefly and see if it would be intesting context to send into Copilot. This analysis happens clientside and only the files that match (for example the file name indicates a match, or a piece of the file content looks like a match), then those files/parts are send in as extra context. This can be seen in the "Used x references" in the Chat interface that can be openened and reviewed for the file references.
+>[!Important]
+> The `@vscode` agent does not work in GitHub Codespaces. You will receive a `Bad Request` error message.
 
 ### Step 2: Airplane Docking - Add new Flight Model
 
