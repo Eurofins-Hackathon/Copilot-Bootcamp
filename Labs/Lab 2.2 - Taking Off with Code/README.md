@@ -79,11 +79,11 @@ This lab exercise guides participants through coding exercises using GitHub Copi
     Generate all unit test scenarios for #selection
     ```
 
+<img src="../../Images/Screenshot-GetById-Selection.png" width="400">
+
 - For `#selection`, open the `PlaneController.cs` file.
 
 - Select all the code for the `GetById` method.
-
-<img src="../../Images/Screenshot-GetById-Selection.png" width="400">
 
 - Press `Enter`, GitHub Copilot will automatically suggest the `[Test]` attributes.
 
@@ -97,14 +97,14 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - Delete `<---- Place your cursor here`, and type `#file` in the chat window and press Enter.
 
+<img src="../../Images/Screenshot-GetById-File.png" width="600">
+
 - A pop-up will appear where you can search for files.
 
 >[!Note]
 > With `#file` you can easily add a file to the Copilot Context.
 
 - Select the file `PlanesControllerTests.cs` and press Enter. 
-
-<img src="../../Images/Screenshot-GetById-File.png" width="600">
 
 >[!Important]
 > `#file` will not work with copy/pasting `#file:PlaneControllerTests.cs`. You need to select it from the pop-up window.
@@ -249,6 +249,8 @@ public class PlanesControllerTests
     Give me only the test method as a result to apply in #file:PlanesControllerTests.cs
     ```
 
+<img src="../../Images/Screenshot-SearchByName-Tests.png" width="600">
+
 - For `#selection`, select the following two methods in the `PlanesController.cs` class.
 
     ```csharp
@@ -275,7 +277,7 @@ public class PlanesControllerTests
     }
     ```
 
-- Next Re-enter `#file.Plane.cs`
+- Next Re-enter `#file:Plane.cs`
 
 > [!Note]
 > When copy/posting the `#file:Plane.cs`, it will not work. You will need to select the file again from the pop-up window, like in the previous step.
@@ -284,7 +286,6 @@ public class PlanesControllerTests
 
 - Next, type `#file` again in the chat window and press Enter, like in the previous step and select the `Plane.cs` file.
 
-<img src="../../Images/Screenshot-SearchByName-Tests.png" width="600">
 
 - Now, repeat this for `#file:PlanesControllerTests.cs` on the bottom of the prompt.
 

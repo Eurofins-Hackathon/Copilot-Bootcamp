@@ -84,9 +84,6 @@ This lab exercise demonstrates integrating GitHub Copilot into .NET application 
 
 <img src="../../Images/Screenshot-Http-Healthcheck.png" width="600">
 
-> [!Note]
-> Screenshot is made at 8th of February 2024. The UI of GitHub Copilot Chat can be different at the time you are doing the lab. (Please notify us if the UI is different.)
-
 - Click the `Send Request` button for the `GET` below:
 
     ```json

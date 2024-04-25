@@ -51,9 +51,6 @@ public class Plane
 
 <img src="../../Images/Screenshot-Planes-List.png" width="800">
 
-> [!Note]
-> Screenshot is made at 8th of February 2024. The UI of GitHub Copilot Chat can be different at the time you are doing the lab. (Please notify us if the UI is different.)
-
 - Accept the suggestion by selecting `Accept` or pressing `Enter`.
 
 >[!Note]
@@ -195,9 +192,6 @@ public class FlightsController : ControllerBase
     ```
 
 <img src="../../Images/Screenshot-UpdateFlightStatus-Refactor.png" width="800">
-
-> [!Note]
-> Screenshot is made at 8th of February 2024. The UI of GitHub Copilot Chat can be different at the time you are doing the lab. (Please notify us if the UI is different.)
 
 > [!Note]
 > GitHub Copilot Chat understands `the selected code`. It will use the selected code in your editor to generate the refactoring suggestions.
@@ -377,9 +371,6 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
 <img src="../../Images/Screenshot-Flight-FlightLogSignature.png" width="800">
 
 > [!Note]
-> Screenshot is made at 8th of February 2024. The UI of GitHub Copilot Chat can be different at the time you are doing the lab. (Please notify us if the UI is different.)
-
-> [!Note]
 > GitHub Copilot has many quick actions that can be used to speed up the development process. In this case, it created a new file based on the code suggestions. 
 
 - Copilot will add the code to a new empty file, but must be saved.
@@ -460,9 +451,6 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
 - Open `WrightBrothersApi/Examples/Flights.http` file in the Visual Studio code IDE and POST a new flight.
 
 <img src="../../Images/Screenshot-Http-Flights.png" width="800">
-
-> [!Note]
-> Screenshot is made at 8th of February 2024. The UI of GitHub Copilot Chat can be different at the time you are doing the lab. (Please notify us if the UI is different.)
 
 - Click the `Send Request` button for the `POST` below:
 
@@ -730,10 +718,9 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
     }
     ```
 
-- Now, run the app and test the new functionality.
+- Now, run the app again and test the new functionality.
 
     ```bash
-    cd WrightBrothersApi
     dotnet run
     ```
 
@@ -743,9 +730,6 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
 - Open `WrightBrothersApi/Examples/Flights.http` file in the Visual Studio code IDE and POST a new flight.
 
 <img src="../../Images/Screenshot-Http-Flights.png" width="800">
-
-> [!Note]
-> Screenshot is made at 8th of February 2024. The UI of GitHub Copilot Chat  can be different at the time you are doing the lab. (Please notify us if the UI is different.)
 
 - Click the `Send Request` button for the `POST` below:
 

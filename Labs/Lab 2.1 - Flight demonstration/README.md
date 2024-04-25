@@ -32,7 +32,7 @@ explain the WrightBrothers API
 ```
 2) with @workspace:
 ```
-@workspace summarize this project
+@workspace explain the WrightBrothers API
 ```
 
 - Copilot will give a brief overview of the API. This is a good way to get a quick overview of the codebase.
@@ -92,8 +92,6 @@ Limitations:
 
 - Open the `Controllers/PlanesController.cs` file.
 
-- Let's add a new plane to the list by placing your cursor at the end of the `Planes` list, after the `}` of `Plane` with `Id = 3`, type a `,` then press `Enter`.
-
 ```csharp
 public class PlanesController : ControllerBase
 {
@@ -113,6 +111,8 @@ public class PlanesController : ControllerBase
     };
 }
 ```
+
+- Let's add a new plane to the list by placing your cursor at the end of the `Planes` list, after the `}` of `Plane` with `Id = 3`, type a `,` then press `Enter`.
 
 - GitHub Copilot will automatically suggest a `new Plane`.
 

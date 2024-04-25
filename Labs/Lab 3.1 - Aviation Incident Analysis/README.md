@@ -132,7 +132,7 @@ content-type: application/json
 
 - GitHub Copilot Chat will open and explain the code in a human readable format, instead of the technical exception message.
 
-<!-- <img src="../../Images/Screenshot-LackOfFuel.png" width="800"> -->
+<img src="../../Images/Screenshot-LackOfFuel.png" width="800">
 
 ## Optional
 
