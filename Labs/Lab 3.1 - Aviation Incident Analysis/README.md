@@ -58,6 +58,7 @@ public class FlightsController : ControllerBase
 ```
 
 - Open a terminal and navigate to the `WrightBrothersApi` folder
+
 - Run the application
 
     ```sh
@@ -112,27 +113,32 @@ content-type: application/json
 
 - Now, let's debug it with GitHub Copilot
 
-- Navigate to the `Terminal` and `select` all the content of the throw exception.
+- Navigate to the `Terminal` and `Select` all the content of the throw exception.
 
 - Open GitHub Copilot Chat, click **+** to clear prompt history, then ask the following question:
 
-    #### Option 1 
-    If you want to provide more context to GitHub Copilot, you can use the `@terminal` agent. This directive will provide GitHub Copilot access to what the user has selected in the terminal. It can not be used in combination with `@workspace`. So it does not have additional context to generate the suggestion. To add more context to the suggestion you can use `#file:FlightsController.cs`.
+- Run the following command in the GitHub Copilot Chat:
 
+  ```
+  @terminal #terminalSelection #file:FlightsController.cs how to fix this
+  ```
+
+<img src="../../Images/Screenshot-LackOfFuel-Chat.png" width="800">
+  
+> [!Note]
+> `@workspace` does not work in combination with `@terminal`. So it does not have additional context to generate the suggestion. To add more context to the suggestion you can use `#file:FlightsController.cs`.
+
+- Copilot will suggest a possible fix on how to handle the exception.
+
+- You can go ahead and replace the `takeFlight` method with the new one and run the application again.
+
+- Run the application
+
+    ```sh
+    dotnet run
     ```
-    @terminal #terminalSelection #file:FlightsController.cs how to fix this
-    ```
 
-    #### Option 2
-    If you want to provide more context to GitHub Copilot, you can use the `@workspace` agent. This directive will provide GitHub Copilot access to the entire workspace. It can not be used in combination with `@terminal`. So it does not have additional context to generate the suggestion. To add more context to the suggestion you can use `#file:FlightsController.cs`.
-
-    ```
-    @workspace #terminalSelection #file:FlightsController.cs how to fix this
-    ```
-
-- GitHub Copilot Chat will open and explain the code in a human readable format, instead of the technical exception message.
-
-<img src="../../Images/Screenshot-LackOfFuel.png" width="800">
+- Now go to `Examples/Flights.http` file, click `Send Request` to execute the `takeFlight` request again.
 
 ## Optional
 
@@ -162,6 +168,7 @@ public class FlightsController : ControllerBase
 ```
 
 - Open a terminal and navigate to the `WrightBrothersApi` folder
+
 - Run the application
 
     ```sh
@@ -195,21 +202,11 @@ public class FlightsController : ControllerBase
 
 - Open GitHub Copilot Chat, click **+** to clear prompt, then ask the following question:
 
-    #### Option 1 
-    If you want to provide more context to GitHub Copilot, you can use the `@terminal` agent. This directive will provide GitHub Copilot access to what the user has selected in the terminal. It can not be used in combination with `@workspace`. So it does not have additional context to generate the suggestion. To add more context to the suggestion you can use `#file:FlightsController.cs`.
+- Run the following command in the GitHub Copilot Chat:
 
     ```
     @terminal #terminalSelection #file:FlightsController.cs how to fix this
     ```
-
-    #### Option 2
-    If you want to provide more context to GitHub Copilot, you can use the `@workspace` agent. This directive will provide GitHub Copilot access to the entire workspace. It can not be used in combination with `@terminal`. So it does not have additional context to generate the suggestion. To add more context to the suggestion you can use `#file:FlightsController.cs`.
-
-    ```
-    @workspace #terminalSelection #file:FlightsController.cs how to fix this
-    ```
-
-- Note that `@terminal` `#terminalSelection` will provide GitHub Copilot access to what the user has selected in the terminal. It can not be used in combination with `@workspace`. So it does not have additional context to generate the suggestion. To add more context to the suggestion you can use `#file:FlightsController.cs`.
 
 <img src="../../Images/Screenshot-lightningStrikeError-fix.png" width="800">
 
@@ -237,6 +234,24 @@ public class FlightsController : ControllerBase
 
 > [!Note]
 > This is an extreme example. In the real world you will probably not see this often. This example does show how GitHub Copilot can help with debugging and troubleshooting and this technique is applicable to other scenarios as well.
+
+- You can go ahead and replace the `lightningStrike` method with the new one and run the application again.
+
+- Run the application
+
+    ```sh
+    dotnet run
+    ```
+
+- Now go to `Examples/Flights.http` file, click `Send Request` to execute the `lightningStrike` request again.
+
+    ```
+    Send Request
+    POST http://localhost:1903/flights/1/lightningStrike HTTP/1.1
+    content-type: application/json
+    ```
+
+- The application will now recover from the lightning strike.
 
 ## Optional
 
@@ -293,6 +308,7 @@ public class FlightsController : ControllerBase
 ```
 
 - Open a terminal and navigate to the `WrightBrothersApi` folder
+
 - Run the application
 
     ```sh
@@ -332,7 +348,10 @@ public class FlightsController : ControllerBase
 
 - Open the Copilot Chat .
 
-- Select all the code for the 3 following methods:
+- 
+
+
+- Open `FlightsController.cs` and select all the code for the 3 following methods:
     - `calculateAerodynamics` method.
     - `CalculatePrimes` method.
     - `IsPrime` method.
