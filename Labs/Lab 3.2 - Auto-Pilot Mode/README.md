@@ -189,11 +189,14 @@ automating CI/CD pipelines for deployment to Azure.
     ```
 
 - In GitHub Copilot Chat, click the ellipses `...` and select `Insert into New File` for the suggested pipeline.
-- Copilot will add the code to a new empty file, but must be saved.
-- Save the file by clicking pressing `Ctrl + S` or `Cmd + S`.
-- Change directory to the `.github/workflows` folder`.
-- Enter the file name `Build.yml` and click `Save`.
 
+- Copilot will add the code to a new empty file, but must be saved.
+
+- Save the file by clicking pressing `Ctrl + S` or `Cmd + S`.
+
+- Change directory to the `.github/workflows` folder`.
+
+- Enter the file name `Build.yml` and click `Save`.
 
 > [!Note]
 > With the @workspace agent, GitHub Copilot understands that the current workspace is a .NET application with a Test project in it. It also understands that the application is hosted in a folder called `WrightBrothersApi` and the test project is in a folder called `WrightBrothersApi.Tests`. This is a great example of how GitHub Copilot can understand the context of the current workspace and provide suggestions based on that context.
@@ -207,6 +210,7 @@ Deploying your application to Azure facilitates scalable, secure, and efficient 
 - Pre-requisite is a valid `*.yml` build pipeline from previous step.
 
 - Select all the content of the `Build.yml`.
+
 - In GitHub Copilot Chat, click **+** to clear prompt history, then type the following command.
 
     ```
@@ -237,23 +241,77 @@ Deploying your application to Azure facilitates scalable, secure, and efficient 
             package: './WrightBrothersApi'
     ```
 
-- In GitHub Copilot Chat, click the ellipses `...` and select `Insert into New File` for the suggested pipeline.
-- Copilot will add the code to a new empty file, but must be saved.
+- Open the `Build.yml` file in the `.github/workflows` folder.
+
+- Place your cursor at the end of the file.
+
+```yaml
+# Rest of the pipeline
+
+<-- Place your cursor here
+```
+
+- In GitHub Copilot Chat, click the ellipses `...` and select `Insert at Cursor` for the suggested unit test methods.
+
 - Save the file by clicking pressing `Ctrl + S` or `Cmd + S`.
-- Change directory to the `.github/workflows` folder`.
-- Enter the file name `Deploy.yml` and click `Save`.
+
+- Now the pipeline first builds the application, then deploys it to Azure.
+
+- Next, we are going to create the infrastructure as code files using Bicep that we need for a Web App in Azure.
 
 - Start a new chat with GitHub Copilot Chat and type the following command.
 
     ```
-    @workspace create the infrastructure as Code files using Bicep that I need for a Web App in Azure
+    @workspace create the infrastructure as Code files using Bicep that I need for a Web App in Azure. Only give me the Bicep files
     ```
 
 - In GitHub Copilot Chat, click the ellipses `...` and select `Insert into New File` for the suggested pipeline.
+
 - Copilot will add the code to a new empty file, but must be saved.
+
 - Save the file by clicking pressing `Ctrl + S` or `Cmd + S`.
-- Change directory to the `WrightBrothersAPI` root folder`.
-- Enter the file name `Main.bicep` and click `Save`.
+
+- Create a new folder called `Infrastructure` in the root of the project.
+
+- Enter the file name `Main.bicep` and click `Save` in the `Infrastructure` folder.
+
+> [!Important]
+> GitHub Copilot Chat will suggest creating a Bicep files for the infrastructure. If Copilot suggested multiple files, save all of them accordingly.
+
+- Now let's add a step to the pipeline to deploy the infrastructure as code.
+
+- Open GitHub Copilot Chat, , click **+** to clear prompt history.
+
+- Make sure to have the `.github/workflows/Build.yaml` file open in VS Code.
+
+- Open Copilot Chat and type the following command.
+
+    ```
+    Add a step to the pipeline to deploy the infrastructure as code #file:Main.bicep
+    ```
+
+- GitHub Copilot will suggest steps to deploy the infrastructure as code using the Bicep file.
+
+```yaml
+# Rest of the pipeline
+
+- name: Login to Azure
+  uses: azure/login@v1
+  with:
+    creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+- name: Deploy Infrastructure
+  uses: azure/cli@v1
+  with:
+    inlineScript: |
+      az deployment group create --resource-group myResourceGroup --template-file ./main.bicep
+
+```
+
+- In this lab we have created a build pipeline that builds the application, runs the tests, and deploys the application to Azure. We have also created the infrastructure as code files using Bicep and added a step to the pipeline to deploy the infrastructure as code.
+
+> [!Note]
+> The results of Copilot might not be perfect, but it can be a great starting point for you to build upon. You are the pilot, you need to make sure the pipeline is correct.
 
 ## Optional
 
@@ -267,6 +325,7 @@ Using Infrastructure as Code (IaC) to manage your cloud resources, specifically 
 This prompt will create a decription for creating a DevOps pipeline with three stages: Build, Infrastructure as Code (IaC), and Quality Assurance (QA). It outlines the requirements for each stage, including describing the application, specifying the Azure resources needed, creating Bicep templates, and detailing the steps for deploying the application to Azure for QA purposes.
 
 - Open GitHub Copilot Chat, , click **+** to clear prompt history.
+
 - Ask the following advanced `Chain of Thought` prompt engineered question:
 
     ```
@@ -303,6 +362,7 @@ This prompt will create a plan to set up a CI/CD pipeline for a .NET 7 Web API a
 This approach will help in generating a more structured and practical output that includes the scaffolding for each stage of the project.
 
 - Open GitHub Copilot Chat, click **+** to clear prompt history.
+
 - Ask the following advanced `Chain of Thought` prompt engineered question:
 
     ```
