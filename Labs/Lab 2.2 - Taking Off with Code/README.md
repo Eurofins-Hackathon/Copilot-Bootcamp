@@ -1,13 +1,17 @@
-# Lab 2.2 - Taking Off with Code: Clearing the Runway 
+# Lab 2.2 - Taking Off with Code: Clearing the Runway
+
 This lab exercise guides participants through coding exercises using GitHub Copilot to understand its suggestions and capabilities. It involves running and adding unit tests, with an emphasis on pair programming. The lab is structured in steps, starting with executing existing unit tests, followed by enhancing test coverage, and addressing specific functionalities like case sensitivity and trimming in search methods.
 
 ## Prerequisites
+
 - The prerequisites steps must be completed, see [Labs Prerequisites](./Labs/Lab%201.1%20-%20Pre-Flight%20Checklist)
 
 ## Estimated time to complete
+
 - 20 minutes, times may vary with optional labs.
 
 ## Objectives
+
 - Simple coding exercises using GitHub Copilot, focusing on understanding its suggestions and capabilities.
 - Pair programming: One 'pilot' codes, the other guides using Copilot's suggestions.
 
@@ -20,7 +24,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - Open GitHub Copilot Chat, click **+** to clear prompt history.
 
-- Type the following in the chat window: 
+- Type the following in the chat window:
 
     ```sh
     @workspace how do I run the unit tests?
@@ -35,18 +39,20 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 - Let's run the unit tests in the terminal to make sure everything is working as expected.
 
 - From the Copilot Chat window, select one of the two options:
-    1. Click the ellipses, `...`, select `Insert into Terminal`.
 
-    1. If there isn't a terminal open, click the `Open in Terminal` button.
+  1. Click the ellipses, `...`, select `Insert into Terminal`.
 
-    1. Click copy button, then, open a new Terminal window by pressing **Ctrl+`** (Control and backtick), paste into Terminal window.
+  1. If there isn't a terminal open, click the `Open in Terminal` button.
+
+  1. Click copy button, then, open a new Terminal window by pressing **Ctrl+`** (Control and backtick), paste into Terminal window.
 
 - Open the terminal and run the tests with the provided command.
 
     ```sh
     dotnet test
     ```
->[!Note]
+
+> [!NOTE]
 > If you get an error resembling this: `MSBUILD : error MSB1009: Project file does not exist.`, then you are most likely running this command from the wrong folder. Change into the correct directory with `cd ./WrightBrothersApi` or with `cd ..` to go one folder level upwards.
 
 - The tests should run and pass.
@@ -61,7 +67,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - Open GitHub Copilot Chat, click **+** to clear prompt history.
 
-- Type the following in the chat window: 
+- Type the following in the chat window:
 
     ```sh
     @workspace where do I add additional unit tests?
@@ -90,7 +96,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - The problem is that the generated test methods do not match with the style of the existing test methods in the `PlanesControllerTests.cs` file.
 
--  Let's fix this. Open Copilot Chat and Copy/Paste the following and place your cursor after `tests should match `:
+- Let's fix this. Open Copilot Chat and Copy/Paste the following and place your cursor after `tests should match `:
 
     ```md
     Generate all unit test scenarios for #selection and the tests should match the style in <---- Place your cursor here
@@ -103,12 +109,12 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - A pop-up will appear where you can search for files.
 
->[!Note]
+> [!NOTE]
 > With `#file` you can easily add a file to the Copilot Context.
 
-- Select the file `PlanesControllerTests.cs` and press Enter. 
+- Select the file `PlanesControllerTests.cs` and press Enter.
 
->[!Important]
+> [!IMPORTANT]
 > `#file` will not work with copy/pasting `#file:PlaneControllerTests.cs`. You need to select it from the pop-up window.
 
 - Now submit the prompt by pressing Enter.
@@ -144,13 +150,12 @@ This lab exercise guides participants through coding exercises using GitHub Copi
         // Assert
         result.Result.Should().BeOfType<NotFoundResult>();
     }
-
     ```
 
->[!Note]
+> [!NOTE]
 > Copilot generated two unit tests for the `GetById` method. The first test checks if the method returns a plane when the id exists. The second test checks if the method returns a `NotFound` result when the id does not exist. It also matches how the unit tests are structured in the `PlanesControllerTests.cs` file.
 
->[!Note]
+> [!NOTE]
 > Creating unit tests works best when the scope is limited to a single method. You can then use `#file` to make sure it creates unit tests that is in line with the existing unit tests.
 
 - Now Open `PlanesControllerTests.cs` and Place your cursor at the end of the file, after the `}` of the `GetAll_ReturnsListOfPlanes()` method.
@@ -176,7 +181,7 @@ public class PlanesControllerTests
     dotnet test
     ```
 
->[!Note]
+> [!NOTE]
 > Some tests might still fail. Copilot does not always provide the correct suggestions. It's important to understand the suggestions and do some extra work to make sure the tests are correct. Copilot can help you with that as well.
 
 - The tests should run and pass.
@@ -193,20 +198,19 @@ public class PlanesControllerTests
 
 - Open the `PlanesController.cs` file.
 
-- Make sure to add the `SearchByName` method to the `PlanesController.cs` file if you haven't already in the previous lab.  If not, use the following code snippet to add the method at bottom of the file.
+- Make sure to add the `SearchByName` method to the `PlanesController.cs` file if you haven't already in the previous lab. If not, use the following code snippet to add the method at bottom of the file.
 
     ```csharp
     [HttpGet("search")]
     public ActionResult<List<Plane>> SearchByName([FromQuery] string name)
     {
-
         var planes = Planes.FindAll(p => p.Name.Contains(name));
 
         if (planes == null)
         {
             return NotFound();
         }
-        
+
         return Ok(planes);
     }
     ```
@@ -224,7 +228,7 @@ public class PlanesControllerTests
     }
     ```
 
->[!Note]
+> [!NOTE]
 > Setting up data like this is not recommended in a production environment. It's better to use a database or a mock database for this purpose. For the sake of this lab, we are using this approach.
 
 - In the following exercise you will combine everything you learned in the previous steps, but then for the `SearchByName` method. The following prompt is a more detailed description of a problem and the expected solution. You will prompt GitHub Copilot to make it use a `#selection`. besides that you will use `#file` two times in the prompt to make sure Copilot knows the context of the problem.
@@ -242,6 +246,7 @@ public class PlanesControllerTests
     - Search with extra spaces for " Wright flyer "
 
     ## Technical Details
+
     - Create 5 Planes about the Wright Brothers based on #file:Plane.cs for the scenarios and POST to SetupPlanesData
     - When Test Data contains 3 different "Wright Flyer" planes then assert count is also 3
     - Use Theory attribute
@@ -265,7 +270,7 @@ public class PlanesControllerTests
         {
             return NotFound();
         }
-        
+
         return Ok(planes);
     }
 
@@ -281,7 +286,7 @@ public class PlanesControllerTests
 
 - Next Re-enter `#file:Plane.cs`
 
-> [!Note]
+> [!NOTE]
 > When copy/posting the `#file:Plane.cs`, it will not work. You will need to select the file again from the pop-up window, like in the previous step.
 
 - First remove `#file:Plane.cs` and keep your cursor at the same position.
@@ -290,8 +295,10 @@ public class PlanesControllerTests
 
 - Now, do the same for `#file:PlanesControllerTests.cs` on the bottom of the prompt.
 
->[!Note]
-> This example shows how `#file` is used in a way how a human might approach a problem. You can include context at any position in the prompt to help Copilot understand the problem or solution better.
+> [!NOTE]
+> This example shows how `#file` is used in a way how a human might approach a problem. You can include context at any time to help Copilot understand the problem or solution better.
+
+- Open Copilot Chat and Copy/Paste the prompt.
 
 - Submit the prompt by pressing Enter.
 
@@ -382,7 +389,7 @@ public class PlanesControllerTests
         {
             return NotFound();
         }
-        
+
         return Ok(planes);
     }
     ```
@@ -390,7 +397,6 @@ public class PlanesControllerTests
 - First remove `#file:PlaneControllerTests.cs` and keep your cursor at the same position.
 
 - Next, type `#file` again in the chat window and press Enter and select the `PlaneControllerTests.cs` file.
-
 
 <img src="../../Images/Screenshot-SearchByName-Fix.png" width="600">
 
@@ -402,7 +408,7 @@ public class PlanesControllerTests
     public class PlanesController : ControllerBase
     {
         /* Rest of the methods */
-        
+
         [HttpGet("search")]
         public ActionResult<List<Plane>> SearchByName([FromQuery] string name)
         {
@@ -413,13 +419,13 @@ public class PlanesControllerTests
             {
                 return NotFound();
             }
-            
+
             return Ok(planes);
         }
     }
     ```
 
->[!Note]
+> [!NOTE]
 > `StringComparer.OrdinalIgnoreCase` is used to make the comparison case insensitive and `Trim()` is used to remove leading and trailing spaces.
 
 - Apply the changes to the `PlanesController.cs` file.
@@ -440,7 +446,7 @@ public class PlanesControllerTests
     Passed!  - Failed:     0, Passed:     5, , Failed:     0
     ```
 
->[!Note]
+> [!NOTE]
 > If all tests pass, you have successfully completed this step. If not, you will need to debug the tests. GitHub Copilot got you started, but you, the Pilot, must take charge to diagnose and fix the discrepancies.
 
 ## Optional
@@ -541,7 +547,7 @@ public class PlanesControllerTests
 
 <img src="../../Images/Screenshot-AirfieldController.Controller.png" width="800">
 
-> [!Note]
+> [!NOTE]
 > Copilot is not only context aware, knows you need a list of items and knows the `Air Fields` used by the Wright Brothers, the `Huffman Prairie`, which is the first one used by the Wright Brothers.
 
 - Now that you have created the `AirfieldController` with CRUD operations, it's time to ensure that it's working as expected. In this step, you will write unit tests for the `AirfieldController`.
@@ -552,9 +558,9 @@ public class PlanesControllerTests
 
 - Ask the following question:
 
-    ```
-    @workspace create all the unit tests for this AirfieldController
-    ```
+  ```
+  @workspace create all the unit tests for this AirfieldController
+  ```
 
 - Copilot will give a suggestion to create an `AirfieldControllerTests` class based on the `AirfieldController` class with all the needed unit tests.
 
@@ -674,9 +680,9 @@ public class PlanesControllerTests
     Passed!  - Failed:  0, Passed:  8, Skipped:  0, Total:  8
     ```
 
->[!Note]
-> Sometimes not all tests succeed.  Make sure `dotnet test` is run in the root of the project `WrightBrothersApi`.  If the tests fail, you will need to debug the tests and correct the issues.  Although tools like Copilot can assist greatly, you, the Pilot, must take charge to diagnose and fix the discrepancies.
-  
+> [!NOTE]
+> Sometimes not all tests succeed. Make sure `dotnet test` is run in the root of the project `WrightBrothersApi`. If the tests fail, you will need to debug the tests and correct the issues. Although tools like Copilot can assist greatly, you, the Pilot, must take charge to diagnose and fix the discrepancies.
+
 ### Congratulations you've made it to the end! &#9992; &#9992; &#9992;
 
 #### And with that, you've now concluded this module. We hope you enjoyed it! &#x1F60A;

@@ -1,13 +1,17 @@
 # Lab 2.1 - Flight demonstration: Basic Coding with Copilot Assistance
+
 This module demonstrates how to utilize GitHub Copilot's Chat Extension and its agents (@workspace, @terminal, @vscode) to understand and navigate a codebase, implement REST API methods, generate code from comments, and maintain coding style consistency, culminating in a comprehensive, productivity-enhancing coding experience.
 
 ## Prerequisites
+
 - The prerequisites steps must be completed, see [Labs Prerequisites](./Labs/Lab%201.1%20-%20Pre-Flight%20Checklist)
 
 ## Estimated time to complete
+
 - 20 minutes, times may vary with optional labs.
 
 ## Objectives
+
 - Introduction to GitHub Copilot Chat and its agents for code completion and style adaptation.
 
     - Step 1 - Plane Inspection - Explain the Codebase with GitHub Copilot Chat
@@ -23,14 +27,18 @@ This module demonstrates how to utilize GitHub Copilot's Chat Extension and its 
 
 - Open GitHub Copilot Chat
 
-- Type the following in the chat window: 
+- Type the following in the chat window:
 
 Compare the difference between asking the two following things:
+
 1) without @workspace:
+
 ```
 explain the WrightBrothers API
 ```
+
 2) with @workspace:
+
 ```
 @workspace explain the WrightBrothers API
 ```
@@ -40,11 +48,15 @@ explain the WrightBrothers API
 GitHub Copilot has the concept of Agents. `@workspace` is an agent that is specialized in answering questions about the currently open workspace.
 
 Compare the difference between asking the two following things:
+
 1) without workspace:
+
 ```
 what does the PlanesController do?
 ```
+
 2) with workspace:
+
 ```
 @workspace what does the PlanesController do?
 ```
@@ -69,7 +81,7 @@ what does the PlanesController do?
     I'm sorry, but I need more information about your application. Could you please specify the programming language or the command usually used to run your application?
     ```
 
-> [!Note]
+> [!NOTE]
 > `@terminal` agent is used to help navigate the terminal and does not have the context of the codebase. It is used to answer generic questions about how to do things in the terminal.
 
 - Try `@terminal` again by typing the following in the chat window:
@@ -94,7 +106,7 @@ To run a .NET application, you can use the `dotnet run` command in the terminal.
 
 - It will provide a corresponding setting or an action button to install extensions.
 
->[!Important]
+> [!IMPORTANT]
 > The `@vscode` agent does not work in GitHub Codespaces. You will receive a `Bad Request` error message.
 
 ### Step 2: Airplane Docking - Add new Flight Model
@@ -104,10 +116,10 @@ To run a .NET application, you can use the `dotnet run` command in the terminal.
 - Ask Copilot to explain the `PlanesController.cs` class
 
     ```
-    @workspace What does the PlanesController do? 
+    @workspace What does the PlanesController do?
     ```
 
-> [!Note]
+> [!NOTE]
 > GitHub Copilot will give a brief overview of the `PlanesController.cs` class.
 
 - Now that we know what the PlanesController does, open `WrightBrothersApi` folder located in the `WrightBrothersApi` folder.
@@ -138,7 +150,7 @@ public class PlanesController : ControllerBase
 
 - GitHub Copilot will automatically suggest a `new Plane`.
 
->[!Note]
+> [!NOTE]
 > GitHub Copilot will suggest a new `Plane` object with the next available `Id`. Also notice how Copilot understood that the next Plane is the Wright Model B and it automatically suggested the `Name`, `Year`, `Description`, and `RangeInKm` properties. The underlying LLM also learned from Wikipedia and other sources to understand the history of the Wright Brothers.
 
 - Accept the suggestion by pressing `Tab` to accept this suggestion.
@@ -199,8 +211,8 @@ public class PlanesController : ControllerBase
     // * Suggested by Copilot
     ```
 
->[!Note]
->The reason GitHub Copilot suggests the `[HttpPut]` method is because it understand that the `PlanesController.cs` class is a REST API controller and that the `[HttpPut]` is currently missing. The `[HttpPut]` method is the next logical step in the REST API for updating a resource.
+> [!NOTE]
+> The reason GitHub Copilot suggests the `[HttpPut]` method is because it understand that the `PlanesController.cs` class is a REST API controller and that the `[HttpPut]` is currently missing. The `[HttpPut]` method is the next logical step in the REST API for updating a resource.
 
 - Let's do it again, place your cursor at the end of the file, after the `}` of the `Put` method, press `Enter` twice.
 
@@ -275,9 +287,8 @@ public class PlanesController : ControllerBase
     // * Suggested by Copilot
     ```
 
->[!Note]
->The reason GitHub Copilot suggests the `[HttpGet("search")]` method is because it understands that the comment is a description of the method. It also understands that the method is a GET method and that it has a parameter `name` of type `string`.
-
+> [!NOTE]
+> The reason GitHub Copilot suggests the `[HttpGet("search")]` method is because it understands that the comment is a description of the method. It also understands that the method is a GET method and that it has a parameter `name` of type `string`.
 
 ## Optional Labs
 
@@ -289,7 +300,7 @@ Let's present a code completion task for adding a logger with specific syntax (e
 
 - Open the `Controllers/PlanesController.cs` file.
 
-- Go to the `GetAll` method and inspect the method. Notice the syntax of `✈✈✈ NO PARAMS ✈✈✈`. This is a custom syntax that is used in this codebase to log parameters of a method. 
+- Go to the `GetAll` method and inspect the method. Notice the syntax of `✈✈✈ NO PARAMS ✈✈✈`. This is a custom syntax that is used in this codebase to log parameters of a method.
 
     ```csharp
     public class PlanesController : ControllerBase
@@ -340,7 +351,7 @@ Let's present a code completion task for adding a logger with specific syntax (e
     }
     ```
 
->[!Note] 
+> [!NOTE]
 > Copilot learns from the codebase and adapts to the coding style. In this case, it replicates the custom syntax used for logging. This example demonstrates it for logging in particular, but the same applies to other coding styles used in the codebase.
 
 - Now repeat the same steps for the other methods in the `PlanesController.cs` class.
@@ -353,6 +364,7 @@ Let's present a code completion task for adding a logger with specific syntax (e
 
         // Method body
     }
+    ```
 
 - If you have finished step 3, you can then add the logging for the Put and Delete methods as well.
 

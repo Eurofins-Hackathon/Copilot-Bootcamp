@@ -40,7 +40,7 @@ Let's see how Copilot can help me with improving this or continuing on this code
 - Type a `,` press `enter`.
 - Press the `tab` key to accept the suggestion.
 
->[!NOTE]
+> [!NOTE]
 > Copilot is not only context aware, knows you have a list of items and you probably need the next plane built by the Wright Brothers, the Wright Model A, which is the fourth powered aircraft by the Wright Brothers.
 >
 > Notice the `year` property even has the correct date.
@@ -262,13 +262,13 @@ Let's say I want to log the plane that I'm getting.
 ```csharp
     _logger.LogInformation($"POST /planes with Id = --- [{plane.Id}] ---");
 ```
->[!Note]
+> [!NOTE]
 > Copilot knows you have a logger and you want to log the plane. It also knows that there is a style in your code base to put the dashes around the variable.  Copilot is updating the context of my code base, which is really powerful.
 >
 > This is a simple example for logging, but it can be any coding style you have implemented in your code base. That's Copilot might take into account to have a consistent code base.
 
 ## Summary
->[!Note]
+> [!NOTE]
 > In Exercise 1, you performed the following tasks:
 > 
 > 1. **Adding a New Plane to the List**: You used GitHub Copilot to add a new plane, the Wright Flyer III, to the existing list of planes in the `PlanesController.cs` file.
@@ -343,7 +343,7 @@ So what if I want to get the airplanes, but I want to only get the airplanes for
 By typing this, copilot understands like I want to have a get method for a year and because it has the method, it can already suggest the code that you need for that.
 
 
->[!Note]
+> [!NOTE]
 > Remember, Copilot takes into account the log information because you are using it in all methods. It also knows that there is a style in your code base to put the dashes around the variable.
 
 ### Step 2 - Check if plane already exists by name
@@ -382,7 +382,7 @@ If I want to add a new airplane but it's already there in the list, I want to re
     ```
 
 ## Summary
->[!Note]
+> [!NOTE]
 > In Exercise 2, you performed the following tasks:
 >
 > - **Adding a Comment for a New Method**: You opened the `PlanesController.cs` file and added a comment `// Get method for year` before the `[HttpGet("{id}")]` method. This comment was used to indicate the purpose of a new method you were about to create.
@@ -411,7 +411,7 @@ Copilot Chat is a feature that acts as an assistant, offering responses and guid
     // Hello! How can I assist you with your software development needs today?
 ```
 
->[!Note]
+> [!NOTE]
 > You can interact with Copilot Chat, an assistant feature, by clicking its icon and initiating a conversation. This is especially useful for someone new to a codebase, as it can provide assistance and answer questions about the codebase's content and structure.
 
 ### Step 1 - Explain the entire file
@@ -435,7 +435,7 @@ Another powerful thing to use Copilot for is this.  As a developer I want to tes
 
 > Copilot will create a unit test for you.  This is a very powerful feature because it can help you to create unit tests for your code.
 
->[!Note]
+> [!NOTE]
 > Copilot suggests writing a controller with a post method and includes **assertions** using **XUnit**, but maybe you use Fluent Assertions. Although Copilot isn't fully context-aware (it doesn't automatically use Fluent Assertions despite them being installed), the tool, will become more context-aware over time. You can specify the use of Fluent Assertions, prompting Copilot to rework the unit tests accordingly, demonstrating its adaptability and potential for a wide range of coding tasks.
 
 - In the `Copilot Chat window`, type `I am using Fluent Fluid Assertions` and press Enter.
@@ -454,7 +454,7 @@ Another option to use Copilot for creating tests is use the `Inline` feature.
 - Click `Accept` to accept the unit test.
 - Click on the `Controller` folder and open the `PlanesControllerTest.cs` file to view the unit test.
 
->[!Note]
+> [!NOTE]
 > Copilot suggests writing a controller with a post method and includes **assertions** using **XUnit**.
 
 ### Step 5 - Generate test data with Copilot
@@ -544,7 +544,7 @@ There are multiple ways of getting Copilot to do things for you.
 Now you're ready to check in your code and issue a pull request.
 
 ### Summary
->[!Note]
+> [!NOTE]
 > > In Exercise 3, you performed the following tasks:
 > 
 > - **Exploring Copilot Chat Window**: You learned how to interact with the Copilot Chat window, which acts as an assistant providing responses and guidance within a codebase.

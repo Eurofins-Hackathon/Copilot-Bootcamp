@@ -1,19 +1,23 @@
-# Lab 2.3 - Navigating the Code Clouds: Advanced Features of GitHub Copilot 
+# Lab 2.3 - Navigating the Code Clouds: Advanced Features of GitHub Copilot
+
 This lab exercise delves into GitHub Copilot's advanced features, teaching participants to enhance coding efficiency through complex tasks like adding new properties, generating documentation, refactoring code, and parsing strings, supplemented by optional labs on context understanding and regex parsing.
 
 ## Prerequisites
+
 - The prerequisites steps must be completed, see [Labs Prerequisites](./Labs/Lab%201.1%20-%20Pre-Flight%20Checklist)
 
 ## Estimated time to complete
+
 - 30 minutes, times may vary with optional labs.
 
 ## Objectives
+
 - To master GitHub Copilot's advanced features for solving complex coding exercises and optimizing code.
     - Step 1 - The Complete Wright Brothers Fleet
     - Step 2 - Flight Logbook - Logging Your Coding Journey
     - Step 3 - Flying in Formation - Code Refactoring
     - Step 4 - Parsing Flight Show - Prompt Engineering (Optional)
-    - Step 5 - Regex Aerobatics Show - Advanced Prompt Engineering  (Optional)
+    - Step 5 - Regex Aerobatics Show - Advanced Prompt Engineering (Optional)
 
 ### Step 1: - The Complete Wright Brothers Fleet
 
@@ -53,7 +57,7 @@ public class Plane
 
 - Accept the suggestion by selecting `Accept` or pressing `Enter`.
 
->[!Note]
+> [!NOTE]
 > GitHub Copilot can do more than one thing at a time. It added the new property to each plane and next Wright Brothers plane to the list of planes.
 
 ### Step 2: - Flight Logbook - Logging Your Coding Journey
@@ -68,7 +72,7 @@ public class Plane
 
 - Do not accept the suggestion, click `Discard`.
 
-> [!Note]
+> [!NOTE]
 > GitHub Copilot used the `/doc` agent to generate the documentation for a single method or the entire file in a matter of seconds. This is a great way to document your codebase quickly and efficiently. However, we will use the in editor Chat to document the code in a more controlled way.
 
 - Let's try this using a different approach, select all content of the method `GetById` in the `PlanesController.cs` file.
@@ -78,20 +82,23 @@ public class Plane
 - Open GitHub Copilot Chat, click **+** to clear prompt history, then type the following command:
 
 Compare the difference between asking the two following things:
+
 1) Simple:
+
 ```
 Document all my code
 ```
+
 2) More details using dotnet method documentation
+
 ```
 document all my code with details using dotnet method documentation
 ```
 
 - Review the documentation to ensure it's accurate, then click on `Insert at cursor` to replace the `PlanesController.cs` method with the new documentation.
 
-> [!Note]
+> [!NOTE]
 > The difference is that in editor Chat does light documentation vs GitHub Copilot window does a thorough job documenting every important section of code.
-
 
 ### Step 3: - Flying in Formation - Code Refactoring
 
@@ -102,7 +109,6 @@ document all my code with details using dotnet method documentation
 ```csharp
 public class FlightsController : ControllerBase
 {
-
     // Other methods
 
     [HttpPost("{id}/status")]
@@ -175,7 +181,7 @@ public class FlightsController : ControllerBase
 }
 ```
 
-> [!Note]
+> [!NOTE]
 > Note that the `UpdateFlightStatus` method has a high code complexity rating of 13, calculated by the [Cyclomatic Complexity metric](https://en.wikipedia.org/wiki/Cyclomatic_complexity). This is a good candidate for refactoring.
 
 - Select all the content of the `UpdateFlightStatus` method.
@@ -184,16 +190,16 @@ public class FlightsController : ControllerBase
 
 - Ask the following question:
 
-    ```
-    Refactor the selected code to make it more readable and maintainable.
-    ```
+  ```
+  Refactor the selected code to make it more readable and maintainable.
+  ```
 
 <img src="../../Images/Screenshot-UpdateFlightStatus-Refactor.png" width="800">
 
-> [!Note]
+> [!NOTE]
 > GitHub Copilot Chat understands `the selected code`. It will use the selected code in your editor to generate the refactoring suggestions.
 
-- Copilot Chat suggests a code improvement to extract some of the complex code to their own methods to make the code more readible and maintainable:
+- GitHub Copilot Chat suggests a code improvement to extract some of the complex code to their own methods to make the code more readible and maintainable:
 
 ```csharp
 [HttpPost("{id}/status")]
@@ -270,10 +276,10 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
 }
 ```
 
-> [!Note]
-> The output of Copilot chat can vary, but the output should be a refactored method that is more readable and maintainable.
+> [!NOTE]
+> The output of GitHub Copilot Chat can vary, but the output should be a refactored method that is more readable and maintainable.
 
-> [!Note]
+> [!NOTE]
 > Note that GitHub Copilot Chat can make mistakes sometimes. Best practice is to have the method covered with unit tests before refactoring it. This is not a requirement for this lab, but it is a good practice to follow. These unit tests can be generated by GitHub Copilot as well, which is covered in a previous lab.
 
 ## Optional
@@ -294,7 +300,7 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
     }
     ```
 
-> [!Note]
+> [!NOTE]
 > Note that the `FlightLogSignature` is a fictional property that is used to demonstrate the capabilities of GitHub Copilot. It is not a real aviation concept.
 
 - Open GitHub Copilot Chat, click **+** to clear prompt history, then ask the following question:
@@ -303,7 +309,7 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
     Create a c# model for a FlightLogSignature property.
 
     Example: 17121903-DEP-ARR-WB001
-    
+
     17th of December 1903
     Departure from Kitty Hawk, NC
     Arrival at Manteo, NC
@@ -318,13 +324,12 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
 
 - The prompt contains a few-shot prompting example of a `FlightLogSignature` and a few technical requirements.
 
-> [!Note]
+> [!NOTE]
 > Few-Shot prompting is a concept of prompt engineering. In the prompt you provide a demonstration of the solution. In this case we provide examples of the input and also requirements for the output. This is a good way to instruct Copilot to generate specific solutions.
 
 - Take a look at the following link to learn more about few-shot prompting: https://www.promptingguide.ai/techniques/fewshot
 
 - Copilot will suggest a new `FlightLog` record type and a `Parse` method. The `Parse` method splits the string and assigns each part to a corresponding property.
-
 
     ```csharp
     using System.Globalization;
@@ -339,10 +344,11 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
         public static FlightLog Parse(string flightLogSignature)
         {
             var parts = flightLogSignature.Split('-');
-            if (parts.Length != 4){
+            if (parts.Length != 4)
+            {
                 throw new ArgumentException("Invalid flight log signature format.");
             }
-         
+
             var dateString = parts[0];
             var date = DateTime.ParseExact(dateString, "ddMMyyyy", CultureInfo.InvariantCulture);
 
@@ -357,18 +363,18 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
     }
     ```
 
-> [!Note]
+> [!NOTE]
 > A C# record type is a reference type that provides built-in functionality for encapsulating data. It is a reference type that is similar to a class, but it is immutable by default. It is a good choice for a simple data container.
 
-> [!Note]
+> [!NOTE]
 > GitHub Copilot is very good at understanding the context of the code. From the prompt we gave it, it understood that the `FlightLogSignature` is a string in a specific format and that it can be parsed into a `FlightLogSignature` model, to make the code more readable and maintainable.
 
 - In GitHub Copilot Chat, click the ellipses `...` and select `Insert into New File` for the suggested `FlightLog` record as `WrightBrothersApi/Models/FlightLog.cs`.
 
 <img src="../../Images/Screenshot-Flight-FlightLogSignature.png" width="800">
 
-> [!Note]
-> GitHub Copilot has many quick actions that can be used to speed up the development process. In this case, it created a new file based on the code suggestions. 
+> [!NOTE]
+> GitHub Copilot has many quick actions that can be used to speed up the development process. In this case, it created a new file based on the code suggestions.
 
 - Copilot will add the code to a new empty file, but must be saved.
 
@@ -415,7 +421,7 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
 - Press `Tab` to accept the suggestion, then press `Enter` to add the new property.
 
 - If Copilot didn't suggest the code above, then update the code manually as follows:
-   
+
     ```csharp
     public class Flight
     {
@@ -432,7 +438,7 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
     }
     ```
 
-> [!Note]
+> [!NOTE]
 > Copilot used the newly created `FlightLog.cs` file in in its context and suggested the `FlightLog.Parse` method.
 
 - Now, run the app and test the new functionality.
@@ -442,7 +448,7 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
     dotnet run
     ```
 
->[!Note]
+> [!NOTE]
 > If you encounter an error message like `Project file does not exist.` or `Couldn't find a project to run.`, it's likely that you're executing the command from an incorrect directory. To resolve this, navigate to the correct directory using the command `cd ./WrightBrothersApi`. If you need to move one level up in the directory structure, use the command `cd ..`. The corrcect directory is the one that contains the `WrightBrothersApi.csproj` file.
 
 - Open `WrightBrothersApi/Examples/Flights.http` file in the Visual Studio code IDE and POST a new flight.
@@ -480,7 +486,7 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
 
 ### Step 5: - Regex Aerobatics Show - Advanced Prompt Engineering
 
->[!CAUTION]
+> [!CAUTION]
 > Proceed at your own risk. This is an advanced lab exercise. We take Copilot to the edge of its capabilities. Retry the prompt provided later in the lab if you are not successful the first time. No airplanes were harmed in the making of this lab &#x2708; &#x1F60A;
 
 - Open the `Flight.cs` file.
@@ -490,14 +496,12 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
     ```csharp
     public class Flight
     {
-        
         // Other properties
         // ...
 
         // Existing property
         public string AerobaticSequenceSignature { get; set; }
     }
-
     ```
 
 - The `AerobaticSequenceSignature` is a fictional property that is used to demonstrate the capabilities of GitHub Copilot. It is not a real aviation concept.
@@ -506,7 +510,6 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
     - L4B-H2C-R3A-S1D-T2E
     - L1A-H1B-R1C-T1E
     - L2A-H2B-R2C
-
 
 - Let's prompt engineer Copilot to generate a solution for the `AerobaticSequenceSignature` property.
 
@@ -539,7 +542,7 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
     - Hammerhead: 2 * 1.4 = 2.8
     - Tailslide: 2 * 1.8 = 3.6
     - Spin: 1 * 1.6 * 3(spin after a tailslide) = 4.8
-    
+
     Total: 22
 
     ## Technical Requirements
@@ -553,12 +556,12 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
     Let's think step by step.
     ```
 
-> [!Important]
+> [!IMPORTANT]
 > Sometimes the Copilot doens't complete the output of the prompt. Make sure to try the prompt again if you are not successful the first time.
 
 - Note the `Chain-of-Thought reasoning` heading. In this case we add reasoning about how a difficulty is calculated based on the sequence of maneuvers.
 
-> [!Note]
+> [!NOTE]
 > Chain-of-Thought (CoT) prompting enables complex reasoning capabilities through intermediate reasoning steps. You can combine it with Few-Shot prompting to get better results on more complex tasks that require reasoning before responding. Read more about Chain-of-Thought prompting here: https://www.promptingguide.ai/techniques/cot
 
 - Note the `Let's think step by step.` at the end of the prompt engineering. This is the final instruction for Chain-of-Thought to make Copilot go through the process step by step, like a human would do.
@@ -639,7 +642,6 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
     }
     ```
 
-
 - In GitHub Copilot Chat, click the ellipses `...` and select `Insert into New File` for the suggested `AerobaticSequence` class as `WrightBrothersApi/Models/AerobaticSequence.cs`.
 
 <img src="../../Images/Screenshot-Flight-AerobaticsSequenceSignature.png" width="800">
@@ -650,7 +652,7 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
 
 - Navigate to folder `/WrightBrothersApi/Models` and save the file as `AerobaticSequence.cs`.
 
->[!Note]
+> [!NOTE]
 > The required file already exists. If your output does not align with the provided example, feel free to utilize this existing file.
 
 - Now, let's add the new `AerobaticSequence` property to the `Flight` model.
@@ -698,7 +700,7 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
 - Press `Tab` to accept the suggestion, then press `Enter` to add the new property.
 
 - If Copilot didn't suggest the code above, then update the code manually as follows:
-   
+
     ```csharp
     public class Flight
     {
@@ -721,7 +723,7 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
     dotnet run
     ```
 
->[!Note]
+> [!NOTE]
 > If you encounter an error message like `Project file does not exist.` or `Couldn't find a project to run.`, it's likely that you're executing the command from an incorrect directory. To resolve this, navigate to the correct directory using the command `cd ./WrightBrothersApi`. If you need to move one level up in the directory structure, use the command `cd ..`. The corrcect directory is the one that contains the `WrightBrothersApi.csproj` file.
 
 - Open `WrightBrothersApi/Examples/Flights.http` file in the Visual Studio code IDE and POST a new flight.
@@ -733,6 +735,7 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
     ```json
     POST http://localhost:1903/flights HTTP/1.1
     ```
+
 - The Rest Client response will now include the `AerobaticSequence` property as follows:
 
     ```json
