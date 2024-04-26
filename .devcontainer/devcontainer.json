@@ -30,7 +30,8 @@
 				"GitHub.copilot",
 				"GitHub.copilot-chat",
 				"ms-dotnettools.csdevkit",
-				"github.vscode-github-actions"
+				"github.vscode-github-actions",
+				"GitHub.vscode-pull-request-github"
 			]
 		}
 	},
