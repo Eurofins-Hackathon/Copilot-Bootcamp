@@ -3,7 +3,7 @@
 This lab is designed to guide you through building upon a C# API project. The API is structured to manage a list of planes. The lab is divided into several demos, each focusing on a different aspect of the project.
 
 ## Prerequisites
-1. The Resource Configuation Lab is completed, see [Labs Prerequisites](https://github.com/XpiritBV/Copilot-Labs/tree/main#labs-prerequisites)
+1. The Resource Configuation Lab is completed, see [Labs Prerequisites](../Labs/Lab%201.1%20-%20Pre-Flight%20Checklist/README.md)
 
 ## Estimated time to complete
 - 30 min

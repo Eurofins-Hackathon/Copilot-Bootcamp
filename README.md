@@ -21,8 +21,7 @@ Participants will learn about AI basics, ethical considerations in AI use, and t
 - Skill Development. Enhance your programming skills using Copilot.
 
 ## Prerequisites
-
-- The prerequisites steps must be completed, see [Labs Prerequisites](./Labs/Lab%201.1%20-%20Pre-Flight%20Checklist)
+- The prerequisites steps must be completed, see [Labs Prerequisites](./Labs/Lab%201.1%20-%20Pre-Flight%20Checklist/README.md)
 
 # Table of Contents
 
