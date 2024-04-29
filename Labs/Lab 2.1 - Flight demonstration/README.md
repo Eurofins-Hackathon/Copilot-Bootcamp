@@ -338,7 +338,8 @@ public class PlanesController : ControllerBase
             Planes.Add(plane);
 
             return CreatedAtAction(nameof(GetById), new { id = plane.Id }, plane);
-        }    ```
+        }
+   ```
 
 ## Optional Labs
 
