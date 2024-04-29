@@ -12,4 +12,8 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 ## Objectives
 - TBD
 
-### Step 1:
+### Interactive Components
+
+- Form
+- Button
+- Animation
