@@ -16,9 +16,9 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 ### Step 1 - Button
 
-### Step 2 - Animation
+### Step 2 - Form
 
-### Step 3 - Form
+### Step 3 - Animation
 
 ## Optional
 

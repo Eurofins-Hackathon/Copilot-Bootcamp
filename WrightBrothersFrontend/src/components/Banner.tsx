@@ -3,7 +3,17 @@ import { Airplane } from "./Airplane"; // Ensure this has a vintage style
 
 const Banner: React.FC = () => {
   return (
-    <div className="relative vintage-filter bg-amber-600 h-1/2 mx-auto overflow-hidden flex flex-col justify-center py-24">
+    <div className="relative vintage-filter bg-amber-600 h-1/2 overflow-hidden py-24">
+      <div className="z-10 px-4 sm:px-6 lg:px-8 flex flex-col">
+        {/* Increased spacing around text */}
+        <h1 className="text-5xl leading-none font-bold text-amber-100 mb-4 sm:text-6xl sm:leading-tight">
+          Dawn of Aviation
+        </h1>
+        <p className="mt-6 text-xl leading-8 text-amber-200">
+          Journey back to where it all began with the Wright Brothers' historic
+          flights.
+        </p>
+      </div>
       <div className="absolute top-10 left-10">
         <div className="circle shadow-lg pulse-gentle"></div>{" "}
         {/* Sun with pulsing effect */}
@@ -15,20 +25,9 @@ const Banner: React.FC = () => {
       <div className="absolute bottom-32 left-32">
         <PropellerSVG /> {/* Propeller with shadow */}
       </div>
-      <div className="z-10 text-center px-4 sm:px-6 lg:px-8">
-        {" "}
-        {/* Increased spacing around text */}
-        <h1 className="text-5xl leading-none font-bold text-amber-100 mb-4 sm:text-6xl sm:leading-tight">
-          Dawn of Aviation
-        </h1>
-        <p className="mt-6 text-xl leading-8 text-amber-200">
-          Journey back to where it all began with the Wright Brothers' historic
-          flights.
-        </p>
-        <div className="mt-8 float-gentle">
+      <div className="mt-8 ml-12 float-gentle">
           <Airplane />
         </div>
-      </div>
     </div>
   );
 };
