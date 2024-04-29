@@ -1,6 +1,6 @@
-Connecting to the WrightBrothersAPI
+Creating Interactive Components
 
-# Lab 3.2 - Takeoff ✈ Connecting to the WrightBrothersAPI
+# Lab 3.4 - Hardening the frontend ✈ Running and Interacting with the Application
 This lab exercise guides participants through coding exercises using GitHub Copilot to understand its suggestions and capabilities. It involves running and adding unit tests, with an emphasis on pair programming. The lab is structured in steps, starting with executing existing unit tests, followed by enhancing test coverage, and addressing specific functionalities like case sensitivity and trimming in search methods.
 
 ## Prerequisites
@@ -12,25 +12,18 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 ## Objectives
 - TBD
 
-### Step 1: Simple backend integration
 
-- Creating a simple service based on an API signature
-- Use that service to fetch data in an existing component that renders static data
+### Step 1: Add a test to an existing set of unit tests (Vitest)
 
-### Step 2: Style the Planes List component
+### Step 2: /new PlayWright UI Test project
 
-Styling a component until it's perfect is a common task in frontend development.
+- Existing Prompt
 
-- List of items
-- Grid of items
-- Card
+### Step 3: Eslint configuration and fix lint issues
 
-### Step 3: Loading State
-
-- Ask question about managing loading state
-- Copilot will suggest React Query
-- Render a loading state
-- Render an error state
+- Remove Any type
 
 
+## Optional
 
+### Step 4: ...

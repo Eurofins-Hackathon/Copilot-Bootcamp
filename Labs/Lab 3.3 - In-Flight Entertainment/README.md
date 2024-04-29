@@ -14,6 +14,14 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 ### Interactive Components
 
-- Form
-- Button
-- Animation
+### Step 1 - Button
+
+### Step 2 - Animation
+
+### Step 3 - Form
+
+## Optional
+
+### Step 4: Storybook
+
+- Story for all states of the component

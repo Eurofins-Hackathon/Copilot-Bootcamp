@@ -60,7 +60,7 @@ npm run dev
 
 ## Optional // More advanced Lav
 
-### Step 6: Build a component
+### Step 6: Build a simple component
 
 
 
