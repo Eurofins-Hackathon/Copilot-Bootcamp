@@ -1,13 +1,16 @@
 # Lab 2.1 - Flight demonstration: Basic Coding with Copilot Assistance
+
 This module demonstrates how to utilize GitHub Copilot's Chat Extension and its agents (@workspace, @terminal, @vscode) to understand and navigate a codebase, implement REST API methods, generate code from comments, and maintain coding style consistency, culminating in a comprehensive, productivity-enhancing coding experience.
 
 ## Prerequisites
-- The prerequisites steps must be completed, see [Labs Prerequisites](./Labs/Lab%201.1%20-%20Pre-Flight%20Checklist)
+- The prerequisites steps must be completed, see [Labs Prerequisites](../Lab%201.1%20-%20Pre-Flight%20Checklist/README.md)
 
 ## Estimated time to complete
+
 - 20 minutes, times may vary with optional labs.
 
 ## Objectives
+
 - Introduction to GitHub Copilot Chat and its agents for code completion and style adaptation.
 
     - Step 1 - Plane Inspection - Explain the Codebase with GitHub Copilot Chat
@@ -23,16 +26,20 @@ This module demonstrates how to utilize GitHub Copilot's Chat Extension and its 
 
 - Open GitHub Copilot Chat
 
-- Type the following in the chat window: 
+- Type the following in the chat window:
 
 Compare the difference between asking the two following things:
+
 1) without @workspace:
+
 ```
 explain the WrightBrothers API
 ```
+
 2) with @workspace:
+
 ```
-@workspace summarize this project
+@workspace explain the WrightBrothers API
 ```
 
 - Copilot will give a brief overview of the API. This is a good way to get a quick overview of the codebase.
@@ -40,40 +47,66 @@ explain the WrightBrothers API
 GitHub Copilot has the concept of Agents. `@workspace` is an agent that is specialized in answering questions about the currently open workspace.
 
 Compare the difference between asking the two following things:
+
 1) without workspace:
+
 ```
 what does the PlanesController do?
 ```
+
 2) with workspace:
+
 ```
 @workspace what does the PlanesController do?
 ```
 
-There are two other Agents `@terminal` and `@vscode`. They are used to help navigate the terminal and VS Code settings respectively.
+> [!NOTE]  
+> What the `@workspace` agent does, is look at the opened Workspace in VS Code (usually a folder or a project), and use the file tree information to analyze each file briefly and see if it would be intesting context to send into Copilot. This analysis happens clientside and only the files that match (for example the file name indicates a match, or a piece of the file content looks like a match), then those files/parts are send in as extra context. This can be seen in the "Used x references" in the Chat interface that can be openened and reviewed for the file references.
+
+> [!IMPORTANT]  
+> When asking follow-up questions, the @agent needs to be provided again. For example, if you ask `@workspace` a question and then ask another question, you need to type `@workspace` again.
+
+- There are two other Agents `@terminal` and `@vscode`. They are used to help navigate the terminal and VS Code settings respectively.
 
 - Try `@terminal` agent by typing the following in the chat window:
 
+    ```md
+    @terminal how to run the application
+    ```
+
+- GitHub Copilot will tell that it needs more information:
+
+    ```md
+    I'm sorry, but I need more information about your application. Could you please specify the programming language or the command usually used to run your application?
+    ```
+
+> [!NOTE]
+> `@terminal` agent is used to help navigate the terminal and does not have the context of the codebase. It is used to answer generic questions about how to do things in the terminal.
+
+- Try `@terminal` again by typing the following in the chat window:
+
+```md
+@terminal how to run a dotnet application
 ```
-@terminal how to run the application?
+
+- This is a generic question about running a application in the terminal. Copilot will give a suggestion to run the application in the terminal.
+
+```md
+To run a .NET application, you can use the `dotnet run` command in the terminal. This command will build and run the application in the terminal.
 ```
 
 - It will give a suggestion to run the application in the terminal.
 
-- Try `@vscode` agent by typing the following in the chat window:
+- Next, try `@vscode` agent by typing the following in the chat window:
 
 ```
-how to install extensions?
+@vscode how to install extensions?
 ```
 
 - It will provide a corresponding setting or an action button to install extensions.
 
-Limitations:
-> [!IMPORTANT]  
-> Currently the `@workspace` command doesn't always give the correct answer. It also makes things up. This is a known issue and will be improved in the future. However, it does give a good idea of what is possible.
-> When asking follow-up questions, the @agent needs to be provided again. For example, if you ask `@workspace` a question and then ask another question, you need to type `@workspace` again.
-
-> [!IMPORTANT]  
-> What the `@workspace` agent does, is look at the opened Workspace in VS Code (usually a folder or a project), and use the file tree information to analyze each file briefly and see if it would be intesting context to send into Copilot. This analysis happens clientside and only the files that match (for example the file name indicates a match, or a piece of the file content looks like a match), then those files/parts are send in as extra context. This can be seen in the "Used x references" in the Chat interface that can be openened and reviewed for the file references.
+> [!IMPORTANT]
+> The `@vscode` agent does not work in GitHub Codespaces. You will receive a `Bad Request` error message.
 
 ### Step 2: Airplane Docking - Add new Flight Model
 
@@ -82,17 +115,15 @@ Limitations:
 - Ask Copilot to explain the `PlanesController.cs` class
 
     ```
-    @workspace What does the PlanesController do? 
+    @workspace What does the PlanesController do?
     ```
 
-> [!Note]
+> [!NOTE]
 > GitHub Copilot will give a brief overview of the `PlanesController.cs` class.
 
 - Now that we know what the PlanesController does, open `WrightBrothersApi` folder located in the `WrightBrothersApi` folder.
 
 - Open the `Controllers/PlanesController.cs` file.
-
-- Let's add a new plane to the list by placing your cursor at the end of the `Planes` list, after the `}` of `Plane` with `Id = 3`, type a `,` then press `Enter`.
 
 ```csharp
 public class PlanesController : ControllerBase
@@ -114,9 +145,11 @@ public class PlanesController : ControllerBase
 }
 ```
 
+- Let's add a new plane to the list by placing your cursor at the end of the `Planes` list, after the `}` of `Plane` with `Id = 3`, type a `,` then press `Enter`.
+
 - GitHub Copilot will automatically suggest a `new Plane`.
 
->[!Note]
+> [!NOTE]
 > GitHub Copilot will suggest a new `Plane` object with the next available `Id`. Also notice how Copilot understood that the next Plane is the Wright Model B and it automatically suggested the `Name`, `Year`, `Description`, and `RangeInKm` properties. The underlying LLM also learned from Wikipedia and other sources to understand the history of the Wright Brothers.
 
 - Accept the suggestion by pressing `Tab` to accept this suggestion.
@@ -153,7 +186,7 @@ public class PlanesController : ControllerBase
     ```csharp
     // * Suggested by Copilot
     [HttpPut("{id}")]
-    public IActionResult Put(int id, Plane plane)
+    public ActionResult Put(int id, Plane plane)
     {
         if (id != plane.Id)
         {
@@ -177,8 +210,8 @@ public class PlanesController : ControllerBase
     // * Suggested by Copilot
     ```
 
->[!Note]
->The reason GitHub Copilot suggests the `[HttpPut]` method is because it understand that the `PlanesController.cs` class is a REST API controller and that the `[HttpPut]` is currently missing. The `[HttpPut]` method is the next logical step in the REST API for updating a resource.
+> [!NOTE]
+> The reason GitHub Copilot suggests the `[HttpPut]` method is because it understand that the `PlanesController.cs` class is a REST API controller and that the `[HttpPut]` is currently missing. The `[HttpPut]` method is the next logical step in the REST API for updating a resource.
 
 - Let's do it again, place your cursor at the end of the file, after the `}` of the `Put` method, press `Enter` twice.
 
@@ -189,7 +222,7 @@ public class PlanesController : ControllerBase
     ```csharp
     // * Suggested by Copilot
     [HttpDelete("{id}")]
-    public IActionResult Delete(int id)
+    public ActionResult Delete(int id)
     {
         var plane = Planes.Find(p => p.Id == id);
 
@@ -253,9 +286,8 @@ public class PlanesController : ControllerBase
     // * Suggested by Copilot
     ```
 
->[!Note]
->The reason GitHub Copilot suggests the `[HttpGet("search")]` method is because it understands that the comment is a description of the method. It also understands that the method is a GET method and that it has a parameter `name` of type `string`.
-
+> [!NOTE]
+> The reason GitHub Copilot suggests the `[HttpGet("search")]` method is because it understands that the comment is a description of the method. It also understands that the method is a GET method and that it has a parameter `name` of type `string`.
 
 ## Optional Labs
 
@@ -267,7 +299,7 @@ Let's present a code completion task for adding a logger with specific syntax (e
 
 - Open the `Controllers/PlanesController.cs` file.
 
-- Go to the `GetAll` method and inspect the method. Notice the syntax of `✈✈✈ NO PARAMS ✈✈✈`. This is a custom syntax that is used in this codebase to log parameters of a method. 
+- Go to the `GetAll` method and inspect the method. Notice the syntax of `✈✈✈ NO PARAMS ✈✈✈`. This is a custom syntax that is used in this codebase to log parameters of a method.
 
     ```csharp
     public class PlanesController : ControllerBase
@@ -318,7 +350,7 @@ Let's present a code completion task for adding a logger with specific syntax (e
     }
     ```
 
->[!Note] 
+> [!NOTE]
 > Copilot learns from the codebase and adapts to the coding style. In this case, it replicates the custom syntax used for logging. This example demonstrates it for logging in particular, but the same applies to other coding styles used in the codebase.
 
 - Now repeat the same steps for the other methods in the `PlanesController.cs` class.
@@ -331,6 +363,7 @@ Let's present a code completion task for adding a logger with specific syntax (e
 
         // Method body
     }
+    ```
 
 - If you have finished step 3, you can then add the logging for the Put and Delete methods as well.
 
