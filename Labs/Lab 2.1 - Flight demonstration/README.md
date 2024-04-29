@@ -247,6 +247,10 @@ public class PlanesController : ControllerBase
 - Type `// Search planes by name` in the comment block. After the `}` of the `GetAll` method, press `Enter`.
 
     ```csharp
+    // Search planes by name
+    ```
+    
+    ```csharp
     public class PlanesController : ControllerBase
     {
         /* Rest of the methods */
@@ -288,6 +292,53 @@ public class PlanesController : ControllerBase
 
 > [!NOTE]
 > The reason GitHub Copilot suggests the `[HttpGet("search")]` method is because it understands that the comment is a description of the method. It also understands that the method is a GET method and that it has a parameter `name` of type `string`.
+
+- Let's do it again, place your cursor before the `if(plane == null)` line, after the `}` of the `Post(Plane plane)` method, press `Enter` twice.
+
+- Type `// Return BadRequest if plane already exists by name` in the comment block. Before the `if(plane == null)` of this method, press `Enter`.
+
+    ```csharp
+    // Return BadRequest if plane already exists by name
+    ```
+
+    ```csharp
+            [HttpPost]
+        public ActionResult<Plane> Post(Plane plane)
+        {
+            <---- Place your cursor here
+
+            if(plane == null)
+            {
+                return BadRequest();
+            }
+
+            Planes.Add(plane);
+
+            return CreatedAtAction(nameof(GetById), new { id = plane.Id }, plane);
+        }
+    ```
+- Copilot will automatically suggest the `if` statement and return `BadRequest` if the plane already exists by name.
+
+    ```csharp
+        [HttpPost]
+        public ActionResult<Plane> Post(Plane plane)
+        {
+
+            // Return BadRequest if plane already exists by name
+            if (Planes.Any(p => p.Name == plane.Name))
+            {
+                return BadRequest();
+            }
+            
+            if(plane == null)
+            {
+                return BadRequest();
+            }
+
+            Planes.Add(plane);
+
+            return CreatedAtAction(nameof(GetById), new { id = plane.Id }, plane);
+        }    ```
 
 ## Optional Labs
 
