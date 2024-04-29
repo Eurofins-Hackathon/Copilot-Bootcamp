@@ -15,9 +15,8 @@ const Banner: React.FC = () => {
       <div className="absolute bottom-32 left-32">
         <PropellerSVG /> {/* Propeller with shadow */}
       </div>
-      <div className="z-10 text-center px-4 sm:px-6 lg:px-8">
+      <div className="z-10 px-4 sm:px-6 lg:px-8">
         {" "}
-        {/* Increased spacing around text */}
         <h1 className="text-5xl leading-none font-bold text-amber-100 mb-4 sm:text-6xl sm:leading-tight">
           Dawn of Aviation
         </h1>
