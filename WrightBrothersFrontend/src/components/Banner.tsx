@@ -3,13 +3,13 @@ import { Airplane } from "./Airplane"; // Ensure this has a vintage style
 
 const Banner: React.FC = () => {
   return (
-    <div className="relative vintage-filter bg-amber-600 h-1/2 overflow-hidden py-32">
+    <div className="relative vintage-filter bg-amber-600 h-1/2 overflow-hidden py-32 flex items-center justify-center">
       <div className="z-10 px-4 sm:px-6 lg:px-8 max-w-screen-md flex flex-col text-center">
         {/* Increased spacing around text */}
-        <h1 className="text-5xl leading-none font-bold text-amber-100 mb-4 sm:text-6xl sm:leading-tight">
+        <h1 className="text-5xl leading-none font-bold text-amber-100 sm:text-6xl sm:leading-tight">
           Dawn of Aviation
         </h1>
-        <p className="mt-6 text-xl leading-8 text-amber-200">
+        <p className="text-xl leading-8 text-amber-500">
           Journey back to where it all began with the Wright Brothers' historic
           flights.
         </p>
