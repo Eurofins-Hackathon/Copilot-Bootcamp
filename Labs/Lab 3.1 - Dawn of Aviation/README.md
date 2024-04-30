@@ -10,10 +10,14 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 ## Estimated time to complete
 - 20 minutes, times may vary with optional labs.
 
+//TODO Make sure in the slides to mention that people should be able to follow the instructions that copilot give. Let them first try copilot instructions and then follow their own
+
 ## Objectives
 - TBD
 
-### Step 1: Sunset on a Clear Sky - Setup and Run the Frontend
+### Step 1: Sunset above the Clouds - Setup and Run the Frontend
+
+// TODO PRe-install Node in CodeSpace
 
 - Open the terminal and navigate to the `WrightBrothersFrontend/` directory.
 
@@ -46,7 +50,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 - Type the following in the chat window:
 
     ```bash
-    @workspace Explain the frontend repository
+    @workspace explain the frontend repository
     ```
 >[!NOTE]
 > @workspace scans the repository to find relevant information about the question asked. It will provide a summary of the repository, including the technologies used, the purpose of the repository, and the structure of the repository.
@@ -57,8 +61,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
     What technology is used to run the frontend application and why?
     ```
 
->[!NOTE]
-> The front application uses Vite, a fast frontend build tool that provides a lightning-fast development experience. Currently it's one of the most popular tools for frontend development, replacing Webpack and Parcel.
+- The frontend application uses Vite, a fast frontend build tool that provides a lightning-fast development experience. Currently it's one of the most popular tools for frontend development, replacing Webpack and Parcel.
 
 - In the same chat window or new chat, type the following:
 
@@ -74,8 +77,10 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 - In the same chat window, type the following:
 
     ```bash
-    @workspace where can I find the entry point of the frontend application and where can i update the home page?
+    @workspace where can I find the entry point of the frontend application and where can I update the homepage?
     ```
+
+- Copilot will give a suggestion that the entry point is `WrightBrothersFrontend/src/App.tsx` and the homepage can be updated in the `WrightBrothersFrontend/src/pages/HomePage.tsx` file.
 
 - In this lab you learned how to use GitHub Copilot to understand the frontend repository and its structure. You also learned how to ask questions about the frontend repository and the technologies used in it.
 
@@ -100,7 +105,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 - Ask ChatGPT why the UI is not centered:
 
     ```bash
-    @workspace How can I center the banner title?
+    #file:Banner.tsx How can I center the banner title?
     ```
 
 - Copilot will provide you with a solution to center the banner title.
@@ -132,9 +137,13 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - Ask ChatGPT how to add spacing between the title and subtitle:
 
-    ```bash
-    @workspace the banner feels a bit cramped, how to make it more spacious?
+    ```md
+    The content of #selection feels very cramped, how to make it a lot more spacious?
     ```
+
+- For `#selection`, open `Banner.tsx` and select all the content of the file.
+
+- Now submit the prompt to GitHub Copilot.
 
 - Copilot will provide you with a solution to add spacing between the title and subtitle.
 
@@ -166,8 +175,8 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - Ask ChatGPT what color you should use for the subtitle:
 
-    ```bash
-    @workspace I cant read the subtitle on the banner due to its color, what color do you suggest?
+    ```md
+    The subtitle in the banner at #selection is hard to read due to its color, what color do you suggest?
     ```
 
 - Copilot understands colors and contrasts and will provide you with a color that has a good contrast with the background.
@@ -194,7 +203,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 - Ask ChatGPT how to add call to action buttons to the banner:
 
     ```md
-    @workspace create two call to action buttons in the banner. Place them below the subtitle and center them. The first button is primary and should have the text "Learn More" and the second button is secondary should have the text "Get Started". The buttons should match the design of the banner.
+   Create two call to action buttons in the banner at #selection. Place them below the subtitle and center them. The first button is primary and should have the text "Learn More" and the second button is secondary should have the text "Get Started". The buttons should match the design of the banner.
     ```
 
 >[!NOTE]

@@ -14,22 +14,14 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 ### Step 1: Simple backend integration
 
+- Dotnet run
+
 - Creating a simple service based on an API signature
 - Use that service to fetch data in an existing component that now renders static data
 
-### Step 2: Style the Planes List component
-
-Styling a component until it's perfect is a common task in frontend development.
-
-- List of items
-- Grid of items
-- Card
-
-### Step 3: Animation
-
 ## Optional
 
-### Step 4: Loading State
+### Step 2: Loading State
 
 - Ask question about managing loading state
 - Copilot will suggest React Query

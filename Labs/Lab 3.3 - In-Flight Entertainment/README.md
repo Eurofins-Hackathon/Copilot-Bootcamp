@@ -22,6 +22,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 ## Optional
 
-### Step 4: Storybook
+### Step 4: Storybook (MAYBE)
 
 - Story for all states of the component
+
