@@ -1,24 +1,14 @@
-// pages/HomePage.tsx
-import React, { useEffect } from "react";
+import React from "react";
 import Banner from "../components/Banner";
 import PlaneList from "../components/PlaneList";
-import PlaneService from "../services/PlaneService";
 import PageContent from "../components/PageContent";
 
 function HomePage() {
-  const [planes, setPlanes] = React.useState([]);
-
-  useEffect(() => {
-    async function getPlanes() {
-      try {
-        const response = await PlaneService.getPlanes();
-        setPlanes(response.data);
-      } catch (error) {
-        console.error(error);
-      }
-    }
-    getPlanes();
-  }, []);
+  const planes = [
+    { id: 1, name: "Wright Flyer I" },
+    { id: 2, name: "Wright Flyer II" },
+    { id: 3, name: "Wright Model A" },
+  ];
 
   return (
     <div>
