@@ -245,3 +245,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 - Save the file and refresh the browser at [http://localhost:5173/](http://localhost:5173/).
 
 - The banner should now have two call to action buttons.
+
+### Congratulations you've made it to the end! &#9992; &#9992; &#9992;
+
+#### And with that, you've now concluded this module. We hope you enjoyed it! &#x1F60A;
