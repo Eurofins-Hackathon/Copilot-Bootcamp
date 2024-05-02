@@ -73,9 +73,6 @@ namespace WrightBrothersApi.Controllers
 
             Planes.Add(plane);
 
-            _logger.LogInformation(Planes.Count.ToString());
-
-
             return CreatedAtAction(nameof(GetById), new { id = plane.Id }, plane);
         }
 
