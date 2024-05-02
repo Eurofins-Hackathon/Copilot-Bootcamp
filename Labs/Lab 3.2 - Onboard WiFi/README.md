@@ -1,7 +1,7 @@
 Connecting to the WrightBrothersAPI
 
 # Lab 3.2 - Onboard WiFi ✈ Connecting to the WrightBrothersAPI
-This lab exercise guides participants through coding exercises using GitHub Copilot to understand its suggestions and capabilities. It involves TBD
+This lab exercise is a focused session that instructs participants on integrating a frontend application with a backend API using GitHub Copilot. The lab covers the basics of fetching data from an API, managing state with React-Query, and effectively handling loading and error states. Participants will learn to use GitHub Copilot to generate and implement code snippets, enhancing their understanding of API integration in a React application.
 
 ## Prerequisites
 - The prerequisites steps must be completed, see [Labs Prerequisites](./Labs/Lab%201.1%20-%20Pre-Flight%20Checklist)

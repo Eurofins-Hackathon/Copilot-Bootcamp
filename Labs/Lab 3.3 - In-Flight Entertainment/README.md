@@ -1,7 +1,8 @@
 Running and Interacting with the Application
 
 # Lab 3.3 - In-Flight Entertainment ✈ Creating Interactive Components
-This lab exercise guides participants through coding exercises using GitHub Copilot to understand its suggestions and capabilities. It involves TBD
+This lab exercise is focused on integrating styled buttons and forms to enhance user interactions, with emphasis on design consistency and functional integration. The lab aims to improve skills in component creation, event handling, and API interactions in a React environment, utilizing GitHub Copilot for code generation.
+
 
 ## Prerequisites
 - The prerequisites steps must be completed, see [Labs Prerequisites](./Labs/Lab%201.1%20-%20Pre-Flight%20Checklist)

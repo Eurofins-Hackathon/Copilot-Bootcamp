@@ -2,7 +2,7 @@ Frontend exercises
 Setting up the Front-End Project
 
 # Lab 3.1 - Dawn of Aviation ✈ Setting up the Front-End Project
-This lab exercise guides participants through coding exercises using GitHub Copilot to understand its suggestions and capabilities. It involves TBD
+This practical lab designed to teach participants frontend setup and management using GitHub Copilot. It focuses on implementing and adjusting UI components, exploring frontend technologies, and enhancing usability and accessibility, all facilitated by GitHub Copilot's interactive coding assistance.
 
 ## Prerequisites
 - The prerequisites steps must be completed, see [Labs Prerequisites](./Labs/Lab%201.1%20-%20Pre-Flight%20Checklist)
