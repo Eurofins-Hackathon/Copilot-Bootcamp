@@ -12,9 +12,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 ## Objectives
 - TBD
 
-### Step 1: Simple backend integration
-
-- Dotnet run
+### Step 1: What's the WiFi Password - Simple backend integration
 
 - Open `HomePage.tsx`
 
@@ -30,24 +28,67 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - GitHub Copilot suggested the following code:
 
-...
+    <details>
+    <summary>Click here to see the suggestion ...</summary>
+
+    ```tsx
+    import React, { useState, useEffect } from 'react';
+    import axios from 'axios';
+    import Banner from "../components/Banner";
+    import PlaneList from "../components/PlaneList";
+    import PageContent from "../components/PageContent";
+
+    function HomePage() {
+    const [planes, setPlanes] = useState([]);
+
+    useEffect(() => {
+        axios.get('http://localhost:1903/planes/')
+        .then(response => {
+            setPlanes(response.data);
+        })
+        .catch(error => {
+            console.error('There was an error!', error);
+        });
+    }, []);
+
+    return (
+        <div>
+        <Banner />
+        <PageContent>
+            <PlaneList planes={planes} />
+        </PageContent>
+        </div>
+    );
+    }
+    export default HomePage;
+    ```
+    </details>
 
 - Replace the content of `HomePage.tsx` with the suggested code
 
-- Run the frontend and navigate to the home page `http://localhost:5173/`
+- Open the terminal and navigate to the `WrightBrothersFrontend/` directory.
 
-- You should see a list of planes from the API
+    ```bash
+    cd WrightBrothersFrontend/
+    ```
 
+- Run the frontend and backend with the following command
 
-### Step 2: Loading State
+    ```bash
+    npm run frontend-and-backend
+    ```
 
-- Make sure you did step 1
+- Navigate to the home page `http://localhost:5173/`
+
+- You should now see a list of planes from the API
+
+### Step 2: Unstable Internet - State Management through React-Query
+
+- First make sure you did the previous step
 
 - Open GitHub Copilot Chat
 
 - Type the following in the chat window:
-
-- In the same chat window or new chat, type the following:
 
     ```
     Manage error and loading states of #selection component with react-query
@@ -73,15 +114,35 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - Replace the content of `HomePage.tsx` with the suggested code
 
-- Run the frontend and navigate to the home page `http://localhost:5173/`
+- Open the terminal and navigate to the `WrightBrothersFrontend/` directory.
+
+    ```bash
+    cd WrightBrothersFrontend/
+    ```
+
+- Run the frontend and backend with the following command
+
+    ```bash
+    npm run frontend-and-backend
+    ```
+
+- Navigate to the home page `http://localhost:5173/`
 
 - You should see a loading state with a spinning Airplane for 3 seconds before the planes are displayed
 
-- Now stop the API by pressing `Ctrl + C` in the terminal where the API is running
+- Now stop the Frontend and API by pressing `Ctrl + C` in the terminal
 
-- You should see an error message displayed
+- Run only frontend with the following command
 
-## Optional (Work in Progress)
+    ```bash
+    npm run frontend
+    ```
+
+- Navigate to the home page `http://localhost:5173/`
+
+- After 3 seconds you should see an error message displayed, because the API is not running
+
+## Optional (Work in Progress - Unstable)
  
 ### Step 3: Advanced backend integration with Open API
 

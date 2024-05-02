@@ -18,6 +18,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 ### Step 1: Sunset above the Clouds - Setup and Run the Frontend
 
 // TODO PRe-install Node in CodeSpace
+// TODO The frontend auto reloads, so the participants do not need to restart the frontend to see changes
 
 - Open the terminal and navigate to the `WrightBrothersFrontend/` directory.
 
@@ -34,7 +35,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 - Now, run the following command to start the frontend:
 
     ```bash
-    npm run dev
+    npm run frontend
     ```
 
 - Open your browser and navigate to [http://localhost:5173/](http://localhost:5173/)
@@ -90,10 +91,16 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - Let's do something that struggles many developers, centering HTML elements.
 
-- Start by running the frontend application:
+- Open the terminal and navigate to the `WrightBrothersFrontend/` directory.
 
     ```bash
-    npm run dev
+    cd WrightBrothersFrontend/
+    ```
+
+- Start the frontend application:
+
+    ```bash
+    npm run frontend
     ```
 
 - Browse to [http://localhost:5173/](http://localhost:5173/)
@@ -130,6 +137,18 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 - The banner title should now be centered.
 
 ### Step 4: Request for Extra Legroom - Spacing UI elements
+
+- Open the terminal and navigate to the `WrightBrothersFrontend/` directory.
+
+    ```bash
+    cd WrightBrothersFrontend/
+    ```
+
+- Start the frontend application:
+
+    ```bash
+    npm run frontend
+    ```
 
 - The banner title and subtitle are too close to each other.
 
@@ -169,6 +188,18 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 ### Step 4: Emergency Exit Lights - Color Contrast
 
+- Open the terminal and navigate to the `WrightBrothersFrontend/` directory.
+
+    ```bash
+    cd WrightBrothersFrontend/
+    ```
+
+- Start the frontend application:
+
+    ```bash
+    npm run frontend
+    ```
+
 - The subtitle of the banner is hard to read because it has almost the same color as the background.
 
 // TODO Screenshot
@@ -197,6 +228,18 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 ## Optional 
 
 ### Step 6: Notifying the Air Crew - Call to Action Buttons
+
+- Open the terminal and navigate to the `WrightBrothersFrontend/` directory.
+
+    ```bash
+    cd WrightBrothersFrontend/
+    ```
+
+- Start the frontend application:
+
+    ```bash
+    npm run frontend
+    ```
 
 - The banner is missing call to action buttons.
 
