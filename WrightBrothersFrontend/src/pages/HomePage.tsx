@@ -1,5 +1,3 @@
-import React, { useState, useEffect } from "react";
-import axios from 'axios';
 import Banner from "../components/Banner";
 import PlaneList from "../components/PlaneList";
 import PageContent from "../components/PageContent";

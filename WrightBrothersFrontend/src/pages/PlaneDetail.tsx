@@ -33,7 +33,7 @@ const PlaneDetail = () => {
         const response = await PlaneService.getPlaneById(planeId as string);
         setPlaneDetails(response.data);
       } catch (error) {
-        console.error(error);
+        // Handle error
       }
     }
     async function getFlightDetails() {
@@ -41,7 +41,7 @@ const PlaneDetail = () => {
         const response = await FlightService.getFlightById(planeId as string);
         setFlightDetails(response.data);
       } catch (error) {
-        console.error(error);
+        // Handle error
       }
     }
     getPlaneDetails();
@@ -67,14 +67,14 @@ const PlaneDetail = () => {
           setCrashed(true); // Simulate crash
         });
       });
-  }, []);
+  }, [planeId]);
 
   useEffect(() => {
     if (!planeRef.current) {
       return;
     }
 
-    if (landed) {
+    if (landed == true) {
       animateLanded(planeRef);
     }
 
@@ -83,9 +83,9 @@ const PlaneDetail = () => {
     }
   }, [crashed, landed]);
 
-  if (!planeDetails) {
+  if (!planeDetails)
     return <div>Plane not found</div>;
-  }
+  
 
 
   return (

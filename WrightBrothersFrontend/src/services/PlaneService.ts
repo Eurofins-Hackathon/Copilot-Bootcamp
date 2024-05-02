@@ -8,7 +8,9 @@ class PlaneService {
   }
 
   getPlaneById(id: string) {
-    return axios.get(API_URL + id);
+    const result = axios.get(API_URL + id);
+    console.log(result);
+    return result;
   }
 
   createPlane(plane: any) {

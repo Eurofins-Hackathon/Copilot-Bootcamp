@@ -16,14 +16,55 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - Dotnet run
 
-- Creating a simple service based on an API signature
-- Use that service to fetch data in an existing component that now renders static data
+```
+#selection Get this list of planes from api endpoint http://localhost:1903/planes/ using axios
+```
+
+### Step 2: Advanced backend integration with Open API
+
+- Open GitHub Copilot Chat
+
+- Type the following in the chat window:
+
+- In the same chat window or new chat, type the following:
+
+    ```
+    How do I generate a typescript http client based on a swagger endpoint running on http://localhost:1903/swagger/v1/swagger.jso`. Create the client in the src/api folder.
+
+    Think step by step.
+    ```
+
+- @randy this does not always give consistent output ... Skip this lap?
+
 
 ## Optional
 
-### Step 2: Loading State
+### Step 3: Loading State
 
-- Ask question about managing loading state
-- Copilot will suggest React Query
-- Render a loading state
-- Render an error state
+- Make sure you did step 1
+
+- Open GitHub Copilot Chat
+
+- Type the following in the chat window:
+
+- In the same chat window or new chat, type the following:
+
+    ```
+    Manage error and loading states of #selection component with react-query
+    
+    ## Design
+    - Banner should always be visible
+    - Loading state should show #file:Spinner.tsx and should be centered below the banner
+    - Error should show a styled error message.
+
+    ## Technical details
+    - Add a delay of 3 seconds to the request
+    ```
+
+- For `#selection` select all the content of `HomePage.tsx`
+
+- For `#file:Spinner.tsx` make sure to select the file `Spinner.tsx` from the `src/components` folder
+
+// TODO Screenshot of #selection and #file:Spinner.tsx
+
+- Copilot 
