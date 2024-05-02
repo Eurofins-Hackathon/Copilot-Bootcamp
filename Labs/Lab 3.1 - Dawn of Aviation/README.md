@@ -2,7 +2,7 @@ Frontend exercises
 Setting up the Front-End Project
 
 # Lab 3.1 - Dawn of Aviation ✈ Setting up the Front-End Project
-This lab exercise guides participants through coding exercises using GitHub Copilot to understand its suggestions and capabilities. It involves running and adding unit tests, with an emphasis on pair programming. The lab is structured in steps, starting with executing existing unit tests, followed by enhancing test coverage, and addressing specific functionalities like case sensitivity and trimming in search methods.
+This lab exercise guides participants through coding exercises using GitHub Copilot to understand its suggestions and capabilities. It involves TBD
 
 ## Prerequisites
 - The prerequisites steps must be completed, see [Labs Prerequisites](./Labs/Lab%201.1%20-%20Pre-Flight%20Checklist)
@@ -42,7 +42,9 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - You should see the following page:
 
-// TODO Screenshot
+<img src="../../Images/Frontend.png" width="800">
+
+- Stop the frontend application by pressing `Ctrl + C` in the terminal.
 
 ### Step 2: Looking over the Horizon - Exploring the frontend application
 
@@ -56,7 +58,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 >[!NOTE]
 > @workspace scans the repository to find relevant information about the question asked. It will provide a summary of the repository, including the technologies used, the purpose of the repository, and the structure of the repository.
 
-- In the same chat window or new chat, type the following:
+- In the same chat window, type the following:
 
     ```bash
     What technology is used to run the frontend application and why?
@@ -64,7 +66,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - The frontend application uses Vite, a fast frontend build tool that provides a lightning-fast development experience. Currently it's one of the most popular tools for frontend development, replacing Webpack and Parcel.
 
-- In the same chat window or new chat, type the following:
+- In the same chat window, type the following:
 
     ```bash
     @workspace what technology is used to style the frontend and explain me the core basics of this technology.
@@ -107,7 +109,9 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - Note how the UI is not centered.
 
-// TODO Screenshot
+    <img src="../../Images/FrontendNotCentered.png" width="800">
+
+- Open GitHub Copilot Chat, click **+** to clear prompt history.
 
 - Ask ChatGPT why the UI is not centered:
 
@@ -122,15 +126,24 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - Try to implement the solution by following the steps given by GitHub Copilot.
 
-- Or implement the step by step solution provided by us. Open the `WrightBrothersFrontend/src/components/Banner.tsx` file.
+<br>
+
+<details>
+<summary>Click for Solution</summary>
+
+- Open the `WrightBrothersFrontend/src/components/Banner.tsx` file.
 
 - Find the top level `div` element and add the following CSS classes `flex items-center justify-center` to the `div` element:
 
-    ```html
-    <div className="{other classes} ... flex items-center justify-center">
-      {/* ... */}
-    </div>
-    ```
+```html
+<div className="{other classes} ... flex items-center justify-center">
+    {/* ... */}
+</div>
+```
+
+</details>
+
+<br>
 
 - Save the file and refresh the browser at [http://localhost:5173/](http://localhost:5173/).
 
