@@ -18,7 +18,6 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - Start by opening `HomePage.tsx` in the `WrightBrothersFrontend/src/pages` folder
 
-
 - Open GitHub Copilot Chat, click **+** to clear prompt history.
 
 - Type the following in the chat window:
@@ -34,6 +33,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - GitHub Copilot suggested the following code:
 
+    <Br>
     <details>
     <summary>Click here to see the suggestion ...</summary>
 
@@ -69,6 +69,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
     export default HomePage;
     ```
     </details>
+    <Br>
 
 - Replace the content of `HomePage.tsx` with the suggested code.
 
@@ -98,7 +99,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - Start by opening `HomePage.tsx` in the `WrightBrothersFrontend/src/pages` folder
 
-- Open GitHub Copilot Chat
+- Open GitHub Copilot Chat, click **+** to clear prompt history.
 
 - Type the following in the chat window:
 
@@ -116,13 +117,65 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - For `#selection` select all the content of `HomePage.tsx`
 
-// TODO screenshot?
-
-- Press `Enter` to submit the question
+- Press `Enter` to submit the question.
 
 - GitHub Copilot suggested the following code:
 
-//TODO Add Suggested code
+    <details>
+    <summary>Click here to see the suggestion ...</summary>
+
+    ```tsx
+    import React from 'react';
+    import axios from 'axios';
+    import { useQuery } from 'react-query';
+    import Banner from "../components/Banner";
+    import PlaneList from "../components/PlaneList";
+    import PageContent from "../components/PageContent";
+    import Spinner from "../components/Spinner"; // Assuming you have a Spinner component
+
+    async function fetchPlanes() {
+    await new Promise(resolve => setTimeout(resolve, 3000)); // Add a delay of 3 seconds
+    const response = await axios.get('http://localhost:1903/planes/');
+    return response.data;
+    }
+
+    function HomePage() {
+    const { isLoading, isError, data: planes } = useQuery('planes', fetchPlanes);
+
+    if (isLoading) {
+        return (
+        <div>
+            <Banner />
+            <Spinner /> {/* Show Spinner when loading */}
+        </div>
+        );
+    }
+
+    if (isError) {
+        return (
+        <div>
+            <Banner />
+            <p>There was an error loading the planes.</p> {/* Show error message when there is an error */}
+        </div>
+        );
+    }
+
+    return (
+        <div>
+        <Banner />
+        <PageContent>
+            <PlaneList planes={planes} />
+        </PageContent>
+        </div>
+    );
+    }
+
+    export default HomePage;
+
+    ```
+
+    </details>
+    <Br>
 
 - Replace the content of `HomePage.tsx` with the suggested code
 
@@ -140,7 +193,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - Navigate to the home page `http://localhost:5173/`
 
-- You should see a loading state with a spinning Airplane for 3 seconds before the planes are displayed
+- You should see a loading state with a spinning Airplane for 3 seconds before the planes are displayed.
 
 - Now stop the Frontend and API by pressing `Ctrl + C` in the terminal
 
@@ -152,7 +205,10 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - Navigate to the home page `http://localhost:5173/`
 
-- After 3 seconds you should see an error message displayed, because the API is not running
+- After 3 seconds you should see an error message displayed, because the API is not running.
+
+- Now stop the Frontend and API by pressing `Ctrl + C` in the terminal
+
 
 ## Optional (Work in Progress - Unstable)
  
