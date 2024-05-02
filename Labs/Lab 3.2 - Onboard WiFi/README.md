@@ -10,7 +10,9 @@ This lab exercise is a focused session that instructs participants on integratin
 - 20 minutes, times may vary with optional labs.
 
 ## Objectives
-- TBD
+- Integrate a frontend application with a backend API.
+- Learn the basics of fetching data from an API and managing state.
+- Enhance understanding of API integration in a React application.
 
 ### Step 1: What's the WiFi Password - Simple backend integration
 

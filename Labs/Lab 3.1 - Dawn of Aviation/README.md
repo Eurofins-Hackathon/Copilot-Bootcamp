@@ -13,7 +13,9 @@ This practical lab designed to teach participants frontend setup and management 
 //TODO Make sure in the slides to mention that people should be able to follow the instructions that copilot give. Let them first try copilot instructions and then follow their own
 
 ## Objectives
-- TBD
+- Teach frontend setup and management.
+- Implement and adjust UI components.
+- Explore frontend technologies while enhancing usability and accessibility.
 
 ### Step 1: Sunset above the Clouds - Setup and Run the Frontend
 

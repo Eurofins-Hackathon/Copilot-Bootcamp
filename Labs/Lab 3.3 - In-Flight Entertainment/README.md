@@ -10,7 +10,9 @@ This lab exercise is focused on integrating styled buttons and forms to enhance 
 - 20 minutes, times may vary with optional labs.
 
 ## Objectives
-- TBD
+- Enhance user interactions through the integration of styled buttons and forms.
+- Improve skills in UI component creation.
+- Develop proficiency in event handling and API interactions.
 
 ### Interactive Components
 
