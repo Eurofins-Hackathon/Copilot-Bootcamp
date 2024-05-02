@@ -207,7 +207,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - After 3 seconds you should see an error message displayed, because the API is not running.
 
-- Now stop the Frontend and API by pressing `Ctrl + C` in the terminal
+- Now stop the Frontend and API by pressing `Ctrl + C` in the terminal.
 
 
 ## Optional (Work in Progress - Unstable)

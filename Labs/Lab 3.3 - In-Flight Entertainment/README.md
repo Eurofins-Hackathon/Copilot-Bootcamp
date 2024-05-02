@@ -16,28 +16,27 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 ### Step 1 - Push to Start - Create a Styled Button 
 
-- Open GitHub Copilot Chat
+- Open GitHub Copilot Chat, click **+** to clear prompt history.
 
 - Type the following in the chat window:
 
-- In the same chat window or new chat, copy the following:
+  ```
+  Create a button component and route the button to the "/new-plane" page
 
-```
-Create a button component and route the button to the "/new-plane" page
+  ## Design
 
-## Design
+  - Create a button that is in the same style as #file:PlaneList.tsx
+  - Button text is "Add Plane"
+  - Add a plus icon left of the text
+  - Spacing on the top and bottom of the button
+  - Elevate the button when hovered
 
-- Create a button that is in the same style as #file:PlaneList.tsx
-- Button text is "Add Plane"
-- Add a plus icon left of the text
-- Spacing on the top and bottom of the button
-- Elevate the button when hovered
+  ## Technical Requirements
 
-## Technical Requirements
+  - Create a new button component
+  - use "@heroicons/react/24/solid" for the plus icon
 
-- Create a new button component
-- use "@heroicons/react/24/solid" for the plus icon
-```
+  ```
 
 >[!NOTE]
 > Note the `#file:PlaneList.tsx` reference. This is a hint to match the style of the button to the existing  `<PlaneList />` component. 
@@ -79,9 +78,9 @@ export default AddPlaneButton;
 >[!IMPORTANT]
 > Sometimes it suggest `@heroicons/react/solid` without the size. Make sure to add the size `24` to the import, change the import to `@heroicons/react/24/solid`
 
-- Use the Copilot Chat quick action add the component to a new file `AddPlaneButton.tsx` in the `src/components` folder
+- In the Copilot Chat quick action, click the **Insert at Cursor** button to add the component to the `AddPlaneButton.tsx` file in the `src/components` folder
 
-- Open `HomePage.tsx` and add the `AddPlaneButton` component below the `Banner` component inside the `PageContent` component
+- Open `/src/components/pages/HomePage.tsx` and add the `AddPlaneButton` component below the `Banner` component inside the `PageContent` component
 
 ```tsx
 function HomePage() {
@@ -100,36 +99,35 @@ function HomePage() {
 }
 ```
 
-- Navigate to `http://localhost:5173/` to see the new button based on the `PlaneList.tsx` component
-
-// TODO Screenshot with button added
-
-- The button should be styled and have a plus icon and a hover effect
-
-- Now, Click the button to navigate to the new plane page
-
-
-### Step 2 - Form
-
-- In this step, we will create a form for adding a new plane
-
 - Open the terminal and navigate to the `WrightBrothersFrontend/` directory.
 
     ```bash
     cd WrightBrothersFrontend/
     ```
 
-- Run the frontend and backend with the following command
+- Run the frontend and backend with the following command. This command will start the frontend and backend at the same time.
 
     ```bash
     npm run frontend-and-backend
     ```
 
-- Navigate to `http://localhost:5173/new-plane` to see an empty page. We are going to add a form to this page.
+- Navigate to `http://localhost:5173/` to see the new button based on the `PlaneList.tsx` component
+
+    <img src="../../Images/AddPlaneButton.png" width="800">
+
+- The button should be styled and have a plus icon and a hover effect.
+
+- Now, Click the button to navigate to the new plane page.
+
+### Step 2 - Form
+
+- In this step, we will create a form for adding a new plane.
+
+~~~ - Navigate to `http://localhost:5173/new-plane` to see an empty page. We are going to add a form to this page.~~~
 
 - Start by opening `NewPlane.tsx` in the `WrightBrothersFrontend/src/pages` folder
 
-- Open GitHub Copilot Chat
+- Open GitHub Copilot Chat, click **+** to clear prompt history.
 
 - Type the following in the chat window:
 
@@ -147,18 +145,87 @@ function HomePage() {
     - Yup for validations
 
     Give me a complete solution.
+
     ```
+
+- For the first `#file`, select `PlaneList.tsx`. This is a hint to match the style of the form to the existing `<PlaneList />` component.
+
+- For the second `#file`, select `Plane.ts`. This is a hint to create fields based on the `Plane.ts` model.
 
 >[!NOTE]
 > The result is not always complete or does not always work. Retry the prompt if the result is rejected
 
 - This will create a complete form based on the `Plane.ts` model.
 
-```tsx
-// TODO Code
-```
+    <Br>
+    <details>
+    <summary>Click here to see the suggestion ...</summary>
 
-- Replace the content of `NewPlane.tsx` with the suggested code.
+      ```tsx
+      import React from 'react';
+      import { Formik, Field, Form, ErrorMessage } from 'formik';
+      import * as Yup from 'yup';
+      import axios from 'axios';
+      import PageContent from "../components/PageContent";
+
+      const PlaneSchema = Yup.object().shape({
+        id: Yup.number().required('Required'),
+        name: Yup.string().required('Required'),
+      });
+
+      const NewPlane = () => {
+        const handleSubmit = (values, { setSubmitting }) => {
+          axios.post('http://localhost:1903/planes', values)
+            .then(response => {
+              console.log(response);
+              setSubmitting(false);
+            })
+            .catch(error => {
+              console.log(error);
+              setSubmitting(false);
+            });
+        };
+
+        return (
+          <PageContent>
+            <h1>New Plane</h1>
+            <Formik
+              initialValues={{ id: '', name: '' }}
+              validationSchema={PlaneSchema}
+              onSubmit={handleSubmit}
+            >
+              {({ isSubmitting }) => (
+                <Form className="space-y-4">
+                  <div>
+                    <label htmlFor="id" className="block text-sm font-medium text-gray-700">ID</label>
+                    <Field type="number" name="id" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" />
+                    <ErrorMessage name="id" component="div" className="text-red-500 text-xs mt-1" />
+                  </div>
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
+                    <Field type="text" name="name" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" />
+                    <ErrorMessage name="name" component="div" className="text-red-500 text-xs mt-1" />
+                  </div>
+                  <button type="submit" disabled={isSubmitting} className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                    Submit
+                  </button>
+                </Form>
+              )}
+            </Formik>
+          </PageContent>
+        );
+      };
+
+      export default NewPlane;
+
+      ```
+
+    </details>
+    <Br>
+
+- Select all the code in the open file `NewPlane.tsx` and replace it with the suggested code.
+
+- In the Copilot Chat window, click the **Insert at Cursor** button to insert the code into the `NewPlane.tsx` file.
 
 - Open the browser and navigate to `http://localhost:5173/new-plane`
 
