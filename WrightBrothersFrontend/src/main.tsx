@@ -7,6 +7,8 @@ import './index.css'
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
+      cacheTime: 0, // Data is not cached beyond its use in the UI
+      staleTime: 0, // Data is always considered stale and refetches on re-mount
       retry: false // This disables retries globally
     }
   }

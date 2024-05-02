@@ -14,18 +14,16 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 ### Interactive Components
 
-### Step 1 - Button
-
-- Start by opening `HomePage.tsx`
+### Step 1 - Push to Start - Create a Styled Button 
 
 - Open GitHub Copilot Chat
 
 - Type the following in the chat window:
 
-- In the same chat window or new chat, type the following:
+- In the same chat window or new chat, copy the following:
 
 ```
-Create a button component and route the button to the add new plane page
+Create a button component and route the button to the "/new-plane" page
 
 ## Design
 
@@ -38,24 +36,105 @@ Create a button component and route the button to the add new plane page
 ## Technical Requirements
 
 - Create a new button component
-- use @heroicons/react/24/solid for the plus icon
+- use "@heroicons/react/24/solid" for the plus icon
 ```
 
-- This will create a complete button component
+>[!NOTE]
+> Note the `#file:PlaneList.tsx` reference. This is a hint to match the style of the button to the existing  `<PlaneList />` component. 
+
+- Make sure to select the `#file:PlaneList.tsx` reference again in the prompt. it does not work with copy/pasting the prompt.
+
+// TODO Screenshot
+
+- Press `Enter` to submit the question
+
+- This will create the following component:
+
+```tsx
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { PlusIcon } from '@heroicons/react/24/solid';
+
+const AddPlaneButton: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/new-plane');
+  };
+
+  return (
+    <button 
+      onClick={handleClick} 
+      className="flex items-center justify-center gap-2 px-4 py-2 mt-4 mb-4 text-amber-900 bg-amber-100 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-200 ease-in-out cursor-pointer"
+    >
+      <PlusIcon className="w-5 h-5" />
+      Add Plane
+    </button>
+  );
+};
+
+export default AddPlaneButton;
+```
+
+>[!IMPORTANT]
+> Sometimes it suggest `@heroicons/react/solid` without the size. Make sure to add the size `24` to the import, change the import to `@heroicons/react/24/solid`
+
+- Use the Copilot Chat quick action add the component to a new file `AddPlaneButton.tsx` in the `src/components` folder
+
+- Open `HomePage.tsx` and add the `AddPlaneButton` component below the `Banner` component inside the `PageContent` component
+
+```tsx
+function HomePage() {
+  
+  /* Existing code */
+
+  return (
+    <div>
+      <Banner />
+      <PageContent>
+        <AddPlaneButton /> <--- Add this line
+        ... rest of the code
+      </PageContent>
+    </div>
+  );
+}
+```
+
+- Navigate to `http://localhost:5173/` to see the new button based on the `PlaneList.tsx` component
+
+// TODO Screenshot with button added
+
+- The button should be styled and have a plus icon and a hover effect
+
+- Now, Click the button to navigate to the new plane page
 
 
 ### Step 2 - Form
 
-- Start by opening `NewPlane.tsx` 
+- In this step, we will create a form for adding a new plane
 
-- Navigate to `http://localhost:5173/new-plane` to see an empty page
+- Open the terminal and navigate to the `WrightBrothersFrontend/` directory.
+
+    ```bash
+    cd WrightBrothersFrontend/
+    ```
+
+- Run the frontend and backend with the following command
+
+    ```bash
+    npm run frontend-and-backend
+    ```
+
+- Navigate to `http://localhost:5173/new-plane` to see an empty page. We are going to add a form to this page.
+
+- Start by opening `NewPlane.tsx` in the `WrightBrothersFrontend/src/pages` folder
 
 - Open GitHub Copilot Chat
 
 - Type the following in the chat window:
 
     ```
-    Create a Form inside the page at #editor
+    Create a Form inside the page at #editor and POST to http://localhost:1903/planes
 
     ## Design
 
@@ -66,6 +145,8 @@ Create a button component and route the button to the add new plane page
     - Create fields based on file #file:Plane.ts
     - Formik for form handling
     - Yup for validations
+
+    Give me a complete solution.
     ```
 
 >[!NOTE]

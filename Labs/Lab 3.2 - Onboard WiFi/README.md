@@ -14,7 +14,9 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 ### Step 1: What's the WiFi Password - Simple backend integration
 
-- Open `HomePage.tsx`
+- In this lab, we will connect the frontend to the WrightBrothersApi
+
+- Start by opening `HomePage.tsx` in the `WrightBrothersFrontend/src/pages` folder
 
 - Open GitHub Copilot Chat
 
@@ -53,10 +55,10 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
     return (
         <div>
-        <Banner />
-        <PageContent>
-            <PlaneList planes={planes} />
-        </PageContent>
+            <Banner />
+            <PageContent>
+                <PlaneList planes={planes} />
+            </PageContent>
         </div>
     );
     }
@@ -72,7 +74,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
     cd WrightBrothersFrontend/
     ```
 
-- Run the frontend and backend with the following command
+- Run the frontend and backend with the following command. This command will start the frontend and backend at the same time.
 
     ```bash
     npm run frontend-and-backend
@@ -80,11 +82,15 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - Navigate to the home page `http://localhost:5173/`
 
-- You should now see a list of planes from the API
+- You should now see a list of planes from the API, instead of the static list
 
 ### Step 2: Unstable Internet - State Management through React-Query
 
-- First make sure you did the previous step
+- Make sure you did the previous step, because that contains required code for this step
+
+- In this lab, we will manage the error and loading states of the component using react-query
+
+- Start by opening `HomePage.tsx` in the `WrightBrothersFrontend/src/pages` folder
 
 - Open GitHub Copilot Chat
 
@@ -110,7 +116,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - GitHub Copilot suggested the following code:
 
-//TODO Suggested code
+//TODO Add Suggested code
 
 - Replace the content of `HomePage.tsx` with the suggested code
 

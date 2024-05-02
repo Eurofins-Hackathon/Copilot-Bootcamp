@@ -4,9 +4,8 @@ import PageContent from "../components/PageContent";
 
 function HomePage() {
   const planes = [
-    { id: 1, name: "Wright Flyer I" },
-    { id: 2, name: "Wright Flyer II" },
-    { id: 3, name: "Wright Model A" },
+    { id: 1, name: "Local Plane 1" },
+    { id: 2, name: "Local Plane 2" },
   ];
 
   return (
