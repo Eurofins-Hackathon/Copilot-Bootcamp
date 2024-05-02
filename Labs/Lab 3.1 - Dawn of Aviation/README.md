@@ -165,15 +165,19 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - The banner title and subtitle are too close to each other.
 
-// TODO Screenshot
+<img src="../../Images/BannerTitleTooClose.png" width="800">
+
+- Open GitHub Copilot Chat, click **+** to clear prompt history.
+
+- Open the `WrightBrothersFrontend/src/components/Banner.tsx` file.
 
 - Ask ChatGPT how to add spacing between the title and subtitle:
 
     ```md
-    The content of #selection feels very cramped, how to make it a lot more spacious?
+    The content of #file feels very cramped, how to make it a lot more spacious?
     ```
 
-- For `#selection`, open `Banner.tsx` and select all the content of the file.
+- For `#file`, select `Banner.tsx` ~~~and select all the content of the file.~~~
 
 - Now submit the prompt to GitHub Copilot.
 
@@ -184,7 +188,10 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - Implement the solution by following the steps provided by GitHub Copilot.
 
-- Or implement the step by step solution provided by us. Open the `WrightBrothersFrontend/src/components/Banner.tsx` file.
+<br>
+
+<details>
+<summary>Click for Solution</summary>
 
 - Add the `mt-4` class to the subtitle `p` element:
 
@@ -194,6 +201,10 @@ This lab exercise guides participants through coding exercises using GitHub Copi
     flights.
     </p>
     ```
+
+</details>
+
+<br>
 
 - Save the file and refresh the browser at [http://localhost:5173/](http://localhost:5173/).
 
@@ -215,12 +226,16 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - The subtitle of the banner is hard to read because it has almost the same color as the background.
 
-// TODO Screenshot
+    <img src="../../Images/FrontendSubtitleHardToRead.png" width="800">
+
+- Open GitHub Copilot Chat, click **+** to clear prompt history.
+
+- Open the `WrightBrothersFrontend/src/components/Banner.tsx` file.
 
 - Ask ChatGPT what color you should use for the subtitle:
 
     ```md
-    The subtitle in the banner at #selection is hard to read due to its color, what color do you suggest?
+    The subtitle in the banner at ~~~#selection~~~ is hard to read due to its color, what color do you suggest?
     ```
 
 - Copilot understands colors and contrasts and will provide you with a color that has a good contrast with the background.
@@ -232,7 +247,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
     </p>
     ```
 
-- Implement the solution by changing the `text-amber-200` class to the class provided by GitHub Copilot.
+- Implement the solution by changing the `text-amber-200` class to what was provided by GitHub Copilot.
 
 - Save the file and refresh the browser at [http://localhost:5173/](http://localhost:5173/).
 
@@ -256,6 +271,10 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - The banner is missing call to action buttons.
 
+- Open the `WrightBrothersFrontend/src/components/Banner.tsx` file.
+
+- Open GitHub Copilot Chat, click **+** to clear prompt history.
+
 - Ask ChatGPT how to add call to action buttons to the banner:
 
     ```md
@@ -270,7 +289,10 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - Implement the solution by following the steps provided by GitHub Copilot.
 
-- Or implement the step by step solution provided by us. Open the `WrightBrothersFrontend/src/components/Banner.tsx` file.
+<br>
+
+<details>
+<summary>Click for Solution</summary>
 
 - Add the following code below the subtitle:
 
@@ -297,6 +319,10 @@ This lab exercise guides participants through coding exercises using GitHub Copi
     </div>
     {/* ...rest of code... */}
     ```
+
+</details>
+
+<br>
 
 - Save the file and refresh the browser at [http://localhost:5173/](http://localhost:5173/).
 
