@@ -150,9 +150,23 @@ function HomePage() {
     ```
 
 >[!NOTE]
-> The result does not always work. Retry the prompt if the result is rejected
+> The result is not always complete or does not always work. Retry the prompt if the result is rejected
 
 - This will create a complete form based on the `Plane.ts` model.
+
+```tsx
+// TODO Code
+```
+
+- Replace the content of `NewPlane.tsx` with the suggested code.
+
+- Open the browser and navigate to `http://localhost:5173/new-plane`
+
+- You should see a form with fields for adding a new plane. The form should be styled and have validation
+
+- Fill in the form and click the submit button.
+
+- Go to the home page `http://localhost:5173/` to see the new plane added to the list.
 
 ## Optional
 
