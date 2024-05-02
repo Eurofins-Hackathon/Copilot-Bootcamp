@@ -16,30 +16,30 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - Dotnet run
 
-```
-#selection Get this list of planes from api endpoint http://localhost:1903/planes/ using axios
-```
-
-### Step 2: Advanced backend integration with Open API
+- Open `HomePage.tsx`
 
 - Open GitHub Copilot Chat
 
-- Type the following in the chat window:
-
-- In the same chat window or new chat, type the following:
-
     ```
-    How do I generate a typescript http client based on a swagger endpoint running on http://localhost:1903/swagger/v1/swagger.jso`. Create the client in the src/api folder.
-
-    Think step by step.
+    #selection Get this list of planes from api endpoint http://localhost:1903/planes/ using axios
     ```
 
-- @randy this does not always give consistent output ... Skip this lap?
+- For `#selection` select all the content of `HomePage.tsx`
+
+- Press `Enter` to submit the question
+
+- GitHub Copilot suggested the following code:
+
+...
+
+- Replace the content of `HomePage.tsx` with the suggested code
+
+- Run the frontend and navigate to the home page `http://localhost:5173/`
+
+- You should see a list of planes from the API
 
 
-## Optional
-
-### Step 3: Loading State
+### Step 2: Loading State
 
 - Make sure you did step 1
 
@@ -54,17 +54,45 @@ This lab exercise guides participants through coding exercises using GitHub Copi
     
     ## Design
     - Banner should always be visible
-    - Loading state should show #file:Spinner.tsx and should be centered below the banner
+    - Loading state should show the Spinner component and should be centered below the banner
     - Error should show a styled error message.
 
     ## Technical details
-    - Add a delay of 3 seconds to the request
+    - Add a delay of 3 seconds to the request to see the loading state
     ```
 
 - For `#selection` select all the content of `HomePage.tsx`
 
-- For `#file:Spinner.tsx` make sure to select the file `Spinner.tsx` from the `src/components` folder
+// TODO screenshot?
 
-// TODO Screenshot of #selection and #file:Spinner.tsx
+- Press `Enter` to submit the question
 
-- Copilot 
+- GitHub Copilot suggested the following code:
+
+//TODO Suggested code
+
+- Replace the content of `HomePage.tsx` with the suggested code
+
+- Run the frontend and navigate to the home page `http://localhost:5173/`
+
+- You should see a loading state with a spinning Airplane for 3 seconds before the planes are displayed
+
+- Now stop the API by pressing `Ctrl + C` in the terminal where the API is running
+
+- You should see an error message displayed
+
+## Optional (Work in Progress)
+ 
+### Step 3: Advanced backend integration with Open API
+
+- Open GitHub Copilot Chat
+
+- Type the following in the chat window:
+
+- In the same chat window or new chat, type the following:
+
+    ```
+    How do I generate a typescript http client based on a swagger endpoint running on http://localhost:1903/swagger/v1/swagger.jso`. Create the client in the src/api folder.
+    ```
+
+- @randy this does not always give consistent output ... Skip this lap?

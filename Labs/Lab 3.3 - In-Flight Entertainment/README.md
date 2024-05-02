@@ -16,6 +16,8 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 ### Step 1 - Button
 
+- Start by opening `HomePage.tsx`
+
 - Open GitHub Copilot Chat
 
 - Type the following in the chat window:
@@ -23,7 +25,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 - In the same chat window or new chat, type the following:
 
 ```
-@workspace Create a button component and route the button to the add new plane page
+Create a button component and route the button to the add new plane page
 
 ## Design
 
@@ -37,8 +39,10 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - Create a new button component
 - use @heroicons/react/24/solid for the plus icon
-
 ```
+
+- This will create a complete button component
+
 
 ### Step 2 - Form
 
@@ -69,13 +73,9 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - This will create a complete form based on the `Plane.ts` model.
 
-### Step 3 - Simple animation
-
-- Fly Airplane accross the screen when clicking an Airplane
-
 ## Optional
 
-### Step 4 - Animation
+### Step 3 - Animation
 
 - Advanced animation
 

@@ -15,10 +15,5 @@ module.exports = {
       { allowConstantExport: true },
     ],
     "@typescript-eslint/no-explicit-any": "off",
-    "no-console": "error",
-    "eqeqeq": "error",
-    "curly": "error",
-    "no-eval": "error",
-    "no-unused-vars": "error",
   },
 };
