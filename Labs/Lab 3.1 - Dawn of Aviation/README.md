@@ -281,6 +281,8 @@ This lab exercise guides participants through coding exercises using GitHub Copi
    Create two call to action buttons in the banner at #selection. Place them below the subtitle and center them. The first button is primary and should have the text "Learn More" and the second button is secondary should have the text "Get Started". The buttons should match the design of the banner.
     ```
 
+- For `#selection` select all the content of `Banner.tsx`
+
 >[!NOTE]
 > We can provide Copilot a detailed description of what we want to achieve in the UI and Copilot will figure out the best way to implement it in the current implemented design.
 

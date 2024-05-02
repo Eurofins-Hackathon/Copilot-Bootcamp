@@ -18,10 +18,14 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - Start by opening `HomePage.tsx` in the `WrightBrothersFrontend/src/pages` folder
 
-- Open GitHub Copilot Chat
+
+- Open GitHub Copilot Chat, click **+** to clear prompt history.
+
+- Type the following in the chat window:
 
     ```
     #selection Get this list of planes from api endpoint http://localhost:1903/planes/ using axios
+
     ```
 
 - For `#selection` select all the content of `HomePage.tsx`
@@ -66,7 +70,9 @@ This lab exercise guides participants through coding exercises using GitHub Copi
     ```
     </details>
 
-- Replace the content of `HomePage.tsx` with the suggested code
+- Replace the content of `HomePage.tsx` with the suggested code.
+
+- In the Copilot Chat window, click the **Insert at Cursor** button to insert the code into the `HomePage.tsx` file.
 
 - Open the terminal and navigate to the `WrightBrothersFrontend/` directory.
 
@@ -86,9 +92,9 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 ### Step 2: Unstable Internet - State Management through React-Query
 
-- Make sure you did the previous step, because that contains required code for this step
+- Make sure you did the previous step, because that contains required code for this step.
 
-- In this lab, we will manage the error and loading states of the component using react-query
+- In this lab, we will manage the error and loading states of the component using react-query.
 
 - Start by opening `HomePage.tsx` in the `WrightBrothersFrontend/src/pages` folder
 
