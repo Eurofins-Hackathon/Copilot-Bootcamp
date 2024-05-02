@@ -5,17 +5,11 @@ import PlaneList from "../components/PlaneList";
 import PageContent from "../components/PageContent";
 
 function HomePage() {
-  const [planes, setPlanes] = useState([]);
-
-  useEffect(() => {
-    axios.get('http://localhost:1903/planes/')
-      .then(response => {
-        setPlanes(response.data);
-      })
-      .catch(error => {
-        console.error('There was an error!', error);
-      });
-  }, []);
+  const planes = [
+    { id: 1, name: "Wright Flyer I" },
+    { id: 2, name: "Wright Flyer II" },
+    { id: 3, name: "Wright Model A" },
+  ];
 
   return (
     <div>
