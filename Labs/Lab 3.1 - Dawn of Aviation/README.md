@@ -17,6 +17,10 @@ This practical lab designed to teach participants frontend setup and management 
 - Implement and adjust UI components.
 - Explore frontend technologies while enhancing usability and accessibility.
 
+// TODO Add the Steps here!!!!
+
+// TODO Add the Steps here!!!!
+
 ### Step 1: Sunset above the Clouds - Setup and Run the Frontend
 
 // TODO PRe-install Node in CodeSpace

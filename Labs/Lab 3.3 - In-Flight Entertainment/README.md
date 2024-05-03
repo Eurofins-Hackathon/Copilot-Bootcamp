@@ -237,7 +237,7 @@ function HomePage() {
 
 - Go to the home page `http://localhost:5173/` to see the new plane added to the list.
 
-## Optional
+## Optional (Work in Progress - Unstable)
 
 ### Step 3 - Animation
 
