@@ -176,10 +176,10 @@ This practical lab designed to teach participants frontend setup and management 
 - Ask ChatGPT how to add spacing between the title and subtitle:
 
     ```md
-    The content of #file feels very cramped, how to make it a lot more spacious?
+    The content of #selection feels very cramped, how to make it a lot more spacious?
     ```
 
-- For `#file`, select `Banner.tsx` ~~~and select all the content of the file.~~~
+- For `#selection`, select all the content of `Banner.tsx`
 
 - Now submit the prompt to GitHub Copilot.
 
