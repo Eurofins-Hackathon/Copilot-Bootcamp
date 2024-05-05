@@ -9,6 +9,9 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 ## Estimated time to complete
 - 20 minutes, times may vary with optional labs.
 
+> [!IMPORTANT]
+> Ensure error-free results by meticulously following each step of the lab instructions.
+
 ## Objectives
 - TBD
   - Step 1: Eslint configuration and fix lint issues.

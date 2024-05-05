@@ -9,6 +9,9 @@ This lab exercise is a focused session that instructs participants on integratin
 ## Estimated time to complete
 - 20 minutes, times may vary with optional labs.
 
+> [!IMPORTANT]
+> Ensure error-free results by meticulously following each step of the lab instructions.
+
 ## Objectives
 - Integrate a frontend application with a backend API.
 - Learn the basics of fetching data from an API and managing state.

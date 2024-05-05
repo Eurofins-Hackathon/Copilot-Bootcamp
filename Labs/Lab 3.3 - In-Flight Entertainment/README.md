@@ -9,6 +9,9 @@ This lab exercise is focused on integrating styled buttons and forms to enhance 
 ## Estimated time to complete
 - 20 minutes, times may vary with optional labs.
 
+> [!IMPORTANT]
+> Ensure error-free results by meticulously following each step of the lab instructions.
+
 ## Objectives
 - Enhance user interactions through the integration of styled buttons and forms.
 - Improve skills in UI component creation.
@@ -16,8 +19,6 @@ This lab exercise is focused on integrating styled buttons and forms to enhance 
     - Step 1: Push to Start - Create a Styled Button
     - Step 2: Fill in the Form - Create a Styled Form
     - Step 3: Advanced Form Integration with Open API (Optional)
-
-### Interactive Components
 
 ### Step 1 - Push to Start - Create a Styled Button 
 

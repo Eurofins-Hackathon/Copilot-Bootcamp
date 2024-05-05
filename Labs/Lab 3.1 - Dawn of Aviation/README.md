@@ -7,7 +7,8 @@ This practical lab designed to teach participants frontend setup and management 
 ## Estimated time to complete
 - 20 minutes, times may vary with optional labs.
 
-- Reminder, follow instructions carefully. To achieve error-free results, carefully read and implement each lab step.
+> [!IMPORTANT]
+> Ensure error-free results by meticulously following each step of the lab instructions.
 
 ## Objectives
 - Teach frontend setup and management.
