@@ -218,12 +218,13 @@ This lab exercise is a focused session that instructs participants on integratin
 
 #### And with that, you've now concluded this module. We hope you enjoyed it! &#x1F60A;
 
+
+## Optional (Work in Progress - Unstable)
+
 > [!CAUTION]
 > Please be aware, this lab is currently under development and may not be fully stable.
 
-## ~~Optional (Work in Progress - Unstable)~~
- 
-### ~~Step 3: Advanced backend integration with Open API~~
+### Step 3: Advanced backend integration with Open API
 
 - ~~Open GitHub Copilot Chat~~
 
