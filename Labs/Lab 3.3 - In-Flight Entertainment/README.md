@@ -129,8 +129,6 @@ function HomePage() {
 
 - In this step, we will create a form for adding a new plane.
 
-~~~ - Navigate to `http://localhost:5173/new-plane` to see an empty page. We are going to add a form to this page.~~~
-
 - Start by opening `NewPlane.tsx` in the `WrightBrothersFrontend/src/pages` folder
 
 - Open GitHub Copilot Chat, click **+** to clear prompt history.
