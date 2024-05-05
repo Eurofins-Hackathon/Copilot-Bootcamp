@@ -245,6 +245,9 @@ function HomePage() {
 
 #### And with that, you've now concluded this module. We hope you enjoyed it! &#x1F60A;
 
+> [!CAUTION]
+> Please be aware, this lab is currently under development and may not be fully stable.
+
 ## Optional (Work in Progress - Unstable)
 
 ### Step 3 - Animation

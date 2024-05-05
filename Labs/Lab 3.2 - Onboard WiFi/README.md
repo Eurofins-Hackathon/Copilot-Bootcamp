@@ -1,5 +1,3 @@
-Connecting to the WrightBrothersAPI
-
 # Lab 3.2 - Onboard WiFi ✈ Connecting to the WrightBrothersAPI
 This lab exercise is a focused session that instructs participants on integrating a frontend application with a backend API using GitHub Copilot. The lab covers the basics of fetching data from an API, managing state with React-Query, and effectively handling loading and error states. Participants will learn to use GitHub Copilot to generate and implement code snippets, enhancing their understanding of API integration in a React application.
 
@@ -183,7 +181,6 @@ This lab exercise is a focused session that instructs participants on integratin
     ```
 
     </details>
-    <Br>
 
 - Replace the content of `HomePage.tsx` with the suggested code
 
@@ -221,18 +218,20 @@ This lab exercise is a focused session that instructs participants on integratin
 
 #### And with that, you've now concluded this module. We hope you enjoyed it! &#x1F60A;
 
-## Optional (Work in Progress - Unstable)
+> [!CAUTION]
+> Please be aware, this lab is currently under development and may not be fully stable.
+
+## ~~Optional (Work in Progress - Unstable)~~
  
-### Step 3: Advanced backend integration with Open API
+### ~~Step 3: Advanced backend integration with Open API~~
 
-- Open GitHub Copilot Chat
+- ~~Open GitHub Copilot Chat~~
 
-- Type the following in the chat window:
+- ~~Type the following in the chat window:~~
 
-- In the same chat window or new chat, type the following:
+- ~~In the same chat window or new chat, type the following:~~
 
     ```
-    How do I generate a typescript http client based on a swagger endpoint running on http://localhost:1903/swagger/v1/swagger.jso`. Create the client in the src/api folder.
+    ~~How do I generate a typescript http client based on a swagger endpoint running on http://localhost:1903/swagger/v1/swagger.json. Create the client in the src/api folder.~~
     ```
-
-- @randy this does not always give consistent output ... Skip this lap?
+- ~~@randy this does not always give consistent output ... Skip this lap?~~

@@ -327,7 +327,6 @@ This practical lab designed to teach participants frontend setup and management 
     </div>
     {/* ...rest of code... */}
     ```
-
 </details>
 
 <br>
