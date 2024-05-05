@@ -7,7 +7,7 @@ This practical lab designed to teach participants frontend setup and management 
 ## Estimated time to complete
 - 20 minutes, times may vary with optional labs.
 
-//TODO Make sure in the slides to mention that people should be able to follow the instructions that copilot give. Let them first try copilot instructions and then follow their own
+- Reminder, follow instructions carefully. To achieve error-free results, carefully read and implement each lab step.
 
 ## Objectives
 - Teach frontend setup and management.
