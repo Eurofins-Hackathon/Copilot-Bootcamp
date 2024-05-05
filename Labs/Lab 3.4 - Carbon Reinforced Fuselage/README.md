@@ -11,6 +11,9 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 ## Objectives
 - TBD
+  - Step 1: Eslint configuration and fix lint issues.
+  - Step 2: Upgrade to Business Class - Update Package Dependencies.
+  - Step 3: PlayWright UI Test project using **/new** command.
 
 ### Step 1: Eslint configuration and fix lint issues
 
@@ -88,7 +91,7 @@ module.exports = {
 
 ## Optional
 
-### Step 3: /new PlayWright UI Test project
+### Step 3: PlayWright UI Test project using **/new** command
 
 ```
 @workspace /new Playwright UI Tests
@@ -109,9 +112,10 @@ module.exports = {
 Make a complete solution.
 ```
 
-
-
-
 ## Optional
 
-### Step 4: ...
+### Step 4: ... TBD
+
+### Congratulations you've made it to the end! &#9992; &#9992; &#9992;
+
+#### And with that, you've now concluded this module. We hope you enjoyed it! &#x1F60A;

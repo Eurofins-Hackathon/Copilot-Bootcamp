@@ -1,6 +1,3 @@
-Frontend exercises
-Setting up the Front-End Project
-
 # Lab 3.1 - Dawn of Aviation ✈ Setting up the Front-End Project
 This practical lab designed to teach participants frontend setup and management using GitHub Copilot. It focuses on implementing and adjusting UI components, exploring frontend technologies, and enhancing usability and accessibility, all facilitated by GitHub Copilot's interactive coding assistance.
 
@@ -16,10 +13,12 @@ This practical lab designed to teach participants frontend setup and management 
 - Teach frontend setup and management.
 - Implement and adjust UI components.
 - Explore frontend technologies while enhancing usability and accessibility.
-
-// TODO Add the Steps here!!!!
-
-// TODO Add the Steps here!!!!
+    - Step 1 - Sunset above the Clouds - Setup and Run the Frontend
+    - Step 2 - Looking over the Horizon - Exploring the frontend application.
+    - Step 3 - In-flight Correction - Centering a div.
+    - Step 4 - Request for Extra Legroom - Spacing UI elements.
+    - Step 5 - A Smooth Landing - Adding a new component.
+    - Step 6 - A New Horizon - Adding a new page  (Optional).
 
 ### Step 1: Sunset above the Clouds - Setup and Run the Frontend
 

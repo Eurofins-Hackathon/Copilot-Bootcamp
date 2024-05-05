@@ -13,6 +13,9 @@ This lab exercise is focused on integrating styled buttons and forms to enhance 
 - Enhance user interactions through the integration of styled buttons and forms.
 - Improve skills in UI component creation.
 - Develop proficiency in event handling and API interactions.
+    - Step 1: Push to Start - Create a Styled Button
+    - Step 2: Fill in the Form - Create a Styled Form
+    - Step 3: Advanced Form Integration with Open API (Optional)
 
 ### Interactive Components
 
@@ -237,6 +240,10 @@ function HomePage() {
 
 - Go to the home page `http://localhost:5173/` to see the new plane added to the list.
 
+### Congratulations you've made it to the end! &#9992; &#9992; &#9992;
+
+#### And with that, you've now concluded this module. We hope you enjoyed it! &#x1F60A;
+
 ## Optional (Work in Progress - Unstable)
 
 ### Step 3 - Animation
@@ -282,4 +289,3 @@ Give me the complete solution
 ```
 
 - The result will be a complete animation of an airplane doing manouvers
-

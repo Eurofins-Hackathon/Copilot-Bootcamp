@@ -13,6 +13,9 @@ This lab exercise is a focused session that instructs participants on integratin
 - Integrate a frontend application with a backend API.
 - Learn the basics of fetching data from an API and managing state.
 - Enhance understanding of API integration in a React application.
+    - Step 1: What's the WiFi Password - Simple backend integration
+    - Step 2: Unstable Internet - State Management through React-Query.
+    - Step 3: Advanced backend integration with Open API (Optional).
 
 ### Step 1: What's the WiFi Password - Simple backend integration
 
@@ -211,6 +214,9 @@ This lab exercise is a focused session that instructs participants on integratin
 
 - Now stop the Frontend and API by pressing `Ctrl + C` in the terminal.
 
+### Congratulations you've made it to the end! &#9992; &#9992; &#9992;
+
+#### And with that, you've now concluded this module. We hope you enjoyed it! &#x1F60A;
 
 ## Optional (Work in Progress - Unstable)
  
