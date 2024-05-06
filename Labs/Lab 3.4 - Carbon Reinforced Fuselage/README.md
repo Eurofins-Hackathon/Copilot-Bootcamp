@@ -89,15 +89,109 @@ module.exports = {
 
 - Repeat for the other lint issues. You can also try `Explain using Copilot` to understand why the rule is important.
 
-### Step 2: DO NOT PRESS BUTTON - Visual Component Testing
+### Step 2: Navigating the Touch Screen - Visual Component Testing
+
+- In this lab, we will create visual component tests for the PlaneList component in the WrightBrothersFrontend project. Visual component testing is a new way of testing the interaction and appearance of components in isolation.
+
+- For these tests we are using Playwright, a tool for automating browsers. Playwright is similar to Selenium but with a more modern API and better performance.
+
+- Let's first run the existing tests in the project. Run `npm run test-ct` (component test) to see the existing tests pass.
+
+  ```sh
+  cd WrightBrothersFrontend/
+  npm run test-ct
+  ```
+
+- You should see that all tests pass
+
+  ```sh
+  Running 2 tests using 2 workers
+    2 passed (4.8s)
+  ```
+
+- Open the `PlaneList.tsx` file in the `src/components` folder. This component is a list of planes that are displayed in the `HomePage.tsx` page.
+
+- We are going to add tests to the already existing `PlaneList.spec.tsx` file in the `src/components` folder.
 
 - Open GitHub Copilot Chat
 
 - Type the following in the chat window:
 
     ```
-    How can I automatically update the package dependencies in a pipeline and create a pull request with the changes?
+    Create remaining tests for #selection based on test file #file:PlaneList.spec.tsx.
     ```
+  
+- GitHub Copilot will suggest additional tests to test all the functionality of the `PlaneList` component.
+
+  ```tsx
+  test('renders without crashing', async ({ mount }) => {
+    await mount<HooksConfig>(<PlaneList />, {
+      hooksConfig: { routing: true },
+    });
+  });
+
+  test('renders correct number of planes', async ({ page, mount }) => {
+    const planes = [
+      { id: 1, name: "Wright Flyer" },
+      { id: 2, name: "Wright Model A" },
+      { id: 3, name: "Wright Model B" },
+    ];
+
+    await mount<HooksConfig>(<PlaneList planes={planes} />, {
+      hooksConfig: { routing: true },
+    });
+
+    const liElements = await page.locator('li');
+    expect(await liElements.count()).toBe(planes.length);
+  });
+
+  test('displays correct plane names', async ({ page, mount }) => {
+    const planes = [
+      { id: 1, name: "Wright Flyer" },
+      { id: 2, name: "Wright Model A" },
+      { id: 3, name: "Wright Model B" },
+    ];
+
+    await mount<HooksConfig>(<PlaneList planes={planes} />, {
+      hooksConfig: { routing: true },
+    });
+
+    for (let i = 0; i < planes.length; i++) {
+      const h3Element = await page.locator('li h3').nth(i);
+      expect(await h3Element.textContent()).toBe(planes[i].name);
+    }
+  });
+
+  test('adds "flying" class to image when plane is clicked', async ({ page, mount }) => {
+    const planes = [
+      { id: 1, name: "Wright Flyer" },
+    ];
+
+    await mount<HooksConfig>(<PlaneList planes={planes} />, {
+      hooksConfig: { routing: true },
+    });
+
+    const liElement = page.locator('li').nth(0);
+    await liElement.click();
+
+    const imgElement = liElement.locator('img');
+    expect(imgElement).toHaveClass('flying');
+  });
+  ```
+
+- Add the suggested tests to the `PlaneList.spec.tsx` file
+
+- The created tests do not always compile. GitHub Copilot got you 95% of the way there, but you may need to make some adjustments to the code to make it work. You can also ask Copilot for help with this. Try `Fix using Copilot` or `Explain using Copilot` to get help with the code.
+
+- Now run the tests again but then with the UI open
+
+  ```sh
+  npm run test-ct:open
+  ```
+
+- You should see the tests in the PlayWright UI. You can press the play button in the UI to run the tests.
+
+- Not all tests will pass. You can now debug the tests in the PlayWright UI and fine-tune the tests to make them pass.
 
 ## Optional
 
