@@ -121,8 +121,8 @@ This practical lab designed to teach participants frontend setup and management 
 
 - Ask ChatGPT why the UI is not centered:
 
-    ```bash
-    #file:Banner.tsx How can I center the banner title?
+    ```md
+    #selection How can I center the banner title in the middle of the banner?
     ```
 
 - Copilot will provide you with a solution to center the banner title.
@@ -177,10 +177,10 @@ This practical lab designed to teach participants frontend setup and management 
 
 - Open the `WrightBrothersFrontend/src/components/Banner.tsx` file.
 
-- Ask ChatGPT how to add spacing between the title and subtitle:
+- Ask ChatGPT to make the content of `#selection` more spacious:
 
     ```md
-    The content of #selection feels very cramped, how to make it a lot more spacious?
+    The content of #selection feels very cramped. How to make it a lot more spacious?
     ```
 
 - For `#selection`, select all the content of `Banner.tsx`
@@ -192,29 +192,76 @@ This practical lab designed to teach participants frontend setup and management 
 >[!NOTE]
 > You can always tell Copilot how a UI appeals to you and how you want to improve it. Copilot understands UI/UX and will provide a solution based on best practices.
 
-- Implement the solution by following the steps provided by GitHub Copilot.
+- Replace the content of the `Banner.tsx` file with the solution provided by GitHub Copilot.
 
-<br>
+    <br>
 
-<details>
-<summary>Click for Solution</summary>
+    <details>
+    <summary>Click for Solution</summary>
 
-- Add the `mt-4` class to the subtitle `p` element:
-
-    ```html
-    <p className="mt-4 text-xl leading-8 text-amber-200">
-    Journey back to where it all began with the Wright Brothers' historic
-    flights.
-    </p>
+    ```tsx
+    import React from "react";
+    import { Airplane } from "./Airplane";
+    const Banner: React.FC = () => {
+        return (
+            <div className="relative vintage-filter bg-amber-600 overflow-hidden p-10 flex items-center justify-center">
+                <div className="h-40 px-8 sm:px-10 lg:px-12 max-w-screen-md flex flex-col text-center m-10">
+                    <h1 className="text-5xl leading-none font-bold text-amber-100 sm:text-6xl sm:leading-tight">
+                    Dawn of Aviation
+                    </h1>
+                    <p className="text-xl leading-8 text-amber-500 mt-5">
+                    Journey back to where it all began with the Wright Brothers' historic
+                    flights.
+                    </p>
+                </div>
+                <div className="absolute top-10 left-10">
+                    <div className="circle shadow-lg pulse-gentle"></div>{" "}
+                    {/* Sun with pulsing effect */}
+                </div>
+                <div className="absolute bottom-40 right-40">
+                    <div className="triangle drift-slow"></div>{" "}
+                    {/* Triangle with drifting effect */}
+                </div>
+                <div className="absolute left-16 bottom-8">
+                    <div className="absolute bottom-0 left-0">
+                    <PropellerSVG /> {/* Propeller with shadow */}
+                    </div>
+                    <div className="absolute bottom-0 left-0 mt-16 float-gentle">
+                    <Airplane />
+                    </div>
+                </div>
+            </div>
+        );
+    };
+    const PropellerSVG = () => (
+        <svg
+            className="absolute bottom-0 left-40 rotate-slow"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            width="100"
+            height="100"
+        >
+            <path
+            d="M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8L12 2Z"
+            fill="#D1D5DB"
+            />
+        </svg>
+    );
+    export default Banner;
     ```
 
-</details>
+    </details>
 
-<br>
+    <br>
 
 - Save the file and refresh the browser at [http://localhost:5173/](http://localhost:5173/).
 
 - The banner should now feel more spacious.
+
+    <img src="../../Images/FrontendSpacious.png" width="800">
+
+> [!IMPORTANT]
+> Copilot does not always provide the exact solution you are looking for. Try the prompt again or provide more context to get a better solution.
 
 ### Step 4: Emergency Exit Lights - Color Contrast
 
@@ -241,8 +288,12 @@ This practical lab designed to teach participants frontend setup and management 
 - Ask ChatGPT what color you should use for the subtitle:
 
     ```md
-    The subtitle in the banner at ~~~#selection~~~ is hard to read due to its color, what color do you suggest?
+    The subtitle in the banner at #selection is hard to read due to its color, what color do you suggest?
     ```
+
+- For `#selection`, select all the content of `Banner.tsx`
+
+- Now submit the prompt to GitHub Copilot.
 
 - Copilot understands colors and contrasts and will provide you with a color that has a good contrast with the background.
 
@@ -261,7 +312,7 @@ This practical lab designed to teach participants frontend setup and management 
 
 ## Optional 
 
-### Step 6: Notifying the Air Crew - Call to Action Buttons
+### Step 5: Notifying the Air Crew - Call to Action Buttons
 
 - Open the terminal and navigate to the `WrightBrothersFrontend/` directory.
 
@@ -334,6 +385,10 @@ This practical lab designed to teach participants frontend setup and management 
 - Save the file and refresh the browser at [http://localhost:5173/](http://localhost:5173/).
 
 - The banner should now have two call to action buttons.
+
+   <img src="../../Images/FrontendCallToAction.png" width="800">
+
+- Hover over the buttons to see the hover effect.
 
 ### Congratulations you've made it to the end! &#9992; &#9992; &#9992;
 

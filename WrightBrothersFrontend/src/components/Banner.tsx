@@ -3,7 +3,7 @@ import { Airplane } from "./Airplane"; // Ensure this has a vintage style
 
 const Banner: React.FC = () => {
   return (
-    <div className="relative h-52 vintage-filter bg-amber-600 overflow-hidden">
+    <div className="relative vintage-filter bg-amber-600 overflow-hidden">
       <div className="px-4 m-6 sm:px-6 lg:px-8 max-w-screen-md text-center">
         <h1 className="text-5xl leading-none font-bold text-amber-100 sm:text-6xl sm:leading-tight">
           Dawn of Aviation

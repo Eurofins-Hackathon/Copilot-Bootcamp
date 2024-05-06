@@ -5,6 +5,41 @@ import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 
 gsap.registerPlugin(MotionPathPlugin);
 
+
+// @keyframes flyAway {
+//   0% {
+//     transform: translateX(0) translateY(0) scale(1);
+//   }
+//   25% {
+//     transform: translateX(20vw) translateY(-10vh) scale(1.4) rotate(-20deg);
+//   }
+//   50% {
+//     transform: translateX(40vw) translateY(10vh) scale(1.8) rotate(20deg);
+//   }
+//   75% {
+//     transform: translateX(60vw) translateY(-20vh) scale(2.2) rotate(-20deg);
+//   }
+//   100% {
+//     transform: translateX(100vw) translateY(-30vh) scale(2.6) rotate(20deg);
+//   }
+// }
+
+// .flying {
+//   animation: flyAway 2s forwards; /* Extend the duration for a smoother animation */
+// }
+export const flyingAway = (planeRef: MutableRefObject<null>) => {
+  gsap.to(planeRef.current, {
+    duration: 2,
+    x: "100vw",
+    y: "-30vh",
+    scale: 1.5,
+    rotation: 20,
+    opacity: 0,
+  });
+};
+
+
+
 export const animateInitialFlight = (planeRef: MutableRefObject<null>) => {
   gsap.to(planeRef.current, {
     duration: 3,
