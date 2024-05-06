@@ -197,24 +197,70 @@ module.exports = {
 
 ### Step 3: PlayWright UI Test project using **/new** command
 
-```
-@workspace /new Playwright UI Tests
+- In this lab, we will create a new Playwright UI Test project using the **/new** command in GitHub Copilot. 
 
-## Test
+- First, Make sure that the Frontend is running. This is because the Playwright UI Test project will interact with the Frontend.
 
-1. Navigate to "/new-plane"
-2. Fill out the form with attribute "name": id, name, year, description, rangeInKm
+  ```sh
+  cd WrightBrothersFrontend/
+  npm run frontend
+  ```
 
-## Technical Requirements
+- Now, open GitHub Copilot Chat
 
-- Headless is False
-- localhost:5173 is the base URL
-- Typescript
-- Include package.json
-- Use @playwright/test library
+- Type the following in the chat window:
 
-Make a complete solution.
-```
+  ```md
+  @workspace /new Playwright UI Tests
+
+  ## Test
+
+  1. Navigate to "/new-plane"
+  2. Fill out the form with attribute "name": id, name, year, description, rangeInKm
+
+  ## Technical Requirements
+
+  - Headless is False
+  - localhost:5173 is the base URL
+  - Typescript
+  - Include package.json
+  - Use @playwright/test library
+
+  Make a complete solution.
+  ```
+
+- Press `Enter` to submit the question
+
+- GitHub Copilot will now scaffold a new Playwright UI Test project
+
+  <img src="../../Images/Screenshot-PlaywrightUITestProject.png" width="500">
+
+- Press `Create Workspace` to create the new Playwright UI Test project.
+
+- Select the `WrightBrothersFrontend/` folder to create the new project.
+
+- GitHub Copilot will now open the new project in a new window.
+
+- Open the terminal in the new project and run install
+
+  ```sh
+  npm install
+  ```
+
+- Now, run the tests
+
+  ```sh
+  npm run test
+  ```
+
+- You should see the tests pass
+
+  ```
+  Running 1 test using 1 worker
+    ✓ 1. should navigate to /new-plane and fill out the form (1.5s)
+  ```
+
+- GitHub Copilot just created a new Playwright UI Test project for you with successful tests. You can now use this project to create more tests for the WrightBrothersFrontend project.
 
 ### Congratulations you've made it to the end! &#9992; &#9992; &#9992;
 
