@@ -2,10 +2,10 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 type PlaneListProps = {
-  planes: { id: number; name: string; }[];
+  planes?: { id: number; name: string; }[];
 };
 
-const PlaneList: React.FC<PlaneListProps> = ({ planes }) => {
+const PlaneList: React.FC<PlaneListProps> = (props: PlaneListProps) => {
   const navigate = useNavigate();
 
   const handleClick = (planeId: any, event: any) => {
@@ -17,6 +17,9 @@ const PlaneList: React.FC<PlaneListProps> = ({ planes }) => {
       navigate(`/planes/${planeId}`); // Delay navigation until the animation completes
     }, 2000); // Adjust timeout to match the duration of your flyAway animation
   };
+
+  const planes = props.planes || [];
+
 
   return (
     <div>

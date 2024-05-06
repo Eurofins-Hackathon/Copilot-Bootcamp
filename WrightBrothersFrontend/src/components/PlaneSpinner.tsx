@@ -4,7 +4,9 @@ import React from "react";
 import { animateCrashed, animateInitialFlight as animateLooping, flyingAway as animateFlyingAway } from "../animationHelpers";
 
 type SpinnerProps = {
-    state: "loading" | "success" | "error" | "idle";
+    isLoading: boolean;
+    isSuccess: boolean;
+    isError: boolean;
 };
 
 function PlaneSpinner(
@@ -15,18 +17,14 @@ function PlaneSpinner(
     const planeRef = useRef(null);
 
     useEffect(() => {
-        if (props.state === "loading") {
+        if (props.isLoading) {
             animateLooping(planeRef);
-        } else if (props.state === "success") {
+        } else if (props.isSuccess) {
             animateFlyingAway(planeRef);
-        } else if (props.state === "error") {
+        } else if (props.isError) {
             animateCrashed(planeRef, explosionRef, debrisRefs);
         }
     });
-
-    if (props.state === "idle") {
-        return (<div></div>);
-    }
 
     return (
         <div>

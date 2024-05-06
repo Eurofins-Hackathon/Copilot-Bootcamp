@@ -114,11 +114,14 @@ This lab exercise is a focused session that instructs participants on integratin
     
     ## Design
     - Banner should always be visible
-    - Loading state should show the Spinner component and should be centered below the banner
-    - Error should show a styled error message.
+    - Show a PlaneSpinner component inside the page content when loading or error state
 
     ## Technical details
     - Add a delay of 3 seconds to the request to see the loading state
+    - Throw an Error after the delay to see the error state
+
+    ## References
+    - #file:PlaneSpinner.tsx
     ```
 
 - For `#selection` select all the content of `HomePage.tsx`
