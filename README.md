@@ -79,22 +79,22 @@ Prepare for takeoff! Your journey concludes with a hands-on lab to apply these c
 ### Lab 3.1 - Dawn of Aviation ✈ Setting up the Front-End Project
 This practical lab designed to teach participants frontend setup and management using GitHub Copilot. It focuses on implementing and adjusting UI components, exploring frontend technologies, and enhancing usability and accessibility, all facilitated by GitHub Copilot's interactive coding assistance.
 
-- [Dawn of Aviation ✈ Setting up the Front-End Project](./Labs/#)
+- [Dawn of Aviation ✈ Setting up the Front-End Project](./Labs/Lab%203.1%20-%20Dawn%20of%20Aviation)
 
 ### Lab 3.2 - Onboard WiFi ✈ Connecting to the WrightBrothersAPI
 This lab exercise is a focused session that instructs participants on integrating a frontend application with a backend API using GitHub Copilot. The lab covers the basics of fetching data from an API, managing state with React-Query, and effectively handling loading and error states. Participants will learn to use GitHub Copilot to generate and implement code snippets, enhancing their understanding of API integration in a React application.
 
-- [Onboard WiFi ✈ Connecting to the WrightBrothersAPI](./Labs/#)
+- [Onboard WiFi ✈ Connecting to the WrightBrothersAPI](./Labs/Lab%203.2%20-%20Onboard%20WiFi)
 
 ### Lab 3.3 - In-Flight Entertainment ✈ Creating Interactive Components
 This lab exercise is focused on integrating styled buttons and forms to enhance user interactions, with emphasis on design consistency and functional integration. The lab aims to improve skills in component creation, event handling, and API interactions in a React environment, utilizing GitHub Copilot for code generation.
 
-- [In-Flight Entertainment ✈ Creating Interactive Components](./Labs/#)
+- [In-Flight Entertainment ✈ Creating Interactive Components](./Labs/Lab%203.3%20-%20In-Flight%20Entertainment)
 
 ### Lab 3.4 - Carbon Reinforced Fuselage ✈ Hardening the Frontend
 This lab focuses on configuring eslint to identify and fix lint issues, updating package dependencies, and optionally creating a Playwright UI Test project. 
 
-- [Carbon Reinforced Fuselage ✈ Hardening the Frontend](./Labs/#)
+- [Carbon Reinforced Fuselage ✈ Hardening the Frontend](./Labs/Lab%203.4%20-%20Carbon%20Reinforced%20Fuselage)
 
 ## Module 4
 
