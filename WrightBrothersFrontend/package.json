@@ -9,7 +9,8 @@
     "frontend-and-backend": "concurrently \"npm run backend\" \"npm run frontend\"",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test-ct": "playwright test -c playwright-ct.config.ts"
   },
   "dependencies": {
     "@heroicons/react": "^2.1.3",
@@ -28,6 +29,8 @@
     "yup": "^1.4.0"
   },
   "devDependencies": {
+    "@playwright/experimental-ct-react": "^1.43.1",
+    "@types/node": "^20.12.9",
     "@types/react": "^18.2.64",
     "@types/react-dom": "^18.2.21",
     "@typescript-eslint/eslint-plugin": "^7.1.1",
