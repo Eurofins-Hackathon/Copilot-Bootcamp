@@ -22,11 +22,13 @@ const Banner: React.FC = () => {
           <div className="triangle drift-slow"></div>{" "}
           {/* Triangle with drifting effect */}
         </div>
-        <div className="absolute bottom-8 left-32">
-          <PropellerSVG /> {/* Propeller with shadow */}
-        </div>
-        <div className="absolute bottom-8 left-16 mt-8 float-gentle">
-          <Airplane />
+        <div className="absolute left-16 bottom-8">
+          <div className="absolute bottom-0 left-16">
+            <PropellerSVG /> {/* Propeller with shadow */}
+          </div>
+          <div className="absolute bottom-0 left-0 mt-8 float-gentle">
+            <Airplane />
+          </div>
         </div>
       </div>
     </div>
