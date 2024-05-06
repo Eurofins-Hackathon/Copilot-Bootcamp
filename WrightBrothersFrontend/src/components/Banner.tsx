@@ -3,8 +3,8 @@ import { Airplane } from "./Airplane"; // Ensure this has a vintage style
 
 const Banner: React.FC = () => {
   return (
-    <div className="relative vintage-filter bg-amber-600 overflow-hidden">
-      <div className="h-40 px-4 sm:px-6 lg:px-8 max-w-screen-md flex flex-col text-center">
+    <div className="relative h-52 vintage-filter bg-amber-600 overflow-hidden">
+      <div className="px-4 m-6 sm:px-6 lg:px-8 max-w-screen-md text-center">
         <h1 className="text-5xl leading-none font-bold text-amber-100 sm:text-6xl sm:leading-tight">
           Dawn of Aviation
         </h1>
@@ -13,7 +13,6 @@ const Banner: React.FC = () => {
           flights.
         </p>
       </div>
-      <div>
         <div className="absolute top-10 left-10">
           <div className="circle shadow-lg pulse-gentle"></div>{" "}
           {/* Sun with pulsing effect */}
@@ -30,7 +29,6 @@ const Banner: React.FC = () => {
             <Airplane />
           </div>
         </div>
-      </div>
     </div>
   );
 };
