@@ -41,7 +41,7 @@ const PlaneDetail = () => {
   }, [planeId]);
 
   useEffect(() => {
-    if (hasRunEffect.current) {
+    if (hasRunEffect.current == true) {
       return;
     }
     hasRunEffect.current = true;

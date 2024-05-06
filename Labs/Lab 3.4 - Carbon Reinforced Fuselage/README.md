@@ -20,7 +20,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 ### Step 1: Eslint configuration and fix lint issues
 
-// TODO install eslint plugin to VSCode
+- In this lab, we will configure eslint and fix lint issues in the WrightBrothersFrontend project. eslint is a tool that helps you find and fix problems in your JavaScript code. It is similar to Roslyn Analyzer in the .NET.
 
 - Start with running `npm run lint` to see the current lint issues
 
@@ -74,15 +74,24 @@ module.exports = {
 
 - Ask Copilot to fix the lint issues
 
+- Go to the lint issues in `WrightBrothersFrontend/src/pages/PlaneDetail.tsx`.
+
+- Find the following code snippet that contains the `eqeqeq` lint issue:
+
+```tsx
+  if (!planeDetails)
+    return <div>Plane not found</div>;
+```
+
 - Go to the first lint issue and press `Ctrl + .` and select `Fix using Copilot`
 
-// TODO Screenshot of the fix using Copilot
+  <img src="../../Images/Screenshot-FixUsingCopilot.png" width="500">
 
 - GitHub Copilot will now open a Inline Chat window with the suggested fix
 
-- Repeat for the other lint issues. You can also try `Explain using Copilot`
+- Repeat for the other lint issues. You can also try `Explain using Copilot` to understand why the rule is important.
 
-### Step 2: Upgrade to Business Class - Update Package Dependencies
+### Step 2: DO NOT PRESS BUTTON - Visual Component Testing
 
 - Open GitHub Copilot Chat
 
