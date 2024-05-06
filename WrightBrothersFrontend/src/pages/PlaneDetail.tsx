@@ -2,17 +2,12 @@ import React, { useEffect, useRef, useState } from "react";
 import { useParams } from "react-router-dom";
 import gsap from "gsap";
 import MotionPathPlugin from "gsap/MotionPathPlugin";
-import { Airplane } from "../components/Airplane";
-import {
-  animateCrashed,
-  animateInitialFlight,
-  animateLanded,
-} from "../animationHelpers";
 import PlaneService from "../services/PlaneService";
 import FlightService from "../services/FlightService";
 import PageContent from "../components/PageContent";
 import FlightDetails from "../components/FlightDetails";
 import Card from "../components/Card";
+import PlaneSpinner from "../components/PlaneSpinner";
 
 gsap.registerPlugin(MotionPathPlugin);
 
@@ -20,9 +15,6 @@ const PlaneDetail = () => {
   const { planeId } = useParams();
   const [crashed, setCrashed] = useState(false);
   const [landed, setLanded] = useState(false);
-  const planeRef = useRef(null);
-  const explosionRef = useRef(null);
-  const debrisRefs = useRef([...Array(30)].map(() => React.createRef())); // Create 10 debris refs
   const hasRunEffect = useRef(false);
 
   const [planeDetails, setPlaneDetails] = useState<any>({});
@@ -54,8 +46,6 @@ const PlaneDetail = () => {
     }
     hasRunEffect.current = true;
 
-    animateInitialFlight(planeRef);
-
     FlightService.calculateAerodynamics(planeId as string)
       .then(() => {
         setTimeout(() => {
@@ -69,24 +59,8 @@ const PlaneDetail = () => {
       });
   }, [planeId]);
 
-  useEffect(() => {
-    if (!planeRef.current) {
-      return;
-    }
-
-    if (landed == true) {
-      animateLanded(planeRef);
-    }
-
-    if (crashed) {
-      animateCrashed(planeRef, explosionRef, debrisRefs);
-    }
-  }, [crashed, landed]);
-
   if (!planeDetails)
     return <div>Plane not found</div>;
-  
-
 
   return (
     <PageContent>
@@ -104,34 +78,11 @@ const PlaneDetail = () => {
         <div className="relative w-2/3">
           <Card>
             <div className="min-h-96">
-              <div className="absolute w-36 h-28" ref={planeRef}>
-                <Airplane />
-              </div>
-
-              <div
-                ref={explosionRef}
-                className="absolute top-0 left-0 right-0 bottom-0"
-                style={{
-                  borderRadius: "50%",
-                  backgroundColor: "transparent",
-                  zIndex: 2,
-                }}
-              ></div>
-              {debrisRefs.current.map((ref, index) => (
-                <div
-                  key={index}
-                  ref={ref as React.RefObject<HTMLDivElement>}
-                  className="absolute"
-                  style={{
-                    top: "50%",
-                    left: "50%",
-                    backgroundColor: "#333",
-                    transform: "translate(-50%, -50%)",
-                    zIndex: 1,
-                    opacity: 0, // Initialize with opacity 0
-                  }}
-                ></div>
-              ))}
+              <PlaneSpinner
+                isError={crashed}
+                isLoading={!landed && !crashed}
+                isSuccess={landed}
+              />
               {landed && (
                 <FlightDetails flight={flightDetails} />
               )}
