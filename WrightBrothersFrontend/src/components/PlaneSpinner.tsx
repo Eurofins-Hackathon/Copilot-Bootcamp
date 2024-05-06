@@ -5,8 +5,8 @@ import { animateCrashed, animateInitialFlight as animateLooping, flyingAway as a
 
 type SpinnerProps = {
     isLoading: boolean;
-    isSuccess: boolean;
-    isError: boolean;
+    isSuccess?: boolean;
+    isError?: boolean;
 };
 
 function PlaneSpinner(

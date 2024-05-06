@@ -141,15 +141,16 @@ function HomePage() {
     ## Design
 
     - Apply tailwind classes to match the design of #file:PlaneList.tsx
+    - Every input should have a label
 
     ## Technical Requirements
 
     - Create fields based on file #file:Plane.ts
     - Formik for form handling
     - Yup for validations
+    - Redirect back to the home page after successful submission
 
-    Give me a complete solution.
-
+    Give me a complete solution. Do not skip any form fields.
     ```
 
 - For the first `#file`, select `PlaneList.tsx`. This is a hint to match the style of the form to the existing `<PlaneList />` component.
@@ -169,48 +170,69 @@ function HomePage() {
       import React from 'react';
       import { Formik, Field, Form, ErrorMessage } from 'formik';
       import * as Yup from 'yup';
+      import { useNavigate } from 'react-router-dom';
       import axios from 'axios';
-      import PageContent from "../components/PageContent";
+      import PageContent from '../components/PageContent';
 
       const PlaneSchema = Yup.object().shape({
         id: Yup.number().required('Required'),
         name: Yup.string().required('Required'),
+        year: Yup.number().required('Required'),
+        description: Yup.string().required('Required'),
+        rangeInKm: Yup.number().required('Required'),
       });
 
       const NewPlane = () => {
-        const handleSubmit = (values, { setSubmitting }) => {
-          axios.post('http://localhost:1903/planes', values)
-            .then(response => {
-              console.log(response);
-              setSubmitting(false);
-            })
-            .catch(error => {
-              console.log(error);
-              setSubmitting(false);
-            });
-        };
+        const navigate = useNavigate();
 
         return (
           <PageContent>
-            <h1>New Plane</h1>
+            <h1>New plane</h1>
             <Formik
-              initialValues={{ id: '', name: '' }}
+              initialValues={{
+                id: '',
+                name: '',
+                year: '',
+                description: '',
+                rangeInKm: '',
+              }}
               validationSchema={PlaneSchema}
-              onSubmit={handleSubmit}
+              onSubmit={(values, { setSubmitting }) => {
+                axios.post('http://localhost:1903/planes', values)
+                  .then(() => {
+                    setSubmitting(false);
+                    navigate('/');
+                  });
+              }}
             >
               {({ isSubmitting }) => (
                 <Form className="space-y-4">
                   <div>
                     <label htmlFor="id" className="block text-sm font-medium text-gray-700">ID</label>
-                    <Field type="number" name="id" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" />
-                    <ErrorMessage name="id" component="div" className="text-red-500 text-xs mt-1" />
+                    <Field type="number" name="id" className="mt-1 block w-full" />
+                    <ErrorMessage name="id" component="div" />
                   </div>
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
-                    <Field type="text" name="name" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" />
-                    <ErrorMessage name="name" component="div" className="text-red-500 text-xs mt-1" />
+                    <Field type="text" name="name" className="mt-1 block w-full" />
+                    <ErrorMessage name="name" component="div" />
                   </div>
-                  <button type="submit" disabled={isSubmitting} className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                  <div>
+                    <label htmlFor="year" className="block text-sm font-medium text-gray-700">Year</label>
+                    <Field type="number" name="year" className="mt-1 block w-full" />
+                    <ErrorMessage name="year" component="div" />
+                  </div>
+                  <div>
+                    <label htmlFor="description" className="block text-sm font-medium text-gray-700">Description</label>
+                    <Field type="text" name="description" className="mt-1 block w-full" />
+                    <ErrorMessage name="description" component="div" />
+                  </div>
+                  <div>
+                    <label htmlFor="rangeInKm" className="block text-sm font-medium text-gray-700">Range in Km</label>
+                    <Field type="number" name="rangeInKm" className="mt-1 block w-full" />
+                    <ErrorMessage name="rangeInKm" component="div" />
+                  </div>
+                  <button type="submit" disabled={isSubmitting} className="mt-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                     Submit
                   </button>
                 </Form>
@@ -237,7 +259,7 @@ function HomePage() {
 
 - Fill in the form and click the submit button.
 
-- Go to the home page `http://localhost:5173/` to see the new plane added to the list.
+- You are now redirected back to the home page and the new plane should be visible in the list.
 
 ### Congratulations you've made it to the end! &#9992; &#9992; &#9992;
 
