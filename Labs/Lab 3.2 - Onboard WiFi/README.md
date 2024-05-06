@@ -140,47 +140,33 @@ This lab exercise is a focused session that instructs participants on integratin
     import Banner from "../components/Banner";
     import PlaneList from "../components/PlaneList";
     import PageContent from "../components/PageContent";
-    import Spinner from "../components/Spinner"; // Assuming you have a Spinner component
+    import PlaneSpinner from "../components/PlaneSpinner";
 
-    async function fetchPlanes() {
-    await new Promise(resolve => setTimeout(resolve, 3000)); // Add a delay of 3 seconds
+    const fetchPlanes = async () => {
+    await new Promise(resolve => setTimeout(resolve, 3000)); // Add delay
+    throw new Error('Error fetching planes'); // Throw error
     const response = await axios.get('http://localhost:1903/planes/');
     return response.data;
-    }
+    };
 
     function HomePage() {
-    const { isLoading, isError, data: planes } = useQuery('planes', fetchPlanes);
-
-    if (isLoading) {
-        return (
-        <div>
-            <Banner />
-            <Spinner /> {/* Show Spinner when loading */}
-        </div>
-        );
-    }
-
-    if (isError) {
-        return (
-        <div>
-            <Banner />
-            <p>There was an error loading the planes.</p> {/* Show error message when there is an error */}
-        </div>
-        );
-    }
+    const { isLoading, isSuccess, isError, data: planes } = useQuery('planes', fetchPlanes);
 
     return (
         <div>
         <Banner />
         <PageContent>
+            {isLoading || isError ? (
+            <PlaneSpinner isLoading={isLoading} isError={isError} isSuccess={isSuccess} />
+            ) : (
             <PlaneList planes={planes} />
+            )}
         </PageContent>
         </div>
     );
     }
 
     export default HomePage;
-
     ```
 
     </details>
@@ -201,19 +187,29 @@ This lab exercise is a focused session that instructs participants on integratin
 
 - Navigate to the home page `http://localhost:5173/`
 
-- You should see a loading state with a spinning Airplane for 3 seconds before the planes are displayed.
+- After 3 seconds of loading you should see the airplane exploding, because an error is thrown on purpose, to see the error state of `react-query`.
 
-- Now stop the Frontend and API by pressing `Ctrl + C` in the terminal
+> [!TIP]
+> With GitHub Copilot Chat you can create these funny animations, like an airplane spinning for a loading state, or an airplane exploding for error state. If you have a crazy idea, just ask GitHub Copilot to help you with that. In this case I asked Copilot for a plane crashing animation. At first the airplane only fell from the sky. Then I asked Copilot to make the airplane explode, which was the cause of the crashing airplane. I was then missing debree, so I asked Copilot to add debree to the airplane explosion. This animation was me having a lot of fun with GitHub Copilot :) - Thijs Limmen
 
-- Run only frontend with the following command
+
+- Now, let's remove the `throw new Error('Error fetching planes');` line from the `fetchPlanes` function in `HomePage.tsx`
+
+- Open the terminal and navigate to the `WrightBrothersFrontend/` directory.
 
     ```bash
-    npm run frontend
+    cd WrightBrothersFrontend/
+    ```
+
+- Run the frontend and backend again with the following command
+
+    ```bash
+    npm run frontend-and-backend
     ```
 
 - Navigate to the home page `http://localhost:5173/`
 
-- After 3 seconds you should see an error message displayed, because the API is not running.
+- After 3 seconds you should see the list of planes from the API that was fetched through the `react-query` hook.
 
 - Now stop the Frontend and API by pressing `Ctrl + C` in the terminal.
 
