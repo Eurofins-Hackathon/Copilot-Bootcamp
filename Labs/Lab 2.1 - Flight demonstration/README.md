@@ -247,6 +247,10 @@ public class PlanesController : ControllerBase
 - Type `// Search planes by name` in the comment block. After the `}` of the `GetAll` method, press `Enter`.
 
     ```csharp
+    // Search planes by name
+    ```
+    
+    ```csharp
     public class PlanesController : ControllerBase
     {
         /* Rest of the methods */
