@@ -332,63 +332,63 @@ function HomePage() {
 - The result will be a complete animation of an airplane doing manouvers as described in the prompt.
 
   ```tsx
-
   export const animateManeuvers = (airplaneRef: MutableRefObject<null>, maneuvers: string) => {
-      const timeline = gsap.timeline();
-      const maneuversArray = maneuvers.split('-');
+    const timeline = gsap.timeline();
 
-      maneuversArray.forEach(maneuver => {
-        const type = maneuver.charAt(0);
-        const repeat = parseInt(maneuver.charAt(1));
-        const difficulty = maneuver.charCodeAt(2) - 64; // Convert A-E to 1-5
+    const maneuversArray = maneuvers.split('-');
+    maneuversArray.forEach((maneuver) => {
+      const type = maneuver.charAt(0);
+      const repeatCount = parseInt(maneuver.charAt(1));
+      const difficulty = maneuver.charCodeAt(2) - 65; // A-E mapped to 0-4
 
-        switch (type) {
-          case 'L': // Loop
-            timeline.to(airplaneRef.current, {
-              motionPath: {
-                path: [{x: 0, y: 0}, {x: 100, y: 0}, {x: 100, y: 100}, {x: 0, y: 100}],
-                curviness: 1.5
-              },
-              repeat: repeat,
-              duration: difficulty
-            });
-            break;
-          case 'H': // Hammerhead
-            timeline.to(airplaneRef.current, {
-              rotation: 180,
-              x: "+=100",
-              repeat: repeat,
-              duration: difficulty
-            });
-            break;
-          case 'R': // Roll
-            timeline.to(airplaneRef.current, {
-              rotation: 360,
-              y: "+=100",
-              repeat: repeat,
-              yoyo: true,
-              duration: difficulty
-            });
-            break;
-          case 'S': // Spin
-            timeline.to(airplaneRef.current, {
-              rotation: 360,
-              repeat: repeat,
-              duration: difficulty
-            });
-            break;
-          case 'T': // Tailslide
-            timeline.to(airplaneRef.current, {
-              rotation: 180,
-              x: "-=100",
-              repeat: repeat,
-              duration: difficulty
-            });
-            break;
-          default:
-            break;
-        }
-      });
+      switch (type) {
+        case 'L': // Loop
+          timeline.to(airplaneRef.current, {
+            motionPath: {
+              path: [{ x: 0, y: 0 }, { x: 100, y: 0 }, { x: 100, y: 100 }, { x: 0, y: 100 }],
+              alignOrigin: [0.5, 0.5],
+              autoRotate: true,
+            },
+            duration: 1 + difficulty,
+            repeat: repeatCount,
+          });
+          break;
+        case 'H': // Hammerhead
+          timeline.to(airplaneRef.current, {
+            rotation: 180,
+            x: '+=100',
+            duration: 1 + difficulty,
+            repeat: repeatCount,
+          });
+          break;
+        case 'R': // Roll
+          timeline.to(airplaneRef.current, {
+            y: '+=100',
+            rotation: 360,
+            duration: 1 + difficulty,
+            repeat: repeatCount,
+            yoyo: true,
+          });
+          break;
+        case 'S': // Spin
+          timeline.to(airplaneRef.current, {
+            rotation: 360,
+            duration: 1 + difficulty,
+            repeat: repeatCount,
+          });
+          break;
+        case 'T': // Tailslide
+          timeline.to(airplaneRef.current, {
+            rotation: 180,
+            x: '-=100',
+            duration: 1 + difficulty,
+            repeat: repeatCount,
+          });
+          break;
+        default:
+          break;
+      }
+    });
   };
   ```
 
@@ -396,7 +396,7 @@ function HomePage() {
 
 - Open the animation helpers file at `WrightBrothersFrontend/src/animationHelpers.ts` and add the function provided by GitHub Copilot.
 
-- Open the Flight Details component `WrightBrothersFrontend/src/components/FlightDetails.tsx` and replace `// insert simulate aerobatic function here` with the following code.
+- Open the Flight Details component `WrightBrothersFrontend/src/components/FlightDetails.tsx` and replace `// insert animateManeuvers function here` with the following code.
 
 ```tsx
 // Rest of the component

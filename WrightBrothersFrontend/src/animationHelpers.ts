@@ -15,71 +15,11 @@ export const flyingAway = (planeRef: MutableRefObject<null>, onCompleted = () =>
     scale: 1.5,
     rotation: 20,
     opacity: 0,
-    // hide after animation
     onComplete: () => {
       onCompleted();
     },
   });
 };
-
-export const animateManeuvers = (airplaneRef: MutableRefObject<null>, maneuvers: string) => {
-    const timeline = gsap.timeline();
-    const maneuversArray = maneuvers.split('-');
-
-    maneuversArray.forEach(maneuver => {
-      const type = maneuver.charAt(0);
-      const repeat = parseInt(maneuver.charAt(1));
-      const difficulty = maneuver.charCodeAt(2) - 64; // Convert A-E to 1-5
-
-      switch (type) {
-        case 'L': // Loop
-          timeline.to(airplaneRef.current, {
-            motionPath: {
-              path: [{x: 0, y: 0}, {x: 100, y: 0}, {x: 100, y: 100}, {x: 0, y: 100}],
-              curviness: 1.5
-            },
-            repeat: repeat,
-            duration: difficulty
-          });
-          break;
-        case 'H': // Hammerhead
-          timeline.to(airplaneRef.current, {
-            rotation: 180,
-            x: "+=100",
-            repeat: repeat,
-            duration: difficulty
-          });
-          break;
-        case 'R': // Roll
-          timeline.to(airplaneRef.current, {
-            rotation: 360,
-            y: "+=100",
-            repeat: repeat,
-            yoyo: true,
-            duration: difficulty
-          });
-          break;
-        case 'S': // Spin
-          timeline.to(airplaneRef.current, {
-            rotation: 360,
-            repeat: repeat,
-            duration: difficulty
-          });
-          break;
-        case 'T': // Tailslide
-          timeline.to(airplaneRef.current, {
-            rotation: 180,
-            x: "-=100",
-            repeat: repeat,
-            duration: difficulty
-          });
-          break;
-        default:
-          break;
-      }
-    });
-};
-
 
 export const animateInitialFlight = (planeRef: MutableRefObject<null>) => {
   gsap.to(planeRef.current, {
