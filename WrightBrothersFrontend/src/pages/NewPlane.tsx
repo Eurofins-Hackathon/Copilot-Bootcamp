@@ -40,27 +40,27 @@ const NewPlane = () => {
           <Form className="space-y-4">
             <div>
               <label htmlFor="id" className="block text-sm font-medium text-gray-700">ID</label>
-              <Field type="number" name="id" className="mt-1 block w-full" />
+              <Field id="id" type="number" name="id" className="mt-1 block w-full" />
               <ErrorMessage name="id" component="div" />
             </div>
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
-              <Field type="text" name="name" className="mt-1 block w-full" />
+              <Field id="name" type="text" name="name" className="mt-1 block w-full" />
               <ErrorMessage name="name" component="div" />
             </div>
             <div>
               <label htmlFor="year" className="block text-sm font-medium text-gray-700">Year</label>
-              <Field type="number" name="year" className="mt-1 block w-full" />
+              <Field id="year" type="number" name="year" className="mt-1 block w-full" />
               <ErrorMessage name="year" component="div" />
             </div>
             <div>
               <label htmlFor="description" className="block text-sm font-medium text-gray-700">Description</label>
-              <Field type="text" name="description" className="mt-1 block w-full" />
+              <Field id="description" type="text" name="description" className="mt-1 block w-full" />
               <ErrorMessage name="description" component="div" />
             </div>
             <div>
               <label htmlFor="rangeInKm" className="block text-sm font-medium text-gray-700">Range in Km</label>
-              <Field type="number" name="rangeInKm" className="mt-1 block w-full" />
+              <Field id="rangeInKm" type="number" name="rangeInKm" className="mt-1 block w-full" />
               <ErrorMessage name="rangeInKm" component="div" />
             </div>
             <button type="submit" disabled={isSubmitting} className="mt-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
