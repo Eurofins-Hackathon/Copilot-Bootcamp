@@ -310,7 +310,7 @@ I want you to create an React animation of an airplane doing manouvers. Implemen
 - Use a gsap timeline.to for the animations
 - Use GSAP Motion for the Looping
 
-Give me the complete solution
+Give me a complete solution. Do not skip any GSAP animation.
 ```
 
 - The result will be a complete animation of an airplane doing manouvers

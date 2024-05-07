@@ -5,29 +5,9 @@ import { MotionPathPlugin } from "gsap/MotionPathPlugin";
 
 gsap.registerPlugin(MotionPathPlugin);
 
+export const flyingAway = (planeRef: MutableRefObject<null>, onCompleted = () => {}
 
-// @keyframes flyAway {
-//   0% {
-//     transform: translateX(0) translateY(0) scale(1);
-//   }
-//   25% {
-//     transform: translateX(20vw) translateY(-10vh) scale(1.4) rotate(-20deg);
-//   }
-//   50% {
-//     transform: translateX(40vw) translateY(10vh) scale(1.8) rotate(20deg);
-//   }
-//   75% {
-//     transform: translateX(60vw) translateY(-20vh) scale(2.2) rotate(-20deg);
-//   }
-//   100% {
-//     transform: translateX(100vw) translateY(-30vh) scale(2.6) rotate(20deg);
-//   }
-// }
-
-// .flying {
-//   animation: flyAway 2s forwards; /* Extend the duration for a smoother animation */
-// }
-export const flyingAway = (planeRef: MutableRefObject<null>) => {
+) => {
   gsap.to(planeRef.current, {
     duration: 2,
     x: "100vw",
@@ -35,9 +15,70 @@ export const flyingAway = (planeRef: MutableRefObject<null>) => {
     scale: 1.5,
     rotation: 20,
     opacity: 0,
+    // hide after animation
+    onComplete: () => {
+      onCompleted();
+    },
   });
 };
 
+export const animateManeuvers = (airplaneRef: MutableRefObject<null>, maneuvers: string) => {
+    const timeline = gsap.timeline();
+    const maneuversArray = maneuvers.split('-');
+
+    maneuversArray.forEach(maneuver => {
+      const type = maneuver.charAt(0);
+      const repeat = parseInt(maneuver.charAt(1));
+      const difficulty = maneuver.charCodeAt(2) - 64; // Convert A-E to 1-5
+
+      switch (type) {
+        case 'L': // Loop
+          timeline.to(airplaneRef.current, {
+            motionPath: {
+              path: [{x: 0, y: 0}, {x: 100, y: 0}, {x: 100, y: 100}, {x: 0, y: 100}],
+              curviness: 1.5
+            },
+            repeat: repeat,
+            duration: difficulty
+          });
+          break;
+        case 'H': // Hammerhead
+          timeline.to(airplaneRef.current, {
+            rotation: 180,
+            x: "+=100",
+            repeat: repeat,
+            duration: difficulty
+          });
+          break;
+        case 'R': // Roll
+          timeline.to(airplaneRef.current, {
+            rotation: 360,
+            y: "+=100",
+            repeat: repeat,
+            yoyo: true,
+            duration: difficulty
+          });
+          break;
+        case 'S': // Spin
+          timeline.to(airplaneRef.current, {
+            rotation: 360,
+            repeat: repeat,
+            duration: difficulty
+          });
+          break;
+        case 'T': // Tailslide
+          timeline.to(airplaneRef.current, {
+            rotation: 180,
+            x: "-=100",
+            repeat: repeat,
+            duration: difficulty
+          });
+          break;
+        default:
+          break;
+      }
+    });
+};
 
 
 export const animateInitialFlight = (planeRef: MutableRefObject<null>) => {

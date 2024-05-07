@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Airplane } from "./Airplane";
 import React from "react";
 import { animateCrashed, animateInitialFlight as animateLooping, flyingAway as animateFlyingAway } from "../animationHelpers";
@@ -16,15 +16,30 @@ function PlaneSpinner(
     const debrisRefs = useRef([...Array(30)].map(() => React.createRef())); // Create 10 debris refs
     const planeRef = useRef(null);
 
+    // completed state
+    const [flyAwayCompleted, setFlyAwayCompleted
+
+    ] = useState(false);
+
+
+
+    const onFlyAwayCompleted = () => {
+        setFlyAwayCompleted(true);
+    }
+
     useEffect(() => {
         if (props.isLoading) {
             animateLooping(planeRef);
         } else if (props.isSuccess) {
-            animateFlyingAway(planeRef);
+            animateFlyingAway(planeRef, onFlyAwayCompleted);
         } else if (props.isError) {
             animateCrashed(planeRef, explosionRef, debrisRefs);
         }
     });
+
+    if(flyAwayCompleted){
+        return <div></div>
+    }
 
     return (
         <div>

@@ -97,6 +97,8 @@ This lab exercise is a focused session that instructs participants on integratin
 
 - You should now see a list of planes from the API, instead of the static list
 
+## Optional
+
 ### Step 2: Unstable Internet - State Management through React-Query
 
 - Make sure you did the previous step, because that contains required code for this step.
@@ -220,22 +222,3 @@ This lab exercise is a focused session that instructs participants on integratin
 ### Congratulations you've made it to the end! &#9992; &#9992; &#9992;
 
 #### And with that, you've now concluded this module. We hope you enjoyed it! &#x1F60A;
-
-
-## Optional (Work in Progress - Unstable)
-
-> [!CAUTION]
-> Please be aware, this lab is currently under development and may not be fully stable.
-
-### Step 3: Advanced backend integration with Open API
-
-- ~~Open GitHub Copilot Chat~~
-
-- ~~Type the following in the chat window:~~
-
-- ~~In the same chat window or new chat, type the following:~~
-
-    ```
-    ~~How do I generate a typescript http client based on a swagger endpoint running on http://localhost:1903/swagger/v1/swagger.json. Create the client in the src/api folder.~~
-    ```
-- ~~@randy this does not always give consistent output ... Skip this lap?~~
