@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import { Flight } from '../services/Flight';
 import { Airplane } from './Airplane';
-import { animateManeuvers } from '../animationHelpers';
 
 interface FlightDetailsProps {
     flight: Flight;
@@ -9,11 +8,11 @@ interface FlightDetailsProps {
 
 const FlightDetails: React.FC<FlightDetailsProps> = ({ flight }) => {
 
-    const onSimulateAerobaticSequence = () => {
-        animateManeuvers(planeRef, flight.aerobaticSequenceSignature);
-    }
-
     const planeRef = useRef(null);
+
+    const onSimulateAerobaticSequence = () => {
+        // insert simulate aerobatic function here
+    }
 
     return (
         <div>
