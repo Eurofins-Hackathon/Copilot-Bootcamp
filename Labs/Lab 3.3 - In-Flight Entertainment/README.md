@@ -266,51 +266,149 @@ function HomePage() {
 #### And with that, you've now concluded this module. We hope you enjoyed it! &#x1F60A;
 
 
-## Optional (Work in Progress - Unstable)
+## Optional
 
-> [!CAUTION]
-> Please be aware, this lab is currently under development and may not be fully stable.
+### Step 3 - Flight Aerobatics Show - Advanced animation
 
-### Step 3 - Animation
+- In this lab, we will animate the aerobatics sequence that was introduced in lab 2.3 (Regex Aerobatics Show). We are going to explain the aerobatics sequence and how to animate it. GitHub Copilot will then generate the code for the animation.
 
-- Advanced animation
+- Start by running the frontend and backend with the following command. This command will start the frontend and backend at the same time.
 
-- What do you think? Too complex?
+    ```bash
+    cd WrightBrothersFrontend/
+    npm run frontend-and-backend
+    ```
 
+- Navigate to `http://localhost:5173`. Click on one of the planes in the list.
+
+- This will take you to the plane details page. The aerobatics sequence is displayed in the details.
+
+- Note the `Simple Aerobatics Sequence` button. This button is going to trigger the animation of the aerobatics sequence.
+
+  // TODO Screenshot
+
+- Open GitHub Copilot to create the animation.
+
+- Type the following in the chat window:
+
+  ```
+  I want you to create an React animation of an airplane doing manouvers. Implement the following function: `export const animateManeuvers = (airplaneRef: MutableRefObject<null>, maneuvers: string)`.
+
+  ## AerobaticSequence Examples
+
+  - L4B-H2C-R3A-S1D-T2E
+  - L1A-H1B-R1C-T1E
+  - L2A-H2B-R2C
+
+  ## Maneuver
+
+  - Manouvers: L = Loop, H = Hammerhead, R = Roll, S = Spin, T = Tailslide
+  - Number represents repeat count
+  - The Letter represents difficulty (A-E)
+
+  ## Animation
+
+  - The manouvers should follow up eachother and not go at the same time
+  - Use the UTF8 icon of an airplane for the airplane
+  - Difficulty translates into an increased duration of the animation
+  - The Looping is a 360 full circle using a gsap motion path
+  - The Hammerhead should be a 180 degree turn on the vertical axis and go right at the same time
+  - The Roll should be going up and down and a 360 degree roll on the horizontal axis at the same time
+  - The Spin should be a 360 degree turn on the vertical axis
+  - The Tailslide should 180 degree turn and the plane going backwards at the same time
+  - During the animation the airplane is moving forward constantly
+
+  ## Technical Requirements
+
+  - Use GSAP library for the animations
+  - Use a gsap timeline.to for the animations
+  - Use GSAP Motion for the Looping
+
+  Give me a complete solution. Do not skip any GSAP animation.
+  ```
+
+- Press `Enter` to submit the question
+
+- The result will be a complete animation of an airplane doing manouvers as described in the prompt.
+
+  ```tsx
+
+  export const animateManeuvers = (airplaneRef: MutableRefObject<null>, maneuvers: string) => {
+      const timeline = gsap.timeline();
+      const maneuversArray = maneuvers.split('-');
+
+      maneuversArray.forEach(maneuver => {
+        const type = maneuver.charAt(0);
+        const repeat = parseInt(maneuver.charAt(1));
+        const difficulty = maneuver.charCodeAt(2) - 64; // Convert A-E to 1-5
+
+        switch (type) {
+          case 'L': // Loop
+            timeline.to(airplaneRef.current, {
+              motionPath: {
+                path: [{x: 0, y: 0}, {x: 100, y: 0}, {x: 100, y: 100}, {x: 0, y: 100}],
+                curviness: 1.5
+              },
+              repeat: repeat,
+              duration: difficulty
+            });
+            break;
+          case 'H': // Hammerhead
+            timeline.to(airplaneRef.current, {
+              rotation: 180,
+              x: "+=100",
+              repeat: repeat,
+              duration: difficulty
+            });
+            break;
+          case 'R': // Roll
+            timeline.to(airplaneRef.current, {
+              rotation: 360,
+              y: "+=100",
+              repeat: repeat,
+              yoyo: true,
+              duration: difficulty
+            });
+            break;
+          case 'S': // Spin
+            timeline.to(airplaneRef.current, {
+              rotation: 360,
+              repeat: repeat,
+              duration: difficulty
+            });
+            break;
+          case 'T': // Tailslide
+            timeline.to(airplaneRef.current, {
+              rotation: 180,
+              x: "-=100",
+              repeat: repeat,
+              duration: difficulty
+            });
+            break;
+          default:
+            break;
+        }
+      });
+  };
+  ```
+
+// TODO explain some details of the animation
+
+- Open the animation helpers file at `WrightBrothersFrontend/src/animationHelpers.ts` and add the function provided by GitHub Copilot.
+
+- Open the Flight Details component `WrightBrothersFrontend/src/components/FlightDetails.tsx` and replace `// insert simulate aerobatic function here` with the following code.
+
+```tsx
+// Rest of the component
+const onSimulateAerobaticSequence = () => {
+  animateManeuvers(planeRef, flight.aerobaticSequenceSignature);
+}
 ```
-I want you to create an React animation of an airplane doing manouvers. Implement the following function: `export const animateManeuvers = (airplaneRef: MutableRefObject<null>, maneuvers: string)`.
 
-## AerobaticSequence Examples
+- Open the browser and navigate to `http://localhost:5173/planes/1`
 
-    - L4B-H2C-R3A-S1D-T2E
-    - L1A-H1B-R1C-T1E
-    - L2A-H2B-R2C
+- Click the `Simple Aerobatics Sequence` button to trigger the animation of the aerobatics sequence.
 
-## Maneuver
+- The animation should be displayed in the details of the plane.
 
-    - Manouvers: L = Loop, H = Hammerhead, R = Roll, S = Spin, T = Tailslide
-    - Number represents repeat count
-    - The Letter represents difficulty (A-E)
-
-## Animation
-
-- The manouvers should follow up eachother and not go at the same time
-- Use the UTF8 icon of an airplane for the airplane
-- Difficulty translates into an increased duration of the animation
-- The Looping is a 360 full circle using a gsap motion path
-- The Hammerhead should be a 180 degree turn on the vertical axis and go right at the same time
-- The Roll should be going up and down and a 360 degree roll on the horizontal axis at the same time
-- The Spin should be a 360 degree turn on the vertical axis
-- The Tailslide should 180 degree turn and the plane going backwards at the same time
-- During the animation the airplane is moving forward constantly
-
-## Technical Requirements
-
-- Use GSAP library for the animations
-- Use a gsap timeline.to for the animations
-- Use GSAP Motion for the Looping
-
-Give me a complete solution. Do not skip any GSAP animation.
-```
-
-- The result will be a complete animation of an airplane doing manouvers
+- Congratulations! You have successfully animated the aerobatics sequence of the airplane.
