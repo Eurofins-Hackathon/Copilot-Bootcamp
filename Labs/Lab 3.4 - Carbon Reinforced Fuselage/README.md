@@ -197,7 +197,88 @@ module.exports = {
 
 ### Step 3: PlayWright UI Test project using **/new** command
 
-- In this lab, we will create a new Playwright UI Test project using the **/new** command in GitHub Copilot. 
+- In this lab, we will create a new Playwright UI Test project using the **/new** command in GitHub Copilot.
+
+- If you have not already done the lab for creating a form with GitHub Copilot. Copy/paste the following code inside `/WrightBrothersFrontend/src/pages/NewPlane.tsx`
+
+  ```tsx
+  import React from 'react';
+  import { Formik, Field, Form, ErrorMessage } from 'formik';
+  import * as Yup from 'yup';
+  import { useNavigate } from 'react-router-dom';
+  import axios from 'axios';
+  import PageContent from '../components/PageContent';
+
+  const PlaneSchema = Yup.object().shape({
+    id: Yup.number().required('Required'),
+    name: Yup.string().required('Required'),
+    year: Yup.number().required('Required'),
+    description: Yup.string().required('Required'),
+    rangeInKm: Yup.number().required('Required'),
+  });
+
+  const NewPlane = () => {
+    const navigate = useNavigate();
+
+    return (
+      <PageContent>
+        <h1>New plane</h1>
+        <Formik
+          initialValues={{
+            id: '',
+            name: '',
+            year: '',
+            description: '',
+            rangeInKm: '',
+          }}
+          validationSchema={PlaneSchema}
+          onSubmit={(values, { setSubmitting }) => {
+            axios.post('http://localhost:1903/planes', values)
+              .then(() => {
+                setSubmitting(false);
+                navigate('/');
+              });
+          }}
+        >
+          {({ isSubmitting }) => (
+            <Form className="space-y-4">
+              <div>
+                <label htmlFor="id" className="block text-sm font-medium text-gray-700">ID</label>
+                <Field id="id" type="number" name="id" className="mt-1 block w-full" />
+                <ErrorMessage name="id" component="div" />
+              </div>
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
+                <Field id="name" type="text" name="name" className="mt-1 block w-full" />
+                <ErrorMessage name="name" component="div" />
+              </div>
+              <div>
+                <label htmlFor="year" className="block text-sm font-medium text-gray-700">Year</label>
+                <Field id="year" type="number" name="year" className="mt-1 block w-full" />
+                <ErrorMessage name="year" component="div" />
+              </div>
+              <div>
+                <label htmlFor="description" className="block text-sm font-medium text-gray-700">Description</label>
+                <Field id="description" type="text" name="description" className="mt-1 block w-full" />
+                <ErrorMessage name="description" component="div" />
+              </div>
+              <div>
+                <label htmlFor="rangeInKm" className="block text-sm font-medium text-gray-700">Range in Km</label>
+                <Field id="rangeInKm" type="number" name="rangeInKm" className="mt-1 block w-full" />
+                <ErrorMessage name="rangeInKm" component="div" />
+              </div>
+              <button type="submit" disabled={isSubmitting} className="mt-4 inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                Submit
+              </button>
+            </Form>
+          )}
+        </Formik>
+      </PageContent>
+    );
+  };
+
+  export default NewPlane;
+  ```
 
 - First, Make sure that the Frontend is running. This is because the Playwright UI Test project will interact with the Frontend.
 
@@ -206,7 +287,9 @@ module.exports = {
   npm run frontend
   ```
 
-- Now, open GitHub Copilot Chat
+- Navigate to `http://localhost:5173/new-plane` in the browser to see the form
+
+- Go back to Visual Studio Code and open GitHub Copilot Chat
 
 - Type the following in the chat window:
 
@@ -214,13 +297,11 @@ module.exports = {
   @workspace /new Playwright UI Tests
 
   ## Test
-
-  1. Navigate to "/new-plane"
-  2. Fill out the form with attribute "name": id, name, year, description, rangeInKm
+  - Navigate to "/new-plane" and fill out the form through the "name" attribute: id, name, year, description, rangeInKm
 
   ## Technical Requirements
 
-  - Headless is False
+  - UI mode
   - localhost:5173 is the base URL
   - Typescript
   - Include package.json
@@ -233,15 +314,15 @@ module.exports = {
 
 - GitHub Copilot will now scaffold a new Playwright UI Test project
 
-  <img src="../../Images/Screenshot-PlaywrightUITestProject.png" width="500">
-
 - Press `Create Workspace` to create the new Playwright UI Test project.
+
+  <img src="../../Images/Screenshot-PlaywrightUITestProject.png" width="500">
 
 - Select the `WrightBrothersFrontend/` folder to create the new project.
 
 - GitHub Copilot will now open the new project in a new window.
 
-- Open the terminal in the new project and run install
+- Open the terminal in the new project and install the project dependencies
 
   ```sh
   npm install
@@ -253,9 +334,21 @@ module.exports = {
   npm run test
   ```
 
-- You should see the tests pass
+- The tests fail, because most likely playwright needs to install additional dependencies, run the following command to install the dependencies
 
+  ```sh
+  npx playwright install 
   ```
+
+- Now, run the tests again, but now with the UI open to see the tests run in the Playwright UI
+
+  ```sh
+  npm run test -- --ui
+  ```
+
+- You should see the tests pass in the UI or in the terminal
+
+  ```sh
   Running 1 test using 1 worker
     ✓ 1. should navigate to /new-plane and fill out the form (1.5s)
   ```
