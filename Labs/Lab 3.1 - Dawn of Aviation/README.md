@@ -14,12 +14,13 @@ This practical lab designed to teach participants frontend setup and management 
 - Teach frontend setup and management.
 - Implement and adjust UI components.
 - Explore frontend technologies while enhancing usability and accessibility.
+
+    ### Journey
     - Step 1 - Sunset above the Clouds - Setup and Run the Frontend
     - Step 2 - Looking over the Horizon - Exploring the frontend application.
     - Step 3 - In-flight Correction - Centering a div.
-    - Step 4 - Request for Extra Legroom - Spacing UI elements.
-    - Step 5 - A Smooth Landing - Adding a new component.
-    - Step 6 - A New Horizon - Adding a new page  (Optional).
+    - Step 4 - Emergency Exit Lights - Color Contrast
+    - Step 5 - Notifying the Air Crew - Call to Action Buttons (Optional).
 
 ### Step 1: Sunset above the Clouds - Setup and Run the Frontend
 
@@ -75,7 +76,7 @@ This practical lab designed to teach participants frontend setup and management 
 - In the same chat window, type the following:
 
     ```bash
-    @workspace what technology is used to style the frontend and explain me the core basics of this technology.
+    @workspace what technology is used to style the frontend and explain the core basics of this technology.
     ```
 
 - GitHub Copilot will provide a summary about `Tailwind CSS`, a utility-first CSS framework that provides a set of utility classes to style the frontend application. This is a very popular CSS framework that is used to style components from scratch, for example for a custom design system.
@@ -97,7 +98,7 @@ This practical lab designed to teach participants frontend setup and management 
 
 ### Step 3: In-flight Correction - Centering a div
 
-- Let's do something that struggles many developers, centering HTML elements.
+- Let's tackle a common challenge many developers face: centering HTML elements.
 
 - Open the terminal and navigate to the `WrightBrothersFrontend/` directory.
 
@@ -117,7 +118,9 @@ This practical lab designed to teach participants frontend setup and management 
 
     <img src="../../Images/FrontendNotCentered.png" width="800">
 
-- Open GitHub Copilot Chat, click **+** to clear prompt history.
+- Open the `WrightBrothersFrontend/src/components/Banner.tsx` file.
+
+- Open GitHub Copilot Chat, then click **+** to clear prompt history.
 
 - Ask ChatGPT why the UI is not centered:
 
@@ -137,8 +140,6 @@ This practical lab designed to teach participants frontend setup and management 
 <details>
 <summary>Click for Solution</summary>
 
-- Open the `WrightBrothersFrontend/src/components/Banner.tsx` file.
-
 - Find the top level `div` element and add the following CSS classes `flex items-center justify-center` to the `div` element:
 
 ```html
@@ -154,6 +155,8 @@ This practical lab designed to teach participants frontend setup and management 
 - Save the file and refresh the browser at [http://localhost:5173/](http://localhost:5173/).
 
 - The banner title should now be centered.
+
+- Stop the frontend application by pressing `Ctrl + C` in the terminal.
 
 ### Step 4: Request for Extra Legroom - Spacing UI elements
 
@@ -173,7 +176,7 @@ This practical lab designed to teach participants frontend setup and management 
 
 <img src="../../Images/BannerTitleTooClose.png" width="800">
 
-- Open GitHub Copilot Chat, click **+** to clear prompt history.
+- Open GitHub Copilot Chat, then click **+** to clear prompt history.
 
 - Open the `WrightBrothersFrontend/src/components/Banner.tsx` file.
 
@@ -195,7 +198,6 @@ This practical lab designed to teach participants frontend setup and management 
 - Replace the content of the `Banner.tsx` file with the solution provided by GitHub Copilot.
 
     <br>
-
     <details>
     <summary>Click for Solution</summary>
 
@@ -263,6 +265,8 @@ This practical lab designed to teach participants frontend setup and management 
 > [!IMPORTANT]
 > Copilot does not always provide the exact solution you are looking for. Try the prompt again or provide more context to get a better solution.
 
+- Stop the frontend application by pressing `Ctrl + C` in the terminal.
+
 ### Step 4: Emergency Exit Lights - Color Contrast
 
 - Open the terminal and navigate to the `WrightBrothersFrontend/` directory.
@@ -281,14 +285,14 @@ This practical lab designed to teach participants frontend setup and management 
 
     <img src="../../Images/FrontendSubtitleHardToRead.png" width="800">
 
-- Open GitHub Copilot Chat, click **+** to clear prompt history.
+- Open GitHub Copilot Chat, then click **+** to clear prompt history.
 
 - Open the `WrightBrothersFrontend/src/components/Banner.tsx` file.
 
 - Ask ChatGPT what color you should use for the subtitle:
 
     ```md
-    The subtitle in the banner at #selection is hard to read due to its color, what color do you suggest?
+    The subtitle in the banner at #selection is hard to read due to its color. Can you suggest a color which would better fit the existing color pallette while still improving readability?
     ```
 
 - For `#selection`, select all the content of `Banner.tsx`
@@ -310,6 +314,8 @@ This practical lab designed to teach participants frontend setup and management 
 
 - The subtitle should now be more readable.
 
+- Stop the frontend application by pressing `Ctrl + C` in the terminal.
+
 ## Optional 
 
 ### Step 5: Notifying the Air Crew - Call to Action Buttons
@@ -330,7 +336,7 @@ This practical lab designed to teach participants frontend setup and management 
 
 - Open the `WrightBrothersFrontend/src/components/Banner.tsx` file.
 
-- Open GitHub Copilot Chat, click **+** to clear prompt history.
+- Open GitHub Copilot Chat, then click **+** to clear prompt history.
 
 - Ask ChatGPT how to add call to action buttons to the banner:
 

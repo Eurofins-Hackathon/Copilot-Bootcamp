@@ -16,6 +16,8 @@ This lab exercise is focused on integrating styled buttons and forms to enhance 
 - Enhance user interactions through the integration of styled buttons and forms.
 - Improve skills in UI component creation.
 - Develop proficiency in event handling and API interactions.
+
+    ### Journey
     - Step 1: Push to Start - Create a Styled Button
     - Step 2: Fill in the Form - Create a Styled Form
     - Step 3: Advanced Form Integration with Open API (Optional)

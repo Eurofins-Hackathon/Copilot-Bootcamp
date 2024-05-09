@@ -11,10 +11,12 @@ This lab focuses on configuring eslint to identify and fix lint issues, updating
 > Ensure error-free results by meticulously following each step of the lab instructions.
 
 ## Objectives
-- TBD
-  - Step 1: Eslint configuration and fix lint issues.
-  - Step 2: Upgrade to Business Class - Update Package Dependencies.
-  - Step 3: PlayWright UI Test project using **/new** command.
+- This lab focuses on configuring ESLint for identifying and resolving lint issues, updating package dependencies, and optionally setting up a Playwright UI testing project
+
+    ### Journey
+    - Step 1: Eslint configuration and fix lint issues.
+    - Step 2: Upgrade to Business Class - Update Package Dependencies.
+    - Step 3: PlayWright UI Test project using **/new** command.
 
 ### Step 1: Eslint configuration and fix lint issues
 

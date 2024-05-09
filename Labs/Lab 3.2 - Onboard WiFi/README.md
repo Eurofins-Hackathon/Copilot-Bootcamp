@@ -14,6 +14,8 @@ This lab exercise is a focused session that instructs participants on integratin
 - Integrate a frontend application with a backend API.
 - Learn the basics of fetching data from an API and managing state.
 - Enhance understanding of API integration in a React application.
+
+    ### Journey
     - Step 1: What's the WiFi Password - Simple backend integration
     - Step 2: Unstable Internet - State Management through React-Query.
     - Step 3: Advanced backend integration with Open API (Optional).
