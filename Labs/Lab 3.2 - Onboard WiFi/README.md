@@ -205,7 +205,7 @@ This lab exercise is a focused session that instructs participants on integratin
 - After 3 seconds of loading you should see the airplane exploding, because an error is thrown on purpose, to see the error state of `react-query`.
 
 > [!TIP]
-> With GitHub Copilot Chat you can create these funny animations, like an airplane spinning for a loading state, or an airplane exploding for error state. If you have a crazy idea, just ask GitHub Copilot to help you with that. In this case I asked Copilot for a plane crashing animation. At first the airplane only fell from the sky. Then I asked Copilot to make the airplane explode, which was the cause of the crashing airplane. I was then missing debree, so I asked Copilot to add debris to the airplane explosion. This animation was me having a lot of fun with GitHub Copilot :) - Thijs Limmen
+> With GitHub Copilot Chat you can create these funny animations, like an airplane spinning for a loading state, or an airplane exploding for error state. If you have a crazy idea, just ask GitHub Copilot to help you with that. In this case I asked Copilot for a plane crashing animation. At first the airplane only fell from the sky. Then I asked Copilot to make the airplane explode, which was the cause of the crashing airplane. I was then missing debris, so I asked Copilot to add debris to the airplane explosion. This animation was me having a lot of fun with GitHub Copilot :) - Thijs Limmen
 
 - Now, let's remove the `throw new Error('Error fetching planes');` line from the `fetchPlanes` function in `HomePage.tsx`
 
