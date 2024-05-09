@@ -476,11 +476,11 @@ module.exports = {
 
 - GitHub Copilot will now scaffold a new Playwright UI Test project
 
-- Press `Create Workspace` to create the new Playwright UI Test project.
+- Click `Create Workspace` to create the new Playwright UI Test project.
 
-  <img src="../../Images/Screenshot-PlaywrightUITestProject.png" width="500">
+  <img src="../../Images/Screenshot-PlaywrightUITestProject.png" width="350">
 
-- Select the `WrightBrothersFrontend/` folder to create the new project.
+- Select the `WrightBrothersFrontend/` as the `Parent Folder` to create the new project.
 
 - GitHub Copilot will now open the new project in a new window.
 
