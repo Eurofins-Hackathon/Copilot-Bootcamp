@@ -78,7 +78,7 @@ public class Plane
 
 <img src="../../Images/Screenshot-PlanesController-docs2.png" width="350">
 
-- Open GitHub Copilot Chat, click **+** to clear prompt history, then type the following command:
+- Open GitHub Copilot Chat, click `+` to clear prompt history, then type the following command:
 
 Compare the difference between asking the two following things:
 
@@ -185,7 +185,7 @@ public class FlightsController : ControllerBase
 
 - Select all the content of the `UpdateFlightStatus` method.
 
-- Open GitHub Copilot Chat, click **+** to clear prompt history.
+- Open GitHub Copilot Chat, click `+` to clear prompt history.
 
 - Ask the following question:
 
@@ -302,7 +302,7 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
 > [!NOTE]
 > Note that the `FlightLogSignature` is a fictional property that is used to demonstrate the capabilities of GitHub Copilot. It is not a real aviation concept.
 
-- Open GitHub Copilot Chat, click **+** to clear prompt history, then ask the following question:
+- Open GitHub Copilot Chat, click `+` to clear prompt history, then ask the following question:
 
     ```
     Create a c# model for a FlightLogSignature property.
@@ -512,7 +512,7 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
 
 - Let's prompt engineer Copilot to generate a solution for the `AerobaticSequenceSignature` property.
 
-- Open GitHub Copilot Chat, click **+** to clear prompt history, then ask the question:
+- Open GitHub Copilot Chat, click `+` to clear prompt history, then ask the question:
 
     ```
     Parse a AerobaticSequenceSignature property into a c# model.

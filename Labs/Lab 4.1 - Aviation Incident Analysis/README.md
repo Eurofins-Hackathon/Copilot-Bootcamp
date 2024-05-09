@@ -117,7 +117,7 @@ content-type: application/json
 
 - Navigate to the `Terminal` and `Select` all the content of the throw exception.
 
-- Open GitHub Copilot Chat, click **+** to clear prompt history, then ask the following question:
+- Open GitHub Copilot Chat, click `+` to clear prompt history, then ask the following question:
 
 - Run the following command in the GitHub Copilot Chat:
 
@@ -201,7 +201,7 @@ public class FlightsController : ControllerBase
 
 - Navigate to the `Terminal` and `select` all the content of the thrown exception.
 
-- Open GitHub Copilot Chat, click **+** to clear prompt, then ask the following question:
+- Open GitHub Copilot Chat, click `+` to clear prompt, then ask the following question:
 
 - Run the following command in the GitHub Copilot Chat:
 

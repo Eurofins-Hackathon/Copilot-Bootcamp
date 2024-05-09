@@ -120,7 +120,7 @@ This practical lab designed to teach participants frontend setup and management 
 
 - Open the `WrightBrothersFrontend/src/components/Banner.tsx` file.
 
-- Open GitHub Copilot Chat, then click **+** to clear prompt history.
+- Open GitHub Copilot Chat, then click `+` to clear prompt history.
 
 - Ask ChatGPT why the UI is not centered:
 
@@ -176,7 +176,7 @@ This practical lab designed to teach participants frontend setup and management 
 
 <img src="../../Images/BannerTitleTooClose.png" width="800">
 
-- Open GitHub Copilot Chat, then click **+** to clear prompt history.
+- Open GitHub Copilot Chat, then click `+` to clear prompt history.
 
 - Open the `WrightBrothersFrontend/src/components/Banner.tsx` file.
 
@@ -285,7 +285,7 @@ This practical lab designed to teach participants frontend setup and management 
 
     <img src="../../Images/FrontendSubtitleHardToRead.png" width="800">
 
-- Open GitHub Copilot Chat, then click **+** to clear prompt history.
+- Open GitHub Copilot Chat, then click `+` to clear prompt history.
 
 - Open the `WrightBrothersFrontend/src/components/Banner.tsx` file.
 
@@ -336,7 +336,7 @@ This practical lab designed to teach participants frontend setup and management 
 
 - Open the `WrightBrothersFrontend/src/components/Banner.tsx` file.
 
-- Open GitHub Copilot Chat, then click **+** to clear prompt history.
+- Open GitHub Copilot Chat, then click `+` to clear prompt history.
 
 - Ask ChatGPT how to add call to action buttons to the banner:
 

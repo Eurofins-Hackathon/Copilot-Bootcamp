@@ -110,7 +110,7 @@ To run a .NET application, you can use the `dotnet run` command in the terminal.
 
 ### Step 2: Airplane Docking - Add new Flight Model
 
-- Open GitHub Copilot Chat, click **+** to clear prompt history.
+- Open GitHub Copilot Chat, click `+` to clear prompt history.
 
 - Ask Copilot to explain the `PlanesController.cs` class
 

@@ -26,7 +26,7 @@ This lab exercise is a focused session that instructs participants on integratin
 
 - Start by opening `HomePage.tsx` in the `WrightBrothersFrontend/src/pages` folder
 
-- Open GitHub Copilot Chat, click **+** to clear prompt history.
+- Open GitHub Copilot Chat, then click `+` to clear prompt history.
 
 - Type the following in the chat window:
 
@@ -99,6 +99,8 @@ This lab exercise is a focused session that instructs participants on integratin
 
 - You should now see a list of planes from the API, instead of the static list
 
+- Now stop the Frontend and API by pressing `Ctrl + C` in the terminal.
+
 ## Optional
 
 ### Step 2: Unstable Internet - State Management through React-Query
@@ -109,7 +111,7 @@ This lab exercise is a focused session that instructs participants on integratin
 
 - Start by opening `HomePage.tsx` in the `WrightBrothersFrontend/src/pages` folder
 
-- Open GitHub Copilot Chat, click **+** to clear prompt history.
+- Open GitHub Copilot Chat, then click `+` to clear prompt history.
 
 - Type the following in the chat window:
 
@@ -137,7 +139,7 @@ This lab exercise is a focused session that instructs participants on integratin
 - GitHub Copilot suggested the following code:
 
     <details>
-    <summary>Click here to see the suggestion ...</summary>
+    <summary>Click for Solution</summary>
 
     ```tsx
     import React from 'react';
@@ -177,7 +179,14 @@ This lab exercise is a focused session that instructs participants on integratin
 
     </details>
 
-- Replace the content of `HomePage.tsx` with the suggested code
+<br>
+
+- Replace the content of `HomePage.tsx` with the suggested code.
+
+
+> [!NOTE]
+> Copilot might suggest thesolutio in a different way, but the main idea is to replace `fetchPlanes` and `HomePage` with the code suggestion.
+
 
 - Open the terminal and navigate to the `WrightBrothersFrontend/` directory.
 

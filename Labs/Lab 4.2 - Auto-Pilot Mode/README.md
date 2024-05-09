@@ -212,7 +212,7 @@ Deploying your application to Azure facilitates scalable, secure, and efficient 
 
 - Select all the content of the `Build.yml`.
 
-- In GitHub Copilot Chat, click **+** to clear prompt history, then type the following command.
+- In GitHub Copilot Chat, click `+` to clear prompt history, then type the following command.
 
     ```
     Deploy to Azure
@@ -281,7 +281,7 @@ Deploying your application to Azure facilitates scalable, secure, and efficient 
 
 - Now let's add a step to the pipeline to deploy the infrastructure as code.
 
-- Open GitHub Copilot Chat, , click **+** to clear prompt history.
+- Open GitHub Copilot Chat, , click `+` to clear prompt history.
 
 - Make sure to have the `.github/workflows/Build.yaml` file open in VS Code.
 
@@ -326,7 +326,7 @@ Using Infrastructure as Code (IaC) to manage your cloud resources, specifically 
 
 This prompt will create a decription for creating a DevOps pipeline with three stages: Build, Infrastructure as Code (IaC), and Quality Assurance (QA). It outlines the requirements for each stage, including describing the application, specifying the Azure resources needed, creating Bicep templates, and detailing the steps for deploying the application to Azure for QA purposes.
 
-- Open GitHub Copilot Chat, , click **+** to clear prompt history.
+- Open GitHub Copilot Chat, , click `+` to clear prompt history.
 
 - Ask the following advanced `Chain of Thought` prompt engineered question:
 
@@ -364,7 +364,7 @@ This prompt will create a plan to set up a CI/CD pipeline for a .NET 7 Web API a
 
 This approach will help in generating a more structured and practical output that includes the scaffolding for each stage of the project.
 
-- Open GitHub Copilot Chat, click **+** to clear prompt history.
+- Open GitHub Copilot Chat, click `+` to clear prompt history.
 
 - Ask the following advanced `Chain of Thought` prompt engineered question:
 

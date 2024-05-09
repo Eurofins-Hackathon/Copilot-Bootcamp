@@ -21,7 +21,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 ### Step 1: Taxying to the Runway - Run existing unit tests
 
-- Open GitHub Copilot Chat, click **+** to clear prompt history.
+- Open GitHub Copilot Chat, click `+` to clear prompt history.
 
 - Type the following in the chat window:
 
@@ -64,7 +64,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 ### Step 2: Pre-takeoff Pilot Checks - Completing Unit Tests
 
-- Open GitHub Copilot Chat, click **+** to clear prompt history.
+- Open GitHub Copilot Chat, click `+` to clear prompt history.
 
 - Type the following in the chat window:
 
@@ -232,7 +232,7 @@ public class PlanesControllerTests
 
 - In the following exercise you will combine everything you learned in the previous steps, but then for the `SearchByName` method. The following prompt is a more detailed description of a problem and the expected solution. You will prompt GitHub Copilot to make it use a `#selection`. besides that you will use `#file` two times in the prompt to make sure Copilot knows the context of the problem.
 
-- Open GitHub Copilot Chat, click **+** to clear prompt history.
+- Open GitHub Copilot Chat, click `+` to clear prompt history.
 
 - Copy/Paste the following in the Copilot Chat window:
 
@@ -366,7 +366,7 @@ public class PlanesControllerTests
 
 - Let's now use the generated tests as a guide to fix the case sensitivity issue.
 
-- Open GitHub Copilot Chat, click **+** to clear prompt history.
+- Open GitHub Copilot Chat, click `+` to clear prompt history.
 
 - Copy/Paste the following in the chat window:
 
@@ -456,7 +456,7 @@ public class PlanesControllerTests
 
 - Open the `Models/Airfield.cs` file.
 
-- Open GitHub Copilot Chat, click **+** to clear prompt history.
+- Open GitHub Copilot Chat, click `+` to clear prompt history.
 
 - Ask the following question:
 
@@ -553,7 +553,7 @@ public class PlanesControllerTests
 
 - Open the `AirfieldController.cs` file.
 
-- Open GitHub Copilot Chat, click **+** to clear prompt history.
+- Open GitHub Copilot Chat, click `+` to clear prompt history.
 
 - Ask the following question:
 

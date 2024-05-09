@@ -1,5 +1,3 @@
-Running and Interacting with the Application
-
 # Lab 3.3 - In-Flight Entertainment ✈ Creating Interactive Components
 This lab exercise is focused on integrating styled buttons and forms to enhance user interactions, with emphasis on design consistency and functional integration. The lab aims to improve skills in component creation, event handling, and API interactions in a React environment, utilizing GitHub Copilot for code generation.
 
@@ -24,7 +22,7 @@ This lab exercise is focused on integrating styled buttons and forms to enhance 
 
 ### Step 1 - Push to Start - Create a Styled Button 
 
-- Open GitHub Copilot Chat, click **+** to clear prompt history.
+- Open GitHub Copilot Chat, then click `+` to clear prompt history.
 
 - Type the following in the chat window:
 
@@ -51,7 +49,7 @@ This lab exercise is focused on integrating styled buttons and forms to enhance 
 
 - Make sure to select the `#file:PlaneList.tsx` reference again in the prompt. it does not work with copy/pasting the prompt.
 
-// TODO Screenshot
+  <img src="../../Images/FileSelectionPlaneList.png" width="800">
 
 - Press `Enter` to submit the question
 
@@ -85,6 +83,10 @@ export default AddPlaneButton;
 
 >[!IMPORTANT]
 > Sometimes it suggest `@heroicons/react/solid` without the size. Make sure to add the size `24` to the import, change the import to `@heroicons/react/24/solid`
+
+- Open the file the `AddPlaneButton.tsx` file in the `src/components` folder.
+
+- Select all the code in the file `AddPlaneButton.tsx`.
 
 - In the Copilot Chat quick action, click the **Insert at Cursor** button to add the component to the `AddPlaneButton.tsx` file in the `src/components` folder
 
@@ -133,7 +135,7 @@ function HomePage() {
 
 - Start by opening `NewPlane.tsx` in the `WrightBrothersFrontend/src/pages` folder
 
-- Open GitHub Copilot Chat, click **+** to clear prompt history.
+- Open GitHub Copilot Chat, then click `+` to clear prompt history.
 
 - Type the following in the chat window:
 
@@ -167,7 +169,7 @@ function HomePage() {
 
     <Br>
     <details>
-    <summary>Click here to see the suggestion ...</summary>
+    <summary>Click for Solution</summary>
 
       ```tsx
       import React from 'react';
@@ -259,14 +261,11 @@ function HomePage() {
 
 - You should see a form with fields for adding a new plane. The form should be styled and have validation
 
-- Fill in the form and click the submit button.
+- Fill in the form and click the `Submit` button.
 
 - You are now redirected back to the home page and the new plane should be visible in the list.
 
-### Congratulations you've made it to the end! &#9992; &#9992; &#9992;
-
-#### And with that, you've now concluded this module. We hope you enjoyed it! &#x1F60A;
-
+- Now stop the Frontend and API by pressing `Ctrl + C` in the terminal.
 
 ## Optional
 
@@ -274,10 +273,15 @@ function HomePage() {
 
 - In this lab, we will animate the aerobatics sequence that was introduced in lab 2.3 (Regex Aerobatics Show). We are going to explain the aerobatics sequence and how to animate it. GitHub Copilot will then generate the code for the animation.
 
-- Start by running the frontend and backend with the following command. This command will start the frontend and backend at the same time.
+- Open the terminal and navigate to the `WrightBrothersFrontend/` directory.
 
     ```bash
     cd WrightBrothersFrontend/
+    ```
+
+- Run the frontend and backend with the following command. This command will start the frontend and backend at the same time.
+
+    ```bash
     npm run frontend-and-backend
     ```
 
@@ -288,6 +292,7 @@ function HomePage() {
 - Note the `Simple Aerobatics Sequence` button. This button is going to trigger the animation of the aerobatics sequence.
 
   // TODO Screenshot
+<img src="../../Images/TBD.png" width="800">
 
 - Open GitHub Copilot to create the animation.
 
@@ -413,4 +418,10 @@ const onSimulateAerobaticSequence = () => {
 
 - The animation should be displayed in the details of the plane.
 
-- Congratulations! You have successfully animated the aerobatics sequence of the airplane.
+- You have successfully animated the aerobatics sequence of the airplane.
+
+- Now stop the Frontend and API by pressing `Ctrl + C` in the terminal.
+
+### Congratulations you've made it to the end! &#9992; &#9992; &#9992;
+
+#### And with that, you've now concluded this module. We hope you enjoyed it! &#x1F60A;
