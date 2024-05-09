@@ -22,13 +22,19 @@ This lab focuses on configuring eslint to identify and fix lint issues, updating
 
 - In this lab, we will configure eslint and fix lint issues in the WrightBrothersFrontend project. eslint is a tool that helps you find and fix problems in your JavaScript code. It is similar to Roslyn Analyzer in the .NET.
 
-- Start with running `npm run lint` to see the current lint issues
+- Run the following command to see the current lint issues
+
+    ```bash
+    npm run lint
+    ```
 
 - No lint issues should be present
 
-- Open `.eslintrc.cjs` and notice the lint rules are the recommended rules from eslint and react. We want to add more lint rules to harden the project.
+- Open the `WrightBrothersFrontend/.eslintrc.cjs` file.
 
-- Open GitHub Copilot Chat
+- Notice the lint rules are the recommended rules from eslint and react. We want to add more lint rules to harden the project.
+
+- Open GitHub Copilot Chat, then click `+` to clear prompt history.
 
 - Type the following in the chat window:
 
@@ -36,7 +42,7 @@ This lab focuses on configuring eslint to identify and fix lint issues, updating
     What linting rules can I add to #selection to harden my project more and tell me why for each? Only give me rules that are not already part of the recommended rules.
     ```
 
-- For `#selection`, select all the content of the `.eslintrc.cjs` file
+- For `#selection`, select all the contents of the `.eslintrc.cjs` file
 
 - Press `Enter` to submit the question
 
@@ -58,6 +64,45 @@ module.exports = {
 
 >[!NOTE]
 > Note that GitHub Copilot now suggested rules and also provided a reason to why implement a specific rule. This is a great way to learn more about the rules and why they are important.
+
+- Using the new rules Copilt Chat provided, manually add the new rules to the `.eslintrc.cjs` file.
+
+    <Br>
+    <details>
+    <summary>Click for Solution</summary>
+
+    ```js
+      module.exports = {
+      root: true,
+      env: { browser: true, es2020: true },
+      extends: [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react-hooks/recommended",
+      ],
+      ignorePatterns: ["dist", ".eslintrc.cjs"],
+      parser: "@typescript-eslint/parser",
+      plugins: ["react-refresh"],
+      rules: {
+        "react-refresh/only-export-components": [
+          "warn",
+          { allowConstantExport: true },
+        ],
+        "@typescript-eslint/no-explicit-any": "off",
+        "no-console": "error",
+        "eqeqeq": "error",
+        "no-eval": "error",
+        "curly": "error",
+        "no-unused-vars": "error",
+        "@typescript-eslint/no-unused-vars": "error",
+        "@typescript-eslint/explicit-module-boundary-types": "error",
+      },
+    };
+    ```
+
+    </details>
+
+    <Br>
 
 - Run `npm run lint` to scan for lint issues with the new rules
 
@@ -83,11 +128,11 @@ module.exports = {
     return <div>Plane not found</div>;
 ```
 
-- Go to the first lint issue and press `Ctrl + .` and select `Fix using Copilot`
+- Right-click on the first lint issue and select `Fix using Copilot` from the context menu.
 
   <img src="../../Images/Screenshot-FixUsingCopilot.png" width="500">
 
-- GitHub Copilot will now open a Inline Chat window with the suggested fix
+- GitHub Copilot will now open a Inline Editor window with the suggested fix. Review the fix and click `Apply Fix` to apply the fix.
 
 - Repeat for the other lint issues. You can also try `Explain using Copilot` to understand why the rule is important.
 
@@ -111,18 +156,39 @@ module.exports = {
     2 passed (4.8s)
   ```
 
+> [!NOTE]
+> If you encounter any of the following errors, follow the provided steps to resolve them:
+
+- Error: `browserType.launch: Executable doesn't exist.` 
+  - This error indicates a problem with your Playwright installation. Please check your installation and fix any issues before proceeding.
+
+- Error: `Looks like Playwright Test or Playwright was just installed or updated.`
+  - This error usually occurs after a new installation or update of Playwright. If you see this, try running the command below to install the necessary Playwright dependencies:
+
+  ```bash
+  npx playwright install
+  ```
+
+  - Try again, run the existing tests in the project. Run `npm run test-ct` (component test) to see the existing tests pass.
+
+  ```sh
+  npm run test-ct
+  ```
+
 - Open the `PlaneList.tsx` file in the `src/components` folder. This component is a list of planes that are displayed in the `HomePage.tsx` page.
 
 - We are going to add tests to the already existing `PlaneList.spec.tsx` file in the `src/components` folder.
 
-- Open GitHub Copilot Chat
+- Open GitHub Copilot Chat, then click `+` to clear prompt history.
 
 - Type the following in the chat window:
 
     ```
     Create remaining tests for #selection based on test file #file:PlaneList.spec.tsx.
     ```
-  
+
+- For `#selection`, select all the contents of the `PlaneList.tsx` file
+
 - GitHub Copilot will suggest additional tests to test all the functionality of the `PlaneList` component.
 
   ```tsx
@@ -181,7 +247,92 @@ module.exports = {
   });
   ```
 
-- Add the suggested tests to the `PlaneList.spec.tsx` file
+- Open the file `src/components/PlaneList.spec.tsx` and add the suggested tests to the `PlaneList.spec.tsx` file.
+
+
+    <Br>
+    <details>
+    <summary>Click for Solution</summary>
+
+      ```tsx
+      import { test, expect } from '@playwright/experimental-ct-react';
+      import PlaneList from './PlaneList';
+      import type { HooksConfig } from '../../playwright';
+
+      test('should navigate when clicking on a plane', async ({ page, mount }) => {
+        const planes = [
+          { id: 1, name: "Wright Flyer" },
+          { id: 2, name: "Wright Model A" },
+          { id: 3, name: "Wright Model B" },
+        ];
+        
+        const component = await mount<HooksConfig>(<PlaneList planes={planes} />, {
+          hooksConfig: { routing: true },
+        });
+
+        await component.locator('li').nth(0).click();
+
+        await expect(page).toHaveURL('/planes/1', { timeout: 5000 });
+      });
+
+      const planes = [
+        { id: 1, name: "Wright Flyer" },
+        { id: 2, name: "Wright Model A" },
+        { id: 3, name: "Wright Model B" },
+      ];
+
+      test('renders without crashing', async ({ mount }) => {
+        await mount<HooksConfig>(<PlaneList planes={planes} />, {
+          hooksConfig: { routing: true },
+        });
+      });
+
+      test('renders correct number of planes', async ({ mount }) => {
+        const component = await mount<HooksConfig>(<PlaneList planes={planes} />, {
+          hooksConfig: { routing: true },
+        });
+
+        const planeItems = await component.locator('li');
+        expect(await planeItems.count()).toBe(planes.length);
+      });
+
+      test('displays correct plane names', async ({ mount }) => {
+        const component = await mount<HooksConfig>(<PlaneList planes={planes} />, {
+          hooksConfig: { routing: true },
+        });
+
+        for (let i = 0; i < planes.length; i++) {
+          const planeName = await component.locator('h3').nth(i).textContent();
+          expect(planeName).toBe(planes[i].name);
+        }
+      });
+
+      test('displays correct plane images', async ({ mount }) => {
+        const component = await mount<HooksConfig>(<PlaneList planes={planes} />, {
+          hooksConfig: { routing: true },
+        });
+
+        for (let i = 0; i < planes.length; i++) {
+          const planeImage = await component.locator('img').nth(i).getAttribute('src');
+          expect(planeImage).toBe('./wright-brothers-plane.png');
+        }
+      });
+
+      test('navigates to correct URL when plane is clicked', async ({ page, mount }) => {
+        const component = await mount<HooksConfig>(<PlaneList planes={planes} />, {
+          hooksConfig: { routing: true },
+        });
+
+        for (let i = 0; i < planes.length; i++) {
+          await component.locator('li').nth(i).click();
+          await expect(page).toHaveURL(`/planes/${planes[i].id}`, { timeout: 5000 });
+        }
+      });
+      ```
+
+    </details>
+    <Br>
+
 
 - The created tests do not always compile. GitHub Copilot got you 95% of the way there, but you may need to make some adjustments to the code to make it work. You can also ask Copilot for help with this. Try `Fix using Copilot` or `Explain using Copilot` to get help with the code.
 
@@ -195,6 +346,8 @@ module.exports = {
 
 - Not all tests will pass. You can now debug the tests in the PlayWright UI and fine-tune the tests to make them pass.
 
+- Now stop the Frontend and API by pressing `Ctrl + C` in the terminal.
+
 ## Optional
 
 ### Step 3: PlayWright UI Test project using **/new** command
@@ -202,6 +355,10 @@ module.exports = {
 - In this lab, we will create a new Playwright UI Test project using the **/new** command in GitHub Copilot.
 
 - If you have not already done the lab for creating a form with GitHub Copilot. Copy/paste the following code inside `/WrightBrothersFrontend/src/pages/NewPlane.tsx`
+
+  <Br>
+  <details>
+  <summary>Click for Solution</summary>
 
   ```tsx
   import React from 'react';
@@ -281,6 +438,9 @@ module.exports = {
 
   export default NewPlane;
   ```
+
+  </details>
+  <Br>
 
 - First, Make sure that the Frontend is running. This is because the Playwright UI Test project will interact with the Frontend.
 

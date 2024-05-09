@@ -289,10 +289,10 @@ function HomePage() {
 
 - This will take you to the plane details page. The aerobatics sequence is displayed in the details.
 
-- Note the `Simple Aerobatics Sequence` button. This button is going to trigger the animation of the aerobatics sequence.
+- Note the `Simulate Aerobatics Sequence` button. This button is going to trigger the animation of the aerobatics sequence.
 
   // TODO Screenshot
-<img src="../../Images/TBD.png" width="800">
+<img src="../../Images/SimulateAerobaticsSequenceButton.png" width="800">
 
 - Open GitHub Copilot Chat, then click `+` to clear prompt history.
 
