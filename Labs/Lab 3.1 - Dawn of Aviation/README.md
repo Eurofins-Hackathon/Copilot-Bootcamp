@@ -23,8 +23,8 @@ This practical lab designed to teach participants frontend setup and management 
 
 ### Step 1: Sunset above the Clouds - Setup and Run the Frontend
 
-// TODO PRe-install Node in CodeSpace
-// TODO The frontend auto reloads, so the participants do not need to restart the frontend to see changes
+>[!NOTE]
+> When working with the frontend, you'll benefit from the auto-reload feature. This means that after making changes, there's no need to manually restart; the system will automatically reload for you. However, please note that the API does require a restart after modifications.
 
 - Open the terminal and navigate to the `WrightBrothersFrontend/` directory.
 
