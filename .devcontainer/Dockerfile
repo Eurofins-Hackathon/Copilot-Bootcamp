@@ -8,6 +8,9 @@ FROM mcr.microsoft.com/vscode/devcontainers/dotnet:0-${VARIANT}
 RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash -
 RUN apt-get install -y nodejs
 
+# Install Playwright
+RUN npm install playwright
+
 # [Optional] Uncomment this section to install additional OS packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 #     && apt-get -y install --no-install-recommends <your-package-list-here>
