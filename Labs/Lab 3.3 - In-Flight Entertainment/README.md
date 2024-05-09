@@ -294,9 +294,9 @@ function HomePage() {
   // TODO Screenshot
 <img src="../../Images/TBD.png" width="800">
 
-- Open GitHub Copilot to create the animation.
+- Open GitHub Copilot Chat, then click `+` to clear prompt history.
 
-- Type the following in the chat window:
+- Type the following in the chat window to create the animation:
 
   ```
   I want you to create an React animation of an airplane doing manouvers. Implement the following function: `export const animateManeuvers = (airplaneRef: MutableRefObject<null>, maneuvers: string)`.
@@ -399,9 +399,16 @@ function HomePage() {
   };
   ```
 
-// TODO explain some details of the animation
+>[!NOTE]
+> The animation is a sequence of maneuvers that are performed by the airplane. The maneuvers are represented by a string that contains the type of maneuver, the number of times the maneuver should be repeated, and the difficulty of the maneuver. The animation uses the GSAP library to create the animations. The airplane is moved along a motion path for the looping maneuver, rotated for the hammerhead, rolled for the roll, spun for the spin, and moved backward for the tailslide. The difficulty of the maneuver is used to determine the duration of the animation.
 
-- Open the animation helpers file at `WrightBrothersFrontend/src/animationHelpers.ts` and add the function provided by GitHub Copilot.
+- Open the animation helpers file at `WrightBrothersFrontend/src/animationHelpers.ts` and add only the function `export const animateManeuvers = (airplaneRef, maneuvers)` provided by GitHub Copilot.
+
+```tsx
+export const animateManeuvers = (airplaneRef, maneuvers) => {
+  // Rest of the component
+};
+```
 
 - Open the Flight Details component `WrightBrothersFrontend/src/components/FlightDetails.tsx` and replace `// insert animateManeuvers function here` with the following code.
 
@@ -416,9 +423,7 @@ const onSimulateAerobaticSequence = () => {
 
 - Click the `Simple Aerobatics Sequence` button to trigger the animation of the aerobatics sequence.
 
-- The animation should be displayed in the details of the plane.
-
-- You have successfully animated the aerobatics sequence of the airplane.
+- You have successfully animated the aerobatics sequence of the airplane. The animation should be displayed in the details of the plane.
 
 - Now stop the Frontend and API by pressing `Ctrl + C` in the terminal.
 
