@@ -32,7 +32,6 @@ This lab exercise is a focused session that instructs participants on integratin
 
     ```
     #selection Get this list of planes from api endpoint http://localhost:1903/planes/ using axios
-
     ```
 
 - For `#selection` select all the content of `HomePage.tsx`
@@ -43,7 +42,7 @@ This lab exercise is a focused session that instructs participants on integratin
 
     <Br>
     <details>
-    <summary>Click here to see the suggestion ...</summary>
+    <summary>Click for Solution</summary>
 
     ```tsx
     import React, { useState, useEffect } from 'react';
@@ -178,8 +177,6 @@ This lab exercise is a focused session that instructs participants on integratin
     ```
 
     </details>
-
-<br>
 
 - Replace the content of `HomePage.tsx` with the suggested code.
 

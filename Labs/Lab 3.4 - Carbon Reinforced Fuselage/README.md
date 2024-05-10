@@ -102,8 +102,6 @@ module.exports = {
 
     </details>
 
-    <Br>
-
 - Run `npm run lint` to scan for lint issues with the new rules
 
 - You should now see lint issues related to the new rules
@@ -130,7 +128,7 @@ module.exports = {
 
 - Right-click on the first lint issue and select `Fix using Copilot` from the context menu.
 
-  <img src="../../Images/Screenshot-FixUsingCopilot.png" width="500">
+  <img src="../../Images/Screenshot-FixUsingCopilot.png" width="700">
 
 - GitHub Copilot will now open a Inline Editor window with the suggested fix. Review the fix and click `Apply Fix` to apply the fix.
 
@@ -331,8 +329,6 @@ module.exports = {
       ```
 
     </details>
-    <Br>
-
 
 - The created tests do not always compile. GitHub Copilot got you 95% of the way there, but you may need to make some adjustments to the code to make it work. You can also ask Copilot for help with this. Try `Fix using Copilot` or `Explain using Copilot` to get help with the code.
 
@@ -440,7 +436,6 @@ module.exports = {
   ```
 
   </details>
-  <Br>
 
 - First, Make sure that the Frontend is running. This is because the Playwright UI Test project will interact with the Frontend.
 

@@ -49,7 +49,7 @@ This lab exercise is focused on integrating styled buttons and forms to enhance 
 
 - Make sure to select the `#file:PlaneList.tsx` reference again in the prompt. it does not work with copy/pasting the prompt.
 
-  <img src="../../Images/FileSelectionPlaneList.png" width="800">
+  <img src="../../Images/FileSelectionPlaneList.png" width="600">
 
 - Press `Enter` to submit the question
 
@@ -251,7 +251,6 @@ function HomePage() {
       ```
 
     </details>
-    <Br>
 
 - Select all the code in the open file `NewPlane.tsx` and replace it with the suggested code.
 
@@ -291,7 +290,6 @@ function HomePage() {
 
 - Note the `Simulate Aerobatics Sequence` button. This button is going to trigger the animation of the aerobatics sequence.
 
-  // TODO Screenshot
 <img src="../../Images/SimulateAerobaticsSequenceButton.png" width="800">
 
 - Open GitHub Copilot Chat, then click `+` to clear prompt history.
