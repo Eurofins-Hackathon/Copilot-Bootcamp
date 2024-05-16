@@ -338,6 +338,23 @@ module.exports = {
   npm run test-ct:open
   ```
 
+- In a DevContainer or CodeSpace you might see the following error:
+
+  ```sh
+    '╔════════════════════════════════════════════════════════════════════════════════════════════════╗\n' +
+    '║ Looks like you launched a headed browser without having a XServer running.                     ║\n' +
+    "║ Set either 'headless: true' or use 'xvfb-run <your-playwright-app>' before running Playwright. ║\n" +
+    '║                                                                                                ║\n' +
+    '║ <3 Playwright Team                                                                             ║\n' +
+    '╚════════════════════════════════════════════════════════════════════════════════════════════════╝'
+  ```
+
+- Run the following command to run the tests without the UI
+
+  ```sh
+  npm run test-ct
+  ```
+
 - You should see the tests in the PlayWright UI. You can press the play button in the UI to run the tests.
 
 - Not all tests will pass. You can now debug the tests in the PlayWright UI and fine-tune the tests to make them pass.
