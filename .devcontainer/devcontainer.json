@@ -10,13 +10,12 @@
 			"VARIANT": "7.0"
 		}
 	},
-
+	"postCreateCommand": "cd WrightBrothersFrontend && npm install && npx playwright install-deps && npx playwright install",
 	// Set *default* container specific settings.json values on container create.
 	// "settings": {
 	// 	"files.autoSave": "afterDelay",
 	// 	"files.autoSaveDelay": 1000
 	// },
-
 	"customizations": {
 		"vscode": {
 			"settings": {
