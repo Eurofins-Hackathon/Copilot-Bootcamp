@@ -1,5 +1,5 @@
 {
-  "name": "-wrightbrothersfrontend",
+  "name": "wrightbrothersfrontend",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -30,7 +30,7 @@
     "yup": "^1.4.0"
   },
   "devDependencies": {
-    "@playwright/experimental-ct-react": "^1.43.1",
+    "@playwright/experimental-ct-react": "1.44.0",
     "@types/node": "^20.12.9",
     "@types/react": "^18.2.64",
     "@types/react-dom": "^18.2.21",
