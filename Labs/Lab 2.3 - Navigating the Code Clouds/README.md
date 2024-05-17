@@ -485,8 +485,8 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
 
 ### Step 5: - Regex Aerobatics Show - Advanced Prompt Engineering
 
-> [!CAUTION]
-> Proceed at your own risk. This is an advanced lab exercise. We take Copilot to the edge of its capabilities. Retry the prompt provided later in the lab if you are not successful the first time. No airplanes were harmed in the making of this lab &#x2708; &#x1F60A;
+> [!NOTE]
+> This is an advanced lab exercise. We take Copilot to the edge of its capabilities. Retry the prompt provided later in the lab if you are not successful the first time.
 
 - Open the `Flight.cs` file.
 

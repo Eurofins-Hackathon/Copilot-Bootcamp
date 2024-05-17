@@ -13,8 +13,6 @@ Compare this to "Preparing Your Travel Itinerary, Checking Passport, Printing Bo
     - Step 1: What is a codespace?
     - Step 2: Create a codespace in your repository
     - Step 3: Verify Copilot Functionality
-    - Step 4: Verify the application runs (Optional)
-    - Step 5: Verify calling the REST API (Optional)
 
 You can then use this codespace to work on the exercises in the Hands on Labs. 🔨
 
@@ -28,7 +26,12 @@ GitHub Codespaces is a feature that allows you to code directly in the browser. 
 
 - First, we are going to create a plain vanilla Codespace that you will use throughout this bootcamp.
 
-Navigate to your own repository on the URL https://github.com/Technical-Bootcamp/attendee-[yourhandle].
+ - Locate your repository by replacing `[yourhandle]` in the URL below with your GitHub handle:
+
+    - `https://github.com/orgs/Technical-Bootcamp/repositories`.
+
+     - For example, if your GitHub handle is `pagelsr`, the URL would be: 
+`https://github.com/Technical-Bootcamp/YYY-MM-DD-Xebia-bootcamp-pagelsr`.
 
 - Locate the `Code` tab near the top menu.
 - Click the green `Code` button, then click on `Codespaces`, click the 3 ellipses, "...", and choose `"New with options"`.
@@ -48,82 +51,6 @@ Your Codespace is being created. After a few minutes, you will be able to see yo
 <img src="../../Images/Screenshot-ChatIcon.png" width="300">
 
 - Type `Hello` and press `Enter` to interact with Copilot.
-
-## Optional Verification Steps
-
-### Step 4: Verify the application runs
-
-#### Run application
-
-- Startup the application and verify the application is running.
-- From the terminal window, navigate to the application folder: `cd ./WrightBrothersApi/WrightBrothersApi/`
-- Run the application by typing the following command in the terminal:
-
-    ```sh
-    dotnet run
-    ```
-
-> [!NOTE]
-> If you encounter an error message like `Project file does not exist.` or `Couldn't find a project to run.`, it's likely that you're executing the command from an incorrect directory. To resolve this, navigate to the correct directory using the command `cd ./WrightBrothersApi`. If you need to move one level up in the directory structure, use the command `cd ..`. The corrcect directory is the one that contains the `WrightBrothersApi.csproj` file.
-
-<img src="../../Images/Screenshot-Lab1.1-Run.png" width="600">
-
-### Step 5: Verify calling the REST API
-
-#### Rest Client Extension
-
-The REST API client extension is very useful to quickly execute HTTP requests in your IDE and have all HTTP requests in source control.
-
-- Open the `Examples/Flights.http` file, click `Send Request` to execute the `takeFlight` request.
-
-    ```
-        Send Request
-    POST http://localhost:1903/flights/1/takeFlight/75 HTTP/1.1
-    content-type: application/json
-    ```
-
-- You will see that the flight is taking off and the response is `200 OK`.
-
-- Response will be:
-
-    ```json
-    HTTP/1.1 200 OK
-    Connection: close
-    ```
-
-- Stop the application by pressing `Ctrl+C` in the terminal window.
-
-#### Verify the unit tests
-
-- From the terminal window, navigate to the project's root folder:
-
-    ```sh
-    cd ..
-    ```
-
-- This is the folder that contains the `WrightBrothersApi.Tests` folder. If you're in the correct folder, when you type `tree -L 1` in the terminal, you should see the following output:
-
-    ```
-    .
-    ├── README.md
-    ├── WrightBrothersApi
-    ├── WrightBrothersApi.sln
-    └── WrightBrothersApi.Tests
-    ```
-
-- Run existing unit tests by typing the following command in the terminal:
-
-    ```sh
-    dotnet test
-    ```
-
-- The tests should run and pass.
-
-    ```sh
-    Starting test execution, please wait...
-    A total of 1 test files matched the specified pattern.
-    Passed!  - Failed:  0, Passed:  1, Skipped:  0, Total:  1
-    ```
 
 ### Congratulations you've made it to the end! &#9992;
 
