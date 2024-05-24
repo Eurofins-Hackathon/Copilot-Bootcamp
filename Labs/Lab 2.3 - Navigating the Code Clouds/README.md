@@ -185,9 +185,20 @@ public class FlightsController : ControllerBase
 
 - Select all the content of the `UpdateFlightStatus` method.
 
-- Open GitHub Copilot Chat, click `+` to clear prompt history.
+- Open GitHub Copilot Chat, click **+** to clear prompt history.
 
 - Ask the following question:
+
+  ```
+  What is the cyclomatic complexity of this method UpdateFlightStatus?.
+  ```
+
+> [!NOTE]
+> In the case of the UpdateFlightStatus method, we can calculate the cyclomatic complexity by counting the number of decision points (if, switch-case, loops) plus 1. The cyclomatic complexity of the UpdateFlightStatus method is 10.
+
+- Let's go ahead and refactor the code to make it more readable and maintainable.
+
+- With the code still selected, ask the following question:
 
   ```
   Refactor the selected code to make it more readable and maintainable.
