@@ -80,7 +80,7 @@ public class Plane
 
 - Open GitHub Copilot Chat, click `+` to clear prompt history, then type the following command:
 
-Compare the difference between asking the two following things:
+Compare the difference between asking the following three methods:
 
 1) Simple:
 
@@ -91,8 +91,22 @@ Document all my code
 2) More details using dotnet method documentation
 
 ```
-document all my code with details using dotnet method documentation
+document #selection with details using dotnet method documentation
 ```
+
+3) Enhanced Prompt for Header and Inline Documentation
+
+    ```
+    Generate XML documentation comments for this C# method. Include a summary, descriptions of each parameter, the return type, and any exceptions thrown. Use the format:
+
+    ## Example
+    /// /// [Brief summary of what the method does] /// /// [Description of the parameter] /// [Description of the return value] /// [Description of the exception and when it might be thrown]
+
+    Additionally, provide inline comments for each significant line or block of code within the method. Use the format:
+
+    ## Example
+    // [Description of what this line/block of code does
+    ```
 
 - Review the documentation to ensure it's accurate, then click on `Insert at cursor` to replace the `PlanesController.cs` method with the new documentation.
 
