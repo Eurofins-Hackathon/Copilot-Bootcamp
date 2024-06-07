@@ -293,7 +293,7 @@ public class PlanesController : ControllerBase
 > [!NOTE]
 > The reason GitHub Copilot suggests the `[HttpGet("search")]` method is because it understands that the comment is a description of the method. It also understands that the method is a GET method and that it has a parameter `name` of type `string`.
 
-- Let's do it again, place your cursor before the `if(plane == null)` line, after the `}` of the `Post(Plane plane)` method, press `Enter` twice.
+- Let's do it again, place your cursor before the `if(plane == null)` line, after the `{` of the `Post(Plane plane)` method, press `Enter` twice.
 
 - Type `// Return BadRequest if plane already exists by name` in the comment block. Before the `if(plane == null)` of this method, press `Enter`.
 
