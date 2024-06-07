@@ -98,11 +98,15 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 - Let's fix this. Open Copilot Chat and Copy/Paste the following and place your cursor after `tests should match `:
 
     ```md
-    Generate all unit test scenarios for #selection and the tests should match the style in <---- Place your cursor here
-    Use the existing list of planes for test data
+    Generate all unit test scenarios for #selection and the tests should match the style in #file:PlanesControllerTests.cs. Use the existing list of planes for test data
     ```
 
-- Delete `<---- Place your cursor here`, and type `#file` in the chat window and press Enter.
+> [!NOTE]
+> When copy/posting the `#file:PlanesControllerTests.cs`, it will not work. You will need to select the file again from the pop-up window, like in the previous step.
+
+- First remove `#file:PlanesControllerTests.cs` and keep your cursor at the same position.
+
+- Next, type `#file` in the chat window and press Enter.
 
 <img src="../../Images/Screenshot-GetById-File.png" width="600">
 
