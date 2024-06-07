@@ -76,22 +76,24 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - You can add additional unit tests in the `PlanesControllerTests` class in the `WrightBrothersApi.Tests/Controllers/PlaneControllerTests.cs` file.
 
-<img src="../../Images/Screenshot-WhereToAddUnitTests.png" width="800">
+- Open the `PlaneController.cs` file.
 
-- Open Copilot Chat and Copy/Paste the following
+- Select all the code for the `GetById` method.
+
+<img src="../../Images/Screenshot-GetById-Selection.png" width="400">
+
+- Next, open Copilot Chat and Copy/Paste the following
 
     ```md
     Generate all unit test scenarios for #selection
     Use the existing list of planes for test data
     ```
 
-<img src="../../Images/Screenshot-GetById-Selection.png" width="400">
+<img src="../../Images/Screenshot-WhereToAddUnitTests.png" width="800">
 
-- For `#selection`, open the `PlaneController.cs` file.
-
-- Select all the code for the `GetById` method.
 
 - Press `Enter`, GitHub Copilot will automatically suggest the `[Test]` attributes.
+
 
 - The problem is that the generated test methods do not match with the style of the existing test methods in the `PlanesControllerTests.cs` file.
 
