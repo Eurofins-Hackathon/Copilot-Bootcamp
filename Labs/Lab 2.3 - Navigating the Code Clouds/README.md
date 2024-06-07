@@ -85,7 +85,7 @@ Compare the difference between asking the following three methods:
 1) Simple:
 
 ```
-Document all my code
+document all my code #selection with details
 ```
 
 2) More details using dotnet method documentation
@@ -215,7 +215,7 @@ public class FlightsController : ControllerBase
 - With the code still selected, ask the following question:
 
   ```
-  Refactor the selected code to make it more readable and maintainable.
+  Refactor my code #selection to make it more readable and maintainable.
   ```
 
 <img src="../../Images/Screenshot-UpdateFlightStatus-Refactor.png" width="800">
