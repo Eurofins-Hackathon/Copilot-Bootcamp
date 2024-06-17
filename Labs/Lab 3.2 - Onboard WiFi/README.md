@@ -76,7 +76,6 @@ This lab exercise is a focused session that instructs participants on integratin
     export default HomePage;
     ```
     </details>
-    <Br>
 
 - In the Copilot Chat window, click the **Insert at Cursor** button to insert the code into the `HomePage.tsx` file.
 
@@ -95,7 +94,7 @@ This lab exercise is a focused session that instructs participants on integratin
 - Navigate to the home page `http://localhost:5173/`
 
 > [!NOTE]
-> When using a Codespace, the URL will be different from your local setup. The URL is constructed using the format `localhost:5173`. Please replace `localhost` with the name of your Codespace.
+> When using a Codespace, the URL will be different from your local setup. The URL is constructed using the format `localhost:5173`. Please replace `localhost` with the name of your Codespace. Additionally, to make the port accessible, navigate to the Ports tab, right-click on the desired port, and change its visibility to `Public`.
 
 - You should now see a list of planes from the API, instead of the static list
 
