@@ -31,8 +31,13 @@ This lab exercise is a focused session that instructs participants on integratin
 - Type the following in the chat window:
 
     ```
-    #selection Get this list of planes from api endpoint http://localhost:1903/planes/ using axios
+     #selection Get the list of planes from an API endpoint https://{hostname}:{port}/planes using axios
     ```
+
+    - Replace `{hostname}` and `{port}` with your subdomain and port.
+        - For example, if your subdomain is `urban-memory` and your port is `1903`, the endpoint will be `http://urban-memory:1903/planes`
+
+> Note: In the future, this value will be dynamically generated. This API call should be handled by axios.
 
 - For `#selection` select all the content of `HomePage.tsx`
 

@@ -84,13 +84,24 @@ export default AddPlaneButton;
 >[!IMPORTANT]
 > Sometimes it suggest `@heroicons/react/solid` without the size. Make sure to add the size `24` to the import, change the import to `@heroicons/react/24/solid`
 
-- Open the file the `AddPlaneButton.tsx` file in the `src/components` folder.
+- From the Copilot Chat window, click `...`, then click `Insert into New File`.
+
+- Press `Ctrl + S` to save the file and name it `AddPlaneButton.tsx` in the `src/components` folder.
 
 - Select all the code in the file `AddPlaneButton.tsx`.
 
 - In the Copilot Chat quick action, click the **Insert at Cursor** button to add the component to the `AddPlaneButton.tsx` file in the `src/components` folder
 
-- Open `/src/components/pages/HomePage.tsx` and add the `AddPlaneButton` component below the `Banner` component inside the `PageContent` component
+- Open `/src/pages/HomePage.tsx` file and add the following lines.
+
+- Add a new `import` statement near the top of the file to import the `AddPlaneButton` component.
+
+```tsx
+import AddPlaneButton from '../components/AddPlaneButton';
+```
+
+- Add the `AddPlaneButton` component below the `Banner` component inside the `PageContent` component.
+
 
 ```tsx
 function HomePage() {
