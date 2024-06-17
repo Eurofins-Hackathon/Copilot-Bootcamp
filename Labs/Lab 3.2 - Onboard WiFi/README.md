@@ -78,13 +78,6 @@ This lab exercise is a focused session that instructs participants on integratin
     </details>
     <Br>
 
-- In Copilot Chat, click the `Insert at Cursor` button to insert the code, replacing the existing `const fetchPlanes` function.
-
-- Replace `{localhost}` and `{port}` with your subdomain and port.
-    - For example, if your subdomain is `urban-memory` and your port is `1903`, the endpoint will be `http://urban-memory:1903/planes`
-
-> Note: In the future, this value will be dynamically generated. This API call should be handled by axios.
-
 - In the Copilot Chat window, click the **Insert at Cursor** button to insert the code into the `HomePage.tsx` file.
 
 - Open the terminal and navigate to the `WrightBrothersFrontend/` directory.
