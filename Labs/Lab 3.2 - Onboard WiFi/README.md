@@ -24,22 +24,17 @@ This lab exercise is a focused session that instructs participants on integratin
 
 - In this lab, we will connect the frontend to the WrightBrothersApi
 
-- Start by opening `HomePage.tsx` in the `WrightBrothersFrontend/src/pages` folder
+- Start by opening `HomePage.tsx` in the `WrightBrothersFrontend/src/pages` folder.
+
+- Select all the contents of `HomePage.tsx` file.
 
 - Open GitHub Copilot Chat, then click `+` to clear prompt history.
 
 - Type the following in the chat window:
 
     ```
-     #selection Get the list of planes from an API endpoint https://{hostname}:{port}/planes using axios
+     #selection Get the list of planes from an API endpoint http://localhost:1903/planes/ using axios
     ```
-
-    - Replace `{hostname}` and `{port}` with your subdomain and port.
-        - For example, if your subdomain is `urban-memory` and your port is `1903`, the endpoint will be `http://urban-memory:1903/planes`
-
-> Note: In the future, this value will be dynamically generated. This API call should be handled by axios.
-
-- For `#selection` select all the content of `HomePage.tsx`
 
 - Press `Enter` to submit the question
 
@@ -83,7 +78,12 @@ This lab exercise is a focused session that instructs participants on integratin
     </details>
     <Br>
 
-- Replace the content of `HomePage.tsx` with the suggested code.
+- In Copilot Chat, click the `Insert at Cursor` button to insert the code, replacing the existing `const fetchPlanes` function.
+
+- Replace `{localhost}` and `{port}` with your subdomain and port.
+    - For example, if your subdomain is `urban-memory` and your port is `1903`, the endpoint will be `http://urban-memory:1903/planes`
+
+> Note: In the future, this value will be dynamically generated. This API call should be handled by axios.
 
 - In the Copilot Chat window, click the **Insert at Cursor** button to insert the code into the `HomePage.tsx` file.
 
@@ -100,6 +100,9 @@ This lab exercise is a focused session that instructs participants on integratin
     ```
 
 - Navigate to the home page `http://localhost:5173/`
+
+> [!NOTE]
+> When using a Codespace, the URL will be different from your local setup. The URL is constructed using the format `localhost:5173`. Please replace `localhost` with the name of your Codespace.
 
 - You should now see a list of planes from the API, instead of the static list
 

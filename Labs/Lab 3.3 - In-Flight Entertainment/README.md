@@ -136,6 +136,9 @@ function HomePage() {
 
     <img src="../../Images/AddPlaneButton.png" width="800">
 
+> [!NOTE]
+> When using a Codespace, the URL will differ from your local setup. The URL is constructed in the format `localhost:5173`. Please replace `localhost` with the name of your Codespace. Additionally, to make the port accessible, navigate to the Ports tab, right-click on the desired port, and change its visibility to `Public`.
+
 - The button should be styled and have a plus icon and a hover effect.
 
 - Now, Click the button to navigate to the new plane page.
@@ -269,6 +272,9 @@ function HomePage() {
 
 - Open the browser and navigate to `http://localhost:5173/new-plane`
 
+> [!NOTE]
+> When using a Codespace, the URL will differ from your local setup. The URL is constructed in the format `localhost:5173/new-plane`. Please replace `localhost` with the name of your Codespace. Additionally, to make the port accessible, navigate to the Ports tab, right-click on the desired port, and change its visibility to `Public`.
+
 - You should see a form with fields for adding a new plane. The form should be styled and have validation
 
 - Fill in the form and click the `Submit` button.
@@ -296,6 +302,9 @@ function HomePage() {
     ```
 
 - Navigate to `http://localhost:5173`. Click on one of the planes in the list.
+
+> [!NOTE]
+> When using a Codespace, the URL will differ from your local setup. The URL is constructed in the format `localhost:5173/new-plane`. Please replace `localhost` with the name of your Codespace. Additionally, to make the port accessible, navigate to the Ports tab, right-click on the desired port, and change its visibility to `Public`.
 
 - This will take you to the plane details page. The aerobatics sequence is displayed in the details.
 
