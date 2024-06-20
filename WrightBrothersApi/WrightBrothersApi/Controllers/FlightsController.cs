@@ -67,12 +67,7 @@ public class FlightsController : ControllerBase
     [HttpPost]
     public ActionResult<Flight> Post([FromBody] Flight flight)
     {
-        _logger.LogInformation($"POST ✈✈✈ {flight} ✈✈✈");
-
-        if (flight == null)
-        {
-            return BadRequest("Flight data is required.");
-        }
+        _logger.LogInformation("POST ✈✈✈ NO PARAMS ✈✈✈");
 
         Flights.Add(flight);
 
@@ -164,19 +159,19 @@ public class FlightsController : ControllerBase
 
 
     [HttpPost("{id}/takeFlight/{flightLength}")]
-    public ActionResult TakeFlight(int id, int flightLength)
+    public ActionResult takeFlight(int id, int flightLength)
     {
         var flight = Flights.Find(f => f.Id == id);
 
         for (int i = 0; i < flightLength; i++)
         {
-            if (flight.FuelRange <= 0)
+            if (flight.FuelRange == 0)
             {
                 throw new Exception("Plane crashed, due to lack of fuel");
             }
             else
             {
-                var fuelConsumption = 1;
+                var fuelConsumption = 0;
                 if (flight.FuelTankLeak)
                 {
                     fuelConsumption = 2;
