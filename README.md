@@ -120,3 +120,6 @@ The session ends with a summary of how AI helps in coding. It highlights better 
 
 - [Safe Landing ✈ Review and Future of AI in Coding](./Labs/Lab%204.3%20-%20Safe%20Landing)
 
+## License
+
+This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License. To view a copy of this license, visit [http://creativecommons.org/licenses/by-nc-nd/4.0/](http://creativecommons.org/licenses/by-nc-nd/4.0/).
