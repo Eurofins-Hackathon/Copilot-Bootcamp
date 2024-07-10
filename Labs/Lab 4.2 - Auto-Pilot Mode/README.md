@@ -252,7 +252,7 @@ Deploying your application to Azure facilitates scalable, secure, and efficient 
 <-- Place your cursor here
 ```
 
-- In GitHub Copilot Chat, click the ellipses `...` and select `Insert at Cursor` for the suggested unit test methods.
+- In GitHub Copilot Chat, click the ellipses `...` and select `Apply in Editor` for the suggested unit test methods.
 
 - Save the file by clicking pressing `Ctrl + S` or `Cmd + S`.
 

@@ -365,7 +365,7 @@ public class FlightsController : ControllerBase
 
 - Copilot will optimize the code.
 
-- Click on the `Insert at cursor` to replace the `calculateAerodynamics` method with the new one.
+- Click on the `Apply in Editor` to replace the `calculateAerodynamics` method with the new one.
 
 - Run the application
 

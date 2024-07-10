@@ -90,7 +90,7 @@ export default AddPlaneButton;
 
 - Select all the code in the file `AddPlaneButton.tsx`.
 
-- In the Copilot Chat quick action, click the **Insert at Cursor** button to add the component to the `AddPlaneButton.tsx` file in the `src/components` folder
+- In the Copilot Chat quick action, click the **Apply in Editor** button to add the component to the `AddPlaneButton.tsx` file in the `src/components` folder
 
 - Open `/src/pages/HomePage.tsx` file and add the following lines.
 
@@ -268,7 +268,7 @@ function HomePage() {
 
 - Select all the code in the open file `NewPlane.tsx` and replace it with the suggested code.
 
-- In the Copilot Chat window, click the **Insert at Cursor** button to insert the code into the `NewPlane.tsx` file.
+- In the Copilot Chat window, click the **Apply in Editor** button to insert the code into the `NewPlane.tsx` file.
 
 - Open the browser and navigate to `http://localhost:5173/new-plane`
 

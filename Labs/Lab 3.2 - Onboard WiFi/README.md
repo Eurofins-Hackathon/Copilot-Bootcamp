@@ -77,7 +77,7 @@ This lab exercise is a focused session that instructs participants on integratin
     ```
     </details>
 
-- In the Copilot Chat window, click the **Insert at Cursor** button to insert the code into the `HomePage.tsx` file.
+- In the Copilot Chat window, click the **Apply in Editor** button to insert the code into the `HomePage.tsx` file.
 
 - Open the terminal and navigate to the `WrightBrothersFrontend/` directory.
 

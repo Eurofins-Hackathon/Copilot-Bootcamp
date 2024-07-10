@@ -100,13 +100,13 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 - Let's fix this. Open Copilot Chat and Copy/Paste the following and place your cursor after `tests should match `:
 
     ```md
-    Generate all unit test scenarios for #selection and the tests should match the style in #file:PlanesControllerTests.cs. Use the existing list of planes for test data
+    Generate all unit test scenarios for #selection and the tests should match the style in #file:PlaneControllerTests.cs. Use the existing list of planes for test data
     ```
 
 > [!NOTE]
-> When copy/posting the `#file:PlanesControllerTests.cs`, it will not work. You will need to select the file again from the pop-up window, like in the previous step.
+> When copy/posting the `#file:PlaneControllerTests.cs`, it will not work. You will need to select the file again from the pop-up window, like in the previous step.
 
-- First remove `#file:PlanesControllerTests.cs` and keep your cursor at the same position.
+- First remove `#file:PlaneControllerTests.cs` and keep your cursor at the same position.
 
 - Next, type `#file` in the chat window and press Enter.
 
@@ -178,7 +178,7 @@ public class PlanesControllerTests
 }
 ```
 
-- In GitHub Copilot Chat, click the ellipses `...` and select `Insert at Cursor` for the suggested unit test methods.
+- In GitHub Copilot Chat, click the ellipses `...` and select `Apply in Editor` for the suggested unit test methods.
 
 - Let's test the newly added tests by opening the terminal and run the tests with the provided command.
 
@@ -258,7 +258,7 @@ public class PlanesControllerTests
     - Assert the amount of planes returned
     - Use FluentAssertions
 
-    Give me only the test method as a result to apply in #file:PlanesControllerTests.cs
+    Give me only the test method as a result to apply in #file:PlaneControllerTests.cs
     ```
 
 <img src="../../Images/Screenshot-SearchByName-Tests.png" width="600">
@@ -298,7 +298,7 @@ public class PlanesControllerTests
 
 - Next, type `#file` again in the chat window and press Enter, like in the previous step and select the `Plane.cs` file.
 
-- Now, do the same for `#file:PlanesControllerTests.cs` on the bottom of the prompt.
+- Now, do the same for `#file:PlaneControllerTests.cs` on the bottom of the prompt.
 
 > [!NOTE]
 > This example shows how `#file` is used in a way how a human might approach a problem. You can include context at any time to help Copilot understand the problem or solution better.
@@ -352,7 +352,7 @@ public class PlanesControllerTests
     }
     ```
 
-- In GitHub Copilot Chat, click the ellipses `...` and select `Insert at Cursor` for the suggested unit test methods.
+- In GitHub Copilot Chat, click the ellipses `...` and select `Apply in Editor` for the suggested unit test methods.
 
 - Let's run the unit tests in the terminal:
 
@@ -435,7 +435,7 @@ public class PlanesControllerTests
 
 - Apply the changes to the `PlanesController.cs` file.
 
-- Click on the `Insert at cursor` to replace the `SearchByName` method with the new one.
+- Click on the `Apply in Editor` to replace the `SearchByName` method with the new one.
 
 - Open the terminal and run the tests with the provided command
 

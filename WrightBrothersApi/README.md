@@ -461,7 +461,7 @@ Another option to use Copilot for creating tests is use the `Inline` feature.
 - Open the `PlanesControllerTest.cs` file.
 - Hightlight the entire `Post_ValidPlane_ReturnsCreatedAtAction()` method.
 - In the `Copilot Chat window`, type `Can you generate test data for 5 iterations for this?` and press `enter`.
-- Scroll back up and click `Insert at Cursor` to insert the test data driven unit test.
+- Scroll back up and click `Apply in Editor` to insert the test data driven unit test.
 
 <details>
 <summary>Click to see the completed code</summary>
@@ -537,7 +537,7 @@ There are multiple ways of getting Copilot to do things for you.
     - Click anywhere in the `PlanesController.cs` file.
     - Click Ctrl + A to select all the code in the file.
     - In the `Copilot Chat window`, type `Generate documentation for all my code` and press `enter`.
-    - Scroll back up and click `Insert at Cursor` to insert all the code with documentation.
+    - Scroll back up and click `Apply in Editor` to insert all the code with documentation.
 
 > Copilot will put XML everywhere in the file.
 

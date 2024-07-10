@@ -108,7 +108,7 @@ document #selection with details using dotnet method documentation
     // [Description of what this line/block of code does
     ```
 
-- Review the documentation to ensure it's accurate, then click on `Insert at cursor` to replace the `PlanesController.cs` method with the new documentation.
+- Review the documentation to ensure it's accurate, then click on `Apply in Editor` to replace the `PlanesController.cs` method with the new documentation.
 
 > [!NOTE]
 > The difference is that in editor Chat does light documentation vs GitHub Copilot window does a thorough job documenting every important section of code.
