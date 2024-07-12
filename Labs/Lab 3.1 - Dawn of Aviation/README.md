@@ -21,6 +21,7 @@ This practical lab designed to teach participants frontend setup and management 
     - Step 3 - In-flight Correction - Centering a div.
     - Step 4 - Emergency Exit Lights - Color Contrast
     - Step 5 - Notifying the Air Crew - Call to Action Buttons (Optional).
+    - Step 6 - Check for WCAG Guidelines (Optional)
 
 ### Step 1: Sunset above the Clouds - Setup and Run the Frontend
 
@@ -122,7 +123,7 @@ This practical lab designed to teach participants frontend setup and management 
 
 - Open GitHub Copilot Chat, then click `+` to clear prompt history.
 
-- Ask ChatGPT why the UI is not centered:
+- Ask Copilot Chat why the UI is not centered:
 
     ```md
     #selection How can I center the banner title in the middle of the banner?
@@ -180,7 +181,7 @@ This practical lab designed to teach participants frontend setup and management 
 
 - Open the `WrightBrothersFrontend/src/components/Banner.tsx` file.
 
-- Ask ChatGPT to make the content of `#selection` more spacious:
+- Ask Copilot Chat to make the content of `#selection` more spacious:
 
     ```md
     The content of #selection feels very cramped. How to make it a lot more spacious?
@@ -289,7 +290,7 @@ This practical lab designed to teach participants frontend setup and management 
 
 - Open the `WrightBrothersFrontend/src/components/Banner.tsx` file.
 
-- Ask ChatGPT what color you should use for the subtitle:
+- Ask Copilot Chat what color you should use for the subtitle:
 
     ```md
     The subtitle in the banner at #selection is hard to read due to its color. Can you suggest a color which would better fit the existing color pallette while still improving readability?
@@ -338,7 +339,7 @@ This practical lab designed to teach participants frontend setup and management 
 
 - Open GitHub Copilot Chat, then click `+` to clear prompt history.
 
-- Ask ChatGPT how to add call to action buttons to the banner:
+- Ask Copilot Chat how to add call to action buttons to the banner:
 
     ```md
    Create two call to action buttons in the banner at #selection. Place them below the subtitle and center them. The first button is primary and should have the text "Learn More" and the second button is secondary should have the text "Get Started". The buttons should match the design of the banner.
@@ -395,6 +396,40 @@ This practical lab designed to teach participants frontend setup and management 
    <img src="../../Images/FrontendCallToAction.png" width="800">
 
 - Hover over the buttons to see the hover effect.
+
+## Optional
+
+### Step 6 - Check if the UI fall into WCAG guidelines
+
+The Web Content Accessibility Guidelines (WCAG) are international standards for making web content accessible to people with disabilities. They are based on four principles, summarized as POUR:
+
+- Perceivable: Content must be perceivable to users, with text alternatives for non-text content and sufficient contrast.
+- Operable: Interface and navigation must be usable, with keyboard accessibility and seizure-safe content.
+- Understandable: Information and operations must be clear, with readable text and predictable navigation.
+- Robust: Content must be compatible with various user agents, including assistive technologies, using clean HTML.
+
+WCAG guidelines have three levels of conformance:
+- A (Lowest): Minimum accessibility.
+- AA (Mid-range): Addresses common accessibility barriers.
+- AAA (Highest): Ensures the highest level of accessibility.
+
+These guidelines ensure web content is accessible to people with various disabilities, including visual, auditory, physical, speech, cognitive, language, learning, and neurological disabilities.
+
+- Open the `WrightBrothersFrontend/src/components/Banner.tsx` file.
+
+- Open GitHub Copilot Chat, then click `+` to clear prompt history.
+
+- Ask Copilot Chat if the UI is WCAG compliant.
+
+    ```md
+    #selection Does the UI meet the specified WCAG guidelines?
+    ```
+
+- For `#selection`, select all the content of `Banner.tsx`
+
+- Copilot will provide you with guidance and suggestions on how to make the UI WCAG compliant.
+
+- Free free to click "Apply in Editor" to make the changes.
 
 ### Congratulations you've made it to the end! &#9992; &#9992; &#9992;
 

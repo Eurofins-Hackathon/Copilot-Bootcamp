@@ -104,6 +104,10 @@ module.exports = {
 
 - Run `npm run lint` to scan for lint issues with the new rules
 
+  ```bash
+  npm run lint
+  ````
+
 - You should now see lint issues related to the new rules
 
 ```bash
@@ -142,8 +146,11 @@ module.exports = {
 
 - Let's first run the existing tests in the project. Run `npm run test-ct` (component test) to see the existing tests pass.
 
-  ```sh
+  ```bash
   cd WrightBrothersFrontend/
+  ```
+
+  ```bash
   npm run test-ct
   ```
 
@@ -456,9 +463,12 @@ module.exports = {
 
 - First, Make sure that the Frontend is running. This is because the Playwright UI Test project will interact with the Frontend.
 
-  ```sh
+  ```bash
   cd WrightBrothersFrontend/
-  npm run frontend
+  ```
+
+  ```bash
+  npm run test-ct
   ```
 
 - Navigate to `http://localhost:5173/new-plane` in the browser to see the form
