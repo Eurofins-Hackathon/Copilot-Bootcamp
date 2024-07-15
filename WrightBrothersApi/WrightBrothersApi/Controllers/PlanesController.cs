@@ -14,14 +14,14 @@ namespace WrightBrothersApi.Controllers
             _logger = logger;
         }
 
-        private static readonly List<Plane> Planes = new List<Plane>
+    private static readonly List<Plane> Planes = new List<Plane>
         {
             new Plane
             {
                 Id = 1,
                 Name = "Wright Flyer",
                 Year = 1903,
-                Description = "The first successful heavier-than-air powered aircraft.",
+                Description = "The first powered aircraft.",
                 RangeInKm = 12
             },
             new Plane
@@ -29,7 +29,7 @@ namespace WrightBrothersApi.Controllers
                 Id = 2,
                 Name = "Wright Flyer II",
                 Year = 1904,
-                Description = "A refinement of the original Flyer with better performance.",
+                Description = "Original Flyer with better performance.",
                 RangeInKm = 24
             },
             new Plane
@@ -37,9 +37,9 @@ namespace WrightBrothersApi.Controllers
                 Id = 3,
                 Name = "Wright Model A",
                 Year = 1908,
-                Description = "The first commercially successful airplane.",
+                Description = "The first commercial airplane.",
                 RangeInKm = 40
-            }
+            },
         };
 
         [HttpGet]
