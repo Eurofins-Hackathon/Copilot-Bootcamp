@@ -66,7 +66,6 @@ namespace WrightBrothersApi.Controllers
         [HttpPost]
         public ActionResult<Plane> Post(Plane plane)
         {
-            
             if(plane == null)
             {
                 return BadRequest();
