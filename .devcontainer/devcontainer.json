@@ -10,7 +10,7 @@
 			"VARIANT": "7.0"
 		}
 	},
-	"postCreateCommand": "cd WrightBrothersFrontend && npm install && npx playwright install-deps && npx playwright install",
+	"postCreateCommand": "/bin/bash ./.devcontainer/post-create-command.sh",
 	// Set *default* container specific settings.json values on container create.
 	// "settings": {
 	// 	"files.autoSave": "afterDelay",
@@ -38,7 +38,7 @@
 	},
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [1903],
+	"forwardPorts": [1903, 5173],
 
 	// [Optional] To reuse of your local HTTPS dev cert:
 	//

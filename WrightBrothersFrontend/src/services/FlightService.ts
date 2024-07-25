@@ -1,14 +1,12 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:1903/flights";
-
 class FlightService {
   calculateAerodynamics(planeId: string) {
-    return axios.post(`${API_URL}/${planeId}/calculateAerodynamics/`);
+    return axios.post(`${API_URL}/flights/${planeId}/calculateAerodynamics/`);
   }
 
   getFlightById(flightId: string) {
-    return axios.get(`${API_URL}/${flightId}`);
+    return axios.get(`${API_URL}/flights/${flightId}`);
   }
 }
 
