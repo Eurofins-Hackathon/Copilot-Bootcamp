@@ -28,7 +28,7 @@ GitHub Codespaces is a feature that allows you to code directly in the browser. 
 
 - Locate the repository by replacing `[bootcampname]-[yourhandle]` in the URL below with your information.
 
-    - `https://github.com/Technical-Bootcamp/[workshopname]-[yourhandle]`.
+    - `https://github.com/Technical-Bootcamp/[bootcampname]-[yourhandle]`.
 
 - Locate the `Code` tab near the top menu.
 - Click the green `Code` button, then click on `Codespaces`, click the 3 ellipses, "...", and choose `"New with options"`.
