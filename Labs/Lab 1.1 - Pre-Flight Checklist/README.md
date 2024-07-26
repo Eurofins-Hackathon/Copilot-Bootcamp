@@ -24,14 +24,11 @@ GitHub Codespaces is a feature that allows you to code directly in the browser. 
 
 ### Step 2: 💻 Create a codespace in your repository
 
-- First, we are going to create a plain vanilla Codespace that you will use throughout this bootcamp.
+- First, we are going to create a Codespace that you will use throughout this bootcamp.
 
- - Locate your repository by replacing `[yourhandle]` in the URL below with your GitHub handle:
+- Locate the repository by replacing `[bootcampname]-[yourhandle]` in the URL below with your information.
 
-    - `https://github.com/orgs/Technical-Bootcamp/repositories`.
-
-     - For example, if your GitHub handle is `pagelsr`, the URL would be: 
-`https://github.com/Technical-Bootcamp/YYY-MM-DD-Xebia-bootcamp-pagelsr`.
+    - `https://github.com/Technical-Bootcamp/[workshopname]-[yourhandle]`.
 
 - Locate the `Code` tab near the top menu.
 - Click the green `Code` button, then click on `Codespaces`, click the 3 ellipses, "...", and choose `"New with options"`.
