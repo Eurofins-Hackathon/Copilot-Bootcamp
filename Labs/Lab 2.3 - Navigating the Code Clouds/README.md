@@ -204,7 +204,7 @@ public class FlightsController : ControllerBase
 - Ask the following question:
 
   ```
-  What is the cyclomatic complexity of this method UpdateFlightStatus?.
+  What is the cyclomatic complexity of this method UpdateFlightStatus?
   ```
 
 > [!NOTE]
@@ -323,9 +323,6 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
         public string FlightLogSignature { get; set; }
     }
     ```
-
-> [!NOTE]
-> Note that the `FlightLogSignature` is a fictional property that is used to demonstrate the capabilities of GitHub Copilot. It is not a real aviation concept.
 
 - Open GitHub Copilot Chat, click `+` to clear prompt history, then ask the following question:
 
@@ -726,17 +723,12 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
 - If Copilot didn't suggest the code above, then update the code manually as follows:
 
     ```csharp
-    public class Flight
+    // New property
+    public AerobaticSequence AerobaticSequence
     {
-        // Other properties
-
-        // New property
-        public AerobaticSequence AerobaticSequence
+        get
         {
-            get
-            {
-                return AerobaticSequence.Parse(AerobaticSequenceSignature);
-            }
+            return AerobaticSequence.Parse(AerobaticSequenceSignature);
         }
     }
     ```

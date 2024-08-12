@@ -72,9 +72,9 @@ This lab exercise guides participants through coding exercises using GitHub Copi
     @workspace where do I add additional unit tests?
     ```
 
-- Copilot will give a suggestion to add unit tests to the `Controllers/PlanesControllerTests.cs` file in the `WrightBrothersApi.Tests` project.
+- Copilot will give a suggestion to add unit tests to the `Controllers/PlaneControllerTests.cs` file in the `WrightBrothersApi.Tests` project.
 
-- You can add additional unit tests in the `PlanesControllerTests` class in the `WrightBrothersApi.Tests/Controllers/PlaneControllerTests.cs` file.
+- You can add additional unit tests in the `PlaneControllerTests` class in the `WrightBrothersApi.Tests/Controllers/PlaneControllerTests.cs` file.
 
 - Open the `PlaneController.cs` file.
 
@@ -95,7 +95,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 - Press `Enter`, GitHub Copilot will automatically suggest the `[Test]` attributes.
 
 
-- The problem is that the generated test methods do not match with the style of the existing test methods in the `PlanesControllerTests.cs` file.
+- The problem is that the generated test methods do not match with the style of the existing test methods in the `PlaneControllerTests.cs` file.
 
 - Let's fix this. Open Copilot Chat and Copy/Paste the following and place your cursor after `tests should match `:
 
@@ -117,7 +117,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 > [!NOTE]
 > With `#file` you can easily add a file to the Copilot Context.
 
-- Select the file `PlanesControllerTests.cs` and press Enter.
+- Select the file `PlaneControllerTests.cs` and press Enter.
 
 > [!IMPORTANT]
 > `#file` will not work with copy/pasting `#file:PlaneControllerTests.cs`. You need to select it from the pop-up window.
@@ -158,12 +158,12 @@ This lab exercise guides participants through coding exercises using GitHub Copi
     ```
 
 > [!NOTE]
-> Copilot generated two unit tests for the `GetById` method. The first test checks if the method returns a plane when the id exists. The second test checks if the method returns a `NotFound` result when the id does not exist. It also matches how the unit tests are structured in the `PlanesControllerTests.cs` file.
+> Copilot generated two unit tests for the `GetById` method. The first test checks if the method returns a plane when the id exists. The second test checks if the method returns a `NotFound` result when the id does not exist. It also matches how the unit tests are structured in the `PlaneControllerTests.cs` file.
 
 > [!NOTE]
 > Creating unit tests works best when the scope is limited to a single method. You can then use `#file` to make sure it creates unit tests that is in line with the existing unit tests.
 
-- Now Open `PlanesControllerTests.cs` and Place your cursor at the end of the file, after the `}` of the `GetAll_ReturnsListOfPlanes()` method.
+- Now Open `PlaneControllerTests.cs` and Place your cursor at the end of the file, after the `}` of the `GetAll_ReturnsListOfPlanes()` method.
 
 ```csharp
 public class PlanesControllerTests
@@ -339,7 +339,7 @@ public class PlanesControllerTests
     }
     ```
 
-- Open `PlanesControllerTests.cs` file
+- Open `PlaneControllerTests.cs` file
 
 - Place your cursor at the end of the file, after the last unit test `}`.
 

@@ -39,7 +39,7 @@ namespace WrightBrothersApi.Controllers
                 Year = 1908,
                 Description = "The first commercial airplane.",
                 RangeInKm = 40
-            },
+            }
         };
 
         [HttpGet]
