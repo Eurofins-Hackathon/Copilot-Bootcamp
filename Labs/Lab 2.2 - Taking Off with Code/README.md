@@ -104,7 +104,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
     ```
 
 > [!NOTE]
-> When copy/posting the `#file:PlaneControllerTests.cs`, it will not work. You will need to select the file again from the pop-up window, like in the previous step.
+> When copy/pasting the `#file:PlaneControllerTests.cs`, it will not work. You will need to select the file again from the pop-up window, like in the previous step.
 
 - First remove `#file:PlaneControllerTests.cs` and keep your cursor at the same position.
 
@@ -292,7 +292,7 @@ public class PlanesControllerTests
 - Next Re-enter `#file:Plane.cs`
 
 > [!NOTE]
-> When copy/posting the `#file:Plane.cs`, it will not work. You will need to select the file again from the pop-up window, like in the previous step.
+> When copy/pasting the `#file:Plane.cs`, it will not work. You will need to select the file again from the pop-up window, like in the previous step.
 
 - First remove `#file:Plane.cs` and keep your cursor at the same position.
 
