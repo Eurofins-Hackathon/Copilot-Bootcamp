@@ -47,7 +47,7 @@ This practical lab designed to teach participants frontend setup and management 
     npm run frontend
     ```
 
-- Open your browser and navigate to [http://localhost:5173/](http://localhost:5173/)
+- Click `Open in Browser` or navigate to [http://localhost:5173/](http://localhost:5173/)
 
 - You should see the following page:
 
@@ -114,7 +114,7 @@ This practical lab designed to teach participants frontend setup and management 
     npm run frontend
     ```
 
-- Click `Open in Browser` or [http://localhost:5173/](http://localhost:5173/)
+- Click `Open in Browser` or navigate to [http://localhost:5173/](http://localhost:5173/)
 
 - Note how the UI is not centered.
 
