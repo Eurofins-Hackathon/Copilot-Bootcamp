@@ -118,9 +118,9 @@ Click "Insert into Terminal" for command npm install axios
 
 - Next we need to make port `1903` public instead of private to allow access to list of planes.
 
-- Click the `PORTS` button (near bottom center).
+    - Click the `PORTS` button (near bottom center).
 
-- With your cursor over port 1903, `Right-Click`, select `Port Visability`, then click `Public`.
+    - With your cursor over port 1903, `Right-Click`, select `Port Visability`, then click `Public`.
 
 - Refresh the browser.
 
