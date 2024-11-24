@@ -19,9 +19,10 @@ This practical lab designed to teach participants frontend setup and management 
     - Step 1 - Sunset above the Clouds - Setup and Run the Frontend
     - Step 2 - Looking over the Horizon - Exploring the frontend application.
     - Step 3 - In-flight Correction - Centering a div.
-    - Step 4 - Emergency Exit Lights - Color Contrast
-    - Step 5 - Notifying the Air Crew - Call to Action Buttons (Optional).
-    - Step 6 - Check for WCAG Guidelines (Optional)
+    - Step 4 - Request for Extra Legroom - Spacing UI elements
+    - Step 5 - Emergency Exit Lights - Color Contrast
+    - Step 6 - Notifying the Air Crew - Call to Action Buttons (Optional).
+    - Step 7 - Check for WCAG Guidelines (Optional)
 
 ### Step 1: Sunset above the Clouds - Setup and Run the Frontend
 
@@ -113,7 +114,7 @@ This practical lab designed to teach participants frontend setup and management 
     npm run frontend
     ```
 
-- Browse to [http://localhost:5173/](http://localhost:5173/)
+- Click `Open in Browser` or [http://localhost:5173/](http://localhost:5173/)
 
 - Note how the UI is not centered.
 
@@ -123,18 +124,23 @@ This practical lab designed to teach participants frontend setup and management 
 
 - Open GitHub Copilot Chat, then click `+` to clear prompt history.
 
+- Select all the contents of `Banner.tsx` file.
+
 - Ask Copilot Chat why the UI is not centered:
 
     ```md
     #selection How can I center the banner title in the middle of the banner?
     ```
-
 - Copilot will provide you with a solution to center the banner title.
 
 >[!NOTE]
 > GitHub Copilot understands UI and how elements are positioned. It will provide you with a solution to center the banner title.
 
 - Try to implement the solution by following the steps given by GitHub Copilot.
+
+- In the Copilot Chat window, click `Insert at Cursor` or `Apply in Editor`.
+
+- When using `Apply in Editor`, be sure to click `Accept Changes` for each change.
 
 <br>
 
@@ -153,7 +159,7 @@ This practical lab designed to teach participants frontend setup and management 
 
 <br>
 
-- Save the file and refresh the browser at [http://localhost:5173/](http://localhost:5173/).
+- Save the file and refresh the browser.
 
 - The banner title should now be centered.
 
@@ -161,25 +167,13 @@ This practical lab designed to teach participants frontend setup and management 
 
 ### Step 4: Request for Extra Legroom - Spacing UI elements
 
-- Open the terminal and navigate to the `WrightBrothersFrontend/` directory.
-
-    ```bash
-    cd WrightBrothersFrontend/
-    ```
-
-- Start the frontend application:
-
-    ```bash
-    npm run frontend
-    ```
-
 - The banner title and subtitle are too close to each other.
 
 <img src="../../Images/BannerTitleTooClose.png" width="800">
 
 - Open GitHub Copilot Chat, then click `+` to clear prompt history.
 
-- Open the `WrightBrothersFrontend/src/components/Banner.tsx` file.
+- Select all the contents of `Banner.tsx` file.
 
 - Ask Copilot Chat to make the content of `#selection` more spacious:
 
@@ -187,9 +181,7 @@ This practical lab designed to teach participants frontend setup and management 
     The content of #selection feels very cramped. How to make it a lot more spacious?
     ```
 
-- For `#selection`, select all the content of `Banner.tsx`
-
-- Now submit the prompt to GitHub Copilot.
+- Submit the prompt to GitHub Copilot.
 
 - Copilot will provide you with a solution to add spacing between the title and subtitle.
 
@@ -198,66 +190,70 @@ This practical lab designed to teach participants frontend setup and management 
 
 - Replace the content of the `Banner.tsx` file with the solution provided by GitHub Copilot.
 
-    <br>
-    <details>
-    <summary>Click for Solution</summary>
+- In the Copilot Chat window, click `Insert at Cursor` or `Apply in Editor`.
 
-    ```tsx
-    import React from "react";
-    import { Airplane } from "./Airplane";
-    const Banner: React.FC = () => {
-        return (
-            <div className="relative vintage-filter bg-amber-600 overflow-hidden p-10 flex items-center justify-center">
-                <div className="h-40 px-8 sm:px-10 lg:px-12 max-w-screen-md flex flex-col text-center m-10">
-                    <h1 className="text-5xl leading-none font-bold text-amber-100 sm:text-6xl sm:leading-tight">
-                    Dawn of Aviation
-                    </h1>
-                    <p className="text-xl leading-8 text-amber-500 mt-5">
-                    Journey back to where it all began with the Wright Brothers' historic
-                    flights.
-                    </p>
+- When using `Apply in Editor`, be sure to click `Accept Changes` for each change.
+
+<br>
+<details>
+<summary>Click for Solution</summary>
+
+```tsx
+import React from "react";
+import { Airplane } from "./Airplane";
+const Banner: React.FC = () => {
+    return (
+        <div className="relative vintage-filter bg-amber-600 overflow-hidden p-10 flex items-center justify-center">
+            <div className="h-40 px-8 sm:px-10 lg:px-12 max-w-screen-md flex flex-col text-center m-10">
+                <h1 className="text-5xl leading-none font-bold text-amber-100 sm:text-6xl sm:leading-tight">
+                Dawn of Aviation
+                </h1>
+                <p className="text-xl leading-8 text-amber-500 mt-5">
+                Journey back to where it all began with the Wright Brothers' historic
+                flights.
+                </p>
+            </div>
+            <div className="absolute top-10 left-10">
+                <div className="circle shadow-lg pulse-gentle"></div>{" "}
+                {/* Sun with pulsing effect */}
+            </div>
+            <div className="absolute bottom-40 right-40">
+                <div className="triangle drift-slow"></div>{" "}
+                {/* Triangle with drifting effect */}
+            </div>
+            <div className="absolute left-16 bottom-8">
+                <div className="absolute bottom-0 left-0">
+                <PropellerSVG /> {/* Propeller with shadow */}
                 </div>
-                <div className="absolute top-10 left-10">
-                    <div className="circle shadow-lg pulse-gentle"></div>{" "}
-                    {/* Sun with pulsing effect */}
-                </div>
-                <div className="absolute bottom-40 right-40">
-                    <div className="triangle drift-slow"></div>{" "}
-                    {/* Triangle with drifting effect */}
-                </div>
-                <div className="absolute left-16 bottom-8">
-                    <div className="absolute bottom-0 left-0">
-                    <PropellerSVG /> {/* Propeller with shadow */}
-                    </div>
-                    <div className="absolute bottom-0 left-0 mt-16 float-gentle">
-                    <Airplane />
-                    </div>
+                <div className="absolute bottom-0 left-0 mt-16 float-gentle">
+                <Airplane />
                 </div>
             </div>
-        );
-    };
-    const PropellerSVG = () => (
-        <svg
-            className="absolute bottom-0 left-40 rotate-slow"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            width="100"
-            height="100"
-        >
-            <path
-            d="M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8L12 2Z"
-            fill="#D1D5DB"
-            />
-        </svg>
+        </div>
     );
-    export default Banner;
-    ```
+};
+const PropellerSVG = () => (
+    <svg
+        className="absolute bottom-0 left-40 rotate-slow"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        width="100"
+        height="100"
+    >
+        <path
+        d="M12 2L15 8L22 9L17 14L18 21L12 18L6 21L7 14L2 9L9 8L12 2Z"
+        fill="#D1D5DB"
+        />
+    </svg>
+);
+export default Banner;
+```
 
-    </details>
+</details>
 
-    <br>
+<br>
 
-- Save the file and refresh the browser at [http://localhost:5173/](http://localhost:5173/).
+- Save the file and refresh the browser.
 
 - The banner should now feel more spacious.
 
@@ -268,19 +264,7 @@ This practical lab designed to teach participants frontend setup and management 
 
 - Stop the frontend application by pressing `Ctrl + C` in the terminal.
 
-### Step 4: Emergency Exit Lights - Color Contrast
-
-- Open the terminal and navigate to the `WrightBrothersFrontend/` directory.
-
-    ```bash
-    cd WrightBrothersFrontend/
-    ```
-
-- Start the frontend application:
-
-    ```bash
-    npm run frontend
-    ```
+### Step 5: Emergency Exit Lights - Color Contrast
 
 - The subtitle of the banner is hard to read because it has almost the same color as the background.
 
@@ -288,7 +272,7 @@ This practical lab designed to teach participants frontend setup and management 
 
 - Open GitHub Copilot Chat, then click `+` to clear prompt history.
 
-- Open the `WrightBrothersFrontend/src/components/Banner.tsx` file.
+- Select all the contents of `Banner.tsx` file.
 
 - Ask Copilot Chat what color you should use for the subtitle:
 
@@ -296,56 +280,50 @@ This practical lab designed to teach participants frontend setup and management 
     The subtitle in the banner at #selection is hard to read due to its color. Can you suggest a color which would better fit the existing color pallette while still improving readability?
     ```
 
-- For `#selection`, select all the content of `Banner.tsx`
-
 - Now submit the prompt to GitHub Copilot.
 
 - Copilot understands colors and contrasts and will provide you with a color that has a good contrast with the background.
 
-    ```html
-    <p className="mt-6 text-xl leading-8 text-amber-200">
-    Journey back to where it all began with the Wright Brothers' historic
-    flights.
-    </p>
-    ```
+<br>
+<details>
+<summary>Click for Solution</summary>
+
+```html
+<p className="mt-6 text-xl leading-8 text-amber-200">
+Journey back to where it all began with the Wright Brothers' historic
+flights.
+</p>
+```
+
+</details>
+
+<br>
 
 - Implement the solution by changing the `text-amber-200` class to what was provided by GitHub Copilot.
 
-- Save the file and refresh the browser at [http://localhost:5173/](http://localhost:5173/).
+- In the Copilot Chat window, click `Insert at Cursor` or `Apply in Editor`.
+
+- When using `Apply in Editor`, be sure to click `Accept Changes` for each change.
+
+- Save the file and refresh the browser.
 
 - The subtitle should now be more readable.
 
 - Stop the frontend application by pressing `Ctrl + C` in the terminal.
 
-## Optional 
-
-### Step 5: Notifying the Air Crew - Call to Action Buttons
-
-- Open the terminal and navigate to the `WrightBrothersFrontend/` directory.
-
-    ```bash
-    cd WrightBrothersFrontend/
-    ```
-
-- Start the frontend application:
-
-    ```bash
-    npm run frontend
-    ```
+### Step 6 (Optional): Notifying the Air Crew - Call to Action Buttons
 
 - The banner is missing call to action buttons.
 
-- Open the `WrightBrothersFrontend/src/components/Banner.tsx` file.
-
 - Open GitHub Copilot Chat, then click `+` to clear prompt history.
+
+- Select all the contents of `Banner.tsx` file.
 
 - Ask Copilot Chat how to add call to action buttons to the banner:
 
     ```md
    Create two call to action buttons in the banner at #selection. Place them below the subtitle and center them. The first button is primary and should have the text "Learn More" and the second button is secondary should have the text "Get Started". The buttons should match the design of the banner.
     ```
-
-- For `#selection` select all the content of `Banner.tsx`
 
 >[!NOTE]
 > We can provide Copilot a detailed description of what we want to achieve in the UI and Copilot will figure out the best way to implement it in the current implemented design.
@@ -399,7 +377,7 @@ This practical lab designed to teach participants frontend setup and management 
 
 ## Optional
 
-### Step 6 - Check if the UI fall into WCAG guidelines
+### Step 7 (Optional) - Check for WCAG Guidelines (Optional)
 
 The Web Content Accessibility Guidelines (WCAG) are international standards for making web content accessible to people with disabilities. They are based on four principles, summarized as POUR:
 
@@ -415,17 +393,15 @@ WCAG guidelines have three levels of conformance:
 
 These guidelines ensure web content is accessible to people with various disabilities, including visual, auditory, physical, speech, cognitive, language, learning, and neurological disabilities.
 
-- Open the `WrightBrothersFrontend/src/components/Banner.tsx` file.
-
 - Open GitHub Copilot Chat, then click `+` to clear prompt history.
+
+- Select all the contents of `Banner.tsx` file.
 
 - Ask Copilot Chat if the UI is WCAG compliant.
 
     ```md
     #selection Does the UI meet the specified WCAG guidelines?
     ```
-
-- For `#selection`, select all the content of `Banner.tsx`
 
 - Copilot will provide you with guidance and suggestions on how to make the UI WCAG compliant.
 

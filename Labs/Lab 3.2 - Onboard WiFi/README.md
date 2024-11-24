@@ -26,9 +26,9 @@ This lab exercise is a focused session that instructs participants on integratin
 
 - Start by opening `HomePage.tsx` in the `WrightBrothersFrontend/src/pages` folder.
 
-- Select all the contents of `HomePage.tsx` file.
-
 - Open GitHub Copilot Chat, then click `+` to clear prompt history.
+
+- Select all the contents of `HomePage.tsx` file.
 
 - Type the following in the chat window:
 
