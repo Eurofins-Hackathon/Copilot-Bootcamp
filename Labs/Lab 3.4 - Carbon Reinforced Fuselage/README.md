@@ -22,27 +22,29 @@ This lab focuses on configuring eslint to identify and fix lint issues, updating
 
 - In this lab, we will configure eslint and fix lint issues in the WrightBrothersFrontend project. eslint is a tool that helps you find and fix problems in your JavaScript code. It is similar to Roslyn Analyzer in the .NET.
 
-- Run the following command to see the current lint issues
+- Close any files that are opened.
+
+- From the `WrightBrothersFrontend/` directory, run the following command to see the current lint issues
 
     ```bash
     npm run lint
     ```
 
-- No lint issues should be present
+- No lint issues should be present.
 
 - Open the `WrightBrothersFrontend/.eslintrc.cjs` file.
 
-- Notice the lint rules are the recommended rules from eslint and react. We want to add more lint rules to harden the project.
+- Notice the lint rules are the recommended rules from `eslint` and `react`. We want to add more lint rules to harden the project.
 
 - Open GitHub Copilot Chat, then click `+` to clear prompt history.
+
+- Select all the contents of the `.eslintrc.cjs` file.
 
 - Type the following in the chat window:
 
     ```
     What linting rules can I add to #selection to harden my project more and tell me why for each? Only give me rules that are not already part of the recommended rules.
     ```
-
-- For `#selection`, select all the contents of the `.eslintrc.cjs` file
 
 - Press `Enter` to submit the question
 
@@ -65,42 +67,49 @@ module.exports = {
 >[!NOTE]
 > Note that GitHub Copilot now suggested rules and also provided a reason to why implement a specific rule. This is a great way to learn more about the rules and why they are important.
 
-- Using the new rules Copilt Chat provided, manually add the new rules to the `.eslintrc.cjs` file.
+- In the Copilot Chat window, click `Insert at Cursor` or `Apply in Editor`.
 
-    <Br>
-    <details>
-    <summary>Click for Solution</summary>
+- When using `Apply in Editor`, be sure to click `Accept Changes` for each change.
 
-    ```js
-      module.exports = {
-      root: true,
-      env: { browser: true, es2020: true },
-      extends: [
-        "eslint:recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:react-hooks/recommended",
-      ],
-      ignorePatterns: ["dist", ".eslintrc.cjs"],
-      parser: "@typescript-eslint/parser",
-      plugins: ["react-refresh"],
-      rules: {
-        "react-refresh/only-export-components": [
-          "warn",
-          { allowConstantExport: true },
-        ],
-        "@typescript-eslint/no-explicit-any": "off",
-        "no-console": "error",
-        "eqeqeq": "error",
-        "no-eval": "error",
-        "curly": "error",
-        "no-unused-vars": "error",
-        "@typescript-eslint/no-unused-vars": "error",
-        "@typescript-eslint/explicit-module-boundary-types": "error",
-      },
-    };
-    ```
+<Br>
 
-    </details>
+<details>
+<summary>Click for Solution</summary>
+
+```js
+module.exports = {
+  root: true,
+  env: { browser: true, es2020: true },
+  extends: [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
+  ],
+  ignorePatterns: ["dist", ".eslintrc.cjs"],
+  parser: "@typescript-eslint/parser",
+  plugins: ["react-refresh"],
+  rules: {
+    "react-refresh/only-export-components": [
+      "warn",
+      { allowConstantExport: true },
+    ],
+    "@typescript-eslint/no-explicit-any": "off",
+    "no-console": "warn",
+    "eqeqeq": ["error", "always"],
+    "curly": ["error", "all"],
+    "no-unused-vars": ["error", { "args": "none" }],
+    "no-var": "error",
+    "prefer-const": "error",
+    "react/jsx-uses-react": "error",
+    "react/react-in-jsx-scope": "error",
+    "react/prop-types": "error",
+  },
+};
+```
+
+</details>
+
+<Br>  
 
 - Run `npm run lint` to scan for lint issues with the new rules
 
@@ -108,7 +117,7 @@ module.exports = {
   npm run lint
   ````
 
-- You should now see lint issues related to the new rules
+- You should now see many lint issues related to the new rules
 
 ```bash
 /Copilot-Bootcamp/WrightBrothersFrontend/src/pages/PlaneDetail.tsx
@@ -130,17 +139,19 @@ module.exports = {
     return <div>Plane not found</div>;
 ```
 
-- Right-click on the first lint issue and select `Fix using Copilot` from the context menu.
+- `Right-click` on the first lint issue and select `/Fix` to fix using Copilot from the context menu.
 
   <img src="../../Images/Screenshot-FixUsingCopilot.png" width="700">
 
-- GitHub Copilot will now open a Inline Editor window with the suggested fix. Review the fix and click `Apply Fix` to apply the fix.
+- GitHub Copilot will now open a Inline Editor window with the suggested fix. Review the fix and click `Accept` to apply the fix.
 
 - Repeat for the other lint issues. You can also try `Explain using Copilot` to understand why the rule is important.
 
 ### Step 2: Navigating the Touch Screen - Visual Component Testing
 
 - In this lab, we will create visual component tests for the PlaneList component in the WrightBrothersFrontend project. Visual component testing is a new way of testing the interaction and appearance of components in isolation.
+
+- Open GitHub Copilot Chat, then click `+` to clear prompt history.
 
 - For these tests we are using Playwright, a tool for automating browsers. Playwright is similar to Selenium but with a more modern API and better performance.
 
@@ -184,17 +195,31 @@ module.exports = {
 
 - We are going to add tests to the already existing `PlaneList.spec.tsx` file in the `src/components` folder.
 
-- Open GitHub Copilot Chat, then click `+` to clear prompt history.
+~~- Open GitHub Copilot Chat, then click `+` to clear prompt history.~~
+- Open GitHub Copilot **Edits** (icon with + on it), then click `+` for `New Edit Session`. 
+
+~~- Select all the contents of `PlaneList.tsx` file.~~
 
 - Type the following in the chat window:
 
     ```
-    Create remaining tests for #selection based on test file #file:PlaneList.spec.tsx.
+    Create remaining tests for #file:PlaneList.tsx based on test file #file:PlaneList.spec.tsx
     ```
 
-- For `#selection`, select all the contents of the `PlaneList.tsx` file
+- For the first `#file`, select `PlaneList.tsx`. This is a hint to match the style of the form to the existing `<PlaneList />` component.
+
+- For the second `#file`, select `PlaneList.spec.tsx`. This is a hint to create tests in the `PlaneList.spec.tsx` file.
+
+- Press `Enter` to submit the question
 
 - GitHub Copilot will suggest additional tests to test all the functionality of the `PlaneList` component.
+
+>[!NOTE]
+> The result is not always complete or does not always work. Retry the prompt if the result is rejected
+
+<Br>
+<details>
+<summary>Click for Solution</summary>
 
   ```tsx
   test('renders without crashing', async ({ mount }) => {
@@ -251,91 +276,96 @@ module.exports = {
     expect(imgElement).toHaveClass('flying');
   });
   ```
+</details>
+<Br>
 
 - Open the file `src/components/PlaneList.spec.tsx` and add the suggested tests to the `PlaneList.spec.tsx` file.
 
 
-    <Br>
-    <details>
-    <summary>Click for Solution</summary>
+<Br>
+<details>
+<summary>Click for Solution</summary>
 
-      ```tsx
-      import { test, expect } from '@playwright/experimental-ct-react';
-      import PlaneList from './PlaneList';
-      import type { HooksConfig } from '../../playwright';
+  ```tsx
+  import { test, expect } from '@playwright/experimental-ct-react';
+  import PlaneList from './PlaneList';
+  import type { HooksConfig } from '../../playwright';
 
-      test('should navigate when clicking on a plane', async ({ page, mount }) => {
-        const planes = [
-          { id: 1, name: "Wright Flyer" },
-          { id: 2, name: "Wright Model A" },
-          { id: 3, name: "Wright Model B" },
-        ];
-        
-        const component = await mount<HooksConfig>(<PlaneList planes={planes} />, {
-          hooksConfig: { routing: true },
-        });
+  test('should navigate when clicking on a plane', async ({ page, mount }) => {
+    const planes = [
+      { id: 1, name: "Wright Flyer" },
+      { id: 2, name: "Wright Model A" },
+      { id: 3, name: "Wright Model B" },
+    ];
+    
+    const component = await mount<HooksConfig>(<PlaneList planes={planes} />, {
+      hooksConfig: { routing: true },
+    });
 
-        await component.locator('li').nth(0).click();
+    await component.locator('li').nth(0).click();
 
-        await expect(page).toHaveURL('/planes/1', { timeout: 5000 });
-      });
+    await expect(page).toHaveURL('/planes/1', { timeout: 5000 });
+  });
 
-      const planes = [
-        { id: 1, name: "Wright Flyer" },
-        { id: 2, name: "Wright Model A" },
-        { id: 3, name: "Wright Model B" },
-      ];
+  const planes = [
+    { id: 1, name: "Wright Flyer" },
+    { id: 2, name: "Wright Model A" },
+    { id: 3, name: "Wright Model B" },
+  ];
 
-      test('renders without crashing', async ({ mount }) => {
-        await mount<HooksConfig>(<PlaneList planes={planes} />, {
-          hooksConfig: { routing: true },
-        });
-      });
+  test('renders without crashing', async ({ mount }) => {
+    await mount<HooksConfig>(<PlaneList planes={planes} />, {
+      hooksConfig: { routing: true },
+    });
+  });
 
-      test('renders correct number of planes', async ({ mount }) => {
-        const component = await mount<HooksConfig>(<PlaneList planes={planes} />, {
-          hooksConfig: { routing: true },
-        });
+  test('renders correct number of planes', async ({ mount }) => {
+    const component = await mount<HooksConfig>(<PlaneList planes={planes} />, {
+      hooksConfig: { routing: true },
+    });
 
-        const planeItems = await component.locator('li');
-        expect(await planeItems.count()).toBe(planes.length);
-      });
+    const planeItems = await component.locator('li');
+    expect(await planeItems.count()).toBe(planes.length);
+  });
 
-      test('displays correct plane names', async ({ mount }) => {
-        const component = await mount<HooksConfig>(<PlaneList planes={planes} />, {
-          hooksConfig: { routing: true },
-        });
+  test('displays correct plane names', async ({ mount }) => {
+    const component = await mount<HooksConfig>(<PlaneList planes={planes} />, {
+      hooksConfig: { routing: true },
+    });
 
-        for (let i = 0; i < planes.length; i++) {
-          const planeName = await component.locator('h3').nth(i).textContent();
-          expect(planeName).toBe(planes[i].name);
-        }
-      });
+    for (let i = 0; i < planes.length; i++) {
+      const planeName = await component.locator('h3').nth(i).textContent();
+      expect(planeName).toBe(planes[i].name);
+    }
+  });
 
-      test('displays correct plane images', async ({ mount }) => {
-        const component = await mount<HooksConfig>(<PlaneList planes={planes} />, {
-          hooksConfig: { routing: true },
-        });
+  test('displays correct plane images', async ({ mount }) => {
+    const component = await mount<HooksConfig>(<PlaneList planes={planes} />, {
+      hooksConfig: { routing: true },
+    });
 
-        for (let i = 0; i < planes.length; i++) {
-          const planeImage = await component.locator('img').nth(i).getAttribute('src');
-          expect(planeImage).toBe('./wright-brothers-plane.png');
-        }
-      });
+    for (let i = 0; i < planes.length; i++) {
+      const planeImage = await component.locator('img').nth(i).getAttribute('src');
+      expect(planeImage).toBe('./wright-brothers-plane.png');
+    }
+  });
 
-      test('navigates to correct URL when plane is clicked', async ({ page, mount }) => {
-        const component = await mount<HooksConfig>(<PlaneList planes={planes} />, {
-          hooksConfig: { routing: true },
-        });
+  test('navigates to correct URL when plane is clicked', async ({ page, mount }) => {
+    const component = await mount<HooksConfig>(<PlaneList planes={planes} />, {
+      hooksConfig: { routing: true },
+    });
 
-        for (let i = 0; i < planes.length; i++) {
-          await component.locator('li').nth(i).click();
-          await expect(page).toHaveURL(`/planes/${planes[i].id}`, { timeout: 5000 });
-        }
-      });
-      ```
+    for (let i = 0; i < planes.length; i++) {
+      await component.locator('li').nth(i).click();
+      await expect(page).toHaveURL(`/planes/${planes[i].id}`, { timeout: 5000 });
+    }
+  });
+  ```
 
-    </details>
+</details>
+<Br>
+
+- In the GitHub Copilot Edits window, click `Accept` to apply all the changes.
 
 - The created tests do not always compile. GitHub Copilot got you 95% of the way there, but you may need to make some adjustments to the code to make it work. You can also ask Copilot for help with this. Try `Fix using Copilot` or `Explain using Copilot` to get help with the code.
 
@@ -363,6 +393,13 @@ module.exports = {
   ```
 
 - You should see the tests in the PlayWright UI. You can press the play button in the UI to run the tests.
+
+- You should see that all tests pass
+
+  ```sh
+  Running 2 tests using 2 workers
+    2 passed (4.8s)
+  ```
 
 - Not all tests will pass. You can now debug the tests in the PlayWright UI and fine-tune the tests to make them pass.
 
@@ -460,6 +497,7 @@ module.exports = {
   ```
 
   </details>
+  <Br>
 
 - First, Make sure that the Frontend is running. This is because the Playwright UI Test project will interact with the Frontend.
 
@@ -468,12 +506,24 @@ module.exports = {
   ```
 
   ```bash
+  npm run frontend-and-backend
+  ```
+
+  ```bash
   npm run test-ct
   ```
 
-- Navigate to `http://localhost:5173/new-plane` in the browser to see the form
+ - If you haven't done so already, make port `1903` public instead of private to allow access to list of planes.
 
-- Go back to Visual Studio Code and open GitHub Copilot Chat
+    - Click the `PORTS` button (near bottom center).
+
+    - With your cursor over port 1903, `Right-Click`, select `Port Visability`, then click `Public`.
+
+- Open the browser and navigate to your URL `/new-plane` or `http://localhost:5173/new-plane`.
+
+  - i.e. `https://super-duper-space-robot-4v6rvqwggx25xq7-5173.app.github.dev/new-plane`
+
+- Open GitHub Copilot Chat, then click `+` to clear prompt history.
 
 - Type the following in the chat window:
 
@@ -506,7 +556,18 @@ module.exports = {
 
 - GitHub Copilot will now open the new project in a new window.
 
-- Open the terminal in the new project and install the project dependencies
+- Now stop the Frontend and API by pressing `Ctrl + C` in the terminal.
+
+~~- Open the terminal in the new project and install the project dependencies~~
+
+- Open the terminal and navigate to the `WrightBrothersFrontend/<new folder created>` directory.
+
+  - i.e. `cd WrightBrothersFrontend/playwright-ui-testing`
+
+    ```bash
+    cd WrightBrothersFrontend/playwright-ui-testing
+    ```
+
 
   ```sh
   npm install
@@ -527,7 +588,7 @@ module.exports = {
 - Now, run the tests again, but now with the UI open to see the tests run in the Playwright UI
 
   ```sh
-  npm run test -- --ui
+  npm run test --ui
   ```
 
 - You should see the tests pass in the UI or in the terminal

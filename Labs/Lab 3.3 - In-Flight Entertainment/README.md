@@ -149,7 +149,7 @@ function HomePage() {
 - Start by opening `NewPlane.tsx` in the `WrightBrothersFrontend/src/pages` folder
 
 ~~- Open GitHub Copilot Chat, then click `+` to clear prompt history.~~
-- Open GitHub Copilot **Edits** (icon with + on it), then click `+` for new edit session. 
+- Open GitHub Copilot **Edits** (icon with + on it), then click `+` for `New Edit Session`.
 
 - Type the following in the chat window:
 
