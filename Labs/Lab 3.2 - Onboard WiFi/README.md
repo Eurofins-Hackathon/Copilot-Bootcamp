@@ -86,30 +86,37 @@ export default HomePage;
 
 - Next, since we are running in a Codespace, we need to update the API URL for `localhost:1903`.
 
-- Update line 11 to match the following example, but with your Codespace name:
-    - i.e. `axios.get("https://super-duper-space-robot-4v6rvqwggx25xq7.github.dev:1903/Planes")`
+- Identify Your Codespace Name from the browser URL.
 
+- Construct the URL for the API
+    - Prefix the URL with your codespace name.
+    - Append **-1903.app.github.dev/planes/** to the end.
+    - Update line 11 to match the example.
+
+- Example
+    - `axios.get("https://super-duper-space-robot-4v6rvqwggx25xq7-1903.app.github.dev/planes/")`
+    
 - Save the file.
 
 - Open the terminal and navigate to the `WrightBrothersFrontend/` directory.
 
-    ```bash
-    cd WrightBrothersFrontend/
-    ```
+```bash
+cd WrightBrothersFrontend/
+```
 
 - Install `axios` if you haven't already.
 
 Click "Insert into Terminal" for command npm install axios
 
-    ```bash
-    npm install axios
-    ```
+```bash
+npm install axios
+```
 
 - Run the frontend and backend with the following command. This command will start the frontend and backend at the same time.
 
-    ```bash
-    npm run frontend-and-backend
-    ```
+```bash
+npm run frontend-and-backend
+```
 
 - Click `Open in Browser` or navigate to [http://localhost:5173/](http://localhost:5173/)
 
@@ -243,15 +250,15 @@ export default HomePage;
 
 - Open the terminal and navigate to the `WrightBrothersFrontend/` directory.
 
-    ```bash
-    cd WrightBrothersFrontend/
-    ```
+```bash
+cd WrightBrothersFrontend/
+```
 
 - Run the frontend and backend again with the following command
 
-    ```bash
-    npm run frontend-and-backend
-    ```
+```bash
+npm run frontend-and-backend
+```
 
 - Click `Open in Browser` or navigate to [http://localhost:5173/](http://localhost:5173/)
 
