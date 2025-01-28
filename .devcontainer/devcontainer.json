@@ -32,7 +32,9 @@
 				"github.vscode-github-actions",
 				"GitHub.vscode-pull-request-github",
 				"ms-playwright.playwright",
-				"dbaeumer.vscode-eslint"
+				"dbaeumer.vscode-eslint",
+				"ms-vscode.vscode-speech",
+				"ms-vscode.vscode-copilot-vision"
 			]
 		}
 	},
