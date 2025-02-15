@@ -76,6 +76,14 @@ namespace WrightBrothersApi.Controllers
             return CreatedAtAction(nameof(GetById), new { id = plane.Id }, plane);
         }
 
+        [HttpPost("setup")]
+        public ActionResult SetupPlanesData(List<Plane> planes)
+        {
+            Planes.Clear();
+            Planes.AddRange(planes);
+
+            return Ok();
+        }
         
     }
 }
