@@ -7,7 +7,7 @@ This module demonstrates how to utilize GitHub Copilot's Chat Extension and its 
 
 ## Estimated time to complete
 
-- 20 minutes, times may vary with optional labs.
+- 30 minutes, times may vary with optional labs.
 
 ## Objectives
 
@@ -17,7 +17,8 @@ This module demonstrates how to utilize GitHub Copilot's Chat Extension and its 
     - Step 2 - Airplane Docking - Add new Flight Model
     - Step 3 - Test Flight - Autocompletion and Suggestions
     - Step 4 - Flight Plan - Code Completion and Style Adaptation
-    - Step 5 - Flight Control - Code Navigation and Documentation (Optional)
+    - Step 5 - Flight Control - Code Navigation and Documentation
+    - Step 6 - Visualize the Wright Brothers Fleet
 
 > [!IMPORTANT]  
 > Please note that Copilot's responses are generated based on a mix of curated data, algorithms, and machine learning models, which means they may not always be accurate or reflect the most current information available. Users are advised to verify Copilot's outputs with trusted sources before making decisions based on them.
@@ -30,38 +31,24 @@ This module demonstrates how to utilize GitHub Copilot's Chat Extension and its 
 
 Compare the difference between asking the two following things:
 
-1) without @workspace:
-
-```
-explain the WrightBrothers API
-```
-
-2) with @workspace:
-
-```
-@workspace explain the WrightBrothers API
-```
-
-- Copilot will give a brief overview of the API. This is a good way to get a quick overview of the codebase.
-
 GitHub Copilot has the concept of Agents. `@workspace` is an agent that is specialized in answering questions about the currently open workspace.
 
 Compare the difference between asking the two following things:
 
-1) without workspace:
+1) Without @workspace:
 
 ```
-what does the PlanesController do?
+explain the WrightBrothers API?
 ```
 
-2) with workspace:
+2) With @workspace:
 
 ```
-@workspace what does the PlanesController do?
+@workspace /explain what is the WrightBrothers API?
 ```
 
 > [!NOTE]  
-> What the `@workspace` agent does, is look at the opened Workspace in VS Code (usually a folder or a project), and use the file tree information to analyze each file briefly and see if it would be intesting context to send into Copilot. This analysis happens clientside and only the files that match (for example the file name indicates a match, or a piece of the file content looks like a match), then those files/parts are send in as extra context. This can be seen in the "Used x references" in the Chat interface that can be openened and reviewed for the file references.
+> @workspace /explain makes GitHub Copilot analyze your project's code instead of guessing. It scans your VS Code workspace (folder/project), checks relevant files based on names and content, and sends matching parts as extra context. You can review the referenced files in the "Used x references" section in the Chat interface.
 
 > [!IMPORTANT]  
 > When asking follow-up questions, the @agent needs to be provided again. For example, if you ask `@workspace` a question and then ask another question, you need to type `@workspace` again.
@@ -71,14 +58,10 @@ what does the PlanesController do?
 - Try `@terminal` agent by typing the following in the chat window:
 
     ```md
-    @terminal how to run the application
+    @terminal how do I run the application?
     ```
 
-- GitHub Copilot will tell that it needs more information:
-
-    ```md
-    I'm sorry, but I need more information about your application. Could you please specify the programming language or the command usually used to run your application?
-    ```
+- GitHub Copilot might tell you a simple command or that it needs more information `dotnet run`
 
 > [!NOTE]
 > `@terminal` agent is used to help navigate the terminal and does not have the context of the codebase. It is used to answer generic questions about how to do things in the terminal.
@@ -86,20 +69,18 @@ what does the PlanesController do?
 - Try `@terminal` again by typing the following in the chat window:
 
 ```md
-@terminal how to run a dotnet application
+@terminal how do I run the backend API application during development?
 ```
 
 - This is a generic question about running a application in the terminal. Copilot will give a suggestion to run the application in the terminal.
 
-```md
-To run a .NET application, you can use the `dotnet run` command in the terminal. This command will build and run the application in the terminal.
-```
+    `To run a .NET application, you can use the dotnet run command in the terminal. This command will build and run the application in the terminal.`
 
 - It will give a suggestion to run the application in the terminal.
 
 - Next, try `@vscode` agent by typing the following in the chat window:
 
-```
+```md
 @vscode how to install extensions?
 ```
 
@@ -115,13 +96,15 @@ To run a .NET application, you can use the `dotnet run` command in the terminal.
 - Ask Copilot to explain the `PlanesController.cs` class
 
     ```
-    @workspace What does the PlanesController do?
+    @workspace what does the PlanesController do?
     ```
 
 > [!NOTE]
 > GitHub Copilot will give a brief overview of the `PlanesController.cs` class.
 
-- Now that we know what the PlanesController does, open `WrightBrothersApi` folder located in the `WrightBrothersApi` folder.
+- Now that we know what the `PlanesController` does, let's enhance the REST API.
+
+- Open `WrightBrothersApi` folder located in the `WrightBrothersApi` folder.
 
 - Open the `Controllers/PlanesController.cs` file.
 
@@ -140,7 +123,7 @@ public class PlanesController : ControllerBase
             Year = 1908,
             Description = "The first commercially successful airplane.",
             RangeInKm = 40
-        }<---- Place your cursor here
+        } <---- Place your cursor here
     };
 }
 ```
@@ -156,11 +139,7 @@ public class PlanesController : ControllerBase
 
 ### Step 3: Test Flight - Autocompletion and Suggestions
 
-- Open `WrightBrothersApi` folder located in the `WrightBrothersApi` folder.
-
-- Open the `Controllers/PlanesController.cs` file.
-
-- Place your cursor at the end of the file, after the `}` of the `Post` method, press `Enter` twice.
+- Place your cursor at the end of the `Post` method, after the `}` , press `Enter` twice.
 
 ```csharp
 public class PlanesController : ControllerBase
@@ -174,6 +153,9 @@ public class PlanesController : ControllerBase
     }
 
     <---- Place your cursor here
+
+    /* Rest of the methods */
+
 }
 ```
 
@@ -213,7 +195,7 @@ public class PlanesController : ControllerBase
 > [!NOTE]
 > The reason GitHub Copilot suggests the `[HttpPut]` method is because it understand that the `PlanesController.cs` class is a REST API controller and that the `[HttpPut]` is currently missing. The `[HttpPut]` method is the next logical step in the REST API for updating a resource.
 
-- Let's do it again, place your cursor at the end of the file, after the `}` of the `Put` method, press `Enter` twice.
+- Let's do it again, place your cursor at the end of the `Put()` method, after the `}`, press `Enter` twice.
 
 - Accept the suggestion by pressing `Tab` to accept this attribute, then press `Enter`.
 
@@ -238,33 +220,50 @@ public class PlanesController : ControllerBase
     // * Suggested by Copilot
     ```
 
-### Step 4: Test Flight Accelerate - Comments to Code
+- Let's do it again, place your cursor at the end of the `Delete()` method, after the `}`, press `Enter` twice.
 
-- Open `WrightBrothersApi` folder located in the `WrightBrothersApi` folder.
-
-- Open the `Controllers/PlanesController.cs` file.
-
-- Type `// Search planes by name` in the comment block. After the `}` of the `GetAll` method, press `Enter`.
+- Type `[HttpGet("count/{count}")]`, then press `Tab` to accept this attribute, then press `Enter`.
 
     ```csharp
-    // Search planes by name
+    [HttpGet("count/{count}")]
     ```
-    
+
+- Next, Copilot will automatically suggest the method for the `[GetByCount]` attribute, press `Tab` to accept.
+
+    ```csharp
+    public ActionResult<List<Plane>> GetByCount(int count)
+    {
+        var planes = Planes.Take(count).ToList();
+
+        return Ok(planes);
+    }
+    ```
+
+### Step 4: Test Flight Accelerate - Comments to Code
+
+- After the `SetupPlanesData()` method, put your cursor after the last `}`.
+place your cursor at the end of the `SetupPlanesData()` method, after the `}`, press `Enter` twice.
+
+- Press `Ctrl + I` and type `// Create a method called SearchByName to search planes by name` in the text block, press `Enter`.
+
     ```csharp
     public class PlanesController : ControllerBase
     {
         /* Rest of the methods */
 
-        [HttpGet]
-        public ActionResult<List<Plane>> GetAll()
+        [HttpPost("setup")]
+        public ActionResult SetupPlanesData(List<Plane> planes)
         {
             // Method body
         }
 
         <---- Place your cursor here
-        // Search planes by name
+
     }
     ```
+
+> [!NOTE]
+> Using Ctrl + I (Inline Copilot): This explicitly tells Copilot that you want an immediate suggestion for your comment as a function. Copilot treats it as a structured request and generates a more relevant, formatted response.
 
 - GitHub Copilot will automatically suggest the `[HttpGet("search")]` method.
 
@@ -293,7 +292,7 @@ public class PlanesController : ControllerBase
 > [!NOTE]
 > The reason GitHub Copilot suggests the `[HttpGet("search")]` method is because it understands that the comment is a description of the method. It also understands that the method is a GET method and that it has a parameter `name` of type `string`.
 
-- Let's do it again, place your cursor before the `if(plane == null)` line, after the `{` of the `Post(Plane plane)` method, press `Enter` twice.
+- Place your cursor before the `if(plane == null)` line, after the `{` of the `Post(Plane plane)` method, press `Enter` twice.
 
 - Type `// Return BadRequest if plane already exists by name` in the comment block. Before the `if(plane == null)` of this method, press `Enter`.
 
@@ -317,6 +316,7 @@ public class PlanesController : ControllerBase
             return CreatedAtAction(nameof(GetById), new { id = plane.Id }, plane);
         }
     ```
+
 - Copilot will automatically suggest the `if` statement and return `BadRequest` if the plane already exists by name.
 
     ```csharp
@@ -341,15 +341,12 @@ public class PlanesController : ControllerBase
         }   
     ```
 
-## Optional Labs
+> [!NOTE]
+> Typing the comment directly in editor. Copilot passively suggests completions based on the comment, but it won't necessarily recognize that you're specifically requesting inline generation.
 
 ### Step 5: Testing your flying style - Logging - Consistency
 
 Let's present a code completion task for adding a logger with specific syntax (e.g., `_logger`). Use this to explain how Copilot adapts to and replicates your coding style.
-
-- Open `WrightBrothersApi` folder located in the `WrightBrothersApi` folder.
-
-- Open the `Controllers/PlanesController.cs` file.
 
 - Go to the `GetAll` method and inspect the method. Notice the syntax of `✈✈✈ NO PARAMS ✈✈✈`. This is a custom syntax that is used in this codebase to log parameters of a method.
 
@@ -470,6 +467,49 @@ Let's present a code completion task for adding a logger with specific syntax (e
         // Method body
     }
     ```
+
+### Step 6: - Visualize the Wright Brothers Fleet
+
+- Open the `Plane.cs` file located in the `Models` folder.
+
+- Add a `ImageUrl` property to the model.
+
+- Type `public string ImageUrl { get; set; }` in the `Plane.cs` file.
+
+```csharp
+public string ImageUrl { get; set; }
+```
+
+```csharp
+public class Plane
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public int Year { get; set; }
+    public string Description { get; set; }
+    public int RangeInKm { get; set; }
+
+    // New property
+    public string ImageUrl { get; set; }
+}
+```
+
+- In the `Controllers/PlanesController.cs` file, select all content of the `Planes` List.
+
+- Right click and select the option `Copilot` -> `Start in editor`.
+
+- Type the following command
+
+    ```
+    Add the new ImageUrl property to each plane and add the next 2 additional planes to complete the Wright Brothers Fleet.
+    ```
+
+<img src="../../Images/Screenshot-Planes-List.png" width="800">
+
+- Accept the suggestion by selecting `Accept` or pressing `Enter`.
+
+> [!NOTE]
+> GitHub Copilot can do more than one thing at a time. It added the new property to each plane and next Wright Brothers plane to the list of planes.
 
 ### Congratulations you've made it to the end! &#9992; &#9992; &#9992;
 
