@@ -496,7 +496,7 @@ public class Plane
 
 - In the `Controllers/PlanesController.cs` file, select all content of the `Planes` List.
 
-- Right click and select the option `Copilot` -> `Start in editor`.
+- Right click and select the option `Copilot` -> `Editor inline Chat`.
 
 - Type the following command
 
@@ -509,7 +509,10 @@ public class Plane
 - Accept the suggestion by selecting `Accept` or pressing `Enter`.
 
 > [!NOTE]
-> GitHub Copilot can do more than one thing at a time. It added the new property to each plane and next Wright Brothers plane to the list of planes.
+> GitHub Copilot goes beyond simple edits—it multitasks efficiently. In one step, it added the new property to each plane, updated the list with the next Wright Brothers aircraft, and even referenced Wikipedia for historical accuracy.
+
+- Pressing Ctrl + I activates `Editor inline Chat`, allowing it to analyze your workspace, detect related files (like models), and ensure seamless property updates across your project. 
+
 
 ### Congratulations you've made it to the end! &#9992; &#9992; &#9992;
 
