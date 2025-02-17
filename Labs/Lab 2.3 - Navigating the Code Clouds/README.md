@@ -18,58 +18,295 @@ This lab exercise delves into GitHub Copilot's advanced features, teaching parti
     - Step 4 - Regex Aerobatics Show - Advanced Prompt Engineering (Optional)
 
 ### Step 1: - Flight Logbook - Logging Your Coding Journey
+This step explores different ways to **document code using GitHub Copilot**. We'll focus on **the `GetById()` method in `PlanesController.cs`**, testing various documentation prompts and approaches.
+
+Each section follows a **progressive structure**, introducing:
+1. Simple documentation generation.
+2. Instruction-based prompting.
+3. Role-based documentation for API endpoints.
+4. Chain-of-thought explanations for complex logic.
+5. Meta-prompts for custom documentation strategies.
+6. Automatic Documentation for Entire Files
+
+#### Scenario 1: Simple Documentation using /doc
+Quickly generate documentation using GitHub Copilot’s /doc feature for individual methods or an entire file.
 
 - Open the `PlanesController.cs` file.
 
-- Select all content of the method `GetById` in the `PlanesController.cs` file.
+- Select all content of the method **`GetById()`** in `PlanesController.cs`.
+
+- Right-click and choose `Copilot` -> `Generate Docs`.
+
+- View the updates, then click `Discard` to try a different approach.
+
+> [!NOTE]
+> GitHub Copilot uses the `/doc` agent to generate documentation for a **single method or the entire file** within seconds. This is a fast way to document your codebase, but we will explore **more controlled methods** using Copilot Chat.
+
+#### Scenario 2: Simple Instruction-Based Prompt
+Use a direct Copilot Chat prompt to generate XML documentation, including method purpose, parameters, and return values.
+
+- Select all content of the method **`GetById()`** in `PlanesController.cs`.
 
 <img src="../../Images/Screenshot-PlanesController-docs2.png" width="350">
 
-- Right click and choose for the option `Copilot` -> `Generate Docs`.
+- Open **GitHub Copilot Chat**.
 
-- Do not accept the suggestion, click `Discard`.
+- Click `+` to clear prompt history.
 
-> [!NOTE]
-> GitHub Copilot used the `/doc` agent to generate the documentation for a single method or the entire file in a matter of seconds. This is a great way to document your codebase quickly and efficiently. However, we will use the in editor Chat to document the code in a more controlled way.
-
-- Let's try this using a different approach, select all content of the method `GetById` in the `PlanesController.cs` file.
-
-<img src="../../Images/Screenshot-PlanesController-docs2.png" width="350">
-
-- Open GitHub Copilot Chat, click `+` to clear prompt history, then type the following command:
-
-Compare the difference between asking the following three methods:
-
-1) Simple:
-
-```
-document all my code #selection with details
-```
-
-2) More details using dotnet method documentation
-
-```
-document #selection with details using dotnet method documentation
-```
-
-3) Enhanced Prompt for Header and Inline Documentation
+- Type the following prompt:
 
     ```
-    Generate XML documentation comments for this C# method. Include a summary, descriptions of each parameter, the return type, and any exceptions thrown. Use the format:
-
-    ## Example
-    /// /// [Brief summary of what the method does] /// /// [Description of the parameter] /// [Description of the return value] /// [Description of the exception and when it might be thrown]
-
-    Additionally, provide inline comments for each significant line or block of code within the method. Use the format:
-
-    ## Example
-    // [Description of what this line/block of code does
+    Document this C# function, including its purpose, parameters, and return value.
     ```
 
-- Review the documentation to ensure it's accurate, then click on `Apply in Editor` to replace the `PlanesController.cs` method with the new documentation.
+- Review the generated XML documentation.
+
+- View the updates, then click `Discard` to try a different approach.
+
+    - Note: To update the code, you would click `Apply in Editor` button if the documentation is correct.
+
+    **Example Output:**
+    ```csharp
+    /// <summary>
+    /// Retrieves a plane by its unique identifier.
+    /// </summary>
+    /// <param name="id">The unique identifier of the plane.</param>
+    /// <returns>The plane object if found; otherwise, NotFound result.</returns>
+    ```
 
 > [!NOTE]
-> The difference is that in editor Chat does light documentation vs GitHub Copilot window does a thorough job documenting every important section of code.
+> This approach provides a **quick** way to generate function-level doc comments. However, for **API documentation**, we will use a more structured role-based prompt.
+
+#### Scenario 3: Role-Based Prompt for API Documentation
+Generate structured API documentation with request parameters, response formats, and inline comments for better developer understanding.
+
+- Select all content of the method **`GetById()`** in `PlanesController.cs`.
+
+- Open **GitHub Copilot Chat**.
+
+- Click `+` to clear prompt history.
+
+- Type the following command.
+
+    ```
+    You are a technical writer. Write detailed documentation for this API endpoint, explaining its request parameters, response format, and usage examples. Additionally, add detailed comments to the GetById method in the PlanesController class, explaining each step and including error handling.
+    ```
+- Review the generated API documentation and inline comments.
+
+- View the updates, then click `Discard` to try a different approach.
+
+    - Note: To update the code, you would click `Apply in Editor` button if the documentation is correct.
+
+    **Example Output:**
+    ```csharp
+    /// <summary>
+    /// Retrieves a plane by its unique identifier.
+    /// </summary>
+    /// <param name="id">The unique identifier of the plane.</param>
+    /// <returns>
+    /// Returns an HTTP 200 OK response with the plane object if found.
+    /// Returns an HTTP 404 Not Found response if the plane does not exist.
+    /// </returns>
+    [HttpGet("{id}")]
+    public IActionResult GetById(int id)
+    {
+        try
+        {
+            // Attempt to find the plane by ID.
+            var plane = _planeService.GetPlaneById(id);
+            
+            // If no plane is found, return 404 Not Found.
+            if (plane == null)
+            {
+                return NotFound($"Plane with ID {id} not found.");
+            }
+
+            // Return the found plane with an HTTP 200 OK response.
+            return Ok(plane);
+        }
+        catch (Exception ex)
+        {
+            // Log the exception and return an error response.
+            _logger.LogError($"Error retrieving plane: {ex.Message}");
+            return StatusCode(500, "Internal server error");
+        }
+    }
+    ```
+
+> [!NOTE]
+> This **role-based prompt** ensures **detailed API documentation** with structured response explanations and inline comments.
+
+#### Scenario 4: Chain-of-Thought for Explaining Complex Logic
+Break down complex logic step-by-step, adding inline comments for clarity and better maintainability.
+
+- Select all content of the method **`GetById()`** in `PlanesController.cs`.
+
+- Open **GitHub Copilot Chat**.
+
+- Click `+` to clear prompt history.
+
+- Type the following prompt:
+
+    ```
+    Explain the logic of this function step-by-step, then add inline comments for clarity.
+    ```
+
+- Review Copilot’s explanation and inline comments.
+
+- View the updates, then click `Discard` to try a different approach.
+
+    - Note: To update the code, you would click `Apply in Editor` button if the documentation is correct.
+
+    **Example Explanation**
+    ```
+    1. The method receives an integer `id` as input.
+    2. It calls `_planeService.GetPlaneById(id)` to fetch the plane details.
+    3. If the plane is not found, it returns `NotFound()`.
+    4. If the plane is found, it returns the plane with `Ok()`.
+    5. If an exception occurs, it logs the error and returns a `500 Internal Server Error`.
+    ```
+
+    **Example Code with Enhanced Inline Comments**
+    ```csharp
+    public IActionResult GetById(int id)
+    {
+        try
+        {
+            // Fetch the plane based on the provided ID.
+            var plane = _planeService.GetPlaneById(id);
+
+            // Check if the plane exists.
+            if (plane == null)
+            {
+                // If not found, return a 404 Not Found response.
+                return NotFound($"Plane with ID {id} not found.");
+            }
+
+            // If found, return the plane with an HTTP 200 OK response.
+            return Ok(plane);
+        }
+        catch (Exception ex)
+        {
+            // If an error occurs, log it and return a 500 Internal Server Error.
+            _logger.LogError($"Error retrieving plane: {ex.Message}");
+            return StatusCode(500, "Internal server error");
+        }
+    }
+    ```
+
+> [!NOTE]
+> This **Chain-of-Thought** method helps **break down logic step-by-step** for complex functions.
+
+#### Scenario 5: Meta Prompt for Custom Documentation Needs
+Optimize Copilot prompts to generate clean, consistent documentation across large projects.
+
+- Select all content of the method **`GetById()`** in `PlanesController.cs`.
+
+- Open **GitHub Copilot Chat**.
+
+- Click `+` to clear prompt history.
+
+- Type the following meta-prompt:
+
+    ```
+    What’s the best way to prompt you to generate clean, consistent code documentation for large projects?
+    ```
+
+- Review Copilot’s recommendations.
+
+- Use the suggested techniques to refine how you prompt Copilot for documentation.
+
+> [!NOTE]
+> This **meta-prompt** helps standardize documentation **across large projects**.
+
+##### Scenario 6: Automatic Documentation for Entire Files
+Generate bulk documentation for an entire file, ideal for legacy codebases and large projects.
+
+- Do not select any content of the method in `PlanesController.cs`.
+
+- Open **GitHub Copilot Chat**.
+
+- Click `+` to clear prompt history.
+
+- Type the following prompt:
+
+    ```
+    Generate OpenAPI-style documentation comments for this file, ensuring that all request parameters, response formats, and HTTP status codes are documented.
+    ```
+
+- Review the generated **class-level summary** and **method-level comments**.
+
+- View the updates, then click `Discard` to try a different approach.
+
+    - Note: To update the code, you would click `Apply in Editor` button if the documentation is correct.
+
+    **Example Output:**
+    ```csharp
+    /// <summary>
+    /// Controller for managing aircraft data.
+    /// Provides endpoints for retrieving planes by ID.
+    /// </summary>
+    [ApiController]
+    [Route("api/[controller]")]
+    public class PlanesController : ControllerBase
+    {
+        /// <summary>
+        /// Retrieves a plane by its unique identifier.
+        /// </summary>
+        /// <param name="id">The unique identifier of the plane.</param>
+        /// <returns>
+        /// Returns an HTTP 200 OK response with the plane object if found.
+        /// Returns an HTTP 404 Not Found response if the plane does not exist.
+        /// </returns>
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
+        {
+            try
+            {
+                // Fetch the plane based on the provided ID.
+                var plane = _planeService.GetPlaneById(id);
+
+                // Check if the plane exists.
+                if (plane == null)
+                {
+                    return NotFound($"Plane with ID {id} not found.");
+                }
+
+                return Ok(plane);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error retrieving plane: {ex.Message}");
+                return StatusCode(500, "Internal server error");
+            }
+        }
+    }
+    ```
+
+
+#### Compare Copilot’s Documentation to Manual Documentation  
+
+- Review the **Copilot-generated documentation**.
+
+- Ask the following questions:
+    - **Is anything missing?** (e.g., exception handling, request examples)
+    - **Are all parameters and return types well explained?**
+    - **Does this match your team’s documentation style?**
+
+- If improvements are needed, manually refine the documentation.
+
+> [!NOTE]  
+> This **bulk documentation approach** is perfect for **onboarding new developers** or documenting **large, legacy codebases**.
+
+## Summary  
+
+By automating documentation for **entire files**, you can:  
+✅ Save time when working with **large codebases**.  
+✅ Ensure **consistent** documentation across **all methods**.  
+✅ Improve **API documentation** using OpenAPI-style comments.  
+
+For best results, **review and refine** the generated docs to align with your project’s standards.
+
 
 ### Step 2: - Flying in Formation - Code Refactoring
 
