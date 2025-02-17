@@ -148,7 +148,6 @@ function HomePage() {
 
 - Start by opening `NewPlane.tsx` in the `WrightBrothersFrontend/src/pages` folder
 
-~~- Open GitHub Copilot Chat, then click `+` to clear prompt history.~~
 - Open GitHub Copilot **Edits** (icon with + on it), then click `+` for `New Edit Session`.
 
 - Type the following in the chat window:
@@ -268,13 +267,6 @@ function HomePage() {
 
 </details>
 <Br>
-
-~~- Select all the code in the open file `NewPlane.tsx` and replace it with the suggested code.~~
-~~- In the GitHub Copilot Edits window, click `Insert at Cursor` or `Apply in Editor`.~~
-
-- In the GitHub Copilot Edits window, click `Accept` to apply all the changes.
-
-~~- When using `Apply in Editor`, be sure to click `Accept Changes` for each change.~~
 
 - Next, since we are running in a Codespace, we need to update the API URL for `localhost:1903`.
 
