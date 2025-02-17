@@ -16,8 +16,9 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
     - Step 1 - Taxying to the Runway - Run existing unit tests
     - Step 2 - Pre-takeoff Pilot Checks - Completing Unit Tests
-    - Step 3 - Takeoff - Adding Unit Tests for Case Sensitivity (Optional)
-    - Step 4 - Ascending to the Clouds: Creating the AirfieldController from thin air (Optional)
+    - Step 3 - Takeoff - Adding Unit Tests for Case Sensitivity
+    - Step 4 - Ascending to the Clouds: Creating the AirfieldController from thin air
+    - Step 5 - Landing: Refactoring the AirfieldController
 
 ### Step 1: Taxying to the Runway - Run existing unit tests
 
@@ -32,7 +33,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 - Copilot will give a suggestion to run the unit tests in the terminal.
 
     ```sh
-    dotnet test
+    dotnet test WrightBrothersApi/WrightBrothersApi.Tests/WrightBrothersApi.Tests.csproj
     ```
 
 - Let's run the unit tests in the terminal to make sure everything is working as expected.
@@ -48,18 +49,18 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 - Open the terminal and run the tests with the provided command.
 
     ```sh
-    dotnet test
+    dotnet test WrightBrothersApi/WrightBrothersApi.Tests/WrightBrothersApi.Tests.csproj
     ```
 
 > [!NOTE]
 > If you get an error resembling this: `MSBUILD : error MSB1009: Project file does not exist.`, then you are most likely running this command from the wrong folder. Change into the correct directory with `cd ./WrightBrothersApi` or with `cd ..` to go one folder level upwards.
 
-- The tests should run and pass.
+- The tests should run and many will pass.
 
     ```sh
     Starting test execution, please wait...
     A total of 1 test files matched the specified pattern.
-    Passed!  - Failed:  0, Passed:  3, Skipped:  0, Total:  3
+    Test summary: total: 1, failed: 0, succeeded: 1, skipped: 0
     ```
 
 ### Step 2: Pre-takeoff Pilot Checks - Completing Unit Tests
@@ -85,8 +86,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 - Next, open Copilot Chat and Copy/Paste the following
 
     ```md
-    Generate all unit test scenarios for #selection
-    Use the existing list of planes for test data
+    Generate all unit test scenarios for this method using the existing list of planes for test data.
     ```
 
 <img src="../../Images/Screenshot-WhereToAddUnitTests.png" width="800">
@@ -100,7 +100,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 - Let's fix this. Open Copilot Chat and Copy/Paste the following and place your cursor after `tests should match `:
 
     ```md
-    Generate all unit test scenarios for #selection and the tests should match the style in #file:PlaneControllerTests.cs. Use the existing list of planes for test data
+    Generate all unit test scenarios for this method. Include only the individual tests, nothing else but [Fact] per test, no usings. Tests should match the style in #file:PlaneControllerTests.cs . Use the existing list of planes for test data.
     ```
 
 > [!NOTE]
@@ -114,10 +114,10 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - A pop-up will appear where you can search for files.
 
-> [!NOTE]
-> With `#file` you can easily add a file to the Copilot Context.
-
 - Select the file `PlaneControllerTests.cs` and press Enter.
+
+> [!NOTE]
+> With `#file` you can easily add a file to the Copilot Context. If you already know the filename, you can simply type #PlaneControllerTests.cs and avoid using the pop-up file selector.
 
 > [!IMPORTANT]
 > `#file` will not work with copy/pasting `#file:PlaneControllerTests.cs`. You need to select it from the pop-up window.
@@ -178,34 +178,41 @@ public class PlanesControllerTests
 }
 ```
 
-- In GitHub Copilot Chat, click the ellipses `...` and select `Apply in Editor` for the suggested unit test methods.
+- In GitHub Copilot Chat, click the ellipses `...` and select `Insert at cursor` for the suggested unit test methods.
 
 - Let's test the newly added tests by opening the terminal and run the tests with the provided command.
 
     ```sh
-    dotnet test
+    dotnet test WrightBrothersApi/WrightBrothersApi.Tests/WrightBrothersApi.Tests.csproj
     ```
 
 > [!NOTE]
 > Some tests might still fail. Copilot does not always provide the correct suggestions. It's important to understand the suggestions and do some extra work to make sure the tests are correct. Copilot can help you with that as well.
 
-- The tests should run and pass.
+- The tests should run and many will pass.
 
     ```sh
     Starting test execution, please wait...
     A total of 1 test files matched the specified pattern.
-    Passed!  - Failed:  0, Passed:  5, Skipped:  0, Total:  5
+    Test summary: total: 3, failed: 0, succeeded: 3, skipped: 0
     ```
-
-## Optional
 
 ### Step 3: Taking Off - Developing Robust Tests
 
 - Open the `PlanesController.cs` file.
 
-- Make sure to add the `SearchByName` method to the `PlanesController.cs` file if you haven't already in the previous lab. If not, use the following code snippet to add the method at bottom of the file.
+- Make sure to have the `SetupPlanesData()` and `SearchByName()` method to the `PlanesController.cs` file if you haven't already in the previous lab. If not, use the following code snippet to add the method at bottom of the file.
 
     ```csharp
+    [HttpPost("setup")]
+    public ActionResult SetupPlanesData(List<Plane> planes)
+    {
+        Planes.Clear();
+        Planes.AddRange(planes);
+
+        return Ok();
+    }
+
     [HttpGet("search")]
     public ActionResult<List<Plane>> SearchByName([FromQuery] string name)
     {
@@ -217,19 +224,6 @@ public class PlanesControllerTests
         }
 
         return Ok(planes);
-    }
-    ```
-
-- Also, add the following method at the bottom of file to setup data for the tests we are about to create.
-
-    ```csharp
-    [HttpPost("setup")]
-    public ActionResult SetupPlanesData(List<Plane> planes)
-    {
-        Planes.Clear();
-        Planes.AddRange(planes);
-
-        return Ok();
     }
     ```
 
@@ -238,76 +232,44 @@ public class PlanesControllerTests
 
 - In the following exercise you will combine everything you learned in the previous steps, but then for the `SearchByName` method. The following prompt is a more detailed description of a problem and the expected solution. You will prompt GitHub Copilot to make it use a `#selection`. besides that you will use `#file` two times in the prompt to make sure Copilot knows the context of the problem.
 
-- Open GitHub Copilot Chat, click `+` to clear prompt history.
+- Open GitHub Copilot `Edits` (Ctrl+Shift+I) (icon with + on it next to Copilot Chat), then click `+` for `New Edit Session`.
 
-- Copy/Paste the following in the Copilot Chat window:
+- Add the following files to the `Working Set` near the bottom of Copilot Edits window.
+
+- Click the `+ Add files` button, then select these:
+    - `PlaneControllerTests.cs`
+    - `PlanesController.cs`
+    - `Planes.cs`
+
+> [!NOTE]
+> You can multiple select these files from the file explorer by holding the `Ctrl` down and clicking on each file. Then simply drag-n-drop them into the `Edit with Copilot` window.
+
+- Copy/Paste the following in the Copilot Edits Chat window:
 
     ```md
-    Generate unit tests for #selection the following scenario:
-
-    - Specific Search for "Wright Flyer III"
-    - General Search for "Wright"
-    - Case insensitive search for "wright flyer"
+    # Generate new unit tests for the following scenarios:
+    - Specific search for "Wright Flyer III"
+    - General search for "Wright"
+    - Case-insensitive search for "wright flyer"
     - Search with extra spaces for " Wright flyer "
 
-    ## Technical Details
+    # Technical Details
+    - Use the existing methods SetupPlanesData and SearchByName in #file:'PlanesController.cs'.
+    - Create 5 planes based on the Wright Brothers in #file:'Plane.cs' for the test scenarios. Populate this data using SetupPlanesData.
+    - Ensure that test data includes 3 different planes named "Wright Flyer" and verify the result count matches.
+    - Use the [Theory] attribute for the tests.
+    - Assert the number of planes returned using FluentAssertions.
+    - Output only the test methods** to be added to #file:'PlaneControllerTests.cs'.
 
-    - Create 5 Planes about the Wright Brothers based on #file:Plane.cs for the scenarios and POST to SetupPlanesData
-    - When Test Data contains 3 different "Wright Flyer" planes then assert count is also 3
-    - Use Theory attribute
-    - Assert the amount of planes returned
-    - Use FluentAssertions
-
-    Give me only the test method as a result to apply in #file:PlaneControllerTests.cs
+    ## Think step by step and include explanations as comments in the test methods
     ```
 
+#### <span style="color:red">Todo! Screenshot Update Needed</span>
 <img src="../../Images/Screenshot-SearchByName-Tests.png" width="600">
-
-- For `#selection`, select the following two methods in the `PlanesController.cs` class.
-
-    ```csharp
-    [HttpGet("search")]
-    public ActionResult<List<Plane>> SearchByName([FromQuery] string name)
-    {
-        var planes = Planes.FindAll(p => p.Name.Contains(name));
-
-        if (planes == null)
-        {
-            return NotFound();
-        }
-
-        return Ok(planes);
-    }
-
-    [HttpPost("setup")]
-    public ActionResult SetupPlanesData(List<Plane> planes)
-    {
-        Planes.Clear();
-        Planes.AddRange(planes);
-
-        return Ok();
-    }
-    ```
-
-- Next Re-enter `#file:Plane.cs`
-
-> [!NOTE]
-> When copy/pasting the `#file:Plane.cs`, it will not work. You will need to select the file again from the pop-up window, like in the previous step.
-
-- First remove `#file:Plane.cs` and keep your cursor at the same position.
-
-- Next, type `#file` again in the chat window and press Enter, like in the previous step and select the `Plane.cs` file.
-
-- Now, do the same for `#file:PlaneControllerTests.cs` on the bottom of the prompt.
-
-> [!NOTE]
-> This example shows how `#file` is used in a way how a human might approach a problem. You can include context at any time to help Copilot understand the problem or solution better.
-
-- Open Copilot Chat and Copy/Paste the prompt.
 
 - Submit the prompt by pressing Enter.
 
-- Copilot will then give the following suggestion to generate unit tests for the `SearchByName` method.
+- Copilot will generate unit tests for the `SearchByName` method add them to the `Planecontrollertests` file.
 
     ```csharp
     [Theory]
@@ -339,25 +301,16 @@ public class PlanesControllerTests
     }
     ```
 
-- Open `PlaneControllerTests.cs` file
+- Review the updates in the file editor.
 
-- Place your cursor at the end of the file, after the last unit test `}`.
+- You can choose to `Accept` the changes in the file editor or the `Working Set` window.
 
-    ```csharp
-    public class PlanesControllerTests
-    {
-        /* Rest of the methods */
+- Click `Accept` to save the changes, then click `Done` in the `Copilot Edits` window to complete this task.
 
-        <---- Place your cursor here
-    }
-    ```
-
-- In GitHub Copilot Chat, click the ellipses `...` and select `Apply in Editor` for the suggested unit test methods.
-
-- Let's run the unit tests in the terminal:
+- Let's run the unit tests in the terminal.
 
     ```sh
-    dotnet test
+    dotnet test WrightBrothersApi/WrightBrothersApi.Tests/WrightBrothersApi.Tests.csproj
     ```
 
 - Not all tests will pass. For example the `Case insensitive` and `Extra spaces` test will fail. This is because the `SearchByName` method is case sensitive. Let's fix this.
@@ -367,322 +320,369 @@ public class PlanesControllerTests
     ```
     Starting test execution, please wait...
     A total of 1 test files matched the specified pattern.
-    Failed!  - Failed:     2, Passed:     6, Skipped:     0, Total:     8
+    Test summary: total: 7, failed: 2, succeeded: 5, skipped: 0
     ```
 
 - Let's now use the generated tests as a guide to fix the case sensitivity issue.
 
-- Open GitHub Copilot Chat, click `+` to clear prompt history.
+- Open GitHub Copilot Edits, click `+` to clear prompt history.
 
-- Copy/Paste the following in the chat window:
+- Click the `+ Add files` button, then select these:
+    - `PlaneControllerTests.cs`
+    - `PlanesController.cs`
+
+- Select the `SearchByName()` method in the `PlanesController.cs` file.
+
+- Copy/Paste the following in the edits chat window:
 
     ```
-    #selection fix method based on tests in #file:PlaneControllerTests.cs
+    fix method based on tests in #file:PlaneControllerTests.cs
+    ```
+- Review the updates in the file editor.
+
+- You can choose to `Accept` the changes in the file editor or the `Working Set` window.
+
+- Click `Accept` to save the changes, then click `Done` in the `Copilot Edits` window to complete this task.
+
+- Let's run the unit tests in the terminal.
+
+    ```sh
+    dotnet test WrightBrothersApi/WrightBrothersApi.Tests/WrightBrothersApi.Tests.csproj
     ```
 
-- Open `PlanesController.cs` file.
-
-- For `#selection`, select the `SearchByName` method in the `PlanesController.cs` file.
-
-    ```csharp
-    [HttpGet("search")]
-    public ActionResult<List<Plane>> SearchByName([FromQuery] string name)
-    {
-        var planes = Planes.FindAll(p => p.Name.Contains(name));
-
-        if (planes == null)
-        {
-            return NotFound();
-        }
-
-        return Ok(planes);
-    }
-    ```
-
-- First remove `#file:PlaneControllerTests.cs` and keep your cursor at the same position.
-
-- Next, type `#file` again in the chat window and press Enter and select the `PlaneControllerTests.cs` file.
-
+#### <span style="color:red">Todo! Screenshot Update Needed</span>
 <img src="../../Images/Screenshot-SearchByName-Fix.png" width="600">
 
-- Submit the prompt by pressing Enter.
-
-- Copilot will give a suggestion to fix the case sensitivity and the extra spaces issue based on the test cases.
-
-    ```csharp
-    public class PlanesController : ControllerBase
-    {
-        /* Rest of the methods */
-
-        [HttpGet("search")]
-        public ActionResult<List<Plane>> SearchByName([FromQuery] string name)
-        {
-            var trimmedName = name.Trim();
-            var planes = Planes.FindAll(p => p.Name.Trim().Equals(trimmedName, StringComparison.OrdinalIgnoreCase));
-
-            if (planes == null || planes.Count == 0)
-            {
-                return NotFound();
-            }
-
-            return Ok(planes);
-        }
-    }
-    ```
-
-> [!NOTE]
-> `StringComparer.OrdinalIgnoreCase` is used to make the comparison case insensitive and `Trim()` is used to remove leading and trailing spaces.
-
-- Apply the changes to the `PlanesController.cs` file.
-
-- Click on the `Apply in Editor` to replace the `SearchByName` method with the new one.
-
-- Open the terminal and run the tests with the provided command
+- The tests should run and many will pass.
 
     ```sh
-    dotnet test
-    ```
-
-- The tests should run and pass.
-
-    ```sh
-    Starting test execution, please wait...
-    A total of 1 test files matched the specified pattern.
-    Passed!  - Failed:     0, Passed:     5, , Failed:     0
+    Test summary: total: 7, failed: 1, succeeded: 6, skipped: 0
     ```
 
 > [!NOTE]
 > If all tests pass, you have successfully completed this step. If not, you will need to debug the tests. GitHub Copilot got you started, but you, the Pilot, must take charge to diagnose and fix the discrepancies.
 
-## Optional
-
-### Step 4 - Ascending to the Clouds: Creating the AirfieldController from thin air
+### Step 4 - Ascending to the Clouds: Creating the AirfieldController
 
 - Open the `WrightBrothersApi` project in Visual Studio Code.
 
-- Open the `Models/Airfield.cs` file.
+- Open GitHub Copilot `Edits` (Ctrl+Shift+I) (icon with + on it next to Copilot Chat), then click `+` for `New Edit Session`.
 
-- Open GitHub Copilot Chat, click `+` to clear prompt history.
+- Add the following files to the `Working Set` near the bottom of Copilot Edits window.
 
-- Ask the following question:
+- Click the `+ Add files` button, then select these:
+    - `PlaneControllerTests.cs`
+    - `Airfield.cs`
 
+> [!NOTE]
+> You can multiple select these files from the file explorer by holding the `Ctrl` down and clicking on each file. Then simply drag-n-drop them into the `Edit with Copilot` window.
+
+- Copy/Paste the following in the Copilot Edits Chat window:
+
+    ```md
+    ## Generate Controller
+    Create a new API Controller called "AirfieldController" with all the CRUD operations based on the #file:'Airfield.cs' class.
+    
+    ## Test Data
+    Add test data to the AirfieldController for the first 3 airfields used by the Wright Brothers. 
+    
+    ## Unit Tests
+    Generate a new unit test controller called "AirfieldControllerTests" similar to the existing unit test file #file:'PlaneControllerTests.cs'  and include many unit tests to cover all the methods in the AirfieldController.
+    
+    ## Think step by step
+    - Include explanations as comments in the test methods.
     ```
-    @workspace using the Airfield class, create the ApiController with all the CRUD operations and add test data for the first 3 airfields used by the Wright Brothers.
-    ```
+#### <span style="color:red">Todo! Screenshot Update Needed</span>
+<img src="../../Images/TBD.png" width="600">
 
-- Copilot will give a suggestion to create an `AirfieldController` class based on the `Airfield` class.
+- Submit the prompt by pressing Enter.
 
-    ```csharp
-    using Microsoft.AspNetCore.Mvc;
-    using System.Collections.Generic;
-    using WrightBrothersApi.Models;
+- Copilot will generate a new controller and the unit tests for the `Airfield` class.
 
-    [ApiController]
-    [Route("[controller]")]
-    public class AirfieldsController : ControllerBase
-    {
-        private List<Airfield> Airfields = new List<Airfield>
-        {
-            new Airfield("Kitty Hawk", "North Carolina", "1900-1903", "First successful flight"),
-            new Airfield("Huffman Prairie", "Ohio", "1904-1905", "First practical airplane"),
-            new Airfield("Fort Myer", "Virginia", "1908-1909", "Military flight trials")
-        };
+- Review the updates in the file editor.
 
-        // GET: api/Airfields
-        [HttpGet]
-        public IEnumerable<Airfield> GetAirfields()
-        {
-            return Airfields;
-        }
+- You can choose to `Accept` the changes in the file editor or the `Working Set` window.
 
-        // GET: api/Airfields/5
-        [HttpGet("{id}")]
-        public ActionResult<Airfield> GetAirfield(int id)
-        {
-            if (id < 0 || id >= Airfields.Count)
-            {
-                return NotFound();
-            }
-
-            return Airfields[id];
-        }
-
-        // POST: api/Airfields
-        [HttpPost]
-        public ActionResult<Airfield> PostAirfield(Airfield airfield)
-        {
-            Airfields.Add(airfield);
-            return CreatedAtAction(nameof(GetAirfield), new { id = Airfields.Count - 1 }, airfield);
-        }
-
-        // PUT: api/Airfields/5
-        [HttpPut("{id}")]
-        public IActionResult PutAirfield(int id, Airfield airfield)
-        {
-            if (id < 0 || id >= Airfields.Count)
-            {
-                return NotFound();
-            }
-
-            Airfields[id] = airfield;
-            return NoContent();
-        }
-
-        // DELETE: api/Airfields/5
-        [HttpDelete("{id}")]
-        public IActionResult DeleteAirfield(int id)
-        {
-            if (id < 0 || id >= Airfields.Count)
-            {
-                return NotFound();
-            }
-
-            Airfields.RemoveAt(id);
-            return NoContent();
-        }
-    }
-    ```
-
-- In GitHub Copilot Chat, click the ellipses `...` and select `Insert into New File` for the suggested `AirfieldController`.
-
-- Copilot will add the code to a new empty file, but must be saved.
-- Save the file by clicking pressing `Ctrl + S` or `Cmd + S`.
-- Change directory to the `Controllers` folder`.
-- Enter the file name `AirfieldController.cs` and click `Save`.
-
-<img src="../../Images/Screenshot-AirfieldController.Controller.png" width="800">
+- Click `Accept` to save the changes, then click `Done` in the `Copilot Edits` window to complete this task.
 
 > [!NOTE]
 > Copilot is not only context aware, knows you need a list of items and knows the `Air Fields` used by the Wright Brothers, the `Huffman Prairie`, which is the first one used by the Wright Brothers.
 
-- Now that you have created the `AirfieldController` with CRUD operations, it's time to ensure that it's working as expected. In this step, you will write unit tests for the `AirfieldController`.
+- Now that you have created the `AirfieldController` with CRUD operations, it's time to ensure that it's working as expected. In this step, you will run the new `AirfieldController` unit tests.
 
-- Open the `AirfieldController.cs` file.
+- Let's run the unit tests in the terminal.
 
-- Open GitHub Copilot Chat, click `+` to clear prompt history.
+    ```sh
+    dotnet test WrightBrothersApi/WrightBrothersApi.Tests/WrightBrothersApi.Tests.csproj
+    ```
 
-- Ask the following question:
+#### <span style="color:red">Todo! Screenshot Update Needed</span>
+<img src="../../Images/Screenshot-SearchByName-Fix.png" width="600">
 
-  ```
-  @workspace create all the unit tests for this AirfieldController
-  ```
+- The tests should run and many will pass.
 
-- Copilot will give a suggestion to create an `AirfieldControllerTests` class based on the `AirfieldController` class with all the needed unit tests.
+    ```sh
+    Test summary: total: 15, failed: 2, succeeded: 13, skipped: 0
+    ```
+### Step 5 - Landing: Refactoring the AirfieldController
+In this step, we will refactor the AirfieldController and unit tests to improve its code quality and add additional functionalities. We will also enhance the unit tests to cover the new functionalities.
 
-    ```csharp
-    using Xunit;
-    using FluentAssertions;
-    using Microsoft.AspNetCore.Mvc;
-    using WrightBrothersApi.Models;
-    using System.Collections.Generic;
-    using System.Linq;
+- Open GitHub Copilot `Edits` (Ctrl+Shift+I) (icon with + on it next to Copilot Chat), then click `+` for `New Edit Session`.
 
-    public class AirfieldsControllerTests
+- Add the following files to the `Working Set` near the bottom of Copilot Edits window.
+
+- Click the `+ Add files` button, then select these:
+    - `AirfieldController.cs`
+    - `AirfieldControllerTests.cs`
+
+- Copy/Paste the following in the Copilot Edits Chat window:
+
+    ```md
+    Refactor to use async/await for all CRUD operations. Ensure that error handling is included for asynchronous operations.
+
+    ## AirfieldController.cs
+    - Use modern C# features such as pattern matching and async streams where applicable.
+
+    ## AirfieldControllerTests.cs
+    - Use the xUnit framework for the unit tests.
+    
+    ## Think step by step
+    - Include explanations as comments in the test methods.
+    ```
+
+#### <span style="color:red">Todo! Screenshot Update Needed</span>
+<img src="../../Images/TBD.png" width="600">
+
+- Submit the prompt by pressing Enter.
+
+- Copilot will update the controller and the unit tests for the `AirfieldController` class.
+
+- Review the updates in the file editor.
+
+- You can choose to `Accept` the changes in the file editor or the `Working Set` window.
+
+- Click `Accept` to save the changes, then click `Done` in the `Copilot Edits` window to complete this task.
+
+> [!NOTE]
+> GitHub Copilot will then generate the refactored code for the AirfieldController and AirFieldControllerTests using async/await for all CRUD operations, including error handling. You can review the generated code and make any necessary adjustments.
+
+<Br>
+
+<details>
+<summary>Click for Controller Solution</summary>
+
+```csharp
+using Microsoft.AspNetCore.Mvc;
+using WrightBrothersApi.Models;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace WrightBrothersApi.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class AirfieldController : ControllerBase
     {
-        private readonly AirfieldsController _controller;
-
-        public AirfieldsControllerTests()
+        private static readonly List<Airfield> Airfields = new List<Airfield>
         {
-            _controller = new AirfieldsController();
+            new Airfield("Kitty Hawk", "North Carolina, USA", "1900-1903", "First successful powered flights"),
+            new Airfield("Huffman Prairie", "Ohio, USA", "1904-1905", "Development of practical flying techniques"),
+            new Airfield("Le Mans", "France", "1908", "First public demonstration of flight")
+        };
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Airfield>>> GetAirfields()
+        {
+            return await Task.FromResult(Ok(Airfields));
         }
 
-        [Fact]
-        public void GetAirfields_ReturnsAllAirfields()
+        [HttpGet("{name}")]
+        public async Task<ActionResult<Airfield>> GetAirfield(string name)
         {
-            var result = _controller.GetAirfields();
-
-            result.Should().NotBeNull();
-            result.Count().Should().Be(3);
+            var airfield = await Task.Run(() => Airfields.FirstOrDefault(a => a.Name == name));
+            return airfield switch
+            {
+                null => NotFound(),
+                _ => Ok(airfield)
+            };
         }
 
-        [Fact]
-        public void GetAirfield_ValidId_ReturnsAirfield()
+        [HttpPost]
+        public async Task<ActionResult<Airfield>> CreateAirfield(Airfield airfield)
         {
-            var result = _controller.GetAirfield(1);
-
-            result.Result.Should().BeOfType<OkObjectResult>();
-            ((OkObjectResult)result.Result).Value.Should().BeOfType<Airfield>();
+            await Task.Run(() => Airfields.Add(airfield));
+            return CreatedAtAction(nameof(GetAirfield), new { name = airfield.Name }, airfield);
         }
 
-        [Fact]
-        public void GetAirfield_InvalidId_ReturnsNotFound()
+        [HttpPut("{name}")]
+        public async Task<IActionResult> UpdateAirfield(string name, Airfield updatedAirfield)
         {
-            var result = _controller.GetAirfield(100);
+            var airfield = await Task.Run(() => Airfields.FirstOrDefault(a => a.Name == name));
+            if (airfield is null)
+            {
+                return NotFound();
+            }
 
-            result.Result.Should().BeOfType<NotFoundResult>();
+            airfield.Location = updatedAirfield.Location;
+            airfield.DatesOfUse = updatedAirfield.DatesOfUse;
+            airfield.Significance = updatedAirfield.Significance;
+            return NoContent();
         }
 
-        [Fact]
-        public void PostAirfield_ValidAirfield_ReturnsCreatedAirfield()
+        [HttpDelete("{name}")]
+        public async Task<IActionResult> DeleteAirfield(string name)
         {
-            var airfield = new Airfield("Test", "Test", "Test", "Test");
-            var result = _controller.PostAirfield(airfield);
+            var airfield = await Task.Run(() => Airfields.FirstOrDefault(a => a.Name == name));
+            if (airfield is null)
+            {
+                return NotFound();
+            }
 
-            result.Result.Should().BeOfType<CreatedAtActionResult>();
-            ((CreatedAtActionResult)result.Result).Value.Should().BeEquivalentTo(airfield);
-        }
-
-        [Fact]
-        public void PutAirfield_ValidIdAndAirfield_UpdatesAirfield()
-        {
-            var airfield = new Airfield("Updated", "Updated", "Updated", "Updated");
-            var result = _controller.PutAirfield(1, airfield);
-
-            result.Should().BeOfType<NoContentResult>();
-            _controller.GetAirfield(1).Value.Should().BeEquivalentTo(airfield);
-        }
-
-        [Fact]
-        public void PutAirfield_InvalidId_ReturnsNotFound()
-        {
-            var airfield = new Airfield("Updated", "Updated", "Updated", "Updated");
-            var result = _controller.PutAirfield(100, airfield);
-
-            result.Should().BeOfType<NotFoundResult>();
-        }
-
-        [Fact]
-        public void DeleteAirfield_ValidId_RemovesAirfield()
-        {
-            var result = _controller.DeleteAirfield(1);
-
-            result.Should().BeOfType<NoContentResult>();
-            _controller.GetAirfield(1).Result.Should().BeOfType<NotFoundResult>();
-        }
-
-        [Fact]
-        public void DeleteAirfield_InvalidId_ReturnsNotFound()
-        {
-            var result = _controller.DeleteAirfield(100);
-
-            result.Should().BeOfType<NotFoundResult>();
+            await Task.Run(() => Airfields.Remove(airfield));
+            return NoContent();
         }
     }
-    ```
+}
 
-- In GitHub Copilot Chat, click the ellipses `...` and select `Insert into New File` for the suggested `AirfieldControllerTests`.
+```
+</details>
 
-<img src="../../Images/Screenshot-AirfieldControllerTests.png" width="800">
+<Br>
 
-- Copilot will add the code to a new empty file, but must be saved.
-- Save the file by clicking pressing `Ctrl + S` or `Cmd + S`.
-- Change directory to the `WrightBrothersApi.Tests/Controllers` folder`.
-- Enter the file name `AirfieldControllerTests.cs` and click `Save`.
+<details>
+<summary>Click for Unit Tests Solution</summary>
 
-- Now let's run the unit tests in the terminal to make sure everything is working as expected.
+```csharp
+using WrightBrothersApi.Controllers;
+using WrightBrothersApi.Models;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Xunit;
 
-- Open the terminal and run the tests with the provided command.
+namespace WrightBrothersApi.Tests.Controllers
+{
+    public class AirfieldControllerTests
+    {
+        private readonly AirfieldController _controller;
+
+        public AirfieldControllerTests()
+        {
+            _controller = new AirfieldController();
+        }
+
+        [Fact]
+        public async Task GetAirfields_ReturnsAllAirfields()
+        {
+            // Act
+            var result = await _controller.GetAirfields();
+
+            // Assert
+            var actionResult = Assert.IsType<OkObjectResult>(result.Result);
+            var airfields = Assert.IsType<List<Airfield>>(actionResult.Value);
+            Assert.Equal(3, airfields.Count);
+        }
+
+        [Fact]
+        public async Task GetAirfield_ReturnsCorrectAirfield()
+        {
+            // Act
+            var result = await _controller.GetAirfield("Kitty Hawk");
+
+            // Assert
+            var actionResult = Assert.IsType<OkObjectResult>(result.Result);
+            var airfield = Assert.IsType<Airfield>(actionResult.Value);
+            Assert.Equal("Kitty Hawk", airfield.Name);
+        }
+
+        [Fact]
+        public async Task GetAirfield_ReturnsNotFound()
+        {
+            // Act
+            var result = await _controller.GetAirfield("Nonexistent Airfield");
+
+            // Assert
+            Assert.IsType<NotFoundResult>(result.Result);
+        }
+
+        [Fact]
+        public async Task CreateAirfield_AddsNewAirfield()
+        {
+            // Arrange
+            var newAirfield = new Airfield("New Airfield", "New Location", "2023", "New Significance");
+
+            // Act
+            var result = await _controller.CreateAirfield(newAirfield);
+
+            // Assert
+            var actionResult = Assert.IsType<CreatedAtActionResult>(result.Result);
+            var createdAirfield = Assert.IsType<Airfield>(actionResult.Value);
+            Assert.Equal("New Airfield", createdAirfield.Name);
+        }
+
+        [Fact]
+        public async Task UpdateAirfield_UpdatesExistingAirfield()
+        {
+            // Arrange
+            var updatedAirfield = new Airfield("Kitty Hawk", "Updated Location", "Updated Dates", "Updated Significance");
+
+            // Act
+            var result = await _controller.UpdateAirfield("Kitty Hawk", updatedAirfield);
+
+            // Assert
+            Assert.IsType<NoContentResult>(result);
+        }
+
+        [Fact]
+        public async Task UpdateAirfield_ReturnsNotFound()
+        {
+            // Arrange
+            var updatedAirfield = new Airfield("Nonexistent Airfield", "Updated Location", "Updated Dates", "Updated Significance");
+
+            // Act
+            var result = await _controller.UpdateAirfield("Nonexistent Airfield", updatedAirfield);
+
+            // Assert
+            Assert.IsType<NotFoundResult>(result);
+        }
+
+        [Fact]
+        public async Task DeleteAirfield_DeletesExistingAirfield()
+        {
+            // Act
+            var result = await _controller.DeleteAirfield("Kitty Hawk");
+
+            // Assert
+            Assert.IsType<NoContentResult>(result);
+        }
+
+        [Fact]
+        public async Task DeleteAirfield_ReturnsNotFound()
+        {
+            // Act
+            var result = await _controller.DeleteAirfield("Nonexistent Airfield");
+
+            // Assert
+            Assert.IsType<NotFoundResult>(result);
+        }
+    }
+}
+```
+</details>
+
+- Now that you have updated the `AirfieldController`, it's time to ensure that it's working as expected. In this step, you will run the `AirfieldControllerTests` unit tests.
+
+- Let's run the unit tests in the terminal.
 
     ```sh
-    dotnet test
+    dotnet test WrightBrothersApi/WrightBrothersApi.Tests/WrightBrothersApi.Tests.csproj
     ```
 
-- The tests should run and pass.
+- The tests should run and many will pass.
 
     ```sh
-    Starting test execution, please wait...
-    A total of 1 test files matched the specified pattern.
-    Passed!  - Failed:  0, Passed:  8, Skipped:  0, Total:  8
+    Test summary: total: 13, failed: 3, succeeded: 10, skipped: 0
     ```
 
 > [!NOTE]
