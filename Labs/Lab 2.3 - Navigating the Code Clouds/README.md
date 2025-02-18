@@ -324,75 +324,17 @@ public class FlightsController : ControllerBase
     {
         var flight = Flights.Find(f => f.Id == id);
         if (flight != null)
-        {
-            switch (newStatus)
-            {
-                case FlightStatus.Boarding:
-                    if (DateTime.Now > flight.DepartureTime)
-                    {
-                        return BadRequest("Cannot board, past departure time.");
-                    }
 
-                    break;
+    /* Rest of the method bpdy */
 
-                case FlightStatus.Departed:
-                    if (flight.Status != FlightStatus.Boarding)
-                    {
-                        return BadRequest("Flight must be in 'Boarding' status before it can be 'Departed'.");
-                    }
-
-                    break;
-
-                case FlightStatus.InAir:
-                    if (flight.Status != FlightStatus.Departed)
-                    {
-                        return BadRequest("Flight must be in 'Departed' status before it can be 'In Air'.");
-                    }
-                    break;
-
-                case FlightStatus.Landed:
-                    if (flight.Status != FlightStatus.InAir)
-                    {
-                        return BadRequest("Flight must be in 'In Air' status before it can be 'Landed'.");
-                    }
-
-                    break;
-
-                case FlightStatus.Cancelled:
-                    if (DateTime.Now > flight.DepartureTime)
-                    {
-                        return BadRequest("Cannot cancel, past departure time.");
-                    }
-                    break;
-
-                case FlightStatus.Delayed:
-                    if (flight.Status == FlightStatus.Cancelled)
-                    {
-                        return BadRequest("Cannot delay, flight is cancelled.");
-                    }
-                    break;
-
-                default:
-                    // Handle other statuses or unknown status
-                    return BadRequest("Unknown or unsupported flight status.");
-            }
-
-            flight.Status = newStatus;
-
-            return Ok($"Flight status updated to {newStatus}.");
-        }
-        else
-        {
-            return NotFound("Flight not found.");
-        }
     }
 }
 ```
 
 > [!NOTE]
-> Note that the `UpdateFlightStatus` method has a high code complexity rating of 13, calculated by the [Cyclomatic Complexity metric](https://en.wikipedia.org/wiki/Cyclomatic_complexity). This is a good candidate for refactoring.
+> Note that the `UpdateFlightStatus` method has a high code complexity rating of 10+, calculated by the [Cyclomatic Complexity metric](https://en.wikipedia.org/wiki/Cyclomatic_complexity). This is a good candidate for refactoring.
 
-- Select all the content of the `UpdateFlightStatus` method.
+- Select all the contents of the `UpdateFlightStatus` method.
 
 - Open GitHub Copilot Chat, click **+** to clear prompt history.
 
@@ -410,7 +352,7 @@ public class FlightsController : ControllerBase
 - With the code still selected, ask the following question:
 
   ```
-  Refactor my code #selection to make it more readable and maintainable.
+  Refactor UpdateFlightStatus method to make it more readable and maintainable.
   ```
 
 <img src="../../Images/Screenshot-UpdateFlightStatus-Refactor.png" width="800">
@@ -419,6 +361,11 @@ public class FlightsController : ControllerBase
 > GitHub Copilot Chat understands `the selected code`. It will use the selected code in your editor to generate the refactoring suggestions.
 
 - GitHub Copilot Chat suggests a code improvement to extract some of the complex code to their own methods to make the code more readible and maintainable:
+
+<Br>
+
+<details>
+<summary>Click for Solution</summary>
 
 ```csharp
 [HttpPost("{id}/status")]
@@ -494,6 +441,8 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
     return null;
 }
 ```
+
+</details>
 
 > [!NOTE]
 > The output of GitHub Copilot Chat can vary, but the output should be a refactored method that is more readable and maintainable.
