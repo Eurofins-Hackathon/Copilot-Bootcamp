@@ -244,7 +244,11 @@ public class PlanesController : ControllerBase
 - After the `SetupPlanesData()` method, put your cursor after the last `}`.
 place your cursor at the end of the `SetupPlanesData()` method, after the `}`, press `Enter` twice.
 
-- Press `Ctrl + I` and type `// Create a method called SearchByName to search planes by name` in the text block, press `Enter`.
+- Press `Ctrl + I` and type `Create a method called SearchByName to search planes by name` in the text block, press `Enter`.
+
+```
+Create a method called SearchByName to search planes by name.
+```
 
     ```csharp
     public class PlanesController : ControllerBase
