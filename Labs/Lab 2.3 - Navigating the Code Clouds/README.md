@@ -730,61 +730,67 @@ public record FlightLog(DateTime Date, string Origin, string Destination, string
 
 - Copilot will also suggest a `AerobaticSequence` class with an implementation that looks like this. The result varies, but the output should be a `AerobaticSequence` class with a `Maneuver` class, a `Parse` method and a `CalculateDifficulty` method.
 
-    ```csharp
-    using System;
-    using System.Collections.Generic;
-    using System.Text.RegularExpressions;
+<Br>
 
-    public class AerobaticSequence
+<details>
+<summary>Click for Solution - AerobaticSequence</summary>
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
+
+public class AerobaticSequence
+{
+    public List<Maneuver> Maneuvers { get; set; }
+    public double Difficulty { get; set; }
+
+    public class Maneuver
     {
-        public List<Maneuver> Maneuvers { get; set; }
-        public double Difficulty { get; set; }
-
-        public class Maneuver
-        {
-            public string Type { get; set; }
-            public int RepeatCount { get; set; }
-            public char Difficulty { get; set; }
-        }
-
-        public static AerobaticSequence Parse(string signature)
-        {
-            var sequence = new AerobaticSequence { Maneuvers = new List<Maneuver>() };
-            var maneuvers = Regex.Matches(signature, @"([LHRTS])(\d+)([A-F])");
-
-            foreach (Match maneuver in maneuvers)
-            {
-                sequence.Maneuvers.Add(new Maneuver
-                {
-                    Type = maneuver.Groups[1].Value,
-                    RepeatCount = int.Parse(maneuver.Groups[2].Value),
-                    Difficulty = maneuver.Groups[3].Value[0]
-                });
-            }
-
-            sequence.CalculateDifficulty();
-            return sequence;
-        }
-
-        private void CalculateDifficulty()
-        {
-            double difficulty = 0;
-            string previousManeuver = null;
-
-            foreach (var maneuver in Maneuvers)
-            {
-                double multiplier = 1.0 + (maneuver.Difficulty - 'A') * 0.2;
-                if (previousManeuver == "L" && maneuver.Type == "R") multiplier *= 2;
-                if (previousManeuver == "T" && maneuver.Type == "S") multiplier *= 3;
-
-                difficulty += maneuver.RepeatCount * multiplier;
-                previousManeuver = maneuver.Type;
-            }
-
-            Difficulty = Math.Round(difficulty, 2);
-        }
+        public string Type { get; set; }
+        public int RepeatCount { get; set; }
+        public char Difficulty { get; set; }
     }
-    ```
+
+    public static AerobaticSequence Parse(string signature)
+    {
+        var sequence = new AerobaticSequence { Maneuvers = new List<Maneuver>() };
+        var maneuvers = Regex.Matches(signature, @"([LHRTS])(\d+)([A-F])");
+
+        foreach (Match maneuver in maneuvers)
+        {
+            sequence.Maneuvers.Add(new Maneuver
+            {
+                Type = maneuver.Groups[1].Value,
+                RepeatCount = int.Parse(maneuver.Groups[2].Value),
+                Difficulty = maneuver.Groups[3].Value[0]
+            });
+        }
+
+        sequence.CalculateDifficulty();
+        return sequence;
+    }
+
+    private void CalculateDifficulty()
+    {
+        double difficulty = 0;
+        string previousManeuver = null;
+
+        foreach (var maneuver in Maneuvers)
+        {
+            double multiplier = 1.0 + (maneuver.Difficulty - 'A') * 0.2;
+            if (previousManeuver == "L" && maneuver.Type == "R") multiplier *= 2;
+            if (previousManeuver == "T" && maneuver.Type == "S") multiplier *= 3;
+
+            difficulty += maneuver.RepeatCount * multiplier;
+            previousManeuver = maneuver.Type;
+        }
+
+        Difficulty = Math.Round(difficulty, 2);
+    }
+}
+```
+<details>
 
 - In GitHub Copilot Chat, click the ellipses `...` and select `Insert into New File` for the suggested `AerobaticSequence` class as `WrightBrothersApi/Models/AerobaticSequence.cs`.
 
