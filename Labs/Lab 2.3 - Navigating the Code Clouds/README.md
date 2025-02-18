@@ -466,26 +466,48 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
     }
     ```
 
-- Open GitHub Copilot Chat, click `+` to clear prompt history, then ask the following question:
+- This property is used in the `FlightsController` and assigned a hard to read value, i.e. **FlightLogSignature = "171203-DEP-ARR-WB001"**,
+
+- Open GitHub Copilot `Edits` (Ctrl+Shift+I) (icon with + on it next to Copilot Chat), then click `+` for `New Edit Session`.
+
+- Add the following files to the `Working Set` near the bottom of Copilot Edits window.
+
+- Click the `+ Add files` button, then select these:
+    - `Flights.cs`
+    - `FlightsController.cs`
+
+> [!NOTE]
+> You can multiple select these files from the file explorer by holding the `Ctrl` down and clicking on each file. Then simply drag-n-drop them into the `Edit with Copilot` window.
+
+- Copy/Paste the following in the Copilot Edits Chat window:
 
     ```
-    Create a c# model for a FlightLogSignature property.
+    Create a new C# model for a FlightLogSignature property.
 
-    Example: 17121903-DEP-ARR-WB001
+    ## Example
+    17121903-DEP-ARR-WB001
 
+    ## Example Details
     17th of December 1903
     Departure from Kitty Hawk, NC
     Arrival at Manteo, NC
     Flight number WB001
 
     ## Technical Requirements
-    - Create a FlightLog record type
-    - Add a Parse method to the FlightLog record type
-    - The Date must be a DateTime.
-    - Include usings at the top of the file
+    - Create a record type named FlightLog in a new file called FlightLog.cs.
+    - Implement a Parse method in the FlightLog record type to parse a FlightLogSignature.
+    - Ensure the FlightLogSignature consists of exactly four parts separated by -. The format should be:
+        - {Date}{DEP}{ARR}{FlightNumber}
+        - Example: 17121903-DEP-ARR-WB001
+    - Parse the Date as DateTime (format: ddMMyyyy).
+    - Include necessary using statements at the top of the file.
+    - Use a try-catch block inside Parse to catch and handle any parsing errors.
+    - Add a read-only FlightLog property (getter only) to the Flight model.
     ```
 
 - The prompt contains a few-shot prompting example of a `FlightLogSignature` and a few technical requirements.
+
+- Submit the prompt by pressing Enter.
 
 > [!NOTE]
 > Few-Shot prompting is a concept of prompt engineering. In the prompt you provide a demonstration of the solution. In this case we provide examples of the input and also requirements for the output. This is a good way to instruct Copilot to generate specific solutions.
@@ -494,78 +516,56 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
 
 - Copilot will suggest a new `FlightLog` record type and a `Parse` method. The `Parse` method splits the string and assigns each part to a corresponding property.
 
-    ```csharp
-    using System.Globalization;
-
-    public record FlightLog
-    {
-        public DateTime Date { get; init; }
-        public string Departure { get; init; }
-        public string Arrival { get; init; }
-        public string FlightNumber { get; init; }
-
-        public static FlightLog Parse(string flightLogSignature)
-        {
-            var parts = flightLogSignature.Split('-');
-            if (parts.Length != 4)
-            {
-                throw new ArgumentException("Invalid flight log signature format.");
-            }
-
-            var dateString = parts[0];
-            var date = DateTime.ParseExact(dateString, "ddMMyyyy", CultureInfo.InvariantCulture);
-
-            return new FlightLog
-            {
-                Date = date,
-                Departure = parts[1],
-                Arrival = parts[2],
-                FlightNumber = parts[3]
-            };
-        }
-    }
-    ```
-
 > [!NOTE]
 > A C# record type is a reference type that provides built-in functionality for encapsulating data. It is a reference type that is similar to a class, but it is immutable by default. It is a good choice for a simple data container.
 
 > [!NOTE]
 > GitHub Copilot is very good at understanding the context of the code. From the prompt we gave it, it understood that the `FlightLogSignature` is a string in a specific format and that it can be parsed into a `FlightLogSignature` model, to make the code more readable and maintainable.
 
-- In GitHub Copilot Chat, click the ellipses `...` and select `Insert into New File` for the suggested `FlightLog` record as `WrightBrothersApi/Models/FlightLog.cs`.
+- Review the updates in the file editor.
 
-<img src="../../Images/Screenshot-Flight-FlightLogSignature.png" width="800">
+#### <span style="color:red">Todo! Screenshot Update Needed</span>
+<img src="../../Images/Screenshot-TBD.png" width="600">
 
-> [!NOTE]
-> GitHub Copilot has many quick actions that can be used to speed up the development process. In this case, it created a new file based on the code suggestions.
+- You can choose to `Accept` the changes in the file editor or the `Working Set` window.
 
-- Copilot will add the code to a new empty file, but must be saved.
+- Copilot create a new class `FlightLog` and updated the `Flight` model.
 
-- Save the file by clicking pressing `Ctrl + S` or `Cmd + S`.
+- Click `Accept` to save the changes, then click `Done` in the `Copilot Edits` window to complete this task.
 
-- Navigate to folder `/WrightBrothersApi/Models` and save the file as `FlightLog.cs`.
+- If Copilot didn't suggest the code above, then update the code manually as follows:
 
-- Now, let's add the new `FlightLog` property to the `Flight` model.
+<Br>
 
-- Open the `Models/Flight.cs` file.
+<details>
+<summary>Click for Solution - FlightLog</summary>
 
-- Add the `FlightLog` property to the `Flight` model, by typing `public Fli`
-
-    ```csharp
-    public class Flight
+```csharp
+public record FlightLog(DateTime Date, string Origin, string Destination, string FlightNumber)
+{
+    public static FlightLog Parse(string flightLogSignature)
     {
-        // Other properties
-        // ...
+        var parts = flightLogSignature.Split('-');
+        if (parts.Length != 5)
+        {
+            throw new ArgumentException("Invalid flight log signature format.");
+        }
 
-        // Existing property
-        public string FlightLogSignature { get; set; }
+        var date = DateTime.ParseExact(parts[0], "ddMMyyyy", null);
+        var origin = parts[1];
+        var destination = parts[2];
+        var flightNumber = parts[3];
 
-        // New property
-        public Fli <---- Place cursor here
+        return new FlightLog(date, origin, destination, flightNumber);
     }
-    ```
+}
+```
+</details>
 
-- Copilot will suggest the following code:
+<Br>
+
+<details>
+<summary>Click for Solution - Flight</summary>
 
     ```csharp
     public class Flight
@@ -580,26 +580,7 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
         public FlightLog FlightLog => FlightLog.Parse(FlightLogSignature);
     }
     ```
-
-- Press `Tab` to accept the suggestion, then press `Enter` to add the new property.
-
-- If Copilot didn't suggest the code above, then update the code manually as follows:
-
-    ```csharp
-    public class Flight
-    {
-        // Other properties
-
-        // New property
-        public FlightLog FlightLog
-        {
-            get
-            {
-                return FlightLog.Parse(FlightLogSignature);
-            }
-        }
-    }
-    ```
+</details>
 
 > [!NOTE]
 > Copilot used the newly created `FlightLog.cs` file in in its context and suggested the `FlightLog.Parse` method.
@@ -614,7 +595,7 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
 > [!NOTE]
 > If you encounter an error message like `Project file does not exist.` or `Couldn't find a project to run.`, it's likely that you're executing the command from an incorrect directory. To resolve this, navigate to the correct directory using the command `cd ./WrightBrothersApi`. If you need to move one level up in the directory structure, use the command `cd ..`. The corrcect directory is the one that contains the `WrightBrothersApi.csproj` file.
 
-- Open `WrightBrothersApi/Examples/Flights.http` file in the Visual Studio code IDE and POST a new flight.
+- Open the `WrightBrothersApi/Examples/Flights.http` file and POST a new flight.
 
 <img src="../../Images/Screenshot-Http-Flights.png" width="800">
 
