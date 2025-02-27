@@ -334,7 +334,7 @@ public class FlightsController : ControllerBase
 > [!NOTE]
 > Note that the `UpdateFlightStatus` method has a high code complexity rating of 10+, calculated by the [Cyclomatic Complexity metric](https://en.wikipedia.org/wiki/Cyclomatic_complexity). This is a good candidate for refactoring.
 
-- Select all the contents of the `UpdateFlightStatus` method.
+- Select all the contents of the `UpdateFlightStatus()` method.
 
 - Open GitHub Copilot Chat, click **+** to clear prompt history.
 
@@ -349,18 +349,49 @@ public class FlightsController : ControllerBase
 
 - Let's go ahead and refactor the code to make it more readable and maintainable.
 
-- With the code still selected, ask the following question:
+- Why? Refactoring the UpdateFlightStatus method is important because it improves code clarity and maintainability by isolating business logic, making the system easier to update and debug.
 
-  ```
-  Refactor UpdateFlightStatus method to make it more readable and maintainable.
-  ```
+- Open GitHub Copilot `Edits` (Ctrl+Shift+I) (icon with + on it next to Copilot Chat), then click `+` for `New Edit Session`.
+
+- Close the `FlightsController.cs` file.
+
+- Add the following files to the `Working Set` near the bottom of Copilot Edits window.
+
+- Click the `+ Add files` button, then select these:
+    - `Flights.cs`
+    - `FlightsController.cs`
+
+> [!NOTE]
+> You can multi-select these files from the file explorer by holding the `Ctrl` down and `Left-Clicking` on each file. Then simply drag-n-drop them into Copilot Edits working set window.
+
+- Copy/Paste the following in the Copilot Edits Chat window:
+
+    ```md
+    Refactor the UpdateFlightStatus method in FlightsController.cs to improve readability and maintainability by moving status validation logic to a new method called StatusValidation in the models folder.
+
+    ## Extract Status Validation Logic
+    Move the switch statement logic that checks flight status transitions to a new method, CanUpdateStatus(FlightStatus newStatus), inside the StatusValidation method. This method should return a boolean indicating whether the transition is valid and, if invalid, a reason.
+
+    ## Simplify Controller Logic
+    Modify UpdateFlightStatus in FlightsController.cs to call CanUpdateStatus(). If valid, update the status and return Ok(). If invalid, return BadRequest() with the appropriate message.
+
+    ## Improve Readability & Maintainability
+    Ensure the refactored code follows the Single Responsibility Principle, keeping the controller focused on handling requests while delegating business logic to the Flight model.
+    ```
+- Submit the prompt by pressing Enter.
+
+- Copilot will update the `Flights` and `FlightsController` class.
+
+- Review the updates in the file editor.
 
 <img src="../../Images/Screenshot-UpdateFlightStatus-Refactor.png" width="800">
 
-> [!NOTE]
-> GitHub Copilot Chat understands `the selected code`. It will use the selected code in your editor to generate the refactoring suggestions.
+- You can choose to `Keep` or `Discard` the changes in the file editor or the `Working Set` window.
 
-- GitHub Copilot Chat suggests a code improvement to extract some of the complex code to their own methods to make the code more readible and maintainable:
+- Click `Accept` to save the changes, then click `Done` in the `Copilot Edits` window to complete this task.
+
+> [!NOTE]
+> This refactoring improves the readability and maintainability of the `UpdateFlightStatus` method by delegating the status validation logic to the `Flight` model. This keeps the controller focused on handling requests while the business logic is encapsulated within the model.
 
 <Br>
 
@@ -372,73 +403,21 @@ public class FlightsController : ControllerBase
 public ActionResult UpdateFlightStatus(int id, FlightStatus newStatus)
 {
     var flight = Flights.Find(f => f.Id == id);
-    if (flight == null)
+    if (flight != null)
+    {
+        var (isValid, reason) = flight.CanUpdateStatus(newStatus);
+        if (!isValid)
+        {
+            return BadRequest(reason);
+        }
+
+        flight.Status = newStatus;
+        return Ok($"Flight status updated to {newStatus}.");
+    }
+    else
     {
         return NotFound("Flight not found.");
     }
-
-    var validationResult = ValidateStatusChange(flight, newStatus);
-    if (validationResult != null)
-    {
-        return validationResult;
-    }
-
-    flight.Status = newStatus;
-    return Ok($"Flight status updated to {newStatus}.");
-}
-
-private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
-{
-    switch (newStatus)
-    {
-        case FlightStatus.Boarding:
-            if (DateTime.Now > flight.DepartureTime)
-            {
-                return BadRequest("Cannot board, past departure time.");
-            }
-            break;
-
-        case FlightStatus.Departed:
-            if (flight.Status != FlightStatus.Boarding)
-            {
-                return BadRequest("Flight must be in 'Boarding' status before it can be 'Departed'.");
-            }
-            break;
-
-        case FlightStatus.InAir:
-            if (flight.Status != FlightStatus.Departed)
-            {
-                return BadRequest("Flight must be in 'Departed' status before it can be 'In Air'.");
-            }
-            break;
-
-        case FlightStatus.Landed:
-            if (flight.Status != FlightStatus.InAir)
-            {
-                return BadRequest("Flight must be in 'In Air' status before it can be 'Landed'.");
-            }
-            break;
-
-        case FlightStatus.Cancelled:
-            if (DateTime.Now > flight.DepartureTime)
-            {
-                return BadRequest("Cannot cancel, past departure time.");
-            }
-            break;
-
-        case FlightStatus.Delayed:
-            if (flight.Status == FlightStatus.Cancelled)
-            {
-                return BadRequest("Cannot delay, flight is cancelled.");
-            }
-            break;
-
-        default:
-            // Handle other statuses or unknown status
-            return BadRequest("Unknown or unsupported flight status.");
-    }
-
-    return null;
 }
 ```
 
@@ -470,6 +449,8 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
 
 - Open GitHub Copilot `Edits` (Ctrl+Shift+I) (icon with + on it next to Copilot Chat), then click `+` for `New Edit Session`.
 
+- Close the `Flight.cs` file.
+
 - Add the following files to the `Working Set` near the bottom of Copilot Edits window.
 
 - Click the `+ Add files` button, then select these:
@@ -477,7 +458,7 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
     - `FlightsController.cs`
 
 > [!NOTE]
-> You can multiple select these files from the file explorer by holding the `Ctrl` down and clicking on each file. Then simply drag-n-drop them into the `Edit with Copilot` window.
+> You can multi-select these files from the file explorer by holding the `Ctrl` down and `Left-Clicking` on each file. Then simply drag-n-drop them into Copilot Edits working set window.
 
 - Copy/Paste the following in the Copilot Edits Chat window:
 
@@ -524,12 +505,11 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
 
 - Review the updates in the file editor.
 
-#### <span style="color:red">Todo! Screenshot Update Needed</span>
-<img src="../../Images/Screenshot-TBD.png" width="600">
+<img src="../../Images/Screenshot-Parse-FlightLog.png" width="800">
 
-- You can choose to `Accept` the changes in the file editor or the `Working Set` window.
+- You can choose to `Accept` or `Discard` the changes in the file editor or the `Working Set` window.
 
-- Copilot create a new class `FlightLog` and updated the `Flight` model.
+- Copilot created a new class `FlightLog` file and updated the `Flight` model with the getter property.
 
 - Click `Accept` to save the changes, then click `Done` in the `Copilot Edits` window to complete this task.
 
@@ -541,22 +521,29 @@ private ActionResult ValidateStatusChange(Flight flight, FlightStatus newStatus)
 <summary>Click for Solution - FlightLog</summary>
 
 ```csharp
-public record FlightLog(DateTime Date, string Origin, string Destination, string FlightNumber)
+public record FlightLog(DateTime Date, string Departure, string Arrival, string FlightNumber)
 {
     public static FlightLog Parse(string flightLogSignature)
     {
-        var parts = flightLogSignature.Split('-');
-        if (parts.Length != 5)
+        try
         {
-            throw new ArgumentException("Invalid flight log signature format.");
+            var parts = flightLogSignature.Split('-');
+            if (parts.Length != 4)
+            {
+                throw new FormatException("FlightLogSignature must consist of exactly four parts separated by '-'.");
+            }
+
+            var date = DateTime.ParseExact(parts[0], "ddMMyyyy", null);
+            var departure = parts[1];
+            var arrival = parts[2];
+            var flightNumber = parts[3];
+
+            return new FlightLog(date, departure, arrival, flightNumber);
         }
-
-        var date = DateTime.ParseExact(parts[0], "ddMMyyyy", null);
-        var origin = parts[1];
-        var destination = parts[2];
-        var flightNumber = parts[3];
-
-        return new FlightLog(date, origin, destination, flightNumber);
+        catch (Exception ex)
+        {
+            throw new ArgumentException("Invalid FlightLogSignature format.", ex);
+        }
     }
 }
 ```
@@ -583,7 +570,7 @@ public record FlightLog(DateTime Date, string Origin, string Destination, string
 </details>
 
 > [!NOTE]
-> Copilot used the newly created `FlightLog.cs` file in in its context and suggested the `FlightLog.Parse` method.
+> Copilot used the newly created `FlightLog.cs` file in in its context and suggested the `FlightLog.Parse()` method.
 
 - Now, run the app and test the new functionality.
 
@@ -657,10 +644,23 @@ public record FlightLog(DateTime Date, string Origin, string Destination, string
 
 - Let's prompt engineer Copilot to generate a solution for the `AerobaticSequenceSignature` property.
 
-- Open GitHub Copilot Chat, click `+` to clear prompt history, then ask the question:
+- Open GitHub Copilot `Edits` (Ctrl+Shift+I) (icon with + on it next to Copilot Chat), then click `+` for `New Edit Session`.
 
-    ```
-    Parse a AerobaticSequenceSignature property into a c# model.
+- Close the `Flight.cs` file.
+
+- Add the following files to the `Working Set` near the bottom of Copilot Edits window.
+
+- Click the `+ Add files` button, then select these:
+    - `Flights.cs`
+    - `FlightsController.cs`
+
+> [!NOTE]
+> You can multi-select these files from the file explorer by holding the `Ctrl` down and `Left-Clicking` on each file. Then simply drag-n-drop them into Copilot Edits working set window.
+
+- Copy/Paste the following in the Copilot Edits Chat window:
+
+    ```md
+    Create a new C# model for a AerobaticSequenceSignature property.
 
     ## AerobaticSequence Examples
     - L4B-H2C-R3A-S1D-T2E
@@ -690,15 +690,25 @@ public record FlightLog(DateTime Date, string Origin, string Destination, string
     Total: 22
 
     ## Technical Requirements
-    - Create a AerobaticSequence class with a list of Maneuvers and a difficulty property
-    - Add the Maneuver class inside the AerobaticSequence class
-    - Use static Parse method to parse the AerobaticSequenceSignature
-    - Parse the signature with a Regex
-    - include usings at the top of the file
-    - Round the difficulty result to 2 decimal places
-
-    Let's think step by step.
+    - Create a new file in the existing models folder for AerobaticSequence class with a list of Maneuvers and a difficulty property.
+    - Add the Maneuver class inside the AerobaticSequence class.
+    - Use static Parse method to parse the AerobaticSequenceSignature.
+    - Parse the signature with a Regex.
+    - Include usings at the top of the file.
+    - Round the difficulty result to 2 decimal places.
+    - Add the AerobaticSequence read-only property with only a getter to the existing Flight class.
     ```
+- Submit the prompt by pressing Enter.
+
+- Copilot will update the `Flights` and create a `AerobaticSequence` class.
+
+- Review the updates in the file editor.
+
+<img src="../../Images/Screenshot-AerobaticSequence-Parse.png" width="800">
+
+- You can choose to `Keep` or `Discard` the changes in the file editor or the `Working Set` window.
+
+- Click `Accept` to save the changes, then click `Done` in the `Copilot Edits` window to complete this task.
 
 > [!IMPORTANT]
 > Sometimes the Copilot doens't complete the output of the prompt. Make sure to try the prompt again if you are not successful the first time.
@@ -730,6 +740,8 @@ public record FlightLog(DateTime Date, string Origin, string Destination, string
 
 - Copilot will also suggest a `AerobaticSequence` class with an implementation that looks like this. The result varies, but the output should be a `AerobaticSequence` class with a `Maneuver` class, a `Parse` method and a `CalculateDifficulty` method.
 
+- If Copilot didn't suggest the code properly, then update the code manually as follows:
+
 <Br>
 
 <details>
@@ -738,129 +750,113 @@ public record FlightLog(DateTime Date, string Origin, string Destination, string
 ```csharp
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 
-public class AerobaticSequence
+namespace WrightBrothersApi.Models
 {
-    public List<Maneuver> Maneuvers { get; set; }
-    public double Difficulty { get; set; }
-
-    public class Maneuver
+    public class AerobaticSequence
     {
-        public string Type { get; set; }
-        public int RepeatCount { get; set; }
-        public char Difficulty { get; set; }
-    }
+        public List<Maneuver> Maneuvers { get; private set; }
+        public double Difficulty => CalculateDifficulty();
 
-    public static AerobaticSequence Parse(string signature)
-    {
-        var sequence = new AerobaticSequence { Maneuvers = new List<Maneuver>() };
-        var maneuvers = Regex.Matches(signature, @"([LHRTS])(\d+)([A-F])");
-
-        foreach (Match maneuver in maneuvers)
+        public AerobaticSequence(List<Maneuver> maneuvers)
         {
-            sequence.Maneuvers.Add(new Maneuver
-            {
-                Type = maneuver.Groups[1].Value,
-                RepeatCount = int.Parse(maneuver.Groups[2].Value),
-                Difficulty = maneuver.Groups[3].Value[0]
-            });
+            Maneuvers = maneuvers;
         }
 
-        sequence.CalculateDifficulty();
-        return sequence;
-    }
-
-    private void CalculateDifficulty()
-    {
-        double difficulty = 0;
-        string previousManeuver = null;
-
-        foreach (var maneuver in Maneuvers)
+        public static AerobaticSequence Parse(string signature)
         {
-            double multiplier = 1.0 + (maneuver.Difficulty - 'A') * 0.2;
-            if (previousManeuver == "L" && maneuver.Type == "R") multiplier *= 2;
-            if (previousManeuver == "T" && maneuver.Type == "S") multiplier *= 3;
+            var maneuvers = new List<Maneuver>();
+            var regex = new Regex(@"([LHRST])(\d)([A-E])");
+            var matches = regex.Matches(signature);
 
-            difficulty += maneuver.RepeatCount * multiplier;
-            previousManeuver = maneuver.Type;
+            foreach (Match match in matches)
+            {
+                var type = match.Groups[1].Value;
+                var count = int.Parse(match.Groups[2].Value);
+                var difficulty = match.Groups[3].Value;
+
+                maneuvers.Add(new Maneuver(type, count, difficulty));
+            }
+
+            return new AerobaticSequence(maneuvers);
         }
 
-        Difficulty = Math.Round(difficulty, 2);
-    }
-}
-```
-<details>
-
-- In GitHub Copilot Chat, click the ellipses `...` and select `Insert into New File` for the suggested `AerobaticSequence` class as `WrightBrothersApi/Models/AerobaticSequence.cs`.
-
-<img src="../../Images/Screenshot-Flight-AerobaticsSequenceSignature.png" width="800">
-
-- Copilot will add the code to a new empty file, but must be saved.
-
-- Save the file by clicking pressing `Ctrl + S` or `Cmd + S`.
-
-- Navigate to folder `/WrightBrothersApi/Models` and save the file as `AerobaticSequence.cs`.
-
-> [!NOTE]
-> The required file already exists. If your output does not align with the provided example, feel free to utilize this existing file.
-
-- Now, let's add the new `AerobaticSequence` property to the `Flight` model.
-
-- Open the `Models/Flight.cs` file.
-
-- Add the `AerobaticSequence` property to the `Flight` model.
-
-    ```csharp
-    public class Flight
-    {
-        // Other properties
-        // ...
-
-        // Existing property
-        public string AerobaticSequenceSignature { get; set; }
-
-        // New property
-        public Aero<---- Place cursor here
-    }
-    ```
-
-- Copilot will suggest the following code:
-
-    ```csharp
-    public class Flight
-    {
-        // Other properties
-        // ...
-
-        // Existing property
-        public string AerobaticSequenceSignature { get; set; }
-
-        // New property
-        public AerobaticSequence AerobaticSequence
+        private double CalculateDifficulty()
         {
-            get
+            double totalDifficulty = 0.0;
+            for (int i = 0; i < Maneuvers.Count; i++)
             {
-                return AerobaticSequence.Parse(AerobaticSequenceSignature);
+                var maneuver = Maneuvers[i];
+                double multiplier = maneuver.DifficultyMultiplier;
+
+                if (i > 0)
+                {
+                    var previousManeuver = Maneuvers[i - 1];
+                    if (maneuver.Type == "R" && previousManeuver.Type == "L")
+                    {
+                        multiplier *= 2;
+                    }
+                    else if (maneuver.Type == "S" && previousManeuver.Type == "T")
+                    {
+                        multiplier *= 3;
+                    }
+                }
+
+                totalDifficulty += maneuver.Count * multiplier;
+            }
+
+            return Math.Round(totalDifficulty, 2);
+        }
+
+        public class Maneuver
+        {
+            public string Type { get; }
+            public int Count { get; }
+            public string Difficulty { get; }
+            public double DifficultyMultiplier => Difficulty switch
+            {
+                "A" => 1.0,
+                "B" => 1.2,
+                "C" => 1.4,
+                "D" => 1.6,
+                "E" => 1.8,
+                _ => 1.0
+            };
+
+            public Maneuver(string type, int count, string difficulty)
+            {
+                Type = type;
+                Count = count;
+                Difficulty = difficulty;
             }
         }
     }
-    ```
+```
+<details>
 
-- Press `Tab` to accept the suggestion, then press `Enter` to add the new property.
+<Br>
 
-- If Copilot didn't suggest the code above, then update the code manually as follows:
+<details>
+<summary>Click for Solution - Flight</summary>
 
-    ```csharp
+```csharp
+public class Flight
+{
+    // Other properties
+    // ...
+
+    // Existing property
+    public string AerobaticSequenceSignature { get; set; }
+
     // New property
-    public AerobaticSequence AerobaticSequence
-    {
-        get
-        {
-            return AerobaticSequence.Parse(AerobaticSequenceSignature);
-        }
-    }
-    ```
+    public AerobaticSequence AerobaticSequence => AerobaticSequence.Parse(AerobaticSequenceSignature);
+}
+```
+</details>
+
+<Br>
 
 - Now, run the app again and test the new functionality.
 

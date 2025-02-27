@@ -303,7 +303,7 @@ public class PlanesControllerTests
 
 - Review the updates in the file editor.
 
-- You can choose to `Accept` the changes in the file editor or the `Working Set` window.
+- You can choose to `Accept` or `Discard` the changes in the file editor or the `Working Set` window.
 
 - Click `Accept` to save the changes, then click `Done` in the `Copilot Edits` window to complete this task.
 
@@ -340,7 +340,7 @@ public class PlanesControllerTests
     ```
 - Review the updates in the file editor.
 
-- You can choose to `Accept` the changes in the file editor or the `Working Set` window.
+- You can choose to `Accept` or `Discard` the changes in the file editor or the `Working Set` window.
 
 - Click `Accept` to save the changes, then click `Done` in the `Copilot Edits` window to complete this task.
 
@@ -366,7 +366,7 @@ public class PlanesControllerTests
 
 - Open the `WrightBrothersApi` project in Visual Studio Code.
 
-- Open GitHub Copilot `Edits` (Ctrl+Shift+I) (icon with + on it next to Copilot Chat), then click `+` for `New Edit Session`.
+- Open GitHub Copilot `Edits` (Ctrl+Shift+I) (icon with a + next to Copilot Chat), then click `+` to start a `New Edit Session`.
 
 - Add the following files to the `Working Set` near the bottom of Copilot Edits window.
 
@@ -401,7 +401,7 @@ public class PlanesControllerTests
 
 - Review the updates in the file editor.
 
-- You can choose to `Accept` the changes in the file editor or the `Working Set` window.
+- You can choose to `Keep` or `Discard` the changes in the file editor or the `Working Set` window.
 
 - Click `Accept` to save the changes, then click `Done` in the `Copilot Edits` window to complete this task.
 
@@ -459,7 +459,7 @@ In this step, we will refactor the AirfieldController and unit tests to improve 
 
 - Review the updates in the file editor.
 
-- You can choose to `Accept` the changes in the file editor or the `Working Set` window.
+- You can choose to `Accept` or `Discard` the changes in the file editor or the `Working Set` window.
 
 - Click `Accept` to save the changes, then click `Done` in the `Copilot Edits` window to complete this task.
 
