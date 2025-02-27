@@ -139,15 +139,15 @@ public class PlanesController : ControllerBase
 
 ### Step 3: Test Flight - Autocompletion and Suggestions
 
-- Place your cursor at the end of the `Post` method, after the `}` , press `Enter` twice.
+- Place your cursor at the end of the `HttpPost` method, after the `}` , press `Enter` twice.
 
 ```csharp
 public class PlanesController : ControllerBase
 {
     /* Rest of the methods */
 
-    [HttpPost]
-    public ActionResult<Plane> Post(Plane plane)
+    [HttpPost("setup")]
+    public ActionResult SetupPlanesData(List<Plane> planes)
     {
         // Method body
     }
@@ -191,6 +191,9 @@ public class PlanesController : ControllerBase
     }
     // * Suggested by Copilot
     ```
+
+> [!WARNING]  
+> Copilot is powered by AI, so mistakes are possible.  Try opening the GitHub Copilot Suggestions window by pressing `Ctrl+Enter`. This view will show up to 10 suggestions for you to choose from.
 
 > [!NOTE]
 > The reason GitHub Copilot suggests the `[HttpPut]` method is because it understand that the `PlanesController.cs` class is a REST API controller and that the `[HttpPut]` is currently missing. The `[HttpPut]` method is the next logical step in the REST API for updating a resource.
@@ -244,7 +247,11 @@ public class PlanesController : ControllerBase
 - After the `SetupPlanesData()` method, put your cursor after the last `}`.
 place your cursor at the end of the `SetupPlanesData()` method, after the `}`, press `Enter` twice.
 
-- Press `Ctrl + I` and type `// Create a method called SearchByName to search planes by name` in the text block, press `Enter`.
+- Press `Ctrl + I` and type `Create a method called SearchByName to search planes by name` in the text block, press `Enter`.
+
+```
+Create a method called SearchByName to search planes by name.
+```
 
     ```csharp
     public class PlanesController : ControllerBase
