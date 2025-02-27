@@ -200,7 +200,7 @@ Break down complex logic step-by-step, adding inline comments for clarity and be
 #### Scenario 5: Meta Prompt for Custom Documentation Needs
 Optimize Copilot prompts to generate clean, consistent documentation across large projects.
 
-- Select all content of the method **`GetById()`** in `PlanesController.cs`.
+- Close any files you have open.
 
 - Open **GitHub Copilot Chat**.
 
@@ -386,7 +386,7 @@ public class FlightsController : ControllerBase
 
 <img src="../../Images/Screenshot-UpdateFlightStatus-Refactor.png" width="800">
 
-- You can choose to `Keep` or `Discard` the changes in the file editor or the `Working Set` window.
+- You can choose to `Accept` or `Discard` the changes in the file editor or the `Working Set` window.
 
 - Click `Accept` to save the changes, then click `Done` in the `Copilot Edits` window to complete this task.
 
@@ -569,6 +569,8 @@ public record FlightLog(DateTime Date, string Departure, string Arrival, string 
     ```
 </details>
 
+<Br>
+
 > [!NOTE]
 > Copilot used the newly created `FlightLog.cs` file in in its context and suggested the `FlightLog.Parse()` method.
 
@@ -697,6 +699,8 @@ public record FlightLog(DateTime Date, string Departure, string Arrival, string 
     - Include usings at the top of the file.
     - Round the difficulty result to 2 decimal places.
     - Add the AerobaticSequence read-only property with only a getter to the existing Flight class.
+
+    Let's think step by step
     ```
 - Submit the prompt by pressing Enter.
 
@@ -704,9 +708,9 @@ public record FlightLog(DateTime Date, string Departure, string Arrival, string 
 
 - Review the updates in the file editor.
 
-<img src="../../Images/Screenshot-AerobaticSequence-Parse.png" width="800">
+<img src="../../Images/Screenshot-Parse-AerobaticSequence.png" width="800">
 
-- You can choose to `Keep` or `Discard` the changes in the file editor or the `Working Set` window.
+- You can choose to `Accept` or `Discard` the changes in the file editor or the `Working Set` window.
 
 - Click `Accept` to save the changes, then click `Done` in the `Copilot Edits` window to complete this task.
 
@@ -724,16 +728,14 @@ public record FlightLog(DateTime Date, string Departure, string Arrival, string 
 
 - Copilot will output something that looks as follows after inserting the prompt above in Copilot Chat:
 
-    ```
-    1. Create a Maneuver class with properties for the type of maneuver, repeat count, and difficulty.
-    2. Create an AerobaticSequence class with a list of Maneuver objects and a Difficulty property.
-    3. Inside the AerobaticSequence class, create a static Parse method that takes a string signature as input.
-    4. In the Parse method, use a regular expression to split the signature into individual maneuvers.
-    5. For each maneuver, extract the type, repeat count, and difficulty using the regular expression.
-    6. Create a new Maneuver object with the extracted values and add it to the list of maneuvers in the AerobaticSequence object.
-    7. After all maneuvers have been parsed, calculate the difficulty of the sequence according to the provided rules.
-    8. Round the difficulty to two decimal places and assign it to the Difficulty property of the AerobaticSequence object.
-    9. Return the AerobaticSequence object.
+    ```md
+    Step-by-Step Solution:
+    - Create a new file AerobaticSequence.cs in the Models folder.
+    - Define the AerobaticSequence class with a list of Maneuver and a Difficulty property.
+    - Define the Maneuver class inside the AerobaticSequence class.
+    - Implement a static Parse method to parse the AerobaticSequenceSignature using a Regex.
+    - Add a method to calculate the difficulty of the aerobatic sequence.
+    - Add a read-only AerobaticSequence property to the existing Flight class.
     ```
 
 - This is the output of the Chain-of-Thought reasoning. It is a step by step guide to create the `AerobaticSequence` class. Copilot is thinking step by step, like a human would do.
@@ -834,7 +836,7 @@ namespace WrightBrothersApi.Models
         }
     }
 ```
-<details>
+</details>
 
 <Br>
 
