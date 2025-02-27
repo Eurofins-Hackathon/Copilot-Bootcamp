@@ -21,7 +21,7 @@ This practical lab designed to teach participants frontend setup and management 
     - Step 3 - In-flight Correction - Centering a div.
     - Step 4 - Request for Extra Legroom - Spacing UI elements
     - Step 5 - Emergency Exit Lights - Color Contrast
-    - Step 6 - Notifying the Air Crew - Call to Action Buttons (Optional).
+    - Step 6 - Notifying the Air Crew - Call to Action Buttons.
     - Step 7 - Check for WCAG Guidelines (Optional)
 
 ### Step 1: Sunset above the Clouds - Setup and Run the Frontend
@@ -129,7 +129,7 @@ This practical lab designed to teach participants frontend setup and management 
 - Ask Copilot Chat why the UI is not centered:
 
     ```md
-    #selection How can I center the banner title in the middle of the banner?
+    How can I center the banner title in the middle of the banner?
     ```
 - Copilot will provide you with a solution to center the banner title.
 
@@ -175,10 +175,10 @@ This practical lab designed to teach participants frontend setup and management 
 
 - Select all the contents of `Banner.tsx` file.
 
-- Ask Copilot Chat to make the content of `#selection` more spacious:
+- Ask Copilot Chat to make the content more spacious:
 
     ```md
-    The content of #selection feels very cramped. How to make it a lot more spacious?
+    The content feels very cramped. How can I make it a lot more spacious?
     ```
 
 - Submit the prompt to GitHub Copilot.
@@ -277,7 +277,7 @@ export default Banner;
 - Ask Copilot Chat what color you should use for the subtitle:
 
     ```md
-    The subtitle in the banner at #selection is hard to read due to its color. Can you suggest a color which would better fit the existing color pallette while still improving readability?
+    The subtitle in the banner is hard to read due to its color. Can you suggest a color which would better fit the existing color pallette while still improving readability?
     ```
 
 - Now submit the prompt to GitHub Copilot.
@@ -400,7 +400,7 @@ These guidelines ensure web content is accessible to people with various disabil
 - Ask Copilot Chat if the UI is WCAG compliant.
 
     ```md
-    #selection Does the UI meet the specified WCAG guidelines?
+    Does the UI meet the specified WCAG guidelines?
     ```
 
 - Copilot will provide you with guidance and suggestions on how to make the UI WCAG compliant.
