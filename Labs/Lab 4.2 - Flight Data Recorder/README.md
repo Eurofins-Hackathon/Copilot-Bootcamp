@@ -398,6 +398,7 @@ BEGIN
 END;
 GO
 ```
+</details>
 
 ### **Step 5 - Navigating Flight Details**  
 Develop **stored procedures**, that retrieves **comprehensive flight information**. This ensures smooth **data retrieval**, much like a well-executed flight plan.
