@@ -17,8 +17,8 @@ This lab exercise is a focused session that instructs participants on integratin
 
     ### Journey
     - Step 1: What's the WiFi Password - Simple backend integration
-    - Step 2: Unstable Internet - State Management through React-Query.
-    - Step 3: Advanced backend integration with Open API (Optional).
+    - Step 2: Unstable Internet - State Management through React-Query (Optional).
+    ~~- Step 3: Advanced backend integration with Open API (Optional).~~
 
 ### Step 1: What's the WiFi Password - Simple backend integration
 
@@ -32,9 +32,9 @@ This lab exercise is a focused session that instructs participants on integratin
 
 - Type the following in the chat window:
 
-    ```
-     #selection Get the list of planes from an API endpoint http://localhost:1903/planes/ using axios
-    ```
+```
+Get the list of planes from an API endpoint http://localhost:1903/planes/ using axios.
+```
 
 - Press `Enter` to submit the question
 
@@ -106,7 +106,7 @@ cd WrightBrothersFrontend/
 
 - Install `axios` if you haven't already.
 
-Click "Insert into Terminal" for command npm install axios
+Click `Insert into Terminal` for command npm install axios
 
 ```bash
 npm install axios
@@ -118,8 +118,6 @@ npm install axios
 npm run frontend-and-backend
 ```
 
-- Click `Open in Browser` or navigate to [http://localhost:5173/](http://localhost:5173/)
-
 > [!NOTE]
 > When using a Codespace, the URL will be different from your local setup. The URL is constructed using the format `localhost:5173`. Please replace `localhost` with the name of your Codespace. Additionally, to make the port accessible, navigate to the Ports tab, right-click on the desired port, and change its visibility to `Public`.
 
@@ -128,6 +126,11 @@ npm run frontend-and-backend
     - Click the `PORTS` button (near bottom center).
 
     - With your cursor over port 1903, `Right-Click`, select `Port Visability`, then click `Public`.
+
+    > [!NOTE]
+    > Making port 1903 public is necessary to allow external access to the service running on that port. In this context, the service provides a list of planes, and making the port public ensures that users can access this information from outside the local development environment (a Codespace).
+
+- Click `Open in Browser` or navigate to [http://localhost:5173/](http://localhost:5173/)
 
 - Refresh the browser.
 

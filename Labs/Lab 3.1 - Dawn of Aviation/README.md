@@ -21,7 +21,7 @@ This practical lab designed to teach participants frontend setup and management 
     - Step 3 - In-flight Correction - Centering a div.
     - Step 4 - Request for Extra Legroom - Spacing UI elements
     - Step 5 - Emergency Exit Lights - Color Contrast
-    - Step 6 - Notifying the Air Crew - Call to Action Buttons (Optional).
+    - Step 6 - Notifying the Air Crew - Call to Action Buttons.
     - Step 7 - Check for WCAG Guidelines (Optional)
 
 ### Step 1: Sunset above the Clouds - Setup and Run the Frontend
@@ -129,7 +129,7 @@ This practical lab designed to teach participants frontend setup and management 
 - Ask Copilot Chat why the UI is not centered:
 
     ```md
-    #selection How can I center the banner title in the middle of the banner?
+    How can I center the title "Dawn of Aviation" horizontally in the middle of the banner? Make sure the parent container is set to center its content.
     ```
 - Copilot will provide you with a solution to center the banner title.
 
@@ -175,10 +175,10 @@ This practical lab designed to teach participants frontend setup and management 
 
 - Select all the contents of `Banner.tsx` file.
 
-- Ask Copilot Chat to make the content of `#selection` more spacious:
+- Ask Copilot Chat to make the content more spacious:
 
     ```md
-    The content of #selection feels very cramped. How to make it a lot more spacious?
+    The content of feels very cramped. Make it more vertically spacious by 10%.
     ```
 
 - Submit the prompt to GitHub Copilot.
@@ -277,7 +277,7 @@ export default Banner;
 - Ask Copilot Chat what color you should use for the subtitle:
 
     ```md
-    The subtitle in the banner at #selection is hard to read due to its color. Can you suggest a color which would better fit the existing color pallette while still improving readability?
+    The subtitle in the banner at is hard to read due to its color. Suggest a color which would better fit the existing color palette while still improving readability.
     ```
 
 - Now submit the prompt to GitHub Copilot.
@@ -322,7 +322,7 @@ flights.
 - Ask Copilot Chat how to add call to action buttons to the banner:
 
     ```md
-   Create two call to action buttons in the banner at #selection. Place them below the subtitle and center them. The first button is primary and should have the text "Learn More" and the second button is secondary should have the text "Get Started". The buttons should match the design of the banner.
+   Create two call to action buttons in the banner. Place them below the subtitle and center them. The first button is primary and should have the text "Learn More" and the second button is secondary should have the text "Get Started". The buttons should match the design of the banner. Make sure the color of text is easy to read to fit the existing color palette while still improving readability.
     ```
 
 >[!NOTE]
@@ -400,7 +400,7 @@ These guidelines ensure web content is accessible to people with various disabil
 - Ask Copilot Chat if the UI is WCAG compliant.
 
     ```md
-    #selection Does the UI meet the specified WCAG guidelines?
+    Does the UI meet the specified WCAG guidelines?
     ```
 
 - Copilot will provide you with guidance and suggestions on how to make the UI WCAG compliant.

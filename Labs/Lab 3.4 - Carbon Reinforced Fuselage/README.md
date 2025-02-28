@@ -191,183 +191,123 @@ module.exports = {
   npm run test-ct
   ```
 
-- Open the `PlaneList.tsx` file in the `src/components` folder. This component is a list of planes that are displayed in the `HomePage.tsx` page.
-
 - We are going to add tests to the already existing `PlaneList.spec.tsx` file in the `src/components` folder.
 
-~~- Open GitHub Copilot Chat, then click `+` to clear prompt history.~~
-- Open GitHub Copilot **Edits** (icon with + on it), then click `+` for `New Edit Session`. 
+- Open GitHub Copilot `Edits` (Ctrl+Shift+I) (icon with + on it next to Copilot Chat), then click `+` for `New Edit Session`.
 
-~~- Select all the contents of `PlaneList.tsx` file.~~
+- Add the following files to the `Working Set` near the bottom of Copilot Edits window.
 
-- Type the following in the chat window:
+- Click the `+ Add files` button, then select these:
+    - `PlaneList.tsx`
+    - `PlaneList.spec.tsx`
+
+> [!NOTE]
+> You can multi-select these files from the file explorer by holding the `Ctrl` down and `Left-Clicking` on each file. Then simply drag-n-drop them into Copilot Edits working set window.
+
+- Copy/Paste the following in the Copilot Edits Chat window:
 
     ```
-    Create remaining tests for #file:PlaneList.tsx based on test file #file:PlaneList.spec.tsx
+    Create the remaining tests for #file:PlaneList.tsx based on test file #file:PlaneList.spec.tsx
     ```
-
-- For the first `#file`, select `PlaneList.tsx`. This is a hint to match the style of the form to the existing `<PlaneList />` component.
-
-- For the second `#file`, select `PlaneList.spec.tsx`. This is a hint to create tests in the `PlaneList.spec.tsx` file.
-
-- Press `Enter` to submit the question
-
-- GitHub Copilot will suggest additional tests to test all the functionality of the `PlaneList` component.
-
+  
 >[!NOTE]
-> The result is not always complete or does not always work. Retry the prompt if the result is rejected
+> If the result is incomplete or doesn't work, simply retry the prompt.
+
+<img src="../../Images/Screenshot-PlaneList.spec.png" width="600">
+
+- Press `Enter` to submit the prompt.
+
+- You can choose to `Accept` or `Discard` the changes in the file editor or the `Working Set` window.
+
+- Copilot used `PlaneList.tsx` to match the style of the form to the existing `<PlaneList />` component.
+
+- Then new tests were added to `PlaneList.spec.tsx`.
+
+- Click `Accept` to save the changes, then click `Done` in the `Copilot Edits` window to complete this task.
+
+- If Copilot didn't suggest the code above, then update the code manually as follows:
 
 <Br>
+
 <details>
 <summary>Click for Solution</summary>
 
-  ```tsx
-  test('renders without crashing', async ({ mount }) => {
-    await mount<HooksConfig>(<PlaneList />, {
-      hooksConfig: { routing: true },
-    });
-  });
+```tsx
+import { test, expect } from '@playwright/experimental-ct-react';
+import PlaneList from './PlaneList';
+import type { HooksConfig } from '../../playwright';
 
-  test('renders correct number of planes', async ({ page, mount }) => {
-    const planes = [
-      { id: 1, name: "Wright Flyer" },
-      { id: 2, name: "Wright Model A" },
-      { id: 3, name: "Wright Model B" },
-    ];
-
-    await mount<HooksConfig>(<PlaneList planes={planes} />, {
-      hooksConfig: { routing: true },
-    });
-
-    const liElements = await page.locator('li');
-    expect(await liElements.count()).toBe(planes.length);
-  });
-
-  test('displays correct plane names', async ({ page, mount }) => {
-    const planes = [
-      { id: 1, name: "Wright Flyer" },
-      { id: 2, name: "Wright Model A" },
-      { id: 3, name: "Wright Model B" },
-    ];
-
-    await mount<HooksConfig>(<PlaneList planes={planes} />, {
-      hooksConfig: { routing: true },
-    });
-
-    for (let i = 0; i < planes.length; i++) {
-      const h3Element = await page.locator('li h3').nth(i);
-      expect(await h3Element.textContent()).toBe(planes[i].name);
-    }
-  });
-
-  test('adds "flying" class to image when plane is clicked', async ({ page, mount }) => {
-    const planes = [
-      { id: 1, name: "Wright Flyer" },
-    ];
-
-    await mount<HooksConfig>(<PlaneList planes={planes} />, {
-      hooksConfig: { routing: true },
-    });
-
-    const liElement = page.locator('li').nth(0);
-    await liElement.click();
-
-    const imgElement = liElement.locator('img');
-    expect(imgElement).toHaveClass('flying');
-  });
-  ```
-</details>
-<Br>
-
-- Open the file `src/components/PlaneList.spec.tsx` and add the suggested tests to the `PlaneList.spec.tsx` file.
-
-
-<Br>
-<details>
-<summary>Click for Solution</summary>
-
-  ```tsx
-  import { test, expect } from '@playwright/experimental-ct-react';
-  import PlaneList from './PlaneList';
-  import type { HooksConfig } from '../../playwright';
-
-  test('should navigate when clicking on a plane', async ({ page, mount }) => {
-    const planes = [
-      { id: 1, name: "Wright Flyer" },
-      { id: 2, name: "Wright Model A" },
-      { id: 3, name: "Wright Model B" },
-    ];
-    
-    const component = await mount<HooksConfig>(<PlaneList planes={planes} />, {
-      hooksConfig: { routing: true },
-    });
-
-    await component.locator('li').nth(0).click();
-
-    await expect(page).toHaveURL('/planes/1', { timeout: 5000 });
-  });
-
+test('should navigate when clicking on a plane', async ({ page, mount }) => {
   const planes = [
     { id: 1, name: "Wright Flyer" },
     { id: 2, name: "Wright Model A" },
     { id: 3, name: "Wright Model B" },
   ];
 
-  test('renders without crashing', async ({ mount }) => {
-    await mount<HooksConfig>(<PlaneList planes={planes} />, {
-      hooksConfig: { routing: true },
-    });
+  const component = await mount<HooksConfig>(<PlaneList planes={planes} />, {
+    hooksConfig: { routing: true },
   });
 
-  test('renders correct number of planes', async ({ mount }) => {
-    const component = await mount<HooksConfig>(<PlaneList planes={planes} />, {
-      hooksConfig: { routing: true },
-    });
+  await component.locator('li').nth(0).click();
 
-    const planeItems = await component.locator('li');
-    expect(await planeItems.count()).toBe(planes.length);
+  await expect(page).toHaveURL('/planes/1', { timeout: 5000 });
+});
+
+test('should navigate when clicking on the second plane', async ({ page, mount }) => {
+  const planes = [
+    { id: 1, name: "Wright Flyer" },
+    { id: 2, name: "Wright Model A" },
+    { id: 3, name: "Wright Model B" },
+  ];
+
+  const component = await mount<HooksConfig>(<PlaneList planes={planes} />, {
+    hooksConfig: { routing: true },
   });
 
-  test('displays correct plane names', async ({ mount }) => {
-    const component = await mount<HooksConfig>(<PlaneList planes={planes} />, {
-      hooksConfig: { routing: true },
-    });
+  await component.locator('li').nth(1).click();
 
-    for (let i = 0; i < planes.length; i++) {
-      const planeName = await component.locator('h3').nth(i).textContent();
-      expect(planeName).toBe(planes[i].name);
-    }
+  await expect(page).toHaveURL('/planes/2', { timeout: 5000 });
+});
+
+test('should navigate when clicking on the third plane', async ({ page, mount }) => {
+  const planes = [
+    { id: 1, name: "Wright Flyer" },
+    { id: 2, name: "Wright Model A" },
+    { id: 3, name: "Wright Model B" },
+  ];
+
+  const component = await mount<HooksConfig>(<PlaneList planes={planes} />, {
+    hooksConfig: { routing: true },
   });
 
-  test('displays correct plane images', async ({ mount }) => {
-    const component = await mount<HooksConfig>(<PlaneList planes={planes} />, {
-      hooksConfig: { routing: true },
-    });
+  await component.locator('li').nth(2).click();
 
-    for (let i = 0; i < planes.length; i++) {
-      const planeImage = await component.locator('img').nth(i).getAttribute('src');
-      expect(planeImage).toBe('./wright-brothers-plane.png');
-    }
+  await expect(page).toHaveURL('/planes/3', { timeout: 5000 });
+});
+
+test('should add flying class to image when clicking on a plane', async ({ mount }) => {
+  const planes = [
+    { id: 1, name: "Wright Flyer" },
+    { id: 2, name: "Wright Model A" },
+    { id: 3, name: "Wright Model B" },
+  ];
+
+  const component = await mount<HooksConfig>(<PlaneList planes={planes} />, {
+    hooksConfig: { routing: true },
   });
 
-  test('navigates to correct URL when plane is clicked', async ({ page, mount }) => {
-    const component = await mount<HooksConfig>(<PlaneList planes={planes} />, {
-      hooksConfig: { routing: true },
-    });
+  const firstPlane = component.locator('li').nth(0);
+  await firstPlane.click();
 
-    for (let i = 0; i < planes.length; i++) {
-      await component.locator('li').nth(i).click();
-      await expect(page).toHaveURL(`/planes/${planes[i].id}`, { timeout: 5000 });
-    }
-  });
-  ```
-
+  const imgElement = firstPlane.locator('img');
+  await expect(imgElement).toHaveClass(/flying/);
+});
+```
 </details>
+
 <Br>
 
-- In the GitHub Copilot Edits window, click `Accept` to apply all the changes.
-
-- The created tests do not always compile. GitHub Copilot got you 95% of the way there, but you may need to make some adjustments to the code to make it work. You can also ask Copilot for help with this. Try `Fix using Copilot` or `Explain using Copilot` to get help with the code.
+- The created tests do not always compile. GitHub Copilot got you 90% of the way there, but you may need to make some adjustments to the code to make it work. You can also ask Copilot for help with this. Try `Fix using Copilot` or `Explain using Copilot` to get help with the code.
 
 - Now run the tests again but then with the UI open
 
@@ -513,14 +453,16 @@ module.exports = {
   npm run test-ct
   ```
 
- - If you haven't done so already, make port `1903` public instead of private to allow access to list of planes.
+  - If you haven't done so already, we need to make port `1903` public instead of private to allow access to list of planes.
 
     - Click the `PORTS` button (near bottom center).
 
     - With your cursor over port 1903, `Right-Click`, select `Port Visability`, then click `Public`.
 
-- Open the browser and navigate to your URL `/new-plane` or `http://localhost:5173/new-plane`.
+      > [!NOTE]
+      > Making port 1903 public is necessary to allow external access to the service running on that port. In this context, the service provides a list of planes, and making the port public ensures that users can access this information from outside the local development environment (a Codespace).
 
+- Open the browser and navigate to your URL `/new-plane`.
   - i.e. `https://super-duper-space-robot-4v6rvqwggx25xq7-5173.app.github.dev/new-plane`
 
 - Open GitHub Copilot Chat, then click `+` to clear prompt history.
@@ -528,19 +470,24 @@ module.exports = {
 - Type the following in the chat window:
 
   ```md
-  @workspace /new Playwright UI Tests
-
+  @workspace /new Playwright UI Tests
+  
+  ## Purpose
+  I want to create a new Playwright UI Test project to test the form at "/new-plane".
+  
   ## Test
   - Navigate to "/new-plane" and fill out the form through the "name" attribute: id, name, year, description, rangeInKm
-
+  
   ## Technical Requirements
-
   - UI mode
   - localhost:5173 is the base URL
   - Typescript
   - Include package.json
   - Use @playwright/test library
-
+  
+  ## Folder Structure
+  - Parent Folder: WrightBrothersFrontend/
+  
   Make a complete solution.
   ```
 
@@ -557,8 +504,6 @@ module.exports = {
 - GitHub Copilot will now open the new project in a new window.
 
 - Now stop the Frontend and API by pressing `Ctrl + C` in the terminal.
-
-~~- Open the terminal in the new project and install the project dependencies~~
 
 - Open the terminal and navigate to the `WrightBrothersFrontend/<new folder created>` directory.
 
