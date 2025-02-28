@@ -488,7 +488,7 @@ public ActionResult UpdateFlightStatus(int id, FlightStatus newStatus)
 
 - The prompt contains a few-shot prompting example of a `FlightLogSignature` and a few technical requirements.
 
-- Submit the prompt by pressing Enter.
+- Press `Enter` to submit the prompt.
 
 > [!NOTE]
 > Few-Shot prompting is a concept of prompt engineering. In the prompt you provide a demonstration of the solution. In this case we provide examples of the input and also requirements for the output. This is a good way to instruct Copilot to generate specific solutions.
