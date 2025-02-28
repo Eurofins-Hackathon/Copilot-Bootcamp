@@ -205,9 +205,9 @@ export default HomePage;
 >[!NOTE]
 > If the result is incomplete or doesn't work, simply retry the prompt.
 
-<img src="../../Images/Screenshot-AddNewPlaneForm.png" width="600">
-
 - Press `Enter` to submit the prompt.
+
+<img src="../../Images/Screenshot-AddNewPlaneForm.png" width="600">
 
 - You can choose to `Accept` or `Discard` the changes in the file editor or the `Working Set` window.
 
