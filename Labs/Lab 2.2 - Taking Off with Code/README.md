@@ -272,7 +272,6 @@ public class PlanesControllerTests
     ## Think step by step and include explanations as comments in the test methods
     ```
 
-#### <span style="color:red">Todo! Screenshot Update Needed</span>
 <img src="../../Images/Screenshot-SearchByName-Tests.png" width="600">
 
 - Submit the prompt by pressing Enter.
