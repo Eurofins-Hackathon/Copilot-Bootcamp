@@ -7,7 +7,7 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 ## Estimated time to complete
 
-- 20 minutes, times may vary with optional labs.
+- 20 minutes.
 
 ## Objectives
 
@@ -17,8 +17,8 @@ This lab exercise guides participants through coding exercises using GitHub Copi
     - Step 1 - Taxying to the Runway - Run existing unit tests
     - Step 2 - Pre-takeoff Pilot Checks - Completing Unit Tests
     - Step 3 - Takeoff - Adding Unit Tests for Case Sensitivity
-    - Step 4 - Ascending to the Clouds: Creating the AirfieldController from thin air
-    - Step 5 - Landing: Refactoring the AirfieldController
+    - Step 4 - Ascending to the Clouds: Creating the AirfieldController from thin air (Optional)
+    - Step 5 - Landing: Refactoring the AirfieldController (Optional)
 
 ### Step 1: Taxying to the Runway - Run existing unit tests
 
@@ -379,6 +379,8 @@ public class PlanesControllerTests
 > [!NOTE]
 > If all tests pass, you have successfully completed this step. If not, you will need to debug the tests. GitHub Copilot got you started, but you, the Pilot, must take charge to diagnose and fix the discrepancies.
 
+## Optional
+
 ### Step 4 - Ascending to the Clouds: Creating the AirfieldController
 
 - Open the `WrightBrothersApi` project in Visual Studio Code.
@@ -409,14 +411,14 @@ public class PlanesControllerTests
     ## Think step by step
     - Include explanations as comments in the test methods.
     ```
-#### <span style="color:red">Todo! Screenshot Update Needed</span>
-<img src="../../Images/TBD.png" width="600">
-
 - Submit the prompt by pressing Enter.
 
 - Copilot will generate a new controller and the unit tests for the `Airfield` class.
 
 - Review the updates in the file editor.
+
+#### <span style="color:red">Todo! Screenshot Update Needed</span>
+<img src="../../Images/Screenshot-AirfieldControllerCreate.png" width="600">
 
 - You can choose to `Keep` or `Discard` the changes in the file editor or the `Working Set` window.
 
@@ -433,7 +435,6 @@ public class PlanesControllerTests
     dotnet test WrightBrothersApi/WrightBrothersApi.Tests/WrightBrothersApi.Tests.csproj
     ```
 
-#### <span style="color:red">Todo! Screenshot Update Needed</span>
 <img src="../../Images/Screenshot-SearchByName-Fix.png" width="600">
 
 - The tests should run and many will pass.
@@ -467,8 +468,7 @@ In this step, we will refactor the AirfieldController and unit tests to improve 
     - Include explanations as comments in the test methods.
     ```
 
-#### <span style="color:red">Todo! Screenshot Update Needed</span>
-<img src="../../Images/TBD.png" width="600">
+<img src="../../Images/Screenshot-AirfieldControllerRefactor.png" width="600">
 
 - Submit the prompt by pressing Enter.
 

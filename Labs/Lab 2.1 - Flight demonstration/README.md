@@ -7,7 +7,7 @@ This module demonstrates how to utilize GitHub Copilot's Chat Extension and its 
 
 ## Estimated time to complete
 
-- 30 minutes, times may vary with optional labs.
+- 30 minutes.
 
 ## Objectives
 
