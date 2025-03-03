@@ -161,7 +161,7 @@ public void GetById_NonExistingId_ReturnsNotFound()
     result.Result.Should().BeOfType<NotFoundResult>();
 }
 ```
-</Details>
+</details>
 
 <Br>
 
