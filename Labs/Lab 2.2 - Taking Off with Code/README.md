@@ -126,36 +126,44 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - Copilot will give a suggestion to generate all unit test scenarios for the `GetById` method.
 
-    ```csharp
-    [Fact]
-    public void GetById_ExistingId_ReturnsPlane()
-    {
-        // Arrange
-        var id = 1; // assuming a plane with this id exists
+<Br>
 
-        // Act
-        var result = _planesController.GetById(id);
+<details>
+<summary>Click for Solution</summary>
 
-        // Assert
-        var okObjectResult = (OkObjectResult)result.Result!;
-        var returnedPlane = (Plane)okObjectResult.Value!;
-        returnedPlane.Should().NotBeNull();
-        returnedPlane.Id.Should().Be(id);
-    }
+```csharp
+[Fact]
+public void GetById_ExistingId_ReturnsPlane()
+{
+    // Arrange
+    var id = 1; // assuming a plane with this id exists
 
-    [Fact]
-    public void GetById_NonExistingId_ReturnsNotFound()
-    {
-        // Arrange
-        var id = 999; // assuming no plane with this id exists
+    // Act
+    var result = _planesController.GetById(id);
 
-        // Act
-        var result = _planesController.GetById(id);
+    // Assert
+    var okObjectResult = (OkObjectResult)result.Result!;
+    var returnedPlane = (Plane)okObjectResult.Value!;
+    returnedPlane.Should().NotBeNull();
+    returnedPlane.Id.Should().Be(id);
+}
 
-        // Assert
-        result.Result.Should().BeOfType<NotFoundResult>();
-    }
-    ```
+[Fact]
+public void GetById_NonExistingId_ReturnsNotFound()
+{
+    // Arrange
+    var id = 999; // assuming no plane with this id exists
+
+    // Act
+    var result = _planesController.GetById(id);
+
+    // Assert
+    result.Result.Should().BeOfType<NotFoundResult>();
+}
+```
+</details>
+
+<Br>
 
 > [!NOTE]
 > Copilot generated two unit tests for the `GetById` method. The first test checks if the method returns a plane when the id exists. The second test checks if the method returns a `NotFound` result when the id does not exist. It also matches how the unit tests are structured in the `PlaneControllerTests.cs` file.
@@ -269,7 +277,12 @@ public class PlanesControllerTests
 
 - Submit the prompt by pressing Enter.
 
-- Copilot will generate unit tests for the `SearchByName` method add them to the `Planecontrollertests` file.
+- Copilot will generate unit tests for the `SearchByName` method add them to the `Plane
+
+<Br>
+
+<details>
+<summary>Click for Solution</summary>
 
     ```csharp
     [Theory]
@@ -300,6 +313,10 @@ public class PlanesControllerTests
         returnedPlanes.Count.Should().Be(expectedCount);
     }
     ```
+
+</details>
+
+<Br>
 
 - Review the updates in the file editor.
 
@@ -336,7 +353,7 @@ public class PlanesControllerTests
 - Copy/Paste the following in the edits chat window:
 
     ```
-    fix method based on tests in #file:PlaneControllerTests.cs
+    Fix the SearchByName method based on the failing tests in #file:PlaneControllerTests.cs
     ```
 - Review the updates in the file editor.
 
