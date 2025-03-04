@@ -231,7 +231,7 @@ Generate bulk documentation for an entire file, ideal for legacy codebases and l
 - Type the following prompt:
 
     ```
-    Generate OpenAPI-style documentation comments for this file, ensuring that all request parameters, response formats, and HTTP status codes are documented.
+    Generate OpenAPI-style documentation comments for this file, ensuring that all request parameters, response formats, and HTTP status codes are documented. Be sure to add inline comments for clarity where needed.
     ```
 
 - Review the generated **class-level summary** and **method-level comments**.
@@ -358,7 +358,7 @@ public class FlightsController : ControllerBase
 - Add the following files to the `Working Set` near the bottom of Copilot Edits window.
 
 - Click the `+ Add files` button, then select these:
-    - `Flights.cs`
+    - `Flight.cs`
     - `FlightsController.cs`
 
 > [!NOTE]
@@ -454,7 +454,7 @@ public ActionResult UpdateFlightStatus(int id, FlightStatus newStatus)
 - Add the following files to the `Working Set` near the bottom of Copilot Edits window.
 
 - Click the `+ Add files` button, then select these:
-    - `Flights.cs`
+    - `Flight.cs`
     - `FlightsController.cs`
 
 > [!NOTE]
@@ -484,6 +484,9 @@ public ActionResult UpdateFlightStatus(int id, FlightStatus newStatus)
     - Include necessary using statements at the top of the file.
     - Use a try-catch block inside Parse to catch and handle any parsing errors.
     - Add a read-only FlightLog property (getter only) to the Flight model.
+
+     ## Think step by step
+    - Include explanations as comments.
     ```
 
 - The prompt contains a few-shot prompting example of a `FlightLogSignature` and a few technical requirements.
@@ -653,7 +656,7 @@ public record FlightLog(DateTime Date, string Departure, string Arrival, string 
 - Add the following files to the `Working Set` near the bottom of Copilot Edits window.
 
 - Click the `+ Add files` button, then select these:
-    - `Flights.cs`
+    - `Flight.cs`
     - `FlightsController.cs`
 
 > [!NOTE]

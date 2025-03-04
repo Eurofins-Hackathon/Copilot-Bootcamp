@@ -247,7 +247,7 @@ public class PlanesControllerTests
 - Click the `+ Add files` button, then select these:
     - `PlaneControllerTests.cs`
     - `PlanesController.cs`
-    - `Planes.cs`
+    - `Plane.cs`
 
 > [!NOTE]
 > You can multiple select these files from the file explorer by holding the `Ctrl` down and clicking on each file. Then simply drag-n-drop them into the `Edit with Copilot` window.
