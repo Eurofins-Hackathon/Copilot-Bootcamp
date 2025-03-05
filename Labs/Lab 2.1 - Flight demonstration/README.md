@@ -38,17 +38,17 @@ Compare the difference between asking the two following things:
 1) Without @workspace:
 
 ```
-explain the WrightBrothers API?
+Explain the WrightBrothers API?
 ```
 
 2) With @workspace:
 
 ```
-@workspace /explain what is the WrightBrothers API?
+@workspace what is this project about, what's the domain, tech stack, and overall functionality?
 ```
 
 > [!NOTE]  
-> @workspace /explain makes GitHub Copilot analyze your project's code instead of guessing. It scans your VS Code workspace (folder/project), checks relevant files based on names and content, and sends matching parts as extra context. You can review the referenced files in the "Used x references" section in the Chat interface.
+> @workspace makes GitHub Copilot analyze your project's code instead of guessing. It scans your VS Code workspace (folder/project), checks relevant files based on names and content, and sends matching parts as extra context. You can review the referenced files in the "Used x references" section in the Chat interface.
 
 > [!IMPORTANT]  
 > When asking follow-up questions, the @agent needs to be provided again. For example, if you ask `@workspace` a question and then ask another question, you need to type `@workspace` again.

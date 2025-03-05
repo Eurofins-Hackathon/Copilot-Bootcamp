@@ -399,16 +399,22 @@ public class PlanesControllerTests
 
     ```md
     ## Generate Controller
-    Create a new API Controller called "AirfieldController" with all the CRUD operations based on the #file:'Airfield.cs' class.
+    Create a new API Controller called "AirfieldController" with all the CRUD operations based on the Airfield class located in the file Airfield.cs.
     
     ## Test Data
-    Add test data to the AirfieldController for the first 3 airfields used by the Wright Brothers. 
+    Add test data to the AirfieldController for the first 3 airfields used by the Wright Brothers.
     
     ## Unit Tests
-    Generate a new unit test controller called "AirfieldControllerTests" similar to the existing unit test file #file:'PlaneControllerTests.cs'  and include many unit tests to cover all the methods in the AirfieldController.
+    Generate a new unit test controller called "AirfieldControllerTests" similar to the existing unit test file PlaneControllerTests.cs. Include comprehensive unit tests to cover all the methods in the AirfieldController.
     
     ## Think step by step
     - Include explanations as comments in the test methods.
+    - Use the xUnit framework for unit tests.
+    - Ensure the unit tests cover all CRUD operations.
+    - Use modern C# features such as pattern matching and async streams.
+    - Use var instead of explicit types when the type is obvious.
+    - Include error handling for asynchronous operations.
+    - Use async/await syntax for asynchronous programming.
     ```
 - Submit the prompt by pressing Enter.
 
