@@ -14,8 +14,8 @@ This lab exercise demonstrates integrating GitHub Copilot into database developm
     - Step 1 - Blueprinting the Aviation Database - Defining the schema and relationships
     - Step 2 - Refining the Flight Plan - Optimizing table structure and improving data relationships
     - Step 3 - Filling the Logbook with Historical Data - Generating realistic Wright Brothers aviation test data
-    - Step 4 - Simulating Flight Operations - Creating randomized flight records linked to pilots, planes, and airfields
-    - Step 5 - Navigating Flight Details - Developing a stored procedure for retrieving flight information
+    - Step 4 - Navigating Flight Details - Developing a stored procedure for retrieving flight information
+    - Step 5 - Simulating Flight Operations - Creating randomized flight records linked to pilots, planes, and airfields
     - Step 6 - Turbocharging Flight Scheduling - Optimizing query performance with indexing
     - Step 7 - Flight Readiness Check with Automated Testing - Implementing tSQLt to verify database operations (Optional)
 
@@ -125,7 +125,6 @@ GO
 
 </details>
 
-
 ### **Step 2 - Refining the Flight Plan**  
 Optimize the **database structure** by eliminating **redundant data**, improving **One-to-Many Relationships**, and enhancing **date usability**. Adjust tables for **better scalability** while keeping the database **lightweight and efficient**, ensuring data integrity and historical accuracy.
 
@@ -163,7 +162,7 @@ Refactor the AviationDB.sql file to ensure a proper relational structure while m
 
 - Copilot updated the database schema with proper relational structure.
 
-- Click `Accept` to save the changes, then click `Done` in the `Copilot Edits` window to complete this task.
+- Click `Accept` to save the changes in the `Copilot Edits` window, but do not click `Done`  yet as we have more work to do.
 
 - If Copilot didn't suggest the code above, then update the code manually as follows:
 
@@ -244,11 +243,8 @@ GO
 ### **Step 3 - Filling the Logbook with Historical Data**  
 Populate the database with **realistic test data** based on the **Wright Brothers' aviation history (1903-1910)**. Generate **INSERT statements** that accurately represent early **flights, pilots, aircraft, and airfields** to create a **rich dataset**.
 
-- Open GitHub Copilot `Edits` (Ctrl+Shift+I) (icon with + on it next to Copilot Chat), then click `+` for `New Edit Session`
+- Make sure following file is in the `Working Set` near the bottom of `Copilot Edits` window.
 
-- Add the following files to the `Working Set` near the bottom of Copilot Edits window.
-
-- Click the `+ Add files` button, then select these:
     - `AviationDB.sql`
 
 - Close any files that are opened.
@@ -256,7 +252,7 @@ Populate the database with **realistic test data** based on the **Wright Brother
 - Type the following in the chat window:
 
 ```md
-Generate realistic test data for all tables, reflecting Wright Brothers aviation history (1903-1910). Use INSERT statements to create a diverse and representative dataset with at least 5-10 records per table for historical accuracy.
+Generate realistic test data for all tables, reflecting Wright Brothers aviation history (1903-1910). Use INSERT statements to create a diverse and representative dataset with between 3-6 records per table for historical accuracy.
 ```
 
 - Press `Enter` to submit the prompt.
@@ -267,7 +263,7 @@ Generate realistic test data for all tables, reflecting Wright Brothers aviation
 
 - Copilot updated the database schema with proper relational structure.
 
-- Click `Accept` to save the changes, then click `Done` in the `Copilot Edits` window to complete this task.
+- Click `Accept` to save the changes in the `Copilot Edits` window, but do not click `Done`  yet as we have more work to do.
 
 - If Copilot didn't suggest the code above, then update the code manually as follows:
 
@@ -283,8 +279,6 @@ VALUES
 ('Orville Wright', 1871, 145, 120, 'Wright Flyer'),
 ('Wilbur Wright', 1867, 160, 150, 'Wright Flyer'),
 ('Charles Furnas', 1880, 170, 50, 'Wright Flyer'),
-('Frank P. Lahm', 1877, 180, 30, 'Wright Flyer'),
-('Benjamin Foulois', 1879, 175, 40, 'Wright Flyer');
 
 -- Insert data into Plane table
 INSERT INTO Plane (Name, Year, Description, RangeInKm, PilotId)
@@ -292,8 +286,6 @@ VALUES
 ('Wright Flyer I', 1903, 'First powered aircraft', 0.26, 1),
 ('Wright Flyer II', 1904, 'Improved version of Flyer I', 1.2, 2),
 ('Wright Flyer III', 1905, 'Further improvements', 38, 3),
-('Wright Model A', 1907, 'First mass-produced aircraft', 125, 4),
-('Wright Model B', 1910, 'Improved Model A', 160, 5);
 
 -- Insert data into Flight table
 INSERT INTO Flight (PlaneId, Destination, DepartureTime, ArrivalTime, Status, FuelRange, FuelTankLeak, FlightLogSignature, AerobaticSequenceSignature)
@@ -301,8 +293,6 @@ VALUES
 (1, 'Kitty Hawk', '1903-12-17 10:35:00', '1903-12-17 10:36:00', 'Completed', 0.26, 0, 'Orville Wright', NULL),
 (2, 'Huffman Prairie', '1904-09-20 11:00:00', '1904-09-20 11:05:00', 'Completed', 1.2, 0, 'Wilbur Wright', NULL),
 (3, 'Huffman Prairie', '1905-10-05 14:00:00', '1905-10-05 14:39:00', 'Completed', 38, 0, 'Orville Wright', NULL),
-(4, 'Fort Myer', '1908-09-03 15:00:00', '1908-09-03 15:12:00', 'Completed', 125, 0, 'Frank P. Lahm', NULL),
-(5, 'College Park', '1910-07-02 16:00:00', '1910-07-02 16:30:00', 'Completed', 160, 0, 'Benjamin Foulois', NULL);
 
 -- Insert data into Airfield table
 INSERT INTO Airfield (Name, Location, DatesOfUse, Significance)
@@ -310,8 +300,6 @@ VALUES
 ('Kill Devil Hills', 'North Carolina', '1900-1903', 'Site of first powered flight'),
 ('Huffman Prairie', 'Ohio', '1904-1905', 'Wright brothers testing ground'),
 ('Fort Myer', 'Virginia', '1908-1909', 'Army trials for Wright Flyer'),
-('College Park', 'Maryland', '1909-1910', 'First military aviation school'),
-('Simms Station', 'Ohio', '1905-1907', 'Wright brothers testing ground');
 
 -- Insert data into PlaneAirfield table
 INSERT INTO PlaneAirfield (PlaneId, AirfieldId)
@@ -319,95 +307,15 @@ VALUES
 (1, 1),
 (2, 2),
 (3, 2),
-(4, 3),
-(5, 4);
 ```
 
 </details>
 
-### **Step 4 Turbocharging Flight Scheduling**  
-Generate **realistic flight records** with randomized **departure and arrival times**, linking them to **random pilots, planes, and airfields**. This provides a **diverse and dynamic dataset**, mirroring the unpredictable conditions of early aviation.
-
-- Open GitHub Copilot Chat, click `+` to clear prompt history.
-
-- Add the following files to the Copilot Chat window.
-
-- Click the `+ Add files` button, then select these:
-    - `AviationDB.sql`
-
-- Close any files that are opened.
-
-- Type the following in the chat window:
-
-```md
-Create a new SQL script named GenerateFlightData.sql that generates sample flight records with randomized departure and arrival times, linking them to random pilots, planes, and airfields. Ensure the data reflects realistic aviation scenarios.
-```
-
-- Press `Enter` to submit the prompt.
-
-<img src="../../Images/Screenshot-FlightDataScript.png" width="600">
-
-- In GitHub Copilot Chat, click the ellipses `...` and select `Insert into New File` for the suggested pipeline.
-
-- Copilot will add the code to a new empty file, but must be saved.
-
-- Save the file by clicking pressing `Ctrl + S` or `Cmd + S`.
-
-- Change directory to the root `WrightBrothersApi` folder`.
-
-- Enter the file name `GenerateFlightData.sql` and click `Save`.
-
-- If Copilot didn't suggest the code above, then update the code manually as follows:
-
-<Br>
-
-<details>
-<summary>Click for Solution</summary>
-
-```sql
-USE AviationDB;
-GO
-
--- Generate sample flight records with randomized data
-DECLARE @PilotCount INT, @PlaneCount INT, @AirfieldCount INT;
-DECLARE @i INT = 1;
-
--- Get the count of pilots, planes, and airfields
-SELECT @PilotCount = COUNT(*) FROM Pilot;
-SELECT @PlaneCount = COUNT(*) FROM Plane;
-SELECT @AirfieldCount = COUNT(*) FROM Airfield;
-
--- Generate 100 sample flight records
-WHILE @i <= 100
-BEGIN
-    DECLARE @RandomPilotId INT = FLOOR(RAND() * @PilotCount) + 1;
-    DECLARE @RandomPlaneId INT = FLOOR(RAND() * @PlaneCount) + 1;
-    DECLARE @RandomAirfieldId INT = FLOOR(RAND() * @AirfieldCount) + 1;
-    DECLARE @RandomDepartureTime DATETIME = DATEADD(DAY, FLOOR(RAND() * 365), '2024-01-01');
-    DECLARE @RandomArrivalTime DATETIME = DATEADD(MINUTE, FLOOR(RAND() * 120) + 30, @RandomDepartureTime);
-    DECLARE @RandomStatus VARCHAR(50) = CASE WHEN RAND() < 0.9 THEN 'Completed' ELSE 'Cancelled' END;
-    DECLARE @RandomFuelRange INT = FLOOR(RAND() * 200) + 50;
-    DECLARE @RandomFuelTankLeak BIT = CASE WHEN RAND() < 0.05 THEN 1 ELSE 0 END;
-    DECLARE @RandomFlightLogSignature VARCHAR(255) = (SELECT Name FROM Pilot WHERE Id = @RandomPilotId);
-    DECLARE @RandomAerobaticSequenceSignature VARCHAR(255) = CASE WHEN RAND() < 0.2 THEN @RandomFlightLogSignature ELSE NULL END;
-
-    INSERT INTO Flight (PlaneId, Destination, DepartureTime, ArrivalTime, Status, FuelRange, FuelTankLeak, FlightLogSignature, AerobaticSequenceSignature)
-    VALUES (@RandomPlaneId, (SELECT Location FROM Airfield WHERE Id = @RandomAirfieldId), @RandomDepartureTime, @RandomArrivalTime, @RandomStatus, @RandomFuelRange, @RandomFuelTankLeak, @RandomFlightLogSignature, @RandomAerobaticSequenceSignature);
-
-    SET @i = @i + 1;
-END;
-GO
-```
-</details>
-
-### **Step 5 - Navigating Flight Details**  
+### **Step 4 - Navigating Flight Details**  
 Develop **stored procedures**, that retrieves **comprehensive flight information**. This ensures smooth **data retrieval**, much like a well-executed flight plan.
 
-- Open GitHub Copilot `Edits` (Ctrl+Shift+I) (icon with + on it next to Copilot Chat), then click `+` for `New Edit Session`
+- Make sure following file is in the `Working Set` near the bottom of `Copilot Edits` window.
 
-- Add the following files to the `Working Set` near the bottom of Copilot Edits window.
-
-- Click the `+ Add files` button, then select these:
     - `AviationDB.sql`
 
 - Close any files that are opened.
@@ -431,7 +339,7 @@ Create stored procedures for the AviationDB to enhance data retrieval and report
 
 - Copilot updated the database schema with proper relational structure.
 
-- Click `Accept` to save the changes, then click `Done` in the `Copilot Edits` window to complete this task.
+- Click `Accept` to save the changes in the `Copilot Edits` window, but do not click `Done`  yet as we have more work to do.
 
 ### **Why These Stored Procedures Are Useful?**  
 - **`GetPilotFlightHistory`** – Speeds up reporting for **pilot flight logs**, helping track **flight patterns** for safety and efficiency.  
@@ -492,14 +400,81 @@ GO
 
 </details>
 
+
+### **Step 5 Turbocharging Flight Scheduling**  
+Generate **realistic flight records** with randomized **departure and arrival times**, linking them to **random pilots, planes, and airfields**. This provides a **diverse and dynamic dataset**, mirroring the unpredictable conditions of early aviation.
+
+- Make sure following file is in the `Working Set` near the bottom of the `Copilot Edits` window.
+
+    - `AviationDB.sql`
+
+- Close any files that are opened.
+
+- Type the following in the chat window:
+
+```md
+Create a stored procedure named GenerateFlightData that generates sample flight records with randomized departure and arrival times, linking them to random pilots, planes, and airfields. Ensure the data reflects realistic aviation scenarios.
+```
+
+- Press `Enter` to submit the prompt.
+
+<img src="../../Images/Screenshot-FlightDataScript.png" width="600">
+
+- You can choose to `Accept` or `Discard` the changes in the file editor or the `Working Set` window.
+
+- Copilot updated the database schema with an additional stored procedure.
+
+- Click `Accept` to save the changes in the `Copilot Edits` window, but do not click `Done`  yet as we have more work to do.
+
+- If Copilot didn't suggest the code above, then update the code manually as follows:
+
+<Br>
+
+<details>
+<summary>Click for Solution</summary>
+
+```sql
+USE AviationDB;
+GO
+
+-- Generate sample flight records with randomized data
+DECLARE @PilotCount INT, @PlaneCount INT, @AirfieldCount INT;
+DECLARE @i INT = 1;
+
+-- Get the count of pilots, planes, and airfields
+SELECT @PilotCount = COUNT(*) FROM Pilot;
+SELECT @PlaneCount = COUNT(*) FROM Plane;
+SELECT @AirfieldCount = COUNT(*) FROM Airfield;
+
+-- Generate 100 sample flight records
+WHILE @i <= 100
+BEGIN
+    DECLARE @RandomPilotId INT = FLOOR(RAND() * @PilotCount) + 1;
+    DECLARE @RandomPlaneId INT = FLOOR(RAND() * @PlaneCount) + 1;
+    DECLARE @RandomAirfieldId INT = FLOOR(RAND() * @AirfieldCount) + 1;
+    DECLARE @RandomDepartureTime DATETIME = DATEADD(DAY, FLOOR(RAND() * 365), '2024-01-01');
+    DECLARE @RandomArrivalTime DATETIME = DATEADD(MINUTE, FLOOR(RAND() * 120) + 30, @RandomDepartureTime);
+    DECLARE @RandomStatus VARCHAR(50) = CASE WHEN RAND() < 0.9 THEN 'Completed' ELSE 'Cancelled' END;
+    DECLARE @RandomFuelRange INT = FLOOR(RAND() * 200) + 50;
+    DECLARE @RandomFuelTankLeak BIT = CASE WHEN RAND() < 0.05 THEN 1 ELSE 0 END;
+    DECLARE @RandomFlightLogSignature VARCHAR(255) = (SELECT Name FROM Pilot WHERE Id = @RandomPilotId);
+    DECLARE @RandomAerobaticSequenceSignature VARCHAR(255) = CASE WHEN RAND() < 0.2 THEN @RandomFlightLogSignature ELSE NULL END;
+
+    INSERT INTO Flight (PlaneId, Destination, DepartureTime, ArrivalTime, Status, FuelRange, FuelTankLeak, FlightLogSignature, AerobaticSequenceSignature)
+    VALUES (@RandomPlaneId, (SELECT Location FROM Airfield WHERE Id = @RandomAirfieldId), @RandomDepartureTime, @RandomArrivalTime, @RandomStatus, @RandomFuelRange, @RandomFuelTankLeak, @RandomFlightLogSignature, @RandomAerobaticSequenceSignature);
+
+    SET @i = @i + 1;
+END;
+GO
+```
+</details>
+
+
 ### **Step 6 - Simulating Flight Operations**  
 Improve **query performance** by creating a **non-clustered indexs** in the **Flight** table. This ensures that data is quickly accessible and reduces delays in data retrieval—just like optimizing takeoff efficiency.
 
-- Open GitHub Copilot `Edits` (Ctrl+Shift+I) (icon with + on it next to Copilot Chat), then click `+` for `New Edit Session`
+- Make sure following file is in the `Working Set` near the bottom of the `Copilot Edits` window.
 
-- Add the following files to the `Working Set` near the bottom of Copilot Edits window.
-
-- Click the `+ Add files` button, then select these:
     - `AviationDB.sql`
 
 - Close any files that are opened.
@@ -524,9 +499,9 @@ Create non-clustered indexes to optimize query performance for the Flight table.
 
 - You can choose to `Accept` or `Discard` the changes in the file editor or the `Working Set` window.
 
-- Copilot updated the database schema with proper relational structure.
+- Copilot updated the database schema with non-clustered indexes.
 
-- Click `Accept` to save the changes, then click `Done` in the `Copilot Edits` window to complete this task.
+- Click `Accept` to save the changes in the `Copilot Edits` window, but do not click `Done`  yet as we have more work to do.
 
 - If Copilot didn't suggest the code above, then update the code manually as follows:
 
@@ -557,11 +532,8 @@ GO
 ### **Step 7 - Flight Readiness Check with Automated Testing**  
 Implement **Unit Testing** to **validate flight record operations**. This ensures the database **accurately processes flight data**, just as pre-flight checks ensure a **safe takeoff**.
 
-- Open GitHub Copilot Chat, click `+` to clear prompt history.
+- Make sure following file is in the `Working Set` near the bottom of the `Copilot Edits` window.
 
-- Add the following files to the Copilot Chat window.
-
-- Click the `+ Add files` button, then select these:
     - `AviationDB.sql`
 
 - Close any files that are opened.
@@ -576,15 +548,11 @@ Create a new SQL script named TestFlightInsert.sql that sets up tSQLt to verify 
 
 <img src="../../Images/Screenshot-UnitTestingScript.png" width="600">
 
-- In GitHub Copilot Chat, click the ellipses `...` and select `Insert into New File` for the suggested pipeline.
+- You can choose to `Accept` or `Discard` the changes in the file editor or the `Working Set` window.
 
-- Copilot will add the code to a new empty file, but must be saved.
+- Copilot updated the database schema with non-clustered indexes.
 
-- Save the file by clicking pressing `Ctrl + S` or `Cmd + S`.
-
-- Change directory to the root `WrightBrothersApi` folder`.
-
-- Enter the file name `TestFlightInsert.sql` and click `Save`.
+- Click `Accept` to save the changes, then click `Done` in the `Copilot Edits` window to complete this task.
 
 - If Copilot didn't suggest the code above, then update the code manually as follows:
 
