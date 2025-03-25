@@ -73,9 +73,9 @@ This lab exercise guides participants through coding exercises using GitHub Copi
     @workspace where do I add additional unit tests?
     ```
 
-- Copilot will give a suggestion to add unit tests to the `Controllers/PlaneControllerTests.cs` file in the `WrightBrothersApi.Tests` project.
+- Copilot will give a suggestion to add unit tests to the `Controllers/PlanesControllerTests.cs` file in the `WrightBrothersApi.Tests` project.
 
-- You can add additional unit tests in the `PlaneControllerTests` class in the `WrightBrothersApi.Tests/Controllers/PlaneControllerTests.cs` file.
+- You can add additional unit tests in the `PlanesControllerTests` class in the `WrightBrothersApi.Tests/Controllers/PlanesControllerTests.cs` file.
 
 - Open the `PlaneController.cs` file.
 
@@ -95,18 +95,18 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 - Press `Enter`, GitHub Copilot will automatically suggest the `[Test]` attributes.
 
 
-- The problem is that the generated test methods do not match with the style of the existing test methods in the `PlaneControllerTests.cs` file.
+- The problem is that the generated test methods do not match with the style of the existing test methods in the `PlanesControllerTests.cs` file.
 
 - Let's fix this. Open Copilot Chat and Copy/Paste the following and place your cursor after `tests should match `:
 
     ```md
-    Generate all unit test scenarios for this method. Include only the individual tests, nothing else but [Fact] per test, no usings. Tests should match the style in #file:PlaneControllerTests.cs . Use the existing list of planes for test data.
+    Generate all unit test scenarios for this method. Include only the individual tests, nothing else but [Fact] per test, no usings. Tests should match the style in #file:PlanesControllerTests.cs . Use the existing list of planes for test data.
     ```
 
 > [!NOTE]
-> When copy/pasting the `#file:PlaneControllerTests.cs`, it will not work. You will need to select the file again from the pop-up window, like in the previous step.
+> When copy/pasting the `#file:PlanesControllerTests.cs`, it will not work. You will need to select the file again from the pop-up window, like in the previous step.
 
-- First remove `#file:PlaneControllerTests.cs` and keep your cursor at the same position.
+- First remove `#file:PlanesControllerTests.cs` and keep your cursor at the same position.
 
 - Next, type `#file` in the chat window and press Enter.
 
@@ -114,13 +114,13 @@ This lab exercise guides participants through coding exercises using GitHub Copi
 
 - A pop-up will appear where you can search for files.
 
-- Select the file `PlaneControllerTests.cs` and press Enter.
+- Select the file `PlanesControllerTests.cs` and press Enter.
 
 > [!NOTE]
-> With `#file` you can easily add a file to the Copilot Context. If you already know the filename, you can simply type #PlaneControllerTests.cs and avoid using the pop-up file selector.
+> With `#file` you can easily add a file to the Copilot Context. If you already know the filename, you can simply type #PlanesControllerTests.cs and avoid using the pop-up file selector.
 
 > [!IMPORTANT]
-> `#file` will not work with copy/pasting `#file:PlaneControllerTests.cs`. You need to select it from the pop-up window.
+> `#file` will not work with copy/pasting `#file:PlanesControllerTests.cs`. You need to select it from the pop-up window.
 
 - Now submit the prompt by pressing Enter.
 
@@ -166,12 +166,12 @@ public void GetById_NonExistingId_ReturnsNotFound()
 <Br>
 
 > [!NOTE]
-> Copilot generated two unit tests for the `GetById` method. The first test checks if the method returns a plane when the id exists. The second test checks if the method returns a `NotFound` result when the id does not exist. It also matches how the unit tests are structured in the `PlaneControllerTests.cs` file.
+> Copilot generated two unit tests for the `GetById` method. The first test checks if the method returns a plane when the id exists. The second test checks if the method returns a `NotFound` result when the id does not exist. It also matches how the unit tests are structured in the `PlanesControllerTests.cs` file.
 
 > [!NOTE]
 > Creating unit tests works best when the scope is limited to a single method. You can then use `#file` to make sure it creates unit tests that is in line with the existing unit tests.
 
-- Now Open `PlaneControllerTests.cs` and Place your cursor at the end of the file, after the `}` of the `GetAll_ReturnsListOfPlanes()` method.
+- Now Open `PlanesControllerTests.cs` and Place your cursor at the end of the file, after the `}` of the `GetAll_ReturnsListOfPlanes()` method.
 
 ```csharp
 public class PlanesControllerTests
@@ -245,7 +245,7 @@ public class PlanesControllerTests
 - Add the following files to the `Working Set` near the bottom of Copilot Edits window.
 
 - Click the `+ Add files` button, then select these:
-    - `PlaneControllerTests.cs`
+    - `PlanesControllerTests.cs`
     - `PlanesController.cs`
     - `Plane.cs`
 
@@ -267,7 +267,7 @@ public class PlanesControllerTests
     - Ensure that test data includes 3 different planes named "Wright Flyer" and verify the result count matches.
     - Use the [Theory] attribute for the tests.
     - Assert the number of planes returned using FluentAssertions.
-    - Output only the test methods** to be added to #file:'PlaneControllerTests.cs'.
+    - Output only the test methods** to be added to #file:'PlanesControllerTests.cs'.
 
     ## Think step by step and include explanations as comments in the test methods
     ```
@@ -344,7 +344,7 @@ public class PlanesControllerTests
 - Open GitHub Copilot Edits, click `+` to clear prompt history.
 
 - Click the `+ Add files` button, then select these:
-    - `PlaneControllerTests.cs`
+    - `PlanesControllerTests.cs`
     - `PlanesController.cs`
 
 - Select the `SearchByName()` method in the `PlanesController.cs` file.
@@ -352,7 +352,7 @@ public class PlanesControllerTests
 - Copy/Paste the following in the edits chat window:
 
     ```
-    Fix the SearchByName method based on the failing tests in #file:PlaneControllerTests.cs
+    Fix the SearchByName method based on the failing tests in #file:PlanesControllerTests.cs
     ```
 - Review the updates in the file editor.
 
@@ -389,7 +389,7 @@ public class PlanesControllerTests
 - Add the following files to the `Working Set` near the bottom of Copilot Edits window.
 
 - Click the `+ Add files` button, then select these:
-    - `PlaneControllerTests.cs`
+    - `PlanesControllerTests.cs`
     - `Airfield.cs`
 
 > [!NOTE]
@@ -405,7 +405,7 @@ public class PlanesControllerTests
     Add test data to the AirfieldController for the first 3 airfields used by the Wright Brothers.
     
     ## Unit Tests
-    Generate a new unit test controller called "AirfieldControllerTests" similar to the existing unit test file PlaneControllerTests.cs. Include comprehensive unit tests to cover all the methods in the AirfieldController.
+    Generate a new unit test controller called "AirfieldControllerTests" similar to the existing unit test file PlanesControllerTests.cs. Include comprehensive unit tests to cover all the methods in the AirfieldController.
     
     ## Think step by step
     - Include explanations as comments in the test methods.
